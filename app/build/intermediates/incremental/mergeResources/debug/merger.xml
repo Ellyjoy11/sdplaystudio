@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="3"><dataSet config="21.0.3"><source path="/Users/elenalast/AndroidstudioProjects/SDPlay/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.3/res"/></dataSet><dataSet config="main"><source path="/Users/elenalast/AndroidstudioProjects/SDPlay/app/src/main/res"><file name="ic_fs_get" path="/Users/elenalast/AndroidstudioProjects/SDPlay/app/src/main/res/drawable-hdpi/ic_fs_get.png" qualifiers="hdpi-v4" type="drawable"/><file name="ic_input_get" path="/Users/elenalast/AndroidstudioProjects/SDPlay/app/src/main/res/drawable-hdpi/ic_input_get.png" qualifiers="hdpi-v4" type="drawable"/><file name="ic_launcher" path="/Users/elenalast/AndroidstudioProjects/SDPlay/app/src/main/res/drawable-hdpi/ic_launcher.png" qualifiers="hdpi-v4" type="drawable"/><file name="ic_menu_gallery" path="/Users/elenalast/AndroidstudioProjects/SDPlay/app/src/main/res/drawable-hdpi/ic_menu_gallery.png" qualifiers="hdpi-v4" type="drawable"/><file name="ic_input_get" path="/Users/elenalast/AndroidstudioProjects/SDPlay/app/src/main/res/drawable-ldpi/ic_input_get.png" qualifiers="ldpi-v4" type="drawable"/><file name="ic_fs_get" path="/Users/elenalast/AndroidstudioProjects/SDPlay/app/src/main/res/drawable-mdpi/ic_fs_get.png" qualifiers="mdpi-v4" type="drawable"/><file name="ic_input_get" path="/Users/elenalast/AndroidstudioProjects/SDPlay/app/src/main/res/drawable-mdpi/ic_input_get.png" qualifiers="mdpi-v4" type="drawable"/><file name="ic_launcher" path="/Users/elenalast/AndroidstudioProjects/SDPlay/app/src/main/res/drawable-mdpi/ic_launcher.png" qualifiers="mdpi-v4" type="drawable"/><file name="ic_menu_gallery" path="/Users/elenalast/AndroidstudioProjects/SDPlay/app/src/main/res/drawable-mdpi/ic_menu_gallery.png" qualifiers="mdpi-v4" type="drawable"/><file name="ic_fs_get" path="/Users/elenalast/AndroidstudioProjects/SDPlay/app/src/main/res/drawable-xhdpi/ic_fs_get.png" qualifiers="xhdpi-v4" type="drawable"/><file name="ic_input_get" path="/Users/elenalast/AndroidstudioProjects/SDPlay/app/src/main/res/drawable-xhdpi/ic_input_get.png" qualifiers="xhdpi-v4" type="drawable"/><file name="ic_launcher" path="/Users/elenalast/AndroidstudioProjects/SDPlay/app/src/main/res/drawable-xhdpi/ic_launcher.png" qualifiers="xhdpi-v4" type="drawable"/><file name="ic_menu_gallery" path="/Users/elenalast/AndroidstudioProjects/SDPlay/app/src/main/res/drawable-xhdpi/ic_menu_gallery.png" qualifiers="xhdpi-v4" type="drawable"/><file name="ic_fs_get" path="/Users/elenalast/AndroidstudioProjects/SDPlay/app/src/main/res/drawable-xxhdpi/ic_fs_get.png" qualifiers="xxhdpi-v4" type="drawable"/><file name="ic_input_get" path="/Users/elenalast/AndroidstudioProjects/SDPlay/app/src/main/res/drawable-xxhdpi/ic_input_get.png" qualifiers="xxhdpi-v4" type="drawable"/><file name="ic_launcher" path="/Users/elenalast/AndroidstudioProjects/SDPlay/app/src/main/res/drawable-xxhdpi/ic_launcher.png" qualifiers="xxhdpi-v4" type="drawable"/><file name="ic_menu_gallery" path="/Users/elenalast/AndroidstudioProjects/SDPlay/app/src/main/res/drawable-xxhdpi/ic_menu_gallery.png" qualifiers="xxhdpi-v4" type="drawable"/><file name="activity_bench_start" path="/Users/elenalast/AndroidstudioProjects/SDPlay/app/src/main/res/layout/activity_bench_start.xml" qualifiers="" type="layout"/><file name="activity_main" path="/Users/elenalast/AndroidstudioProjects/SDPlay/app/src/main/res/layout/activity_main.xml" qualifiers="" type="layout"/><file name="activity_my_res_dbhelper" path="/Users/elenalast/AndroidstudioProjects/SDPlay/app/src/main/res/layout/activity_my_res_dbhelper.xml" qualifiers="" type="layout"/><file name="activity_set_preferences" path="/Users/elenalast/AndroidstudioProjects/SDPlay/app/src/main/res/layout/activity_set_preferences.xml" qualifiers="" type="layout"/><file name="activity_settings_fragment" path="/Users/elenalast/AndroidstudioProjects/SDPlay/app/src/main/res/layout/activity_settings_fragment.xml" qualifiers="" type="layout"/><file name="activity_show_top_fs_res" path="/Users/elenalast/AndroidstudioProjects/SDPlay/app/src/main/res/layout/activity_show_top_fs_res.xml" qualifiers="" type="layout"/><file name="activity_summary_view" path="/Users/elenalast/AndroidstudioProjects/SDPlay/app/src/main/res/layout/activity_summary_view.xml" qualifiers="" type="layout"/><file name="activity_top_results" path="/Users/elenalast/AndroidstudioProjects/SDPlay/app/src/main/res/layout/activity_top_results.xml" qualifiers="" type="layout"/><file name="fragment_show_top_fs_res" path="/Users/elenalast/AndroidstudioProjects/SDPlay/app/src/main/res/layout/fragment_show_top_fs_res.xml" qualifiers="" type="layout"/><file name="fragment_summary_view" path="/Users/elenalast/AndroidstudioProjects/SDPlay/app/src/main/res/layout/fragment_summary_view.xml" qualifiers="" type="layout"/><file name="results_columns" path="/Users/elenalast/AndroidstudioProjects/SDPlay/app/src/main/res/layout/results_columns.xml" qualifiers="" type="layout"/><file name="results_columns_fs" path="/Users/elenalast/AndroidstudioProjects/SDPlay/app/src/main/res/layout/results_columns_fs.xml" qualifiers="" type="layout"/><file name="results_columns_summary" path="/Users/elenalast/AndroidstudioProjects/SDPlay/app/src/main/res/layout/results_columns_summary.xml" qualifiers="" type="layout"/><file name="bench_start" path="/Users/elenalast/AndroidstudioProjects/SDPlay/app/src/main/res/menu/bench_start.xml" qualifiers="" type="menu"/><file name="main" path="/Users/elenalast/AndroidstudioProjects/SDPlay/app/src/main/res/menu/main.xml" qualifiers="" type="menu"/><file name="my_res_dbhelper" path="/Users/elenalast/AndroidstudioProjects/SDPlay/app/src/main/res/menu/my_res_dbhelper.xml" qualifiers="" type="menu"/><file name="set_preferences" path="/Users/elenalast/AndroidstudioProjects/SDPlay/app/src/main/res/menu/set_preferences.xml" qualifiers="" type="menu"/><file name="settings" path="/Users/elenalast/AndroidstudioProjects/SDPlay/app/src/main/res/menu/settings.xml" qualifiers="" type="menu"/><file name="show_top_fs_res" path="/Users/elenalast/AndroidstudioProjects/SDPlay/app/src/main/res/menu/show_top_fs_res.xml" qualifiers="" type="menu"/><file name="storage_details" path="/Users/elenalast/AndroidstudioProjects/SDPlay/app/src/main/res/menu/storage_details.xml" qualifiers="" type="menu"/><file name="summary_view" path="/Users/elenalast/AndroidstudioProjects/SDPlay/app/src/main/res/menu/summary_view.xml" qualifiers="" type="menu"/><file name="top_results" path="/Users/elenalast/AndroidstudioProjects/SDPlay/app/src/main/res/menu/top_results.xml" qualifiers="" type="menu"/><file path="/Users/elenalast/AndroidstudioProjects/SDPlay/app/src/main/res/values/arrays.xml" qualifiers=""><string-array name="reference_results">
+        <item>Sandisk Extreme UHS-I|KXB20.90/user|58.29|11494.25|70.39|463.18|466.23|Moto G LTE|0|0|0|0|0|0|fuse/vfat</item>
+        <item>Sandisk SEM16G|KXB20.90/user|50.40|13227.51|57.34|464.90|418.65|Moto G LTE eMMC|0|0|0|0|0|0|f2fs</item>
+        <item>Kingmax 8G Class 6|KXB20.90/user|30.43|13333.33|34.92|446.03|308.22|Moto G LTE|0|0|0|0|0|0|fuse/vfat</item>
+        <item>Sandisk Ultra UHS-I|KXB20.90/user|29.17|12594.46|41.34|239.29|267.59|Moto G LTE|0|0|0|0|0|0|fuse/vfat</item>
+        <item>Samsung 16Gb Class 10|KXC21.24/user|55.53|19912.39|61.64|269.03|409.98|Moto E|0|0|0|0|0|0|fuse/vfat</item>
+        <item>Sandisk micro Class 4|KXB20.90/user|52.28|11933.17|9.97|465.98|301.96|Moto G LTE|0|0|0|0|0|0|fuse/vfat</item>
+        <item>Hynix H4G1d|KXC21.64/user|76.11|20358.31|84.53|462.75|568.18|Moto E eMMC|1739.07|12.56 / 62.63|12.64 / 89.27|867.94 / 1816.12|977.69|772.94|ext4</item>
+        <item>Sandisk SEM16G|KXA20.16–1.31.1/user|63.98|20894.27|66.08|888.10|599.4|Moto X eMMC|1904.58|17.67 / 46.98|16.10 / 59.86|433.68 / 2434.62|970.16|784.78|f2fs</item>
+    </string-array><string-array name="usb_drives">
+        <item>Kodak|0x058f</item>
+        <item>Transcend|0x1307</item>
+        <item>PNY|0x154b</item>
+        <item>Kingston Data Traveler|0x1a19</item>
+        <item>Ours Technology|0x0ea0</item>
+        <item>Sony Corp.|0x054c</item>
+        <item>Western Digital|0x1058</item>
+        <item>Buffalo Inc.|0x0411</item>
+        <item>Giga-Byte Technology|0x0414</item>
+        <item>Samsung Electronics|0x04e8</item>
+        <item>Kingston Technology Flash Drive|0x13fe</item>
+        <item>Hynix Semiconductor Inc.|0x15dc</item>
+    </string-array><string-array name="internal_memories">
+        <item>Samsung|0x0015</item>
+        <item>Samsung|0x00CE</item>
+        <item>Toshiba|0x0011</item>
+        <item>Toshiba|0x0098</item>
+        <item>Hynix|0x0090</item>
+        <item>Sandisk|0x0045</item>
+        <item>Elpida|0x00FE</item>
+    </string-array><string-array name="reference_fs_results">
+        
+    </string-array><string-array name="known_sdcards">
+        
+        <item>ADATA UHS-I|AD|0x001d|SD</item>
+        <item>Amazon Basics Class 10|PH|0x0027|SD04G</item>
+        <item>Apacer 60X high speed|BE|0x0028|SEC</item>
+        <item>extrememory HYperformance class 10|AD|0x001d|SD</item>
+        <item>Filemate (Fry\'s) Class 4|BE|0x0028|49362</item>
+        <item>Extrememory performance Class 6|PH|0x0027|SD16G</item>
+        <item>Extrememory Hyperformance Class 10|H-|0x003E|flash</item>
+        <item>Integral Ultima Pro Class 10|PH|0x0027|SD04G</item>
+        <item>Kingston SD6|PH|0x0027|SD4GB</item>
+        <item>Kingmax 8G Class 6|KG|0x0013|SD08G</item>
+        <item>Kingston Class 6|42|0x0041|SD4GB</item>
+        <item>Kingston SDC10|42|0x0041|SD4GB</item>
+        <item>Kingston 32G UHS-I|42|0x0041|SD32G</item>
+        <item>Kingston 16G UHS-I|42|0x0041|SD16G</item>
+        <item>Kingston micro Class 2|TM|0x0002|SA02G</item>
+        <item>Kingston micro Class 4|TM|0x0002|SD04G</item>
+        <item>Kingston micro SD-C02G|TM|0x0002|SA02G</item>
+        <item>Kingston SD4 Class 4|TM|0x0002|SA08G</item>
+        <item>Kingston SD4 Class 4|TM|0x0002|SD08G</item>
+        <item>Kingston SD Class 4|TM|0x0002|SA04G</item>
+        <item>Kingston SDV Class 4|TM|0x0002|SD16G</item>
+        <item>Lexar micro Class 4|BE|0x0028|LEXAR</item>
+        <item>Lexar micro Class 6|BE|0x0028|LEXAR</item>
+        <item>Lexar micro class 6|AP|0x0009| </item>
+        <item>Panasonic Class 10|PA|0x0001|SW04G</item>
+        <item>Patriot Class 4|PH|0x0027|SD08G</item>
+        <item>Patriot LX Series Class 10|PH|0x0027|SD32G</item>
+        <item>PQI microsd class 6|PQ|0x001a|uSD</item>
+        <item>Pretec Class 10|SD|0x0003|SE04G</item>
+        <item>Sandisk Ultra|SD|0x0003|SU32G</item>
+        <item>Sandisk 2009 Netbook Edition|SD|0x0003|SD08G</item>
+        <item>Sandisk 2009 White Label|SD|0x0003|SD02G</item>
+        <item>Sandisk Class 4|SD|0x0003|SD08G</item>
+        <item>Sandisk Extreme-III|SD|0x0003|SD04G</item>
+        <item>Sandisk Ultra Class 4|SD|0x0003|SU04G</item>
+        <item>Sandisk micro Class 4|SD|0x0003|SD16G</item>
+        <item>SanDisk Mobile Ultra|SD|0x0003|SU04G</item>
+        <item>Sandisk Ultra UHS-I|SD|0x0003|SU16G</item>
+        <item>Sandisk Extreme UHS-I|SD|0x0003|SE16G</item>
+        <item>Sandisk Extreme UHS-I|SD|0x0003|SE32G</item>
+        <item>Sandisk Extreme UHS-I|SD|0x0003|SE08G</item>
+        <item>Samsung|SM|0x001b|00000</item>
+        <item>Sony microSDHC Class 4|PH|0x0027|SD</item>
+        <item>Transcend 32 GB Class 10|JE|0x0074| </item>
+        <item>Transcend Class SDHC|JE|0x0074|SDC</item>
+        <item>Transcend microSD|JE|0x0074| </item>
+        <item>Transcend microSDHC Class 4|JE|0x0074|USD</item>
+        <item>Transcend Class 10|AB|0x001e|SDC</item>
+        <item>Transcend Class 6|SV|0x001c|SDC</item>
+        <item>Toshiba 32G Class 4|TM|0x0002|SA32G</item>
+        
+    </string-array></file><file path="/Users/elenalast/AndroidstudioProjects/SDPlay/app/src/main/res/values/dimens.xml" qualifiers=""><dimen name="domain_label_font_size">13dp</dimen><dimen name="title_font_size">20dp</dimen><dimen name="range_label_font_size">13dp</dimen><dimen name="pie_segment_label_font_size">10dp</dimen><dimen name="range_tick_label_font_size">15dp</dimen><dimen name="activity_horizontal_margin">16dp</dimen><dimen name="domain_tick_label_font_size">15dp</dimen><dimen name="activity_vertical_margin">16dp</dimen><dimen name="legend_text_font_size">20dp</dimen></file><file path="/Users/elenalast/AndroidstudioProjects/SDPlay/app/src/main/res/values/strings.xml" qualifiers=""><string name="title_activity_bench_start">SD card Benchmark</string><string name="read_all">Read All Records</string><string name="chart">Chart</string><string name="read_rnd">Random Read</string><string name="db_inserts">DB Insert</string><string name="total_sum">Score</string><string name="external">External SD card</string><string name="start">Start</string><string name="rwrite">Update</string><string name="medOper">Medium files write/read</string><string name="welcome_text">Hello world!</string><string name="writes">Insert</string><string name="rnd_io">Random Write</string><string name="fs_test">FS Test</string><string name="writeL">W/100M</string><string name="title_activity_show_top_fs_res">ShowTopFsRes</string><string name="total_fs">FS Score</string><string name="title_activity_storage_details">Storage Info</string><string name="fs_type">FS</string><string name="change_media">Change Media</string><string name="title_activity_my_res_dbhelper">MyResDBHelper</string><string name="custom_path">Custom storage for test</string><string name="iopsOper">IOPS (4K) write/read</string><string name="ID">#</string><string name="delFs">Del</string><string name="read">Select All</string><string name="all_test">Start Full Test</string><string name="build_id">Build</string><string name="refresh">Refresh</string><string name="smOper">Small files thrashing</string><string name="action_show_top">Show Top</string><string name="action_settings">Settings</string><string name="details">Storage manufacturer</string><string name="writeMed">W/5M</string><string name="internal">Internal Storage</string><string name="nick">Notes</string><string name="title_activity_summary_view">Summary View</string><string name="readSmall">R/Sm</string><string name="listFs">List</string><string name="title_activity_settings_fragment">Settings</string><string name="total_db">DB Score</string><string name="hide">Hide/Show Refs</string><string name="nickname">Notes (optional)</string><string name="fdetails">Details</string><string name="title_activity_top_results">Top Results</string><string name="title_activity_set_user_options">Set Parameters for Run</string><string name="createFs">Create</string><string name="hello_world">Hello world!</string><string name="lOper">Large files write/read</string><string name="action_show_fs_top">Show Top</string><string name="about">About</string><string name="title_activity_show_chart">Top Results Chart</string><string name="wait">Please wait</string><string name="show_all">All/Top</string><string name="back">Back</string><string name="readMed">R/5M</string><string name="readL">R/100M</string><string name="title_activity_set_preferences">Set Preferences</string><string name="rread">Select</string><string name="custom_edit">Edit</string><string name="write">DB Test</string><string name="app_name">SD Play</string><string name="next">Next</string></file><file path="/Users/elenalast/AndroidstudioProjects/SDPlay/app/src/main/res/values/strings_activity_settings.xml" qualifiers=""><string-array name="pref_sync_frequency_values">
+        <item>15</item>
+        <item>30</item>
+        <item>60</item>
+        <item>180</item>
+        <item>360</item>
+        <item>-1</item>
+    </string-array><string name="title_activity_settings">Settings</string><string name="pref_ringtone_silent">Silent</string><string-array name="pref_example_list_values">
+        <item>1</item>
+        <item>0</item>
+        <item>-1</item>
+    </string-array><string name="pref_title_display_name">Display name</string><string name="pref_title_sync_frequency">Sync frequency</string><string name="pref_description_social_recommendations">Recommendations for people to contact based on your message history</string><string name="pref_header_general">General</string><string name="pref_title_add_friends_to_messages">Add friends to messages</string><string name="pref_default_display_name">John Smith</string><string-array name="pref_example_list_titles">
+        <item>Always</item>
+        <item>When possible</item>
+        <item>Never</item>
+    </string-array><string name="pref_title_new_message_notifications">New message notifications</string><string name="pref_title_vibrate">Vibrate</string><string name="pref_title_ringtone">Ringtone</string><string name="pref_title_social_recommendations">Enable social recommendations</string><string name="pref_header_notifications">Notifications</string><string-array name="pref_sync_frequency_titles">
+        <item>15 minutes</item>
+        <item>30 minutes</item>
+        <item>1 hour</item>
+        <item>3 hours</item>
+        <item>6 hours</item>
+        <item>Never</item>
+    </string-array><string name="pref_title_system_sync_settings">System sync settings</string><string name="pref_header_data_sync">Data &amp; sync</string></file><file path="/Users/elenalast/AndroidstudioProjects/SDPlay/app/src/main/res/values/styles.xml" qualifiers=""><style name="AppBaseTheme" parent="android:Theme.Light">
+        <!--
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        -->
+    </style><style name="AppTheme" parent="AppBaseTheme">
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    </style></file><file path="/Users/elenalast/AndroidstudioProjects/SDPlay/app/src/main/res/values-sw720dp-land/dimens.xml" qualifiers="sw720dp-land-v13"><dimen name="activity_horizontal_margin">128dp</dimen></file><file path="/Users/elenalast/AndroidstudioProjects/SDPlay/app/src/main/res/values-v11/styles.xml" qualifiers="v11"><style name="AppBaseTheme" parent="android:Theme.Holo.Light">
+        <!-- API 11 theme customizations can go here. -->
+    </style></file><file path="/Users/elenalast/AndroidstudioProjects/SDPlay/app/src/main/res/values-v14/styles.xml" qualifiers="v14"><style name="AppBaseTheme" parent="android:Theme.Holo.Light.DarkActionBar">
+        <!-- API 14 theme customizations can go here. -->
+    </style></file><file path="/Users/elenalast/AndroidstudioProjects/SDPlay/app/src/main/res/values-w820dp/dimens.xml" qualifiers="w820dp-v13"><dimen name="activity_horizontal_margin">64dp</dimen></file><file name="pref_data_sync" path="/Users/elenalast/AndroidstudioProjects/SDPlay/app/src/main/res/xml/pref_data_sync.xml" qualifiers="" type="xml"/><file name="pref_general" path="/Users/elenalast/AndroidstudioProjects/SDPlay/app/src/main/res/xml/pref_general.xml" qualifiers="" type="xml"/><file name="pref_headers" path="/Users/elenalast/AndroidstudioProjects/SDPlay/app/src/main/res/xml/pref_headers.xml" qualifiers="" type="xml"/><file name="pref_notification" path="/Users/elenalast/AndroidstudioProjects/SDPlay/app/src/main/res/xml/pref_notification.xml" qualifiers="" type="xml"/></source><source path="/Users/elenalast/AndroidstudioProjects/SDPlay/app/build/generated/res/rs/debug"/><source path="/Users/elenalast/AndroidstudioProjects/SDPlay/app/build/generated/res/generated/debug"/></dataSet><dataSet config="debug"><source path="/Users/elenalast/AndroidstudioProjects/SDPlay/app/src/debug/res"/></dataSet><mergedItems/></merger>

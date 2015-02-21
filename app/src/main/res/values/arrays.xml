@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="known_sdcards">
+        
+        <item>ADATA UHS-I|AD|0x001d|SD</item>
+        <item>Amazon Basics Class 10|PH|0x0027|SD04G</item>
+        <item>Apacer 60X high speed|BE|0x0028|SEC</item>
+        <item>extrememory HYperformance class 10|AD|0x001d|SD</item>
+        <item>Filemate (Fry\'s) Class 4|BE|0x0028|49362</item>
+        <item>Extrememory performance Class 6|PH|0x0027|SD16G</item>
+        <item>Extrememory Hyperformance Class 10|H-|0x003E|flash</item>
+        <item>Integral Ultima Pro Class 10|PH|0x0027|SD04G</item>
+        <item>Kingston SD6|PH|0x0027|SD4GB</item>
+        <item>Kingmax 8G Class 6|KG|0x0013|SD08G</item>
+        <item>Kingston Class 6|42|0x0041|SD4GB</item>
+        <item>Kingston SDC10|42|0x0041|SD4GB</item>
+        <item>Kingston 32G UHS-I|42|0x0041|SD32G</item>
+        <item>Kingston 16G UHS-I|42|0x0041|SD16G</item>
+        <item>Kingston micro Class 2|TM|0x0002|SA02G</item>
+        <item>Kingston micro Class 4|TM|0x0002|SD04G</item>
+        <item>Kingston micro SD-C02G|TM|0x0002|SA02G</item>
+        <item>Kingston SD4 Class 4|TM|0x0002|SA08G</item>
+        <item>Kingston SD4 Class 4|TM|0x0002|SD08G</item>
+        <item>Kingston SD Class 4|TM|0x0002|SA04G</item>
+        <item>Kingston SDV Class 4|TM|0x0002|SD16G</item>
+        <item>Lexar micro Class 4|BE|0x0028|LEXAR</item>
+        <item>Lexar micro Class 6|BE|0x0028|LEXAR</item>
+        <item>Lexar micro class 6|AP|0x0009| </item>
+        <item>Panasonic Class 10|PA|0x0001|SW04G</item>
+        <item>Patriot Class 4|PH|0x0027|SD08G</item>
+        <item>Patriot LX Series Class 10|PH|0x0027|SD32G</item>
+        <item>PQI microsd class 6|PQ|0x001a|uSD</item>
+        <item>Pretec Class 10|SD|0x0003|SE04G</item>
+        <item>Sandisk Ultra|SD|0x0003|SU32G</item>
+        <item>Sandisk 2009 Netbook Edition|SD|0x0003|SD08G</item>
+        <item>Sandisk 2009 White Label|SD|0x0003|SD02G</item>
+        <item>Sandisk Class 4|SD|0x0003|SD08G</item>
+        <item>Sandisk Extreme-III|SD|0x0003|SD04G</item>
+        <item>Sandisk Ultra Class 4|SD|0x0003|SU04G</item>
+        <item>Sandisk micro Class 4|SD|0x0003|SD16G</item>
+        <item>SanDisk Mobile Ultra|SD|0x0003|SU04G</item>
+        <item>Sandisk Ultra UHS-I|SD|0x0003|SU16G</item>
+        <item>Sandisk Extreme UHS-I|SD|0x0003|SE16G</item>
+        <item>Sandisk Extreme UHS-I|SD|0x0003|SE32G</item>
+        <item>Sandisk Extreme UHS-I|SD|0x0003|SE08G</item>
+        <item>Samsung|SM|0x001b|00000</item>
+        <item>Sony microSDHC Class 4|PH|0x0027|SD</item>
+        <item>Transcend 32 GB Class 10|JE|0x0074| </item>
+        <item>Transcend Class SDHC|JE|0x0074|SDC</item>
+        <item>Transcend microSD|JE|0x0074| </item>
+        <item>Transcend microSDHC Class 4|JE|0x0074|USD</item>
+        <item>Transcend Class 10|AB|0x001e|SDC</item>
+        <item>Transcend Class 6|SV|0x001c|SDC</item>
+        <item>Toshiba 32G Class 4|TM|0x0002|SA32G</item>
+        
+    </string-array>
+    <string-array name="internal_memories">
+        <item>Samsung|0x0015</item>
+        <item>Samsung|0x00CE</item>
+        <item>Toshiba|0x0011</item>
+        <item>Toshiba|0x0098</item>
+        <item>Hynix|0x0090</item>
+        <item>Sandisk|0x0045</item>
+        <item>Elpida|0x00FE</item>
+    </string-array>
+    
+    <string-array name="usb_drives">
+        <item>Kodak|0x058f</item>
+        <item>Transcend|0x1307</item>
+        <item>PNY|0x154b</item>
+        <item>Kingston Data Traveler|0x1a19</item>
+        <item>Ours Technology|0x0ea0</item>
+        <item>Sony Corp.|0x054c</item>
+        <item>Western Digital|0x1058</item>
+        <item>Buffalo Inc.|0x0411</item>
+        <item>Giga-Byte Technology|0x0414</item>
+        <item>Samsung Electronics|0x04e8</item>
+        <item>Kingston Technology Flash Drive|0x13fe</item>
+        <item>Hynix Semiconductor Inc.|0x15dc</item>
+    </string-array>
+    
+    <string-array name="reference_results">
+        <item>Sandisk Extreme UHS-I|KXB20.90/user|58.29|11494.25|70.39|463.18|466.23|Moto G LTE|0|0|0|0|0|0|fuse/vfat</item>
+        <item>Sandisk SEM16G|KXB20.90/user|50.40|13227.51|57.34|464.90|418.65|Moto G LTE eMMC|0|0|0|0|0|0|f2fs</item>
+        <item>Kingmax 8G Class 6|KXB20.90/user|30.43|13333.33|34.92|446.03|308.22|Moto G LTE|0|0|0|0|0|0|fuse/vfat</item>
+        <item>Sandisk Ultra UHS-I|KXB20.90/user|29.17|12594.46|41.34|239.29|267.59|Moto G LTE|0|0|0|0|0|0|fuse/vfat</item>
+        <item>Samsung 16Gb Class 10|KXC21.24/user|55.53|19912.39|61.64|269.03|409.98|Moto E|0|0|0|0|0|0|fuse/vfat</item>
+        <item>Sandisk micro Class 4|KXB20.90/user|52.28|11933.17|9.97|465.98|301.96|Moto G LTE|0|0|0|0|0|0|fuse/vfat</item>
+        <item>Hynix H4G1d|KXC21.64/user|76.11|20358.31|84.53|462.75|568.18|Moto E eMMC|1739.07|12.56 / 62.63|12.64 / 89.27|867.94 / 1816.12|977.69|772.94|ext4</item>
+        <item>Sandisk SEM16G|KXA20.16&#8211;1.31.1/user|63.98|20894.27|66.08|888.10|599.4|Moto X eMMC|1904.58|17.67 / 46.98|16.10 / 59.86|433.68 / 2434.62|970.16|784.78|f2fs</item>
+    </string-array>
+    
+    <string-array name="reference_fs_results">
+        
+    </string-array>
+    
+</resources>

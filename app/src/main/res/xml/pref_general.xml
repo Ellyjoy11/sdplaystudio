@@ -1,0 +1,70 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <EditTextPreference
+        android:defaultValue="2500"
+        android:inputType="number"
+        android:key="rows"
+        android:maxLines="1"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:title="Total rows of records" />
+    <EditTextPreference
+        android:defaultValue="2500"
+        android:inputType="number"
+        android:key="rnd_rows"
+        android:maxLines="1"
+        android:persistent="true"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:title="Rows for random read/write" />
+    <EditTextPreference
+        android:defaultValue="100"
+        android:inputType="number"
+        android:key="cycles"
+        android:maxLines="1"
+        android:persistent="true"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:title="Read cycles - to get average speed" />
+    <EditTextPreference
+        android:defaultValue="10"
+        android:inputType="number"
+        android:key="medium_file"
+        android:maxLines="1"
+        android:persistent="true"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:title="Medium file size (MB) - for FS test" />
+    <EditTextPreference
+        android:defaultValue="1GB"
+        android:inputType="textCapCharacters"
+        android:key="large_file"
+        android:maxLines="1"
+        android:persistent="true"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:title="Large file size (MB by default) - for FS test" />
+    <EditTextPreference
+        android:defaultValue="2MB"
+        android:inputType="textCapCharacters"
+        android:key="buff_size"
+        android:maxLines="1"
+        android:persistent="true"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:title="Buffer size (KB by default) for large files" />
+    <EditTextPreference
+        android:defaultValue="10"
+        android:inputType="number"
+        android:key="top_count"
+        android:maxLines="1"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:title="Top results to show" />
+
+    <CheckBoxPreference
+        android:defaultValue="false"
+        android:key="advanced"
+        android:title="Advanced mode" />
+
+</PreferenceScreen>

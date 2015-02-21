@@ -1,0 +1,175 @@
+<ViewFlipper xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/viewFlipper"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:autoStart="false"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".BenchStart" >
+
+    <RelativeLayout
+        android:id="@+id/advancedMode"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <TextView
+            android:id="@+id/space_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/details"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@id/space_info"
+            android:ems="24"
+            android:hint="@string/details"
+            android:inputType="text" />
+
+        <EditText
+            android:id="@+id/nickname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@id/details"
+            android:ems="24"
+            android:hint="@string/nickname"
+            android:inputType="text" />
+        
+        <TextView
+            android:id="@+id/text1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/nickname" />
+        
+        
+        <RelativeLayout
+            android:id="@+id/advButtons"
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="2dp" >
+
+            <LinearLayout
+                android:id="@+id/advButtonsSet1"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true" >
+
+                <Button
+                    android:id="@+id/buttonBack"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:onClick="onBackClick"
+                    android:text="@string/back" />
+
+                <Button
+                    android:id="@+id/buttonSettings"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:enabled="true"
+                    android:onClick="onSettingsClick"
+                    android:text="@string/action_settings" />
+            </LinearLayout>
+            
+            <LinearLayout
+                android:id="@+id/advButtonsSet0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_above="@id/advButtonsSet1"
+                android:layout_centerHorizontal="true" >
+
+                <Button
+                    android:id="@+id/buttonSW"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:enabled="true"
+                    android:onClick="onWriteClick"
+                    android:text="@string/write" />
+                 <Button
+                    android:id="@+id/buttonFS"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:enabled="true"
+                    android:onClick="onFsTestClick"
+                    android:text="@string/fs_test" />
+            </LinearLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/defaultMode"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <TextView
+            android:id="@+id/space_info1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/details1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@id/space_info1"
+            android:ems="24"
+            android:hint="@string/details"
+            android:inputType="text" />
+
+        <EditText
+            android:id="@+id/nickname1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@id/details1"
+            android:ems="24"
+            android:hint="@string/nickname"
+            android:inputType="text" />
+
+        
+        <TextView
+            android:id="@+id/text11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/nickname1" />
+        
+
+        <LinearLayout
+            android:id="@+id/layoutButtonsBench"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="2dp" >
+
+            <Button
+                android:id="@id/buttonBack"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="onBackClick"
+                android:text="@string/back" />
+
+            <Button
+                android:id="@+id/buttonAll"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="onAllTestClick"
+                android:text="@string/all_test" />
+        </LinearLayout>
+    </RelativeLayout>
+
+</ViewFlipper>
