@@ -1675,9 +1675,11 @@ public class BenchStart extends Activity {
 			if (new File(sdPath + File.separator + "fstest_folders").mkdirs()) {
 				Log.d("SDPlay", "path for fs test is ok");
 			}
+            /*
             if (new File(sdPath + File.separator + "fs_iops_folder").mkdirs()) {
                 Log.d("SDPlay", "path for iops test is ok");
             }
+            */
 			if (LOG_ON) {
 				Log.d(TAG, "Fs testing is started...");
 			}
@@ -2682,7 +2684,7 @@ public class BenchStart extends Activity {
 			publishProgress(0);
 
 			File dir_lvl0_path = new File(sdPath + File.separator
-					+ "fs_iops_folder");
+					+ "fstest_folders");
 			if (dir_lvl0_path.exists() && dir_lvl0_path.isDirectory()) {
 				if (isCancelled()) {
 					mWakeLockCrFS.release();
@@ -2807,7 +2809,9 @@ public class BenchStart extends Activity {
 			// readSmallFiles(findViewById(android.R.id.content).getRootView());
 			// readLargeFiles(findViewById(android.R.id.content).getRootView());
 			// cleanFs();
+
 			deleteAllFiles(findViewById(android.R.id.content).getRootView());
+
 			// readSmallFiles(findViewById(android.R.id.content).getRootView());
 		}
 	}
@@ -2846,7 +2850,7 @@ public class BenchStart extends Activity {
 			publishProgress(0);
 
 			File dir_lvl0_path = new File(sdPath + File.separator
-					+ "fs_iops_folder");
+					+ "fstest_folders");
 			if (dir_lvl0_path.exists() && dir_lvl0_path.isDirectory()) {
 				if (isCancelled()) {
 					mWakeLockCrFS.release();
@@ -3089,11 +3093,11 @@ public class BenchStart extends Activity {
 		try {
 			File fstest = new File(sdPath + File.separator + "fstest_folders");
 			if (fstest.exists() && fstest.isDirectory()) {
-				// Log.d("SDPlay", "trying delete");
+				Log.d(TAG, "trying to delete fs...");
 				files_deleted = walk(fstest.getAbsolutePath(), 2);
 			}
 		} catch (Exception e) {
-			Log.d("SDPlay", "Nothing to clean here: " + e);
+			Log.d(TAG, "Nothing to clean here: " + e);
 		}
 		return files_deleted;
 	}
@@ -3303,7 +3307,7 @@ public class BenchStart extends Activity {
 
 	public void writeRndAccessFile() {
 		File dir_lvl0_path = new File(sdPath + File.separator
-				+ "fs_iops_folder");
+				+ "fstest_folders");
 		if (dir_lvl0_path.exists() && dir_lvl0_path.isDirectory()) {
 			String path = dir_lvl0_path + File.separator + "iops_f" + ".txt";
 			Log.d("SDPlay", "path for iops file:" + path);
@@ -3325,9 +3329,9 @@ public class BenchStart extends Activity {
 		return !canon.getCanonicalFile().equals(canon.getAbsoluteFile());
 	}
 
-	public void onStop() {
+	public void onDestroy() {
 		cleanFs();
-		super.onStop();
+		super.onDestroy();
 	}
 	// class finish
 }

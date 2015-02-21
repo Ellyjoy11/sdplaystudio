@@ -47,14 +47,51 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="BenchStart.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="BenchStart.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/elena/sdplay/BenchStart.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="17370" max-vertical-offset="47775">
-              <caret line="1270" column="2" selection-start-line="1270" selection-start-column="2" selection-end-line="1270" selection-end-column="2" />
+            <state vertical-scroll-proportion="0.7340425" vertical-offset="48183" max-vertical-offset="48540">
+              <caret line="3333" column="23" selection-start-line="3333" selection-start-column="23" selection-end-line="3333" selection-end-column="23" />
               <folding>
                 <element signature="e#21608#21616#0" expanded="true" />
                 <element signature="e#30672#30680#0" expanded="true" />
+                <element signature="e#39409#39441#0" expanded="true" />
+                <element signature="e#54962#55144#0" expanded="true" />
+                <element signature="e#55136#55137#0" expanded="true" />
+                <element signature="e#55418#55671#0" expanded="true" />
+                <element signature="e#55663#55664#0" expanded="true" />
+                <element signature="e#55988#55989#0" expanded="true" />
+                <element signature="e#56019#56020#0" expanded="true" />
+                <element signature="e#60126#60300#0" expanded="true" />
+                <element signature="e#60293#60294#0" expanded="true" />
+                <element signature="e#60544#60545#0" expanded="true" />
+                <element signature="e#60575#60576#0" expanded="true" />
+                <element signature="e#63482#63664#0" expanded="true" />
+                <element signature="e#63657#63658#0" expanded="true" />
+                <element signature="e#63946#63947#0" expanded="true" />
+                <element signature="e#63977#63978#0" expanded="true" />
+                <element signature="e#66993#67177#0" expanded="true" />
+                <element signature="e#67170#67171#0" expanded="true" />
+                <element signature="e#67382#67383#0" expanded="true" />
+                <element signature="e#67413#67414#0" expanded="true" />
+                <element signature="e#71087#71270#0" expanded="true" />
+                <element signature="e#71263#71264#0" expanded="true" />
+                <element signature="e#71554#71555#0" expanded="true" />
+                <element signature="e#71585#71586#0" expanded="true" />
+                <element signature="e#75103#75286#0" expanded="true" />
+                <element signature="e#75279#75280#0" expanded="true" />
+                <element signature="e#75489#75490#0" expanded="true" />
+                <element signature="e#75520#75521#0" expanded="true" />
+                <element signature="e#79493#79675#0" expanded="true" />
+                <element signature="e#79668#79669#0" expanded="true" />
+                <element signature="e#79957#79958#0" expanded="true" />
+                <element signature="e#79988#79989#0" expanded="true" />
+                <element signature="e#83528#83707#0" expanded="true" />
+                <element signature="e#83700#83701#0" expanded="true" />
+                <element signature="e#83902#83903#0" expanded="true" />
+                <element signature="e#83933#83934#0" expanded="true" />
+                <element signature="e#88756#88939#0" expanded="true" />
+                <element signature="e#88932#88933#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -70,11 +107,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MainActivity.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="MainActivity.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/elena/sdplay/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.53125" vertical-offset="7724" max-vertical-offset="10155">
-              <caret line="577" column="40" selection-start-line="577" selection-start-column="40" selection-end-line="577" selection-end-column="40" />
+            <state vertical-scroll-proportion="-193.3077" vertical-offset="2804" max-vertical-offset="10155">
+              <caret line="575" column="69" selection-start-line="575" selection-start-column="69" selection-end-line="575" selection-end-column="69" />
               <folding />
             </state>
           </provider>
@@ -1281,8 +1318,8 @@
         <option value="$PROJECT_DIR$/app/build.gradle" />
         <option value="$PROJECT_DIR$/app/src/main/jni/directIO.c" />
         <option value="$PROJECT_DIR$/local.properties" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/elena/sdplay/BenchStart.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/elena/sdplay/MainActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/elena/sdplay/BenchStart.java" />
       </list>
     </option>
   </component>
@@ -1662,7 +1699,7 @@
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5408895" sideWeight="0.23416789" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2496318" sideWeight="0.5010707" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32998565" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.44741532" sideWeight="0.76888216" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.44741532" sideWeight="0.76888216" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1707,6 +1744,43 @@
           <folding>
             <element signature="e#21608#21616#0" expanded="true" />
             <element signature="e#30672#30680#0" expanded="true" />
+            <element signature="e#39409#39441#0" expanded="true" />
+            <element signature="e#54962#55144#0" expanded="true" />
+            <element signature="e#55136#55137#0" expanded="true" />
+            <element signature="e#55418#55671#0" expanded="true" />
+            <element signature="e#55663#55664#0" expanded="true" />
+            <element signature="e#55988#55989#0" expanded="true" />
+            <element signature="e#56019#56020#0" expanded="true" />
+            <element signature="e#60126#60300#0" expanded="true" />
+            <element signature="e#60293#60294#0" expanded="true" />
+            <element signature="e#60544#60545#0" expanded="true" />
+            <element signature="e#60575#60576#0" expanded="true" />
+            <element signature="e#63482#63664#0" expanded="true" />
+            <element signature="e#63657#63658#0" expanded="true" />
+            <element signature="e#63946#63947#0" expanded="true" />
+            <element signature="e#63977#63978#0" expanded="true" />
+            <element signature="e#66993#67177#0" expanded="true" />
+            <element signature="e#67170#67171#0" expanded="true" />
+            <element signature="e#67382#67383#0" expanded="true" />
+            <element signature="e#67413#67414#0" expanded="true" />
+            <element signature="e#71087#71270#0" expanded="true" />
+            <element signature="e#71263#71264#0" expanded="true" />
+            <element signature="e#71554#71555#0" expanded="true" />
+            <element signature="e#71585#71586#0" expanded="true" />
+            <element signature="e#75103#75286#0" expanded="true" />
+            <element signature="e#75279#75280#0" expanded="true" />
+            <element signature="e#75489#75490#0" expanded="true" />
+            <element signature="e#75520#75521#0" expanded="true" />
+            <element signature="e#79493#79675#0" expanded="true" />
+            <element signature="e#79668#79669#0" expanded="true" />
+            <element signature="e#79957#79958#0" expanded="true" />
+            <element signature="e#79988#79989#0" expanded="true" />
+            <element signature="e#83528#83707#0" expanded="true" />
+            <element signature="e#83700#83701#0" expanded="true" />
+            <element signature="e#83902#83903#0" expanded="true" />
+            <element signature="e#83933#83934#0" expanded="true" />
+            <element signature="e#88756#88939#0" expanded="true" />
+            <element signature="e#88932#88933#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1734,6 +1808,43 @@
           <folding>
             <element signature="e#21608#21616#0" expanded="true" />
             <element signature="e#30672#30680#0" expanded="true" />
+            <element signature="e#39409#39441#0" expanded="true" />
+            <element signature="e#54962#55144#0" expanded="true" />
+            <element signature="e#55136#55137#0" expanded="true" />
+            <element signature="e#55418#55671#0" expanded="true" />
+            <element signature="e#55663#55664#0" expanded="true" />
+            <element signature="e#55988#55989#0" expanded="true" />
+            <element signature="e#56019#56020#0" expanded="true" />
+            <element signature="e#60126#60300#0" expanded="true" />
+            <element signature="e#60293#60294#0" expanded="true" />
+            <element signature="e#60544#60545#0" expanded="true" />
+            <element signature="e#60575#60576#0" expanded="true" />
+            <element signature="e#63482#63664#0" expanded="true" />
+            <element signature="e#63657#63658#0" expanded="true" />
+            <element signature="e#63946#63947#0" expanded="true" />
+            <element signature="e#63977#63978#0" expanded="true" />
+            <element signature="e#66993#67177#0" expanded="true" />
+            <element signature="e#67170#67171#0" expanded="true" />
+            <element signature="e#67382#67383#0" expanded="true" />
+            <element signature="e#67413#67414#0" expanded="true" />
+            <element signature="e#71087#71270#0" expanded="true" />
+            <element signature="e#71263#71264#0" expanded="true" />
+            <element signature="e#71554#71555#0" expanded="true" />
+            <element signature="e#71585#71586#0" expanded="true" />
+            <element signature="e#75103#75286#0" expanded="true" />
+            <element signature="e#75279#75280#0" expanded="true" />
+            <element signature="e#75489#75490#0" expanded="true" />
+            <element signature="e#75520#75521#0" expanded="true" />
+            <element signature="e#79493#79675#0" expanded="true" />
+            <element signature="e#79668#79669#0" expanded="true" />
+            <element signature="e#79957#79958#0" expanded="true" />
+            <element signature="e#79988#79989#0" expanded="true" />
+            <element signature="e#83528#83707#0" expanded="true" />
+            <element signature="e#83700#83701#0" expanded="true" />
+            <element signature="e#83902#83903#0" expanded="true" />
+            <element signature="e#83933#83934#0" expanded="true" />
+            <element signature="e#88756#88939#0" expanded="true" />
+            <element signature="e#88932#88933#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1782,6 +1893,43 @@
           <folding>
             <element signature="e#21608#21616#0" expanded="true" />
             <element signature="e#30672#30680#0" expanded="true" />
+            <element signature="e#39409#39441#0" expanded="true" />
+            <element signature="e#54962#55144#0" expanded="true" />
+            <element signature="e#55136#55137#0" expanded="true" />
+            <element signature="e#55418#55671#0" expanded="true" />
+            <element signature="e#55663#55664#0" expanded="true" />
+            <element signature="e#55988#55989#0" expanded="true" />
+            <element signature="e#56019#56020#0" expanded="true" />
+            <element signature="e#60126#60300#0" expanded="true" />
+            <element signature="e#60293#60294#0" expanded="true" />
+            <element signature="e#60544#60545#0" expanded="true" />
+            <element signature="e#60575#60576#0" expanded="true" />
+            <element signature="e#63482#63664#0" expanded="true" />
+            <element signature="e#63657#63658#0" expanded="true" />
+            <element signature="e#63946#63947#0" expanded="true" />
+            <element signature="e#63977#63978#0" expanded="true" />
+            <element signature="e#66993#67177#0" expanded="true" />
+            <element signature="e#67170#67171#0" expanded="true" />
+            <element signature="e#67382#67383#0" expanded="true" />
+            <element signature="e#67413#67414#0" expanded="true" />
+            <element signature="e#71087#71270#0" expanded="true" />
+            <element signature="e#71263#71264#0" expanded="true" />
+            <element signature="e#71554#71555#0" expanded="true" />
+            <element signature="e#71585#71586#0" expanded="true" />
+            <element signature="e#75103#75286#0" expanded="true" />
+            <element signature="e#75279#75280#0" expanded="true" />
+            <element signature="e#75489#75490#0" expanded="true" />
+            <element signature="e#75520#75521#0" expanded="true" />
+            <element signature="e#79493#79675#0" expanded="true" />
+            <element signature="e#79668#79669#0" expanded="true" />
+            <element signature="e#79957#79958#0" expanded="true" />
+            <element signature="e#79988#79989#0" expanded="true" />
+            <element signature="e#83528#83707#0" expanded="true" />
+            <element signature="e#83700#83701#0" expanded="true" />
+            <element signature="e#83902#83903#0" expanded="true" />
+            <element signature="e#83933#83934#0" expanded="true" />
+            <element signature="e#88756#88939#0" expanded="true" />
+            <element signature="e#88932#88933#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1929,22 +2077,59 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/elena/sdplay/BenchStart.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/elena/sdplay/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="17370" max-vertical-offset="47775">
-          <caret line="1270" column="2" selection-start-line="1270" selection-start-column="2" selection-end-line="1270" selection-end-column="2" />
-          <folding>
-            <element signature="e#21608#21616#0" expanded="true" />
-            <element signature="e#30672#30680#0" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="-193.3077" vertical-offset="2804" max-vertical-offset="10155">
+          <caret line="575" column="69" selection-start-line="575" selection-start-column="69" selection-end-line="575" selection-end-column="69" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/elena/sdplay/MainActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/elena/sdplay/BenchStart.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.53125" vertical-offset="7724" max-vertical-offset="10155">
-          <caret line="577" column="40" selection-start-line="577" selection-start-column="40" selection-end-line="577" selection-end-column="40" />
-          <folding />
+        <state vertical-scroll-proportion="0.7340425" vertical-offset="48183" max-vertical-offset="48540">
+          <caret line="3333" column="23" selection-start-line="3333" selection-start-column="23" selection-end-line="3333" selection-end-column="23" />
+          <folding>
+            <element signature="e#21608#21616#0" expanded="true" />
+            <element signature="e#30672#30680#0" expanded="true" />
+            <element signature="e#39409#39441#0" expanded="true" />
+            <element signature="e#54962#55144#0" expanded="true" />
+            <element signature="e#55136#55137#0" expanded="true" />
+            <element signature="e#55418#55671#0" expanded="true" />
+            <element signature="e#55663#55664#0" expanded="true" />
+            <element signature="e#55988#55989#0" expanded="true" />
+            <element signature="e#56019#56020#0" expanded="true" />
+            <element signature="e#60126#60300#0" expanded="true" />
+            <element signature="e#60293#60294#0" expanded="true" />
+            <element signature="e#60544#60545#0" expanded="true" />
+            <element signature="e#60575#60576#0" expanded="true" />
+            <element signature="e#63482#63664#0" expanded="true" />
+            <element signature="e#63657#63658#0" expanded="true" />
+            <element signature="e#63946#63947#0" expanded="true" />
+            <element signature="e#63977#63978#0" expanded="true" />
+            <element signature="e#66993#67177#0" expanded="true" />
+            <element signature="e#67170#67171#0" expanded="true" />
+            <element signature="e#67382#67383#0" expanded="true" />
+            <element signature="e#67413#67414#0" expanded="true" />
+            <element signature="e#71087#71270#0" expanded="true" />
+            <element signature="e#71263#71264#0" expanded="true" />
+            <element signature="e#71554#71555#0" expanded="true" />
+            <element signature="e#71585#71586#0" expanded="true" />
+            <element signature="e#75103#75286#0" expanded="true" />
+            <element signature="e#75279#75280#0" expanded="true" />
+            <element signature="e#75489#75490#0" expanded="true" />
+            <element signature="e#75520#75521#0" expanded="true" />
+            <element signature="e#79493#79675#0" expanded="true" />
+            <element signature="e#79668#79669#0" expanded="true" />
+            <element signature="e#79957#79958#0" expanded="true" />
+            <element signature="e#79988#79989#0" expanded="true" />
+            <element signature="e#83528#83707#0" expanded="true" />
+            <element signature="e#83700#83701#0" expanded="true" />
+            <element signature="e#83902#83903#0" expanded="true" />
+            <element signature="e#83933#83934#0" expanded="true" />
+            <element signature="e#88756#88939#0" expanded="true" />
+            <element signature="e#88932#88933#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
