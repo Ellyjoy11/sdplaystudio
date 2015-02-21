@@ -51,6 +51,7 @@ public class MainActivity extends Activity {
 	private String usb_drive_path;
 	private int is_userdata = 0;
 	private int isCustom = 1;
+    private boolean isEncrypted = false;
 	String custom_path;
 	EditText customPathEntered;
 	String customPathVerified;
@@ -196,9 +197,11 @@ public class MainActivity extends Activity {
 		// pattern1 = ".*/mnt/media_rw/usbdisk\\S*\\s+\\w*.*";
 		if (mount_out.matches(pattern0)) {
 			userdata_test_path = mount_out.replaceAll(pattern0, "$1");
+            isEncrypted = false;
 			// Log.d("SDPlay", "userdata is named " + userdata_test_path);
 		} else if (mount_out.matches(patternEncrypted)) {
 			userdata_test_path = mount_out.replaceAll(patternEncrypted, "$1");
+            isEncrypted = true;
 			// Log.d("SDPlay", "userdata is encrypted " + userdata_test_path);
 		} else {
 			Log.d("SDPlay", "userdata path does not match");
@@ -571,6 +574,10 @@ public class MainActivity extends Activity {
 		if (mount_out.matches(intPattern1)) {
 			intFsType += mount_out.replaceAll(intPattern1, "$1");
 			userdataFsType = mount_out.replaceAll(intPattern1, "$1");
+            if (isEncrypted) {
+                intFsType += " // encr";
+                userdataFsType += " // encr";
+            }
 		}
 		// //////end of internal case/////////////
 		// for sdcard case

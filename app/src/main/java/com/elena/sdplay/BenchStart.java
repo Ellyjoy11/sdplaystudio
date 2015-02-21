@@ -75,6 +75,7 @@ public class BenchStart extends Activity {
 	// storage space
 	double totalSpace;
 	double freeSpace;
+    double eMmcSize;
 	// timing values
 	long millis1, millis2, millis3, millis4, millis5, millis6, millis7,
 			millis8;
@@ -1261,7 +1262,13 @@ public class BenchStart extends Activity {
 		}
 		totalSpace = totalBlocks * blockSize / (1024.0 * 1024 * 1024);
 		freeSpace = freeBlocks * blockSize / (1024.0 * 1024 * 1024);
-
+/*
+        StatFs statEmmc = new StatFs("/data");
+        blockSize = statEmmc.getBlockSize();
+        totalBlocks = (long)statEmmc.getBlockCount();
+        eMmcSize = totalBlocks * blockSize / (1024.0 * 1024 * 1024);
+        Log.d(TAG, "eMMC size to save: " + eMmcSize + " Gb");
+*/
 		// TODO: check if there is enough space to test and make button
 		// 'start' enabled
 		String textShow = "Total space is " + String.format("%.2f", totalSpace)
