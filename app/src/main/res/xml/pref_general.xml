@@ -1,7 +1,7 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
 
     <EditTextPreference
-        android:defaultValue="2500"
+        android:defaultValue="5000"
         android:inputType="number"
         android:key="rows"
         android:maxLines="1"
@@ -9,7 +9,7 @@
         android:singleLine="true"
         android:title="Total rows of records" />
     <EditTextPreference
-        android:defaultValue="2500"
+        android:defaultValue="5000"
         android:inputType="number"
         android:key="rnd_rows"
         android:maxLines="1"
@@ -17,6 +17,7 @@
         android:selectAllOnFocus="true"
         android:singleLine="true"
         android:title="Rows for random read/write" />
+    <!--
     <EditTextPreference
         android:defaultValue="100"
         android:inputType="number"
@@ -26,6 +27,7 @@
         android:selectAllOnFocus="true"
         android:singleLine="true"
         android:title="Read cycles - to get average speed" />
+        -->
     <EditTextPreference
         android:defaultValue="10"
         android:inputType="number"

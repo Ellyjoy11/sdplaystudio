@@ -424,7 +424,7 @@ public class BenchStart extends Activity {
 		}
 
 	}
-
+/*
 	public void onReadAllClick(View view) {
 		final ReadAllRecords readAll = new ReadAllRecords(this);
 		readAll.executeOnExecutor(executor, 100, 0, 1);
@@ -437,6 +437,18 @@ public class BenchStart extends Activity {
 				});
 		// SQLiteDatabase.releaseMemory();
 	}
+*/
+public void onDeleteAllClick(View view) {
+    final DeleteAllRecords deleteAll = new DeleteAllRecords(this);
+    deleteAll.executeOnExecutor(executor, 100, 0, 1);
+    mProgressDialog
+            .setOnCancelListener(new DialogInterface.OnCancelListener() {
+                @Override
+                public void onCancel(DialogInterface dialog) {
+                    deleteAll.cancel(true);
+                }
+            });
+}
 
 	public void onAllTestClick(View view) {
 		ALL = true;
@@ -665,6 +677,7 @@ public class BenchStart extends Activity {
 	// end of write progress
 	// bar/////////////////////////////////////////////////
 
+    /*
 	// ///////////////////////////////////
 	// progress bar for reading
 	private class ReadAllRecords extends AsyncTask<Integer, Integer, Integer> {
@@ -814,21 +827,11 @@ public class BenchStart extends Activity {
 			} else {
 				textView.setText(tmp);
 			}
-
-			/*
-			 * { final RandomUpdate rndWrite = new
-			 * RandomUpdate(getBaseContext());
-			 * rndWrite.executeOnExecutor(executor, 100, 0, 1); mProgressDialog
-			 * .setOnCancelListener(new DialogInterface.OnCancelListener() {
-			 * 
-			 * @Override public void onCancel(DialogInterface dialog) {
-			 * rndWrite.cancel(true); } }); }
-			 */
-
 		}
 	}
 
 	// end of read progress bar/////////////////////////////////////////////////
+    */
 
 	// ///////////////////////////////////
 	// progress bar for random update
@@ -942,20 +945,8 @@ public class BenchStart extends Activity {
 			} else {
 				textView.setText(tmp);
 			}
-			onReadAllClick(findViewById(android.R.id.content).getRootView());
-
-			/*
-			 * { final RndRead rndRead = new RndRead(getBaseContext());
-			 * rndRead.executeOnExecutor(executor, 100, 0, 1); mProgressDialog
-			 * .setOnCancelListener(new DialogInterface.OnCancelListener() {
-			 * 
-			 * @Override public void onCancel(DialogInterface dialog) {
-			 * rndRead.cancel(true); } }); SQLiteDatabase.releaseMemory(); }
-			 */
-			// isSaved = saveRes();
-			// if (!ALL && (isSaved == 1)) {
-			// showTopRes();
-			// }
+			//onReadAllClick(findViewById(android.R.id.content).getRootView());
+            onDeleteAllClick(findViewById(android.R.id.content).getRootView());
 		}
 
 	}
@@ -1101,6 +1092,152 @@ public class BenchStart extends Activity {
 
 	// end of progress bar/////////////////////////////////////////////////
 
+    // ///////////////////////////////////
+    // progress bar for delete all records
+    private class DeleteAllRecords extends AsyncTask<Integer, Integer, Integer> {
+
+        int rows_count = 0;
+        private Context context;
+        private PowerManager.WakeLock mWakeLockD;
+
+        public DeleteAllRecords(Context context) {
+            this.context = context;
+        }
+
+        protected Integer doInBackground(Integer... params) {
+            // open database in read mode
+            MyDBHelper myDB = new MyDBHelper(getBaseContext(), sdPath);
+            diff_r = 0;
+            // take timestamp
+            millis3 = SystemClock.elapsedRealtime();
+            List<String> recs = new ArrayList<String>();
+            Cursor c;
+            SQLiteDatabase db = myDB.getWritableDatabase();
+            Cursor ccc = db.rawQuery("PRAGMA journal_mode = " + journalMode
+                    + "; PRAGMA synchronous = FULL;", null);
+            ccc.moveToNext();
+            ccc.getString(0);
+
+                if (isCancelled()) {
+                    mWakeLockD.release();
+                    db.close();
+                    return 0;
+                } else {
+
+                    db.beginTransaction();
+                    publishProgress(0);
+
+                    db.beginTransaction();
+                    publishProgress(0);
+                    c = db.query(myDB.MY_TABLE, // The table to query
+                            // projection,
+                            null, // The columns to return
+                            null, // The columns for the WHERE clause (null
+                            // means getting ALL records here)
+                            null, // The values for the WHERE clause
+                            null, // don't group the rows
+                            null, // don't filter by row groups
+                            null // don't sort
+                    );
+                    try {
+                        // Record all selected rows into array
+                        c.moveToFirst();
+                        while (!c.isAfterLast()) {
+                            recs.add(c.getInt(0) + "..." + c.getInt(1) + "..."
+                                    + c.getString(2) + "..." + c.getInt(3)
+                                    + "\n");
+                            c.moveToNext();
+                        }
+                        //db.setTransactionSuccessful();
+                    } finally {
+                        // db.endTransaction();
+                        c.close();
+                    }
+
+                    rows_count = db.delete(myDB.MY_TABLE, null, null);
+                    db.setTransactionSuccessful();
+                    db.endTransaction();
+                }
+
+            // timestamp after deletion
+            millis4 = SystemClock.elapsedRealtime();
+            // Time spent on reading all db rows
+            diff_r = millis4 - millis3;
+            ccc.close();
+            db.close();
+            publishProgress(100);
+            return 1;
+            // When finished, return the resulting 1, this will cause the
+            // Activity to call onPostExecute()
+        }
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            // take CPU lock to prevent CPU from going off if the user
+            // presses the power button during download
+            PowerManager pm = (PowerManager) getApplicationContext()
+                    .getSystemService(Context.POWER_SERVICE);
+            mWakeLockD = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK,
+                    getClass().getName());
+            mWakeLockD.acquire();
+
+            mProgressDialog.setIndeterminate(true);
+            mProgressDialog.setMessage("Database records deletion is in progress...");
+            mProgressDialog.setMax(1);
+            mProgressDialog.show();
+        }
+
+        @Override
+        protected void onProgressUpdate(Integer... progress) {
+            super.onProgressUpdate(progress);
+            if (progress[0] != 100) {
+                mProgressDialog.setIndeterminate(true);
+            } else {
+                mProgressDialog.setIndeterminate(false);
+                mProgressDialog.setProgress(progress[0]);
+            }
+        }
+
+        @Override
+        protected void onPostExecute(Integer result) {
+            mWakeLockD.release();
+            mProgressDialog.dismiss();
+            if (result != 1)
+                Toast.makeText(getBaseContext(), "DB deletion error",
+                        Toast.LENGTH_LONG).show();
+            else {
+                tmp += "\n" + rows_count + " records have been deleted";
+                rs = rows_count * 1000.0 / diff_r;
+                tmp += "\nAverage deletion speed " + String.format("%.2f", rs)
+                        + " records/s";
+                // textView.setText(tmp);
+                Toast.makeText(getBaseContext(),
+                        "All records have been deleted successfully",
+                        Toast.LENGTH_SHORT).show();
+                isWritten = true;
+            }
+            isSaved = saveRes();
+            if (LOG_ON) {
+                Log.d(TAG, "saveRes() has been called and return " + isSaved);
+                Log.d(TAG, "Before calling ALL value is " + ALL
+                        + "; DB test done is " + isWritten);
+            }
+            if (!ALL && (isSaved == 1)) {
+                showTopRes();
+            }
+            if (ALL) {
+                onFsTestClick(findViewById(android.R.id.content).getRootView());
+                textView11.setText(tmp);
+                // ALL = false;
+            } else {
+                textView.setText(tmp);
+            }
+        }
+    }
+
+    // end of delete progress bar/////////////////////////////////////////////////
+
 	public int saveRes() {
 		// Save current results to database
 		if ((ALL && isWritten && isFsDone) || (!ALL && isWritten)
@@ -1135,7 +1272,7 @@ public class BenchStart extends Activity {
 				// values.put(myResDB.RES_BUILD_TYPE, build_type);
 				values.put(myResDB.RES_FS_TYPE, fs_type);
 				values.put(myResDB.RES_W_SPEED, String.format("%.2f", ws));
-				values.put(myResDB.RES_R_SPEED, String.format("%.2f", rs));
+				values.put(myResDB.RES_D_SPEED, String.format("%.2f", rs));
 				values.put(myResDB.RES_RW_SPEED, String.format("%.2f", rndws));
 				values.put(myResDB.RES_RR_SPEED, String.format("%.2f", rndrs));
 				// values.put(myResDB.RES_TOTAL_SCORE, String.format("%.2f", (ws
@@ -1155,7 +1292,9 @@ public class BenchStart extends Activity {
 						String.format("%.2f", large_write_rate));
 				values.put(myResDB.FS_RL_SPEED,
 						String.format("%.2f", large_read_rate));
-				values.put(myResDB.FS_IOPS, String.format("%.2f", iops_rate)
+                values.put(myResDB.FS_IOPS_W, String.format("%.2f", iops_rate));
+                values.put(myResDB.FS_IOPS_R, String.format("%.2f", iops_read_rate));
+				values.put(myResDB.FS_IOPS_SCORE, String.format("%.2f", iops_rate)
 						+ " / " + String.format("%.2f", iops_read_rate));
 				values.put(myResDB.FS_D_SPEED, String.format("%.2f", del_f));
 				double totalFsScore = (create_fs * 10 + list_fs
@@ -3276,30 +3415,6 @@ public class BenchStart extends Activity {
 				}
 			return b_count;
 		}
-
-		// is not used anymore - delete before finish the project//////////
-		/*
-		 * public void writeRandomAccessFile(byte[] data, String path,
-		 * RandomAccessFile newSparseFile) { //int buffSize = BUFF_IOPS_WRITE *
-		 * 1024; //long iopsFileSize = IOPS_SIZE * 1024 * 1024; Log.d("SDPlay",
-		 * "size is " + iopsFileSize); Random random = new Random();
-		 * //random.nextBytes(data); try { new File(path).delete();
-		 * newSparseFile = new RandomAccessFile(path, "rw"); // create a
-		 * (iopsFileSize) file: newSparseFile.setLength(iopsFileSize); } catch
-		 * (final Exception e) { Log.e("DEBUG", "error while creating file:" +
-		 * e); } finally { if (newSparseFile != null) try { long startTime =
-		 * SystemClock.elapsedRealtime(); newSparseFile.seek(0); for (int k = 0;
-		 * k < iopsFileSize; k += buffIopsSize) { random.nextBytes(data);
-		 * newSparseFile.write(data, 0, buffIopsSize); // Log.d("SDPlay",
-		 * "current write position " // // + // newSparseFile.getFilePointer());
-		 * } long d_time = SystemClock.elapsedRealtime() - startTime;
-		 * Log.d("SDPLay", "write rate is " + IOPS_SIZE * 1000.0 / d_time);
-		 * newSparseFile.close();
-		 * 
-		 * } catch (final IOException e) { Log.e("DEBUG",
-		 * "error while closing file:" + e); } } }
-		 */
-		// ////end of not used method//////////////
 
 	}
 

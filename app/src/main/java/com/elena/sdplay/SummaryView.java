@@ -223,7 +223,7 @@ public class SummaryView extends Activity implements ActionBar.TabListener {
 
 		String[] projection = { myResDB.RES_ID, myResDB.RES_DETAILS,
 				myResDB.RES_NICKNAME, myResDB.RES_BUILD_ID,
-				myResDB.RES_W_SPEED, myResDB.FS_L_SCORE, myResDB.FS_IOPS,
+				myResDB.RES_W_SPEED, myResDB.FS_L_SCORE, myResDB.FS_IOPS_SCORE,
 				"ROUND(" + myResDB.SUMMARY_SCORE + ",2)", myResDB.RES_FS_TYPE };
 
 		sortOrder = myResDB.SUMMARY_SCORE + " DESC";

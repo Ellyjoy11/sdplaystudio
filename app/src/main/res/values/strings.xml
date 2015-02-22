@@ -50,6 +50,7 @@
     <string name="writes">Insert</string>
     <string name="db_inserts">DB Insert</string>
     <string name="read">Select All</string>
+    <string name="delete">Delete All</string>
     <string name="rwrite">Update</string>
     <string name="rread">Select</string>
     <string name="total_db">DB Score</string>

@@ -151,6 +151,7 @@
     <string name="custom_path">Custom storage for test</string>
     <string name="db_inserts">DB Insert</string>
     <string name="delFs">Del</string>
+    <string name="delete">Delete All</string>
     <string name="details">Storage manufacturer</string>
     <string name="external">External SD card</string>
     <string name="fdetails">Details</string>

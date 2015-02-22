@@ -222,7 +222,7 @@ public class ShowTopFsRes extends Activity implements ActionBar.TabListener {
 		String[] projection = { myResDB.RES_ID, myResDB.RES_DETAILS,
 				myResDB.RES_NICKNAME, myResDB.RES_BUILD_ID,
 				myResDB.FS_SM_SCORE, myResDB.FS_M_SCORE, myResDB.FS_L_SCORE,
-				myResDB.FS_IOPS, "ROUND(" + myResDB.FS_TOTAL_SCORE + ",2)",
+				myResDB.FS_IOPS_SCORE, "ROUND(" + myResDB.FS_TOTAL_SCORE + ",2)",
 				myResDB.RES_FS_TYPE };
 
 		sortOrder = myResDB.FS_TOTAL_SCORE + " DESC";

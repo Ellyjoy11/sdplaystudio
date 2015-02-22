@@ -11,7 +11,7 @@ import android.preference.PreferenceManager;
 public class SettingsFragment extends PreferenceFragment implements
 		OnSharedPreferenceChangeListener {
 
-	private final String[] keys = { "rows", "rnd_rows", "cycles", "top_count",
+	private final String[] keys = { "rows", "rnd_rows", "top_count", //"cycles" - for read all cycles
 			"medium_file", "large_file", "buff_size" };
 
 	@Override
@@ -46,7 +46,7 @@ public class SettingsFragment extends PreferenceFragment implements
 
 		SharedPreferences userPref = PreferenceManager
 				.getDefaultSharedPreferences(getActivity());
-		for (int i = 0; i < 7; i++) {
+		for (int i = 0; i < keys.length; i++) {
 			String key_string = keys[i];
 			Preference pref = (Preference) findPreference(key_string);
 			String value = userPref.getString(key_string, "5");

@@ -509,7 +509,7 @@ public class MainActivity extends Activity {
 					values.put(myResDB.RES_DETAILS, ref_results[i][0]);
 					values.put(myResDB.RES_BUILD_ID, ref_results[i][1]);
 					values.put(myResDB.RES_W_SPEED, ref_results[i][2]);
-					values.put(myResDB.RES_R_SPEED, ref_results[i][3]);
+					values.put(myResDB.RES_D_SPEED, ref_results[i][3]);
 					values.put(myResDB.RES_RW_SPEED, ref_results[i][4]);
 					values.put(myResDB.RES_RR_SPEED, ref_results[i][5]);
 					values.put(myResDB.RES_TOTAL_SCORE, ref_results[i][6]);
@@ -518,7 +518,7 @@ public class MainActivity extends Activity {
 					// Log.d("SDPLay", "put " + ref_results[i][8]);
 					values.put(myResDB.FS_M_SCORE, ref_results[i][9]);
 					values.put(myResDB.FS_L_SCORE, ref_results[i][10]);
-					values.put(myResDB.FS_IOPS, ref_results[i][11]);
+					values.put(myResDB.FS_IOPS_SCORE, ref_results[i][11]);
 					values.put(myResDB.FS_TOTAL_SCORE, ref_results[i][12]);
 					values.put(myResDB.SUMMARY_SCORE, ref_results[i][13]);
 					values.put(myResDB.RES_FS_TYPE, ref_results[i][14]);
@@ -575,8 +575,8 @@ public class MainActivity extends Activity {
 			intFsType += mount_out.replaceAll(intPattern1, "$1");
 			userdataFsType = mount_out.replaceAll(intPattern1, "$1");
             if (isEncrypted) {
-                intFsType += " // encr";
-                userdataFsType += " // encr";
+                intFsType += "/ encr";
+                userdataFsType += "/ encr";
             }
 		}
 		// //////end of internal case/////////////

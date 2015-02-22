@@ -205,7 +205,7 @@ public class TopResults extends Activity implements ActionBar.TabListener {
 
 		String[] projection = { myResDB.RES_ID, myResDB.RES_DETAILS,
 				myResDB.RES_NICKNAME, myResDB.RES_BUILD_ID,
-				myResDB.RES_W_SPEED, myResDB.RES_R_SPEED, myResDB.RES_RW_SPEED,
+				myResDB.RES_W_SPEED, myResDB.RES_D_SPEED, myResDB.RES_RW_SPEED,
 				myResDB.RES_RR_SPEED,
 				"ROUND(" + myResDB.RES_TOTAL_SCORE + ",2)", myResDB.RES_FS_TYPE };
 
