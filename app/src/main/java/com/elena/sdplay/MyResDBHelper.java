@@ -17,9 +17,9 @@ public class MyResDBHelper extends SQLiteOpenHelper {
 	public final String RES_DETAILS = "_details";
 	public final String RES_MANFID = "_manfid";
 	public final String RES_SERIAL = "_serial";
-	public final String RES_OPER_MODE = "_oper_mode";
+	//public final String RES_OPER_MODE = "_oper_mode";
 	public final String RES_NAME = "_name";
-	public final String RES_NICKNAME = "_nickname";
+	public final String RES_NOTES = "_nickname";
 	public final String RES_W_SPEED = "_db_write_speed";
 	public final String RES_D_SPEED = "_db_del_speed";
 	public final String RES_RW_SPEED = "_db_rnd_write_speed";
@@ -47,12 +47,11 @@ public class MyResDBHelper extends SQLiteOpenHelper {
 	// creation SQLite statement
 	private final String DATABASE_CREATE = "create table " + RES_TABLE + "("
 			+ RES_ID + " integer primary key autoincrement, " + RES_OEMID
-			+ " text, " + RES_MANFID + " text, " + RES_DETAILS + " text, "
-			+ RES_BUILD_ID + " text, " + RES_FS_TYPE + " text, " + RES_NICKNAME
-			+ " text, " + RES_W_SPEED + " text, " + RES_D_SPEED + " text, "
-			+ RES_RW_SPEED + " text, " + RES_SERIAL + " text, " + RES_OPER_MODE
-			+ " text, " + RES_TOTAL_SCORE + " integer, " + RES_NAME + " text, "
-			+ RES_RR_SPEED + " text, " + FS_C_SPEED + " text, " + FS_L_SPEED
+			+ " text, " + RES_MANFID + " text, " + RES_NAME + " text, " + RES_DETAILS + " text, " + RES_SERIAL + " text, "
+            + RES_BUILD_ID + " text, " + RES_FS_TYPE + " text, " + RES_NOTES
+			+ " text, " + RES_W_SPEED + " text, "
+			+ RES_RW_SPEED + " text, "
+			+ RES_RR_SPEED + " text, " + RES_D_SPEED + " text, " + RES_TOTAL_SCORE + " integer, " + FS_C_SPEED + " text, " + FS_L_SPEED
 			+ " text, " + FS_RS_SPEED + " text, " + FS_WM_SPEED + " text, " + FS_RM_SPEED + " text, "
 			+ FS_WL_SPEED + " text, " + FS_RL_SPEED + " text, " + FS_IOPS_W
 			+ " text, " + FS_IOPS_R + " text, " + FS_D_SPEED + " text, " + FS_TOTAL_SCORE

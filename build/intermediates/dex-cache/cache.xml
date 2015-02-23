@@ -22,5 +22,12 @@
         sha1="01ec05bfbafcc07646ba813000bf2ef11742dd03">
         <dex dex="/Users/elenalast/AndroidstudioProjects/SDPlay/app/build/intermediates/pre-dexed/debug/internal_impl-21.0.3-e39638a8b70c00437b49f453200c6d28f058d961.jar" />
     </item>
+    <item
+        jar="/Users/elenalast/AndroidstudioProjects/SDPlay/app/libs/javacsv.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="afed46cadd463453bbf007625ecfa3afac097f37">
+        <dex dex="/Users/elenalast/AndroidstudioProjects/SDPlay/app/build/intermediates/pre-dexed/debug/javacsv-038ca6921b11792cbbdb0b7f38b83dee24d71860.jar" />
+    </item>
 
 </items>

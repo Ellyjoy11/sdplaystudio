@@ -1,7 +1,5 @@
 package com.elena.sdplay;
 
-import java.util.ArrayList;
-
 import android.app.ActionBar;
 import android.app.ActionBar.Tab;
 import android.app.Activity;
@@ -24,6 +22,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
+
+import java.util.ArrayList;
 
 public class SummaryView extends Activity implements ActionBar.TabListener {
 	private String intPath;
@@ -159,8 +159,8 @@ public class SummaryView extends Activity implements ActionBar.TabListener {
 		if (item.getItemId() == R.id.about) {
 			AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
-			builder.setMessage("\u00a9 2014 Elena Last").setTitle(
-					"SD Play v." + MainActivity.appVersion);
+            builder.setMessage(MainActivity.ABOUT_TITLE).setTitle(
+                    MainActivity.ABOUT_VERSION);
 
 			builder.setPositiveButton("OK",
 					new DialogInterface.OnClickListener() {
@@ -222,7 +222,7 @@ public class SummaryView extends Activity implements ActionBar.TabListener {
 		}
 
 		String[] projection = { myResDB.RES_ID, myResDB.RES_DETAILS,
-				myResDB.RES_NICKNAME, myResDB.RES_BUILD_ID,
+				myResDB.RES_NOTES, myResDB.RES_BUILD_ID,
 				myResDB.RES_W_SPEED, myResDB.FS_L_SCORE, myResDB.FS_IOPS_SCORE,
 				"ROUND(" + myResDB.SUMMARY_SCORE + ",2)", myResDB.RES_FS_TYPE };
 

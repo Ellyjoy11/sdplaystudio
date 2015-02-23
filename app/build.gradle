@@ -24,5 +24,6 @@ android {
 }
 
 dependencies {
+    compile files ('libs/javacsv.jar')
     compile 'com.android.support:support-v4:21.0.3'
 }

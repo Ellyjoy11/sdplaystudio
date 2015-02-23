@@ -1,22 +1,5 @@
 package com.elena.sdplay;
 
-import java.io.BufferedInputStream;
-import java.io.BufferedOutputStream;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.FileReader;
-import java.io.IOException;
-import java.nio.ByteBuffer;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Random;
-import java.util.concurrent.Executor;
-
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -47,6 +30,28 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ViewFlipper;
+
+import com.csvreader.CsvWriter;
+
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.nio.ByteBuffer;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Random;
+import java.util.concurrent.Executor;
+
+//import com.csvreader.CsvWriter;
 
 //import java.nio.file.Files;
 
@@ -138,6 +143,7 @@ public class BenchStart extends Activity {
 	private boolean custom_drive_selected;
 	public static boolean isWritten;
 	public static boolean isFsDone;
+    //public static boolean isFsTestStarted;
 	private int isSaved = 0;
 	private BroadcastReceiver SDCardStateChangeListener;
 	final String MEDIA_REMOVED = Intent.ACTION_MEDIA_REMOVED;
@@ -178,12 +184,7 @@ public class BenchStart extends Activity {
 
 		setContentView(R.layout.activity_bench_start);
 
-		mProgressDialog = new ProgressDialog(this);
-		mProgressDialog.setMessage("");
-		mProgressDialog.setIndeterminate(true);
-		mProgressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
-		mProgressDialog.setCancelable(true);
-		mProgressDialog.setCanceledOnTouchOutside(false);
+
 
 		Intent intent = getIntent();
 		// //////////////////
@@ -206,6 +207,14 @@ public class BenchStart extends Activity {
 	@Override
 	public void onResume() {
 		super.onResume();
+
+        mProgressDialog = new ProgressDialog(this);
+        mProgressDialog.setMessage("");
+        mProgressDialog.setIndeterminate(true);
+        mProgressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+        mProgressDialog.setCancelable(true);
+        mProgressDialog.setCanceledOnTouchOutside(false);
+
 		// this.registerSDCardStateChangeListener();
 		MainActivity.calling_activity = "Bench";
 		fs_type = "";
@@ -272,113 +281,113 @@ public class BenchStart extends Activity {
 		// "1024"));
 		// BUFFER_SIZE = Integer.parseInt(userPref.getString("buff_size", "2"));
 
-		String largeSizeToParse = userPref.getString("large_file", "1G");
-		largeSizeToPrint = largeSizeToParse;
-		String bufferSizeToParse = userPref.getString("buff_size", "2048K");
+            String largeSizeToParse = userPref.getString("large_file", "1G");
+            largeSizeToPrint = largeSizeToParse;
+            String bufferSizeToParse = userPref.getString("buff_size", "2048K");
 
-		String pattern1 = "^(\\d+)\\s*[K|k]+.*";
-		String pattern2 = "^(\\d+)\\s*[M|m]+.*";
-		String pattern3 = "^(\\d+)\\s*";
-		String pattern4 = "^(\\d+)\\s*[G|g]+.*";
-		String pattern5 = "^(\\d+\\.\\d+)\\s*[G|g]+.*";
+            String pattern1 = "^(\\d+)\\s*[K|k]+.*";
+            String pattern2 = "^(\\d+)\\s*[M|m]+.*";
+            String pattern3 = "^(\\d+)\\s*";
+            String pattern4 = "^(\\d+)\\s*[G|g]+.*";
+            String pattern5 = "^(\\d+\\.\\d+)\\s*[G|g]+.*";
 
-		// parse buffer size, if no letter - MB by default
-		if (bufferSizeToParse.matches(pattern1)) {
-			// Kb
-			bufferSize = Integer.parseInt(bufferSizeToParse.replaceAll(
-					pattern1, "$1")) * 1024;
-		} else if (bufferSizeToParse.matches(pattern2)) {
-			// Mb
-			bufferSize = Integer.parseInt(bufferSizeToParse.replaceAll(
-					pattern2, "$1")) * 1024 * 1024;
-		} else if (bufferSizeToParse.matches(pattern3)) {
-			// Kb
-			bufferSize = Integer.parseInt(bufferSizeToParse.replaceAll(
-					pattern3, "$1")) * 1024;
+            // parse buffer size, if no letter - MB by default
+            if (bufferSizeToParse.matches(pattern1)) {
+                // Kb
+                bufferSize = Integer.parseInt(bufferSizeToParse.replaceAll(
+                        pattern1, "$1")) * 1024;
+            } else if (bufferSizeToParse.matches(pattern2)) {
+                // Mb
+                bufferSize = Integer.parseInt(bufferSizeToParse.replaceAll(
+                        pattern2, "$1")) * 1024 * 1024;
+            } else if (bufferSizeToParse.matches(pattern3)) {
+                // Kb
+                bufferSize = Integer.parseInt(bufferSizeToParse.replaceAll(
+                        pattern3, "$1")) * 1024;
 
-		} else {
-			// TODO: dialog
-			bufferSize = 2 * 1024 * 1024; // default - 2Mb
-		}
-		// Log.d("SDPlay", "Buffer size parsed: " + bufferSize);
+            } else {
+                // TODO: dialog
+                bufferSize = 2 * 1024 * 1024; // default - 2Mb
+            }
+            // Log.d("SDPlay", "Buffer size parsed: " + bufferSize);
 
-		// parse large file size, if no letter - MB by default
-		if (largeSizeToParse.matches(pattern2)) {
-			// MB
-			LARGE_SIZE = Integer.parseInt(largeSizeToParse.replaceAll(pattern2,
-					"$1"));
-		} else if (largeSizeToParse.matches(pattern4)) {
-			// GB
-			LARGE_SIZE = Integer.parseInt(largeSizeToParse.replaceAll(pattern4,
-					"$1")) * 1024;
-		} else if (largeSizeToParse.matches(pattern5)) {
-			// GB
-			LARGE_SIZE = (int) Math.round(Double.parseDouble(largeSizeToParse
-					.replaceAll(pattern5, "$1")) * 1024);
-		} else if (largeSizeToParse.matches(pattern3)) {
-			// MB
-			LARGE_SIZE = Integer.parseInt(largeSizeToParse.replaceAll(pattern3,
-					"$1"));
-			largeSizeToPrint = largeSizeToParse + "MB";
-		} else {
-			// TODO: dialog
-			LARGE_SIZE = 1 * 1024; // default - 1GB, LARGE_SIZE value is always
-									// stored in MB
-		}
-		// Log.d("SDPlay", "Large size in MB: " + LARGE_SIZE);
-		// Log.d("SDPlay", "Large size for printing: " + largeSizeToPrint);
+            // parse large file size, if no letter - MB by default
+            if (largeSizeToParse.matches(pattern2)) {
+                // MB
+                LARGE_SIZE = Integer.parseInt(largeSizeToParse.replaceAll(pattern2,
+                        "$1"));
+            } else if (largeSizeToParse.matches(pattern4)) {
+                // GB
+                LARGE_SIZE = Integer.parseInt(largeSizeToParse.replaceAll(pattern4,
+                        "$1")) * 1024;
+            } else if (largeSizeToParse.matches(pattern5)) {
+                // GB
+                LARGE_SIZE = (int) Math.round(Double.parseDouble(largeSizeToParse
+                        .replaceAll(pattern5, "$1")) * 1024);
+            } else if (largeSizeToParse.matches(pattern3)) {
+                // MB
+                LARGE_SIZE = Integer.parseInt(largeSizeToParse.replaceAll(pattern3,
+                        "$1"));
+                largeSizeToPrint = largeSizeToParse + "MB";
+            } else {
+                // TODO: dialog
+                LARGE_SIZE = 1 * 1024; // default - 1GB, LARGE_SIZE value is always
+                // stored in MB
+            }
+            // Log.d("SDPlay", "Large size in MB: " + LARGE_SIZE);
+            // Log.d("SDPlay", "Large size for printing: " + largeSizeToPrint);
 
-		IOPS_SIZE = 100; // 1536; // in Mb
-		// BUFF_IOPS_WRITE = 256; // 256Kb
-		buffIopsSize = 4 * 1024;
-		iopsFileSize = IOPS_SIZE * 1024 * 1024;
-		smallSize = 1024;
-		bytesToWrite = new byte[smallSize];// = new byte[32];
-		// bytesToWriteIops = new byte[BUFF_IOPS_WRITE * 1024];
-		bytesForIops = new byte[buffIopsSize];
-		mediumSize = MEDIUM_SIZE * 1024 * 1024;
-		bytesToWriteMedium = new byte[mediumSize];
-		// bufferSize = BUFFER_SIZE * 1024 * 1024;
-		largeSize = LARGE_SIZE * 1024 * 1024;
-		bytesToWriteLarge = new byte[bufferSize];
+            IOPS_SIZE = 100; // 1536; // in Mb
+            // BUFF_IOPS_WRITE = 256; // 256Kb
+            buffIopsSize = 4 * 1024;
+            iopsFileSize = IOPS_SIZE * 1024 * 1024;
+            smallSize = 1024;
+            bytesToWrite = new byte[smallSize];// = new byte[32];
+            // bytesToWriteIops = new byte[BUFF_IOPS_WRITE * 1024];
+            bytesForIops = new byte[buffIopsSize];
+            mediumSize = MEDIUM_SIZE * 1024 * 1024;
+            bytesToWriteMedium = new byte[mediumSize];
+            // bufferSize = BUFFER_SIZE * 1024 * 1024;
+            largeSize = LARGE_SIZE * 1024 * 1024;
+            bytesToWriteLarge = new byte[bufferSize];
 
-		spaceForFsTest = LARGE_SIZE * 2 + MEDIUM_SIZE * 50 + IOPS_SIZE
-				+ MAGIC_NUMBER;
-		// spaceForFsTest is in MB, freeSpace - in GB
+            spaceForFsTest = LARGE_SIZE * 2 + MEDIUM_SIZE * 50 + IOPS_SIZE
+                    + MAGIC_NUMBER;
+            // spaceForFsTest is in MB, freeSpace - in GB
 
-		Log.d("SDPlay", "need space: " + spaceForFsTest / 1024 + "Gb");
-		Log.d("SDPlay", "free space: " + freeSpace + "Gb");
+            Log.d("SDPlay", "need space: " + spaceForFsTest / 1024 + "Gb");
+            Log.d("SDPlay", "free space: " + freeSpace + "Gb");
 
-		if ((spaceForFsTest / 1024) > freeSpace) {
-			AlertDialog.Builder builder = new AlertDialog.Builder(this);
-			builder.setMessage(
-					"There is no enough space for FS test\n"
-							+ "Please change test files sizes in settings.")
-					.setTitle("Oops...");
+            if ((spaceForFsTest / 1024) > freeSpace) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setMessage(
+                        "There is no enough space for FS test\n"
+                                + "Please change test files sizes in settings.")
+                        .setTitle("Oops...");
 
-			builder.setPositiveButton("OK",
-					new DialogInterface.OnClickListener() {
+                builder.setPositiveButton("OK",
+                        new DialogInterface.OnClickListener() {
 
-						@Override
-						public void onClick(DialogInterface dialog, int which) {
-							Intent intent = new Intent(getApplicationContext(),
-									SetPreferences.class);
-							startActivity(intent);
-						}
-					});
-			builder.setNegativeButton("Ignore",
-					new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                Intent intent = new Intent(getApplicationContext(),
+                                        SetPreferences.class);
+                                startActivity(intent);
+                            }
+                        });
+                builder.setNegativeButton("Ignore",
+                        new DialogInterface.OnClickListener() {
 
-						@Override
-						public void onClick(DialogInterface dialog, int which) {
-							dialog.dismiss();
-						}
-					});
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                            }
+                        });
 
-			AlertDialog dialog = builder.create();
-			dialog.show();
+                AlertDialog dialog = builder.create();
+                dialog.show();
 
-		}
+            }
 
 	}
 
@@ -404,8 +413,8 @@ public class BenchStart extends Activity {
 		if (item.getItemId() == R.id.about) {
 			AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
-			builder.setMessage("\u00a9 2014 Elena Last").setTitle(
-					"SD Play v." + MainActivity.appVersion);
+            builder.setMessage(MainActivity.ABOUT_TITLE).setTitle(
+                    MainActivity.ABOUT_VERSION);
 
 			builder.setPositiveButton("OK",
 					new DialogInterface.OnClickListener() {
@@ -553,12 +562,6 @@ public void onDeleteAllClick(View view) {
 			this.context = context;
 		}
 
-		/*
-		 * // find buttons to make them clickable after writing database Button
-		 * buttSR = (Button) findViewById(R.id.buttonSR); Button buttRR =
-		 * (Button) findViewById(R.id.buttonRR); Button buttRW = (Button)
-		 * findViewById(R.id.buttonRW);
-		 */
 		protected Integer doInBackground(Integer... params) {
 			MyDBHelper myDB = new MyDBHelper(getBaseContext(), sdPath);
 			// Gets the data repository in write mode
@@ -628,6 +631,7 @@ public void onDeleteAllClick(View view) {
 		@Override
 		protected void onPreExecute() {
 			super.onPreExecute();
+
 			// take CPU lock to prevent CPU from going off if the user
 			// presses the power button during download
 			PowerManager pm = (PowerManager) getApplicationContext()
@@ -1126,35 +1130,19 @@ public void onDeleteAllClick(View view) {
 
                     db.beginTransaction();
                     publishProgress(0);
-
-                    db.beginTransaction();
-                    publishProgress(0);
-                    c = db.query(myDB.MY_TABLE, // The table to query
-                            // projection,
-                            null, // The columns to return
-                            null, // The columns for the WHERE clause (null
-                            // means getting ALL records here)
-                            null, // The values for the WHERE clause
-                            null, // don't group the rows
-                            null, // don't filter by row groups
-                            null // don't sort
-                    );
-                    try {
-                        // Record all selected rows into array
-                        c.moveToFirst();
-                        while (!c.isAfterLast()) {
-                            recs.add(c.getInt(0) + "..." + c.getInt(1) + "..."
-                                    + c.getString(2) + "..." + c.getInt(3)
-                                    + "\n");
-                            c.moveToNext();
-                        }
-                        //db.setTransactionSuccessful();
-                    } finally {
-                        // db.endTransaction();
-                        c.close();
+                    String whereClause = myDB.REC_ID + " = ? ";
+                    for (int i=1; i <= Math.round(ROWS/2); i++) {
+                        String[] whereArgs1 = new String[]{String
+                                .valueOf(i)};
+                        String[] whereArgs2 = new String[]{String
+                                .valueOf(Math.round(ROWS/2) + i)};
+                        rows_count += db.delete(myDB.MY_TABLE,
+                                whereClause, whereArgs1);
+                        rows_count += db.delete(myDB.MY_TABLE,
+                                whereClause, whereArgs2);
+                        //rows_count = db.delete(myDB.MY_TABLE, null, null);
+                        publishProgress(2 * i * mProgressDialog.getMax() / ROWS);
                     }
-
-                    rows_count = db.delete(myDB.MY_TABLE, null, null);
                     db.setTransactionSuccessful();
                     db.endTransaction();
                 }
@@ -1163,9 +1151,10 @@ public void onDeleteAllClick(View view) {
             millis4 = SystemClock.elapsedRealtime();
             // Time spent on reading all db rows
             diff_r = millis4 - millis3;
+
             ccc.close();
             db.close();
-            publishProgress(100);
+
             return 1;
             // When finished, return the resulting 1, this will cause the
             // Activity to call onPostExecute()
@@ -1182,21 +1171,16 @@ public void onDeleteAllClick(View view) {
                     getClass().getName());
             mWakeLockD.acquire();
 
-            mProgressDialog.setIndeterminate(true);
+            mProgressDialog.setIndeterminate(false);
             mProgressDialog.setMessage("Database records deletion is in progress...");
-            mProgressDialog.setMax(1);
+            mProgressDialog.setMax(ROWS);
             mProgressDialog.show();
         }
 
         @Override
         protected void onProgressUpdate(Integer... progress) {
             super.onProgressUpdate(progress);
-            if (progress[0] != 100) {
-                mProgressDialog.setIndeterminate(true);
-            } else {
-                mProgressDialog.setIndeterminate(false);
-                mProgressDialog.setProgress(progress[0]);
-            }
+            mProgressDialog.setProgress(progress[0]);
         }
 
         @Override
@@ -1224,6 +1208,7 @@ public void onDeleteAllClick(View view) {
                         + "; DB test done is " + isWritten);
             }
             if (!ALL && (isSaved == 1)) {
+                exportResToCsv();
                 showTopRes();
             }
             if (ALL) {
@@ -1264,10 +1249,10 @@ public void onDeleteAllClick(View view) {
 
 				values.put(myResDB.RES_DETAILS, full_details);
 				values.put(myResDB.RES_SERIAL, serial);
-				if (!(card_oper_mode.isEmpty())) {
-					values.put(myResDB.RES_OPER_MODE, card_oper_mode);
-				}
-				values.put(myResDB.RES_NICKNAME, nickname);
+				//if (!(card_oper_mode.isEmpty())) {
+				//	values.put(myResDB.RES_OPER_MODE, card_oper_mode);
+				//}
+				values.put(myResDB.RES_NOTES, nickname);
 				values.put(myResDB.RES_BUILD_ID, build_id + "/" + build_type);
 				// values.put(myResDB.RES_BUILD_TYPE, build_type);
 				values.put(myResDB.RES_FS_TYPE, fs_type);
@@ -1351,6 +1336,80 @@ public void onDeleteAllClick(View view) {
 		}
 
 	}
+
+    public int exportResToCsv() {
+        //File dbFile = getDatabasePath("YourDatabase.db");
+
+        MyResDBHelper myResDB = new MyResDBHelper(getBaseContext(), intPath);
+        SQLiteDatabase db = myResDB.getReadableDatabase();
+        File file = null;
+        //new File("/sdcard1/sdplay_results").mkdirs();
+
+        new File("sdcard" + File.separator + "sdplay_results").mkdirs();
+        File exportDir = new File("sdcard" + File.separator + "sdplay_results");
+        file = new File(exportDir.getAbsolutePath(), "sdPlayRes.csv");
+
+
+        try
+        {
+            if (file.exists()) {
+                file.delete();
+            }
+            try {
+                file.createNewFile();
+            } catch (IOException e) {
+                e.printStackTrace();
+                Log.d(TAG, "Export to csv is skipped due to file not exist");
+                Toast.makeText(getBaseContext(), "Export to csv has been skipped: file does not exist",
+                        Toast.LENGTH_LONG).show();
+                return 0;
+            }
+                Log.d(TAG, "File to export results is: " + file.getAbsolutePath());
+
+            //com.csvreader.CsvWriter csvWrite = new com.csvreader.CsvWriter(new FileWriter(file, true), ',');
+
+            CsvWriter csvWrite = new CsvWriter(new FileWriter(file, true), ',');
+            Cursor curCSV = db.rawQuery("SELECT * FROM RES_TABLE", null);
+
+            csvWrite.writeRecord(curCSV.getColumnNames());
+            curCSV.moveToFirst();
+
+            while (!curCSV.isAfterLast())  {
+
+                String arrStr[] = { curCSV.getString(0), curCSV.getString(1),
+
+                        curCSV.getString(2), curCSV.getString(3),
+                        curCSV.getString(4), curCSV.getString(5),
+                        curCSV.getString(6), curCSV.getString(7),
+                        curCSV.getString(8), curCSV.getString(9),
+                        curCSV.getString(10), curCSV.getString(11),
+                        curCSV.getString(12), curCSV.getString(13),
+                        curCSV.getString(14), curCSV.getString(15),
+                        curCSV.getString(16), curCSV.getString(17),
+                        curCSV.getString(18), curCSV.getString(19),
+                        curCSV.getString(20), curCSV.getString(21),
+                        curCSV.getString(22), curCSV.getString(23),
+                        curCSV.getString(24), curCSV.getString(25),
+                        curCSV.getString(26), curCSV.getString(27),
+                        curCSV.getString(28), curCSV.getString(29)
+                };
+
+                csvWrite.writeRecord(arrStr);
+                curCSV.moveToNext();
+
+            }
+            csvWrite.close();
+            curCSV.close();
+        }
+        catch (IOException e)   {
+            Log.e("Export has failed... ", e.getMessage(), e);
+        }
+
+        Toast.makeText(getBaseContext(), "Results are exported to: " + file.getAbsolutePath(),
+                Toast.LENGTH_LONG).show();
+        db.close();
+        return 1;
+    }
 
 	public void showTopRes() {
 		Intent intent = new Intent(getApplicationContext(), TopResults.class);
@@ -1594,7 +1653,7 @@ public void onDeleteAllClick(View view) {
 			// Define a projection that specifies which columns from the
 			// database
 			// you will actually use after this query.
-			String[] projection = { myResDB.RES_DETAILS, myResDB.RES_NICKNAME };
+			String[] projection = { myResDB.RES_DETAILS, myResDB.RES_NOTES };
 			String whereClause = myResDB.RES_SERIAL + " = ? ";
 			String[] whereArgs = new String[] { serial };
 			String sortOrder = myResDB.RES_ID + " DESC";
@@ -1799,6 +1858,7 @@ public void onDeleteAllClick(View view) {
 	public void onFsTestClick(View view) {
 		if (checkPath()) {
 			isFsDone = false;
+
 			create_fs = 0;
 			list_fs = 0;
 			medium_write_rate = 0;
@@ -3204,6 +3264,7 @@ public void onDeleteAllClick(View view) {
 
 			// cleanFs();
 			isFsDone = true;
+
 			saveRes();
 			if (LOG_ON) {
 				Log.d(TAG, "saveRes() has been called and FS test is done");
@@ -3211,6 +3272,7 @@ public void onDeleteAllClick(View view) {
 						+ "; DB test done is " + isWritten);
 			}
 			wasCancelled = false;
+            exportResToCsv();
 			if (ALL) {
 				// onReadAllClick(findViewById(android.R.id.content).getRootView());
 				// TODO
@@ -3445,7 +3507,8 @@ public void onDeleteAllClick(View view) {
 	}
 
 	public void onDestroy() {
-		cleanFs();
+        //mProgressDialog.dismiss();
+        cleanFs();
 		super.onDestroy();
 	}
 	// class finish

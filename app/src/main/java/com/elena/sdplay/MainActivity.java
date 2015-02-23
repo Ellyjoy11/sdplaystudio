@@ -1,11 +1,5 @@
 package com.elena.sdplay;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.HashMap;
-
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -34,10 +28,18 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.HashMap;
+
 @SuppressLint({ "NewApi", "SdCardPath" })
 public class MainActivity extends Activity {
 
-	private static final String TAG = "SDPlay_log";
+	private static final String TAG = "SDPlayDebug";
+    public static final String ABOUT_TITLE = "\u00a9 2014-2015 Elena Last, Igor Kovalenko";
+    public static String ABOUT_VERSION;
 	public final static String SD_PATH = "com.elena.sdplay.SD_PATH";
 	private String sdPath = "";
 	public final static String INT_PATH = "com.elena.sdplay.INT_PATH";
@@ -55,7 +57,7 @@ public class MainActivity extends Activity {
 	String custom_path;
 	EditText customPathEntered;
 	String customPathVerified;
-	private String userdata_path;
+	public static String userdata_path;
 	public final static String USERDATA_SELECTED = "com.elena.sdplay.USERDATA_SELECTED";
 	private boolean userdata_selected = false;
 	private File[] file_list;
@@ -111,6 +113,8 @@ public class MainActivity extends Activity {
 		} catch (NameNotFoundException e) {
 			Log.d("SDPlay", "App version not found " + e.getMessage());
 		}
+
+        ABOUT_VERSION = "SD Play v." + appVersion;
 
 		currentApiVersion = android.os.Build.VERSION.SDK_INT;
 		if (currentApiVersion < 19) {
@@ -413,8 +417,8 @@ public class MainActivity extends Activity {
 		if (item.getItemId() == R.id.about) {
 			AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
-			builder.setMessage("\u00a9 2014 Elena Last").setTitle(
-					"SD Play v." + appVersion);
+			builder.setMessage(ABOUT_TITLE).setTitle(
+					ABOUT_VERSION);
 
 			builder.setPositiveButton("OK",
 					new DialogInterface.OnClickListener() {
@@ -513,7 +517,7 @@ public class MainActivity extends Activity {
 					values.put(myResDB.RES_RW_SPEED, ref_results[i][4]);
 					values.put(myResDB.RES_RR_SPEED, ref_results[i][5]);
 					values.put(myResDB.RES_TOTAL_SCORE, ref_results[i][6]);
-					values.put(myResDB.RES_NICKNAME, ref_results[i][7]);
+					values.put(myResDB.RES_NOTES, ref_results[i][7]);
 					values.put(myResDB.FS_SM_SCORE, ref_results[i][8]);
 					// Log.d("SDPLay", "put " + ref_results[i][8]);
 					values.put(myResDB.FS_M_SCORE, ref_results[i][9]);

@@ -47,181 +47,25 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="BenchStart.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="BenchStart.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/elena/sdplay/BenchStart.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="68.82979" vertical-offset="0" max-vertical-offset="51870">
-              <caret line="1294" column="80" selection-start-line="1294" selection-start-column="80" selection-end-line="1294" selection-end-column="80" />
+            <state vertical-scroll-proportion="-6.1538463" vertical-offset="5885" max-vertical-offset="51270">
+              <caret line="417" column="0" selection-start-line="417" selection-start-column="0" selection-end-line="417" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#8123#8376#0" expanded="true" />
-                <element signature="e#8368#8369#0" expanded="true" />
-                <element signature="e#12153#12408#0" expanded="true" />
-                <element signature="e#12400#12401#0" expanded="true" />
-                <element signature="e#12455#12614#0" expanded="true" />
-                <element signature="e#12606#12607#0" expanded="true" />
-                <element signature="e#13554#13713#0" expanded="true" />
-                <element signature="e#13705#13706#0" expanded="true" />
-                <element signature="e#14463#14668#0" expanded="true" />
-                <element signature="e#14653#14654#0" expanded="true" />
-                <element signature="e#15209#15357#0" expanded="true" />
-                <element signature="e#15350#15351#0" expanded="true" />
-                <element signature="e#16067#16221#0" expanded="true" />
-                <element signature="e#16213#16214#0" expanded="true" />
-                <element signature="e#16534#16787#0" expanded="true" />
-                <element signature="e#16779#16780#0" expanded="true" />
-                <element signature="e#17049#17198#0" expanded="true" />
-                <element signature="e#17191#17192#0" expanded="true" />
-                <element signature="e#17504#17505#0" expanded="true" />
-                <element signature="e#17535#17536#0" expanded="true" />
-                <element signature="e#26328#26329#0" expanded="true" />
-                <element signature="e#26359#26360#0" expanded="true" />
-                <element signature="e#30018#30019#0" expanded="true" />
-                <element signature="e#30049#30050#0" expanded="true" />
-                <element signature="e#30414#30422#0" expanded="true" />
-                <element signature="e#34346#34347#0" expanded="true" />
-                <element signature="e#34392#34393#0" expanded="true" />
-                <element signature="e#34723#34731#0" expanded="true" />
-                <element signature="e#45117#45149#0" expanded="true" />
-                <element signature="e#58904#58905#0" expanded="true" />
-                <element signature="e#58932#58933#0" expanded="true" />
-                <element signature="e#60670#60852#0" expanded="true" />
-                <element signature="e#60844#60845#0" expanded="true" />
-                <element signature="e#61126#61379#0" expanded="true" />
-                <element signature="e#61371#61372#0" expanded="true" />
-                <element signature="e#61696#61697#0" expanded="true" />
-                <element signature="e#61727#61728#0" expanded="true" />
-                <element signature="e#65834#66008#0" expanded="true" />
-                <element signature="e#66001#66002#0" expanded="true" />
-                <element signature="e#66252#66253#0" expanded="true" />
-                <element signature="e#66283#66284#0" expanded="true" />
-                <element signature="e#69190#69372#0" expanded="true" />
-                <element signature="e#69365#69366#0" expanded="true" />
-                <element signature="e#69654#69655#0" expanded="true" />
-                <element signature="e#69685#69686#0" expanded="true" />
-                <element signature="e#72701#72885#0" expanded="true" />
-                <element signature="e#72878#72879#0" expanded="true" />
-                <element signature="e#73090#73091#0" expanded="true" />
-                <element signature="e#73121#73122#0" expanded="true" />
-                <element signature="e#76795#76978#0" expanded="true" />
-                <element signature="e#76971#76972#0" expanded="true" />
-                <element signature="e#77262#77263#0" expanded="true" />
-                <element signature="e#77293#77294#0" expanded="true" />
-                <element signature="e#80811#80994#0" expanded="true" />
-                <element signature="e#80987#80988#0" expanded="true" />
-                <element signature="e#81197#81198#0" expanded="true" />
-                <element signature="e#81228#81229#0" expanded="true" />
-                <element signature="e#85201#85383#0" expanded="true" />
-                <element signature="e#85376#85377#0" expanded="true" />
-                <element signature="e#85665#85666#0" expanded="true" />
-                <element signature="e#85696#85697#0" expanded="true" />
-                <element signature="e#89236#89415#0" expanded="true" />
-                <element signature="e#89408#89409#0" expanded="true" />
-                <element signature="e#89610#89611#0" expanded="true" />
-                <element signature="e#89641#89642#0" expanded="true" />
-                <element signature="e#94464#94647#0" expanded="true" />
-                <element signature="e#94640#94641#0" expanded="true" />
-                <element signature="e#94850#94851#0" expanded="true" />
-                <element signature="e#94881#94882#0" expanded="true" />
-                <element signature="e#99255#99437#0" expanded="true" />
-                <element signature="e#99430#99431#0" expanded="true" />
-                <element signature="e#99710#99711#0" expanded="true" />
-                <element signature="e#99741#99742#0" expanded="true" />
+                <element signature="e#17546#17700#0" expanded="true" />
+                <element signature="e#17692#17693#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="strings_activity_settings.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings_activity_settings.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="945">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SettingsFragment.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/elena/sdplay/SettingsFragment.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="465" max-vertical-offset="825">
-              <caret line="46" column="54" selection-start-line="46" selection-start-column="54" selection-end-line="46" selection-end-column="54" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="activity_top_results.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_top_results.xml">
-          <provider editor-type-id="android-designer">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.4444447" vertical-offset="1020" max-vertical-offset="2475">
-              <caret line="76" column="42" selection-start-line="76" selection-start-column="42" selection-end-line="76" selection-end-column="42" />
-              <folding>
-                <element signature="e#2938#2954#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="strings.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.8" vertical-offset="660" max-vertical-offset="1125">
-              <caret line="52" column="32" selection-start-line="52" selection-start-column="32" selection-end-line="52" selection-end-column="32" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MainActivity.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="MainActivity.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/elena/sdplay/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="6769" max-vertical-offset="10155">
-              <caret line="521" column="75" selection-start-line="521" selection-start-column="75" selection-end-line="521" selection-end-column="75" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TopResults.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/elena/sdplay/TopResults.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.2692308" vertical-offset="440" max-vertical-offset="5760">
-              <caret line="58" column="22" selection-start-line="58" selection-start-column="20" selection-end-line="58" selection-end-column="22" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ShowTopFsRes.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/elena/sdplay/ShowTopFsRes.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.2692308" vertical-offset="2810" max-vertical-offset="6060">
-              <caret line="224" column="31" selection-start-line="224" selection-start-column="27" selection-end-line="224" selection-end-column="31" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MyResDBHelper.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/elena/sdplay/MyResDBHelper.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="8.615385" vertical-offset="704" max-vertical-offset="1275">
-              <caret line="34" column="61" selection-start-line="34" selection-start-column="61" selection-end-line="34" selection-end-column="61" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SummaryView.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/elena/sdplay/SummaryView.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.2692308" vertical-offset="2825" max-vertical-offset="6225">
-              <caret line="225" column="72" selection-start-line="225" selection-start-column="68" selection-end-line="225" selection-end-column="72" />
+            <state vertical-scroll-proportion="0.30141845" vertical-offset="5690" max-vertical-offset="10215">
+              <caret line="422" column="43" selection-start-line="422" selection-start-column="43" selection-end-line="422" selection-end-column="43" />
               <folding />
             </state>
           </provider>
@@ -1178,7 +1022,7 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="$PROJECT_DIR$" value="4273196599000" />
+        <entry key="$PROJECT_DIR$" value="4273404340000" />
       </map>
     </option>
     <option name="projectBuildClasspath">
@@ -1346,6 +1190,7 @@
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/commons-codec/commons-codec/1.4/commons-codec-1.4.jar" />
                             <option value="$USER_HOME$/Library/Android/sdk/extras/android/m2repository/com/android/support/support-v4/21.0.3/support-v4-21.0.3.aar" />
                             <option value="$USER_HOME$/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/21.0.3/support-annotations-21.0.3.jar" />
+                            <option value="$MODULE_DIR$/libs/javacsv.jar" />
                           </list>
                         </option>
                         <option name="path" value="$PROJECT_DIR$/app" />
@@ -1425,19 +1270,19 @@
       <list>
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/jni/Android.mk" />
-        <option value="$PROJECT_DIR$/app/build.gradle" />
         <option value="$PROJECT_DIR$/app/src/main/jni/directIO.c" />
         <option value="$PROJECT_DIR$/local.properties" />
         <option value="$PROJECT_DIR$/app/src/main/res/xml/pref_general.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/elena/sdplay/SettingsFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/elena/sdplay/TopResults.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/elena/sdplay/SummaryView.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/elena/sdplay/ShowTopFsRes.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/elena/sdplay/MyResDBHelper.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/elena/sdplay/BenchStart.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/elena/sdplay/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_top_results.xml" />
+        <option value="$PROJECT_DIR$/app/build.gradle" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/elena/sdplay/MyResDBHelper.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/elena/sdplay/MainActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/elena/sdplay/BenchStart.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/elena/sdplay/ShowTopFsRes.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/elena/sdplay/SummaryView.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/elena/sdplay/TopResults.java" />
       </list>
     </option>
   </component>
@@ -1472,6 +1317,58 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="PackagesPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sdplay-master" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="AndroidView">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sdplay-master" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Gradle Scripts" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidBuildScriptsGroupNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sdplay-master" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sdplay-master" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sdplay" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
       <pane id="Scope">
         <subPane subId="Default" />
         <subPane subId="Problems" />
@@ -1551,125 +1448,41 @@
               <option name="myItemId" value="sdplay-master" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
-      <pane id="PackagesPane">
-        <subPane>
-          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="sdplay-master" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
-      <pane id="AndroidView">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sdplay-master" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Gradle Scripts" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidBuildScriptsGroupNode" />
+              <option name="myItemId" value="SDPlay" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
               <option name="myItemId" value="sdplay-master" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SDPlay" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
               <option name="myItemId" value="sdplay-master" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SDPlay" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="xml" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderTypeNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sdplay-master" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="values" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderTypeNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sdplay-master" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sdplay-master" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="layout" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderTypeNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sdplay-master" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sdplay" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
+              <option name="myItemId" value="libs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -1684,7 +1497,7 @@
     <property name="MemberChooser.showClasses" value="true" />
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="recentsLimit" value="5" />
-    <property name="android.project.structure.last.selected" value="SDK Location" />
+    <property name="android.project.structure.last.selected" value="app" />
     <property name="android.project.structure.proportion" value="0.15" />
     <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="LP5A2C0036" />
     <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_AVD" value="Nexus_5_API_21_x86" />
@@ -1871,13 +1684,12 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1366" height="677" extended-state="0" />
+    <frame x="0" y="23" width="1366" height="677" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32998565" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32930514" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.47864768" sideWeight="0.23036253" order="7" side_tool="true" content_ui="tabs" />
@@ -1886,19 +1698,20 @@
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5408895" sideWeight="0.23416789" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2496318" sideWeight="0.5010707" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32976827" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.44741532" sideWeight="0.76888216" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.44741532" sideWeight="0.76888216" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20694864" sideWeight="0.7225807" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20694864" sideWeight="0.71935487" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32976827" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Memory Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32930514" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32998565" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39885223" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1924,85 +1737,30 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/elena/sdplay/MyResDBHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="510" max-vertical-offset="1335">
+          <caret line="34" column="61" selection-start-line="34" selection-start-column="61" selection-end-line="34" selection-end-column="61" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/elena/sdplay/SummaryView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="3375" max-vertical-offset="6720">
+          <caret line="225" column="72" selection-start-line="225" selection-start-column="68" selection-end-line="225" selection-end-column="72" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/elena/sdplay/BenchStart.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="48183" max-vertical-offset="48540">
           <caret line="3329" column="5" selection-start-line="3329" selection-start-column="5" selection-end-line="3329" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#8123#8376#0" expanded="true" />
-            <element signature="e#8368#8369#0" expanded="true" />
-            <element signature="e#12153#12408#0" expanded="true" />
-            <element signature="e#12400#12401#0" expanded="true" />
-            <element signature="e#12455#12614#0" expanded="true" />
-            <element signature="e#12606#12607#0" expanded="true" />
-            <element signature="e#13554#13713#0" expanded="true" />
-            <element signature="e#13705#13706#0" expanded="true" />
-            <element signature="e#14463#14668#0" expanded="true" />
-            <element signature="e#14653#14654#0" expanded="true" />
-            <element signature="e#15209#15357#0" expanded="true" />
-            <element signature="e#15350#15351#0" expanded="true" />
-            <element signature="e#16067#16221#0" expanded="true" />
-            <element signature="e#16213#16214#0" expanded="true" />
-            <element signature="e#16534#16787#0" expanded="true" />
-            <element signature="e#16779#16780#0" expanded="true" />
-            <element signature="e#17049#17198#0" expanded="true" />
-            <element signature="e#17191#17192#0" expanded="true" />
-            <element signature="e#17504#17505#0" expanded="true" />
-            <element signature="e#17535#17536#0" expanded="true" />
-            <element signature="e#26328#26329#0" expanded="true" />
-            <element signature="e#26359#26360#0" expanded="true" />
-            <element signature="e#30018#30019#0" expanded="true" />
-            <element signature="e#30049#30050#0" expanded="true" />
-            <element signature="e#30414#30422#0" expanded="true" />
-            <element signature="e#34346#34347#0" expanded="true" />
-            <element signature="e#34392#34393#0" expanded="true" />
-            <element signature="e#34723#34731#0" expanded="true" />
-            <element signature="e#45117#45149#0" expanded="true" />
-            <element signature="e#58904#58905#0" expanded="true" />
-            <element signature="e#58932#58933#0" expanded="true" />
-            <element signature="e#60670#60852#0" expanded="true" />
-            <element signature="e#60844#60845#0" expanded="true" />
-            <element signature="e#61126#61379#0" expanded="true" />
-            <element signature="e#61371#61372#0" expanded="true" />
-            <element signature="e#61696#61697#0" expanded="true" />
-            <element signature="e#61727#61728#0" expanded="true" />
-            <element signature="e#65834#66008#0" expanded="true" />
-            <element signature="e#66001#66002#0" expanded="true" />
-            <element signature="e#66252#66253#0" expanded="true" />
-            <element signature="e#66283#66284#0" expanded="true" />
-            <element signature="e#69190#69372#0" expanded="true" />
-            <element signature="e#69365#69366#0" expanded="true" />
-            <element signature="e#69654#69655#0" expanded="true" />
-            <element signature="e#69685#69686#0" expanded="true" />
-            <element signature="e#72701#72885#0" expanded="true" />
-            <element signature="e#72878#72879#0" expanded="true" />
-            <element signature="e#73090#73091#0" expanded="true" />
-            <element signature="e#73121#73122#0" expanded="true" />
-            <element signature="e#76795#76978#0" expanded="true" />
-            <element signature="e#76971#76972#0" expanded="true" />
-            <element signature="e#77262#77263#0" expanded="true" />
-            <element signature="e#77293#77294#0" expanded="true" />
-            <element signature="e#80811#80994#0" expanded="true" />
-            <element signature="e#80987#80988#0" expanded="true" />
-            <element signature="e#81197#81198#0" expanded="true" />
-            <element signature="e#81228#81229#0" expanded="true" />
-            <element signature="e#85201#85383#0" expanded="true" />
-            <element signature="e#85376#85377#0" expanded="true" />
-            <element signature="e#85665#85666#0" expanded="true" />
-            <element signature="e#85696#85697#0" expanded="true" />
-            <element signature="e#89236#89415#0" expanded="true" />
-            <element signature="e#89408#89409#0" expanded="true" />
-            <element signature="e#89610#89611#0" expanded="true" />
-            <element signature="e#89641#89642#0" expanded="true" />
-            <element signature="e#94464#94647#0" expanded="true" />
-            <element signature="e#94640#94641#0" expanded="true" />
-            <element signature="e#94850#94851#0" expanded="true" />
-            <element signature="e#94881#94882#0" expanded="true" />
-            <element signature="e#99255#99437#0" expanded="true" />
-            <element signature="e#99430#99431#0" expanded="true" />
-            <element signature="e#99710#99711#0" expanded="true" />
-            <element signature="e#99741#99742#0" expanded="true" />
+            <element signature="e#17546#17700#0" expanded="true" />
+            <element signature="e#17692#17693#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2029,79 +1787,8 @@
           <caret line="3077" column="0" selection-start-line="3077" selection-start-column="0" selection-end-line="3077" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#8123#8376#0" expanded="true" />
-            <element signature="e#8368#8369#0" expanded="true" />
-            <element signature="e#12153#12408#0" expanded="true" />
-            <element signature="e#12400#12401#0" expanded="true" />
-            <element signature="e#12455#12614#0" expanded="true" />
-            <element signature="e#12606#12607#0" expanded="true" />
-            <element signature="e#13554#13713#0" expanded="true" />
-            <element signature="e#13705#13706#0" expanded="true" />
-            <element signature="e#14463#14668#0" expanded="true" />
-            <element signature="e#14653#14654#0" expanded="true" />
-            <element signature="e#15209#15357#0" expanded="true" />
-            <element signature="e#15350#15351#0" expanded="true" />
-            <element signature="e#16067#16221#0" expanded="true" />
-            <element signature="e#16213#16214#0" expanded="true" />
-            <element signature="e#16534#16787#0" expanded="true" />
-            <element signature="e#16779#16780#0" expanded="true" />
-            <element signature="e#17049#17198#0" expanded="true" />
-            <element signature="e#17191#17192#0" expanded="true" />
-            <element signature="e#17504#17505#0" expanded="true" />
-            <element signature="e#17535#17536#0" expanded="true" />
-            <element signature="e#26328#26329#0" expanded="true" />
-            <element signature="e#26359#26360#0" expanded="true" />
-            <element signature="e#30018#30019#0" expanded="true" />
-            <element signature="e#30049#30050#0" expanded="true" />
-            <element signature="e#30414#30422#0" expanded="true" />
-            <element signature="e#34346#34347#0" expanded="true" />
-            <element signature="e#34392#34393#0" expanded="true" />
-            <element signature="e#34723#34731#0" expanded="true" />
-            <element signature="e#45117#45149#0" expanded="true" />
-            <element signature="e#58904#58905#0" expanded="true" />
-            <element signature="e#58932#58933#0" expanded="true" />
-            <element signature="e#60670#60852#0" expanded="true" />
-            <element signature="e#60844#60845#0" expanded="true" />
-            <element signature="e#61126#61379#0" expanded="true" />
-            <element signature="e#61371#61372#0" expanded="true" />
-            <element signature="e#61696#61697#0" expanded="true" />
-            <element signature="e#61727#61728#0" expanded="true" />
-            <element signature="e#65834#66008#0" expanded="true" />
-            <element signature="e#66001#66002#0" expanded="true" />
-            <element signature="e#66252#66253#0" expanded="true" />
-            <element signature="e#66283#66284#0" expanded="true" />
-            <element signature="e#69190#69372#0" expanded="true" />
-            <element signature="e#69365#69366#0" expanded="true" />
-            <element signature="e#69654#69655#0" expanded="true" />
-            <element signature="e#69685#69686#0" expanded="true" />
-            <element signature="e#72701#72885#0" expanded="true" />
-            <element signature="e#72878#72879#0" expanded="true" />
-            <element signature="e#73090#73091#0" expanded="true" />
-            <element signature="e#73121#73122#0" expanded="true" />
-            <element signature="e#76795#76978#0" expanded="true" />
-            <element signature="e#76971#76972#0" expanded="true" />
-            <element signature="e#77262#77263#0" expanded="true" />
-            <element signature="e#77293#77294#0" expanded="true" />
-            <element signature="e#80811#80994#0" expanded="true" />
-            <element signature="e#80987#80988#0" expanded="true" />
-            <element signature="e#81197#81198#0" expanded="true" />
-            <element signature="e#81228#81229#0" expanded="true" />
-            <element signature="e#85201#85383#0" expanded="true" />
-            <element signature="e#85376#85377#0" expanded="true" />
-            <element signature="e#85665#85666#0" expanded="true" />
-            <element signature="e#85696#85697#0" expanded="true" />
-            <element signature="e#89236#89415#0" expanded="true" />
-            <element signature="e#89408#89409#0" expanded="true" />
-            <element signature="e#89610#89611#0" expanded="true" />
-            <element signature="e#89641#89642#0" expanded="true" />
-            <element signature="e#94464#94647#0" expanded="true" />
-            <element signature="e#94640#94641#0" expanded="true" />
-            <element signature="e#94850#94851#0" expanded="true" />
-            <element signature="e#94881#94882#0" expanded="true" />
-            <element signature="e#99255#99437#0" expanded="true" />
-            <element signature="e#99430#99431#0" expanded="true" />
-            <element signature="e#99710#99711#0" expanded="true" />
-            <element signature="e#99741#99742#0" expanded="true" />
+            <element signature="e#17546#17700#0" expanded="true" />
+            <element signature="e#17692#17693#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2128,79 +1815,8 @@
           <caret line="1815" column="61" selection-start-line="1815" selection-start-column="61" selection-end-line="1815" selection-end-column="61" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#8123#8376#0" expanded="true" />
-            <element signature="e#8368#8369#0" expanded="true" />
-            <element signature="e#12153#12408#0" expanded="true" />
-            <element signature="e#12400#12401#0" expanded="true" />
-            <element signature="e#12455#12614#0" expanded="true" />
-            <element signature="e#12606#12607#0" expanded="true" />
-            <element signature="e#13554#13713#0" expanded="true" />
-            <element signature="e#13705#13706#0" expanded="true" />
-            <element signature="e#14463#14668#0" expanded="true" />
-            <element signature="e#14653#14654#0" expanded="true" />
-            <element signature="e#15209#15357#0" expanded="true" />
-            <element signature="e#15350#15351#0" expanded="true" />
-            <element signature="e#16067#16221#0" expanded="true" />
-            <element signature="e#16213#16214#0" expanded="true" />
-            <element signature="e#16534#16787#0" expanded="true" />
-            <element signature="e#16779#16780#0" expanded="true" />
-            <element signature="e#17049#17198#0" expanded="true" />
-            <element signature="e#17191#17192#0" expanded="true" />
-            <element signature="e#17504#17505#0" expanded="true" />
-            <element signature="e#17535#17536#0" expanded="true" />
-            <element signature="e#26328#26329#0" expanded="true" />
-            <element signature="e#26359#26360#0" expanded="true" />
-            <element signature="e#30018#30019#0" expanded="true" />
-            <element signature="e#30049#30050#0" expanded="true" />
-            <element signature="e#30414#30422#0" expanded="true" />
-            <element signature="e#34346#34347#0" expanded="true" />
-            <element signature="e#34392#34393#0" expanded="true" />
-            <element signature="e#34723#34731#0" expanded="true" />
-            <element signature="e#45117#45149#0" expanded="true" />
-            <element signature="e#58904#58905#0" expanded="true" />
-            <element signature="e#58932#58933#0" expanded="true" />
-            <element signature="e#60670#60852#0" expanded="true" />
-            <element signature="e#60844#60845#0" expanded="true" />
-            <element signature="e#61126#61379#0" expanded="true" />
-            <element signature="e#61371#61372#0" expanded="true" />
-            <element signature="e#61696#61697#0" expanded="true" />
-            <element signature="e#61727#61728#0" expanded="true" />
-            <element signature="e#65834#66008#0" expanded="true" />
-            <element signature="e#66001#66002#0" expanded="true" />
-            <element signature="e#66252#66253#0" expanded="true" />
-            <element signature="e#66283#66284#0" expanded="true" />
-            <element signature="e#69190#69372#0" expanded="true" />
-            <element signature="e#69365#69366#0" expanded="true" />
-            <element signature="e#69654#69655#0" expanded="true" />
-            <element signature="e#69685#69686#0" expanded="true" />
-            <element signature="e#72701#72885#0" expanded="true" />
-            <element signature="e#72878#72879#0" expanded="true" />
-            <element signature="e#73090#73091#0" expanded="true" />
-            <element signature="e#73121#73122#0" expanded="true" />
-            <element signature="e#76795#76978#0" expanded="true" />
-            <element signature="e#76971#76972#0" expanded="true" />
-            <element signature="e#77262#77263#0" expanded="true" />
-            <element signature="e#77293#77294#0" expanded="true" />
-            <element signature="e#80811#80994#0" expanded="true" />
-            <element signature="e#80987#80988#0" expanded="true" />
-            <element signature="e#81197#81198#0" expanded="true" />
-            <element signature="e#81228#81229#0" expanded="true" />
-            <element signature="e#85201#85383#0" expanded="true" />
-            <element signature="e#85376#85377#0" expanded="true" />
-            <element signature="e#85665#85666#0" expanded="true" />
-            <element signature="e#85696#85697#0" expanded="true" />
-            <element signature="e#89236#89415#0" expanded="true" />
-            <element signature="e#89408#89409#0" expanded="true" />
-            <element signature="e#89610#89611#0" expanded="true" />
-            <element signature="e#89641#89642#0" expanded="true" />
-            <element signature="e#94464#94647#0" expanded="true" />
-            <element signature="e#94640#94641#0" expanded="true" />
-            <element signature="e#94850#94851#0" expanded="true" />
-            <element signature="e#94881#94882#0" expanded="true" />
-            <element signature="e#99255#99437#0" expanded="true" />
-            <element signature="e#99430#99431#0" expanded="true" />
-            <element signature="e#99710#99711#0" expanded="true" />
-            <element signature="e#99741#99742#0" expanded="true" />
+            <element signature="e#17546#17700#0" expanded="true" />
+            <element signature="e#17692#17693#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2248,79 +1864,8 @@
           <caret line="3133" column="9" selection-start-line="3133" selection-start-column="9" selection-end-line="3133" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#8123#8376#0" expanded="true" />
-            <element signature="e#8368#8369#0" expanded="true" />
-            <element signature="e#12153#12408#0" expanded="true" />
-            <element signature="e#12400#12401#0" expanded="true" />
-            <element signature="e#12455#12614#0" expanded="true" />
-            <element signature="e#12606#12607#0" expanded="true" />
-            <element signature="e#13554#13713#0" expanded="true" />
-            <element signature="e#13705#13706#0" expanded="true" />
-            <element signature="e#14463#14668#0" expanded="true" />
-            <element signature="e#14653#14654#0" expanded="true" />
-            <element signature="e#15209#15357#0" expanded="true" />
-            <element signature="e#15350#15351#0" expanded="true" />
-            <element signature="e#16067#16221#0" expanded="true" />
-            <element signature="e#16213#16214#0" expanded="true" />
-            <element signature="e#16534#16787#0" expanded="true" />
-            <element signature="e#16779#16780#0" expanded="true" />
-            <element signature="e#17049#17198#0" expanded="true" />
-            <element signature="e#17191#17192#0" expanded="true" />
-            <element signature="e#17504#17505#0" expanded="true" />
-            <element signature="e#17535#17536#0" expanded="true" />
-            <element signature="e#26328#26329#0" expanded="true" />
-            <element signature="e#26359#26360#0" expanded="true" />
-            <element signature="e#30018#30019#0" expanded="true" />
-            <element signature="e#30049#30050#0" expanded="true" />
-            <element signature="e#30414#30422#0" expanded="true" />
-            <element signature="e#34346#34347#0" expanded="true" />
-            <element signature="e#34392#34393#0" expanded="true" />
-            <element signature="e#34723#34731#0" expanded="true" />
-            <element signature="e#45117#45149#0" expanded="true" />
-            <element signature="e#58904#58905#0" expanded="true" />
-            <element signature="e#58932#58933#0" expanded="true" />
-            <element signature="e#60670#60852#0" expanded="true" />
-            <element signature="e#60844#60845#0" expanded="true" />
-            <element signature="e#61126#61379#0" expanded="true" />
-            <element signature="e#61371#61372#0" expanded="true" />
-            <element signature="e#61696#61697#0" expanded="true" />
-            <element signature="e#61727#61728#0" expanded="true" />
-            <element signature="e#65834#66008#0" expanded="true" />
-            <element signature="e#66001#66002#0" expanded="true" />
-            <element signature="e#66252#66253#0" expanded="true" />
-            <element signature="e#66283#66284#0" expanded="true" />
-            <element signature="e#69190#69372#0" expanded="true" />
-            <element signature="e#69365#69366#0" expanded="true" />
-            <element signature="e#69654#69655#0" expanded="true" />
-            <element signature="e#69685#69686#0" expanded="true" />
-            <element signature="e#72701#72885#0" expanded="true" />
-            <element signature="e#72878#72879#0" expanded="true" />
-            <element signature="e#73090#73091#0" expanded="true" />
-            <element signature="e#73121#73122#0" expanded="true" />
-            <element signature="e#76795#76978#0" expanded="true" />
-            <element signature="e#76971#76972#0" expanded="true" />
-            <element signature="e#77262#77263#0" expanded="true" />
-            <element signature="e#77293#77294#0" expanded="true" />
-            <element signature="e#80811#80994#0" expanded="true" />
-            <element signature="e#80987#80988#0" expanded="true" />
-            <element signature="e#81197#81198#0" expanded="true" />
-            <element signature="e#81228#81229#0" expanded="true" />
-            <element signature="e#85201#85383#0" expanded="true" />
-            <element signature="e#85376#85377#0" expanded="true" />
-            <element signature="e#85665#85666#0" expanded="true" />
-            <element signature="e#85696#85697#0" expanded="true" />
-            <element signature="e#89236#89415#0" expanded="true" />
-            <element signature="e#89408#89409#0" expanded="true" />
-            <element signature="e#89610#89611#0" expanded="true" />
-            <element signature="e#89641#89642#0" expanded="true" />
-            <element signature="e#94464#94647#0" expanded="true" />
-            <element signature="e#94640#94641#0" expanded="true" />
-            <element signature="e#94850#94851#0" expanded="true" />
-            <element signature="e#94881#94882#0" expanded="true" />
-            <element signature="e#99255#99437#0" expanded="true" />
-            <element signature="e#99430#99431#0" expanded="true" />
-            <element signature="e#99710#99711#0" expanded="true" />
-            <element signature="e#99741#99742#0" expanded="true" />
+            <element signature="e#17546#17700#0" expanded="true" />
+            <element signature="e#17692#17693#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2454,13 +1999,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="510">
-          <caret line="23" column="1" selection-start-line="23" selection-start-column="1" selection-end-line="23" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="315">
@@ -2472,9 +2010,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1155">
           <caret line="5" column="26" selection-start-line="5" selection-start-column="26" selection-end-line="5" selection-end-column="26" />
-          <folding>
-            <marker date="1424568589000" expanded="true" signature="-1:-1" placeholder="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2482,7 +2017,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="315">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2494,57 +2028,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/elena/sdplay/SettingsFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="465" max-vertical-offset="825">
-          <caret line="46" column="54" selection-start-line="46" selection-start-column="54" selection-end-line="46" selection-end-column="54" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/elena/sdplay/SummaryView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.2692308" vertical-offset="2825" max-vertical-offset="6225">
-          <caret line="225" column="72" selection-start-line="225" selection-start-column="68" selection-end-line="225" selection-end-column="72" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/elena/sdplay/TopResults.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.2692308" vertical-offset="440" max-vertical-offset="5760">
-          <caret line="58" column="22" selection-start-line="58" selection-start-column="20" selection-end-line="58" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/elena/sdplay/ShowTopFsRes.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.2692308" vertical-offset="2810" max-vertical-offset="6060">
-          <caret line="224" column="31" selection-start-line="224" selection-start-column="27" selection-end-line="224" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/elena/sdplay/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="6769" max-vertical-offset="10155">
-          <caret line="521" column="75" selection-start-line="521" selection-start-column="75" selection-end-line="521" selection-end-column="75" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/elena/sdplay/MyResDBHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="8.615385" vertical-offset="704" max-vertical-offset="1275">
-          <caret line="34" column="61" selection-start-line="34" selection-start-column="61" selection-end-line="34" selection-end-column="61" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.8" vertical-offset="660" max-vertical-offset="1125">
+        <state vertical-scroll-proportion="0.0" vertical-offset="780" max-vertical-offset="1125">
           <caret line="52" column="32" selection-start-line="52" selection-start-column="32" selection-end-line="52" selection-end-column="32" />
           <folding />
         </state>
@@ -2555,94 +2041,109 @@
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.4444447" vertical-offset="1020" max-vertical-offset="2475">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1020" max-vertical-offset="2475">
           <caret line="76" column="42" selection-start-line="76" selection-start-column="42" selection-end-line="76" selection-end-column="42" />
-          <folding>
-            <element signature="e#2938#2954#0" expanded="true" />
-          </folding>
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="390" max-vertical-offset="525">
+          <caret line="26" column="20" selection-start-line="26" selection-start-column="20" selection-end-line="26" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/elena/sdplay/MyResDBHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="522" max-vertical-offset="1260">
+          <caret line="61" column="80" selection-start-line="61" selection-start-column="80" selection-end-line="61" selection-end-column="80" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/elena/sdplay/ShowTopFsRes.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.576923" vertical-offset="1760" max-vertical-offset="6060">
+          <caret line="152" column="48" selection-start-line="152" selection-start-column="48" selection-end-line="152" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/elena/sdplay/SummaryView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.576923" vertical-offset="1910" max-vertical-offset="6225">
+          <caret line="162" column="48" selection-start-line="162" selection-start-column="48" selection-end-line="162" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/elena/sdplay/TopResults.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.8846154" vertical-offset="1670" max-vertical-offset="5760">
+          <caret line="150" column="43" selection-start-line="150" selection-start-column="43" selection-end-line="150" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/elena/sdplay/ExpandableHeightListView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.3076923" vertical-offset="0" max-vertical-offset="645">
+          <caret line="7" column="21" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/elena/sdplay/MyDBHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.8846154" vertical-offset="0" max-vertical-offset="690">
+          <caret line="7" column="30" selection-start-line="7" selection-start-column="28" selection-end-line="7" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/elena/sdplay/SDCardStateChangeListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.3076923" vertical-offset="0" max-vertical-offset="1125">
+          <caret line="8" column="17" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/elena/sdplay/SetPreferences.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.3076923" vertical-offset="0" max-vertical-offset="330">
+          <caret line="5" column="37" selection-start-line="5" selection-start-column="36" selection-end-line="5" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/elena/sdplay/SettingsFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33203125" vertical-offset="500" max-vertical-offset="825">
+          <caret line="47" column="24" selection-start-line="47" selection-start-column="23" selection-end-line="47" selection-end-column="24" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/elena/sdplay/BenchStart.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="68.82979" vertical-offset="0" max-vertical-offset="51870">
-          <caret line="1294" column="80" selection-start-line="1294" selection-start-column="80" selection-end-line="1294" selection-end-column="80" />
+        <state vertical-scroll-proportion="-6.1538463" vertical-offset="5885" max-vertical-offset="51270">
+          <caret line="417" column="0" selection-start-line="417" selection-start-column="0" selection-end-line="417" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#8123#8376#0" expanded="true" />
-            <element signature="e#8368#8369#0" expanded="true" />
-            <element signature="e#12153#12408#0" expanded="true" />
-            <element signature="e#12400#12401#0" expanded="true" />
-            <element signature="e#12455#12614#0" expanded="true" />
-            <element signature="e#12606#12607#0" expanded="true" />
-            <element signature="e#13554#13713#0" expanded="true" />
-            <element signature="e#13705#13706#0" expanded="true" />
-            <element signature="e#14463#14668#0" expanded="true" />
-            <element signature="e#14653#14654#0" expanded="true" />
-            <element signature="e#15209#15357#0" expanded="true" />
-            <element signature="e#15350#15351#0" expanded="true" />
-            <element signature="e#16067#16221#0" expanded="true" />
-            <element signature="e#16213#16214#0" expanded="true" />
-            <element signature="e#16534#16787#0" expanded="true" />
-            <element signature="e#16779#16780#0" expanded="true" />
-            <element signature="e#17049#17198#0" expanded="true" />
-            <element signature="e#17191#17192#0" expanded="true" />
-            <element signature="e#17504#17505#0" expanded="true" />
-            <element signature="e#17535#17536#0" expanded="true" />
-            <element signature="e#26328#26329#0" expanded="true" />
-            <element signature="e#26359#26360#0" expanded="true" />
-            <element signature="e#30018#30019#0" expanded="true" />
-            <element signature="e#30049#30050#0" expanded="true" />
-            <element signature="e#30414#30422#0" expanded="true" />
-            <element signature="e#34346#34347#0" expanded="true" />
-            <element signature="e#34392#34393#0" expanded="true" />
-            <element signature="e#34723#34731#0" expanded="true" />
-            <element signature="e#45117#45149#0" expanded="true" />
-            <element signature="e#58904#58905#0" expanded="true" />
-            <element signature="e#58932#58933#0" expanded="true" />
-            <element signature="e#60670#60852#0" expanded="true" />
-            <element signature="e#60844#60845#0" expanded="true" />
-            <element signature="e#61126#61379#0" expanded="true" />
-            <element signature="e#61371#61372#0" expanded="true" />
-            <element signature="e#61696#61697#0" expanded="true" />
-            <element signature="e#61727#61728#0" expanded="true" />
-            <element signature="e#65834#66008#0" expanded="true" />
-            <element signature="e#66001#66002#0" expanded="true" />
-            <element signature="e#66252#66253#0" expanded="true" />
-            <element signature="e#66283#66284#0" expanded="true" />
-            <element signature="e#69190#69372#0" expanded="true" />
-            <element signature="e#69365#69366#0" expanded="true" />
-            <element signature="e#69654#69655#0" expanded="true" />
-            <element signature="e#69685#69686#0" expanded="true" />
-            <element signature="e#72701#72885#0" expanded="true" />
-            <element signature="e#72878#72879#0" expanded="true" />
-            <element signature="e#73090#73091#0" expanded="true" />
-            <element signature="e#73121#73122#0" expanded="true" />
-            <element signature="e#76795#76978#0" expanded="true" />
-            <element signature="e#76971#76972#0" expanded="true" />
-            <element signature="e#77262#77263#0" expanded="true" />
-            <element signature="e#77293#77294#0" expanded="true" />
-            <element signature="e#80811#80994#0" expanded="true" />
-            <element signature="e#80987#80988#0" expanded="true" />
-            <element signature="e#81197#81198#0" expanded="true" />
-            <element signature="e#81228#81229#0" expanded="true" />
-            <element signature="e#85201#85383#0" expanded="true" />
-            <element signature="e#85376#85377#0" expanded="true" />
-            <element signature="e#85665#85666#0" expanded="true" />
-            <element signature="e#85696#85697#0" expanded="true" />
-            <element signature="e#89236#89415#0" expanded="true" />
-            <element signature="e#89408#89409#0" expanded="true" />
-            <element signature="e#89610#89611#0" expanded="true" />
-            <element signature="e#89641#89642#0" expanded="true" />
-            <element signature="e#94464#94647#0" expanded="true" />
-            <element signature="e#94640#94641#0" expanded="true" />
-            <element signature="e#94850#94851#0" expanded="true" />
-            <element signature="e#94881#94882#0" expanded="true" />
-            <element signature="e#99255#99437#0" expanded="true" />
-            <element signature="e#99430#99431#0" expanded="true" />
-            <element signature="e#99710#99711#0" expanded="true" />
-            <element signature="e#99741#99742#0" expanded="true" />
+            <element signature="e#17546#17700#0" expanded="true" />
+            <element signature="e#17692#17693#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/elena/sdplay/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.30141845" vertical-offset="5690" max-vertical-offset="10215">
+          <caret line="422" column="43" selection-start-line="422" selection-start-column="43" selection-end-line="422" selection-end-column="43" />
+          <folding />
         </state>
       </provider>
     </entry>
