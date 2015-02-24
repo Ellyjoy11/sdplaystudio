@@ -38,6 +38,7 @@ import java.util.HashMap;
 public class MainActivity extends Activity {
 
 	private static final String TAG = "SDPlayDebug";
+    public static final boolean LOG_ON = true;
     public static final String ABOUT_TITLE = "\u00a9 2014-2015 Elena Last, Igor Kovalenko";
     public static String ABOUT_VERSION;
 	public final static String SD_PATH = "com.elena.sdplay.SD_PATH";
@@ -111,7 +112,7 @@ public class MainActivity extends Activity {
 			appVersion = this.getPackageManager().getPackageInfo(
 					this.getPackageName(), 0).versionName;
 		} catch (NameNotFoundException e) {
-			Log.d("SDPlay", "App version not found " + e.getMessage());
+			Log.d(TAG, "App version not found " + e.getMessage());
 		}
 
         ABOUT_VERSION = "SD Play v." + appVersion;
@@ -125,7 +126,9 @@ public class MainActivity extends Activity {
 			// Log.d("SDPlay", "file_list length " + file_list.length);
 		}
 		intPath = file_list[0].toString();
-		Log.d(TAG, "internal path: " + intPath);
+        if (LOG_ON) {
+            Log.d(TAG, "internal path: " + intPath);
+        }
 
 		// check if reference results are added into DB already
 		// if not yet - add them
@@ -206,9 +209,13 @@ public class MainActivity extends Activity {
 		} else if (mount_out.matches(patternEncrypted)) {
 			userdata_test_path = mount_out.replaceAll(patternEncrypted, "$1");
             isEncrypted = true;
-			// Log.d("SDPlay", "userdata is encrypted " + userdata_test_path);
+            if (LOG_ON) {
+                Log.d(TAG, "userdata is encrypted " + userdata_test_path);
+            }
 		} else {
-			Log.d("SDPlay", "userdata path does not match");
+            if (LOG_ON) {
+                Log.d(TAG, "userdata path does not match");
+            }
 		}
 
 		// /////////end of parse mount///////////
@@ -328,6 +335,10 @@ public class MainActivity extends Activity {
 				"Custom path isn't defined yet");
 		TextView customPath = (TextView) findViewById(R.id.custom_path);
 		customPath.setText(tmp);
+        if (!tmp.contains("Custom path isn't defined yet")) {
+            checkCustomPath(userPref.getString("customPath",
+                    ""), false);
+        }
 		addListenerOnStart();
 	}
 
@@ -465,7 +476,7 @@ public class MainActivity extends Activity {
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
 				String tmpString = input.getText().toString();
-				if (checkCustomPath(tmpString) != 0) {
+				if (checkCustomPath(tmpString, true) != 0) {
 					final String tmpFs = userPref.getString("customPathFs",
 							"Path isn't defined yet");
 					TextView customPath = (TextView) findViewById(R.id.custom_path);
@@ -611,7 +622,7 @@ public class MainActivity extends Activity {
 		// /////////end of usb case///////////
 	}
 
-	public int checkCustomPath(String pathToCheck) {
+	public int checkCustomPath(String pathToCheck, boolean addFsType) {
 		// isCustomChecked = false;
 		// mount_out = MainActivity.getMountOutput();
 		customPathVerified = "";
@@ -627,7 +638,9 @@ public class MainActivity extends Activity {
 		String rootCustom = "";
 		if (customPath.matches(rootDirPattern)) {
 			rootCustom = customPath.replaceAll(rootDirPattern, "$1");
-			// Log.d("SDPlay", "root for custom path " + rootCustom);
+            if (LOG_ON) {
+                Log.d(TAG, "root for custom path " + rootCustom);
+            }
 		}
 		File cust_r = new File(rootCustom);
 
@@ -643,13 +656,17 @@ public class MainActivity extends Activity {
 		if (!cust_r.exists() || !cust_r.isDirectory()) {
 			Toast.makeText(getApplicationContext(),
 					"Custom path doesn't exist", Toast.LENGTH_SHORT).show();
-			Log.d("SDPlay", "oops - custom path does not exist!");
+            if (LOG_ON) {
+                Log.d(TAG, "oops - custom path does not exist!");
+            }
 			return 0;
 		} else if (!cust_r.canExecute() || !cust_r.canWrite()) {
 			Toast.makeText(getApplicationContext(),
 					"You have no enough permissions for that storage!",
 					Toast.LENGTH_SHORT).show();
-			Log.d("SDPlay", "permissions for root of custom path FAIL");
+            if (LOG_ON) {
+                Log.d(TAG, "permissions for root of custom path FAIL");
+            }
 			return 0;
 		}
 
@@ -663,16 +680,22 @@ public class MainActivity extends Activity {
 			if (custom_f.exists() && custom_f.isDirectory()) {
 
 				customPathVerified = custom_f.getAbsolutePath();
-				// Log.d("SDPlay", "custom path exists: " + customPathVerified);
+                if (LOG_ON) {
+                    Log.d(TAG, "custom path exists: " + customPathVerified);
+                }
 			}
-			// Log.d("SDPlay",
-			// "permissions for root of custom OK" + cust_f.canExecute()
-			// + cust_f.canRead() + cust_f.canWrite());
+            if (LOG_ON) {
+                Log.d(TAG,
+                 "permissions for root of custom OK: " + cust_f.canExecute() + "; "
+                 + cust_f.canRead() + "; "+ cust_f.canWrite());
+            }
 		} else {
 			Toast.makeText(getApplicationContext(),
 					"Custom path doesn't exist", Toast.LENGTH_SHORT).show();
-			Log.d("SDPlay", "custom path does not exist" + cust_f.canExecute()
-					+ cust_f.canRead() + cust_f.canWrite());
+            if (LOG_ON) {
+                Log.d(TAG, "custom path does not exist: " + cust_f.canExecute() + "; "
+                        + cust_f.canRead() + "; " + cust_f.canWrite());
+            }
 			return 0;
 		}
 
@@ -691,7 +714,6 @@ public class MainActivity extends Activity {
 			try {
 				if (BenchStart.isSymlink(cust_r)) {
 					// Log.d("SDPlay", "custom path is symlink - true");
-					// TODO replace rootCustom with symlink target
 					custFsTypePattern = ".*" + cust_r.getCanonicalPath()
 							+ "\\s+(\\w*).*";
 				} else {
@@ -709,13 +731,15 @@ public class MainActivity extends Activity {
 				e.printStackTrace();
 			}
 		}
-		SharedPreferences userPref = PreferenceManager
-				.getDefaultSharedPreferences(this);
-		Editor editor = userPref.edit();
-		editor.putString("customPathFs", pathToCheck + " [" + customFsType
-				+ "]");
-		editor.putString("customPath", pathToCheck);
-		editor.commit();
+        if (addFsType) {
+            SharedPreferences userPref = PreferenceManager
+                    .getDefaultSharedPreferences(this);
+            Editor editor = userPref.edit();
+            editor.putString("customPathFs", pathToCheck + " [" + customFsType
+                    + "]");
+            editor.putString("customPath", pathToCheck);
+            editor.commit();
+        }
 		return 1;
 		// isCustomChecked = true;
 	}
