@@ -491,7 +491,17 @@ public void onDeleteAllClick(View view) {
 			rs = 0;
 			rndws = 0;
 			rndrs = 0;
-			tmp = "";
+            /////delete previous fs test values as well
+            isFsDone = false;
+
+            create_fs = 0;
+            list_fs = 0;
+            medium_write_rate = 0;
+            medium_read_rate = 0;
+            large_write_rate = 0;
+            large_read_rate = 0;
+            ////////////////////
+            tmp = "";
 			textView.setText(tmp);
 			textView11.setText(tmp);
 			if (!ALL) {
@@ -1857,6 +1867,16 @@ public void onDeleteAllClick(View view) {
 	// ////////////////FS Test part/////////////////////////////////////////////
 	public void onFsTestClick(View view) {
 		if (checkPath()) {
+
+            ///////if only fs is running, erase previous DB test values///////
+            if (!ALL) {
+                isWritten = false;
+                ws = 0;
+                rs = 0;
+                rndws = 0;
+                rndrs = 0;
+            }
+            ///////////////
 			isFsDone = false;
 
 			create_fs = 0;
