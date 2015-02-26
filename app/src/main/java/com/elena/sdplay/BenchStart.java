@@ -1258,14 +1258,18 @@ public void onDeleteAllClick(View view) {
 				}
 
 				values.put(myResDB.RES_DETAILS, full_details);
+                values.put(myResDB.RES_EMMC_SIZE, eMmcSize);
 				values.put(myResDB.RES_SERIAL, serial);
 				//if (!(card_oper_mode.isEmpty())) {
 				//	values.put(myResDB.RES_OPER_MODE, card_oper_mode);
 				//}
 				values.put(myResDB.RES_NOTES, nickname);
 				values.put(myResDB.RES_BUILD_ID, build_id + "/" + build_type);
-				// values.put(myResDB.RES_BUILD_TYPE, build_type);
-				values.put(myResDB.RES_FS_TYPE, fs_type);
+                if (MainActivity.isEncrypted) {
+                    values.put(myResDB.RES_FS_TYPE, fs_type + "*enc");
+                } else {
+                    values.put(myResDB.RES_FS_TYPE, fs_type);
+                }
 				values.put(myResDB.RES_W_SPEED, String.format("%.2f", ws));
 				values.put(myResDB.RES_D_SPEED, String.format("%.2f", rs));
 				values.put(myResDB.RES_RW_SPEED, String.format("%.2f", rndws));

@@ -15,6 +15,7 @@ public class MyResDBHelper extends SQLiteOpenHelper {
 	public final String RES_FS_TYPE = "_fs_type";
 	public final String RES_OEMID = "_oemid";
 	public final String RES_DETAILS = "_details";
+    public final String RES_EMMC_SIZE = "_emmc_size";
 	public final String RES_MANFID = "_manfid";
 	public final String RES_SERIAL = "_serial";
 	//public final String RES_OPER_MODE = "_oper_mode";
@@ -47,7 +48,7 @@ public class MyResDBHelper extends SQLiteOpenHelper {
 	// creation SQLite statement
 	private final String DATABASE_CREATE = "create table " + RES_TABLE + "("
 			+ RES_ID + " integer primary key autoincrement, " + RES_OEMID
-			+ " text, " + RES_MANFID + " text, " + RES_NAME + " text, " + RES_DETAILS + " text, " + RES_SERIAL + " text, "
+			+ " text, " + RES_MANFID + " text, " + RES_NAME + " text, " + RES_DETAILS + " text, " + RES_EMMC_SIZE + " text, " + RES_SERIAL + " text, "
             + RES_BUILD_ID + " text, " + RES_FS_TYPE + " text, " + RES_NOTES
 			+ " text, " + RES_W_SPEED + " text, "
 			+ RES_RW_SPEED + " text, "

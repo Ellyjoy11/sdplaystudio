@@ -15,6 +15,7 @@ import android.hardware.usb.UsbDevice;
 import android.hardware.usb.UsbManager;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.text.Html;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -54,7 +55,7 @@ public class MainActivity extends Activity {
 	private String usb_drive_path;
 	private int is_userdata = 0;
 	private int isCustom = 1;
-    private boolean isEncrypted = false;
+    public static boolean isEncrypted = false;
 	String custom_path;
 	EditText customPathEntered;
 	String customPathVerified;
@@ -278,25 +279,38 @@ public class MainActivity extends Activity {
 		for (int i = 0; i < file_list.length; i++) {
 			if (file_list[i] != null) {
 
+                radiobutton[i] = new RadioButton(this);
+                radiobutton[i].setId(i);
+
 				if (i == 0) {
 					textShow = "Internal Memory" + " [" + intFsType + "]";
+                    if (isEncrypted) {
+                        radiobutton[i].setText(Html.fromHtml(textShow + "<sup><small>enc</small></sup>"));
+                    } else {
+                        radiobutton[i].setText(textShow);
+                    }
 				} else if (i == 1) {
 					textShow = "External SD Card" + " [" + extFsType + "]";
+                    radiobutton[i].setText(textShow);
 				} else {
 					textShow = file_list[i].toString();
+                    radiobutton[i].setText(textShow);
 				}
 
-				radiobutton[i] = new RadioButton(this);
-				radiobutton[i].setText(textShow);
-				radiobutton[i].setId(i);
 				pick.addView(radiobutton[i]);
 				sdPath = file_list[i].toString();
 			}
 		}
 		if (is_userdata == 1) {
 			radiobutton[file_list.length] = new RadioButton(this);
-			radiobutton[file_list.length].setText("/userdata" + " ["
-					+ userdataFsType + "]");
+            if (isEncrypted) {
+                radiobutton[file_list.length].setText(Html.fromHtml("/userdata" + " ["
+                        + userdataFsType + "]<sup><small>enc</small></sup>"));
+            } else {
+                radiobutton[file_list.length].setText("/userdata" + " ["
+                        + userdataFsType + "]");
+            }
+
 			radiobutton[file_list.length].setId(file_list.length);
 			pick.addView(radiobutton[file_list.length]);
 			// Log.d("SDPlay", "Userdata path added");
@@ -589,10 +603,6 @@ public class MainActivity extends Activity {
 		if (mount_out.matches(intPattern1)) {
 			intFsType += mount_out.replaceAll(intPattern1, "$1");
 			userdataFsType = mount_out.replaceAll(intPattern1, "$1");
-            if (isEncrypted) {
-                intFsType += "/ encr";
-                userdataFsType += "/ encr";
-            }
 		}
 		// //////end of internal case/////////////
 		// for sdcard case

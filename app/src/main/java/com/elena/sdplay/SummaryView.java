@@ -339,7 +339,7 @@ public class SummaryView extends Activity implements ActionBar.TabListener {
 		String[] from = { res_c.getColumnName(1), res_c.getColumnName(2),
 				res_c.getColumnName(3), res_c.getColumnName(4),
 				res_c.getColumnName(5), res_c.getColumnName(6),
-				res_c.getColumnName(7), res_c.getColumnName(8) };
+				res_c.getColumnName(7), res_c.getColumnName(8)};
 		// int[] to = { R.id.text0, R.id.text1, R.id.text2, R.id.text3,
 		// R.id.text4, R.id.text5, R.id.text6, R.id.text7, R.id.text8 };
 		int[] to = { R.id.text1sum, R.id.text2sum, R.id.text3sum,
