@@ -16,10 +16,18 @@
         android:layout_height="match_parent" >
 
         <TextView
+            android:id="@+id/emmc_size"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:textSize="18sp" />
+
+        <TextView
             android:id="@+id/space_info"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
+            android:layout_below="@id/emmc_size"
             android:textSize="18sp" />
 
         <EditText
@@ -113,10 +121,18 @@
         android:layout_height="match_parent" >
 
         <TextView
+            android:id="@+id/emmc_size1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:textSize="18sp" />
+
+        <TextView
             android:id="@+id/space_info1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
+            android:layout_below="@id/emmc_size1"
             android:textSize="18sp" />
 
         <EditText

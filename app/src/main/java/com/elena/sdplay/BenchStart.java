@@ -80,7 +80,7 @@ public class BenchStart extends Activity {
 	// storage space
 	double totalSpace;
 	double freeSpace;
-    double eMmcSize;
+    long eMmcSize;
 	// timing values
 	long millis1, millis2, millis3, millis4, millis5, millis6, millis7,
 			millis8;
@@ -184,8 +184,6 @@ public class BenchStart extends Activity {
 
 		setContentView(R.layout.activity_bench_start);
 
-
-
 		Intent intent = getIntent();
 		// //////////////////
 		sdPath = intent.getStringExtra(MainActivity.SD_PATH);
@@ -242,6 +240,7 @@ public class BenchStart extends Activity {
 			viewToShow.setDisplayedChild(1);
 			// textView.setText(tmp);
 		}
+        getEmmcSize();
 		if (checkPath()) {
 			getStoragesDetails();
 		} else {
@@ -1258,7 +1257,7 @@ public void onDeleteAllClick(View view) {
 				}
 
 				values.put(myResDB.RES_DETAILS, full_details);
-                values.put(myResDB.RES_EMMC_SIZE, eMmcSize);
+                values.put(myResDB.RES_EMMC_SIZE, eMmcSize + " GB");
 				values.put(myResDB.RES_SERIAL, serial);
 				//if (!(card_oper_mode.isEmpty())) {
 				//	values.put(myResDB.RES_OPER_MODE, card_oper_mode);
@@ -1405,7 +1404,8 @@ public void onDeleteAllClick(View view) {
                         curCSV.getString(22), curCSV.getString(23),
                         curCSV.getString(24), curCSV.getString(25),
                         curCSV.getString(26), curCSV.getString(27),
-                        curCSV.getString(28), curCSV.getString(29)
+                        curCSV.getString(28), curCSV.getString(29),
+                        curCSV.getString(30)
                 };
 
                 csvWrite.writeRecord(arrStr);
@@ -1474,23 +1474,16 @@ public void onDeleteAllClick(View view) {
 		}
 		totalSpace = totalBlocks * blockSize / (1024.0 * 1024 * 1024);
 		freeSpace = freeBlocks * blockSize / (1024.0 * 1024 * 1024);
-/*
-        StatFs statEmmc = new StatFs("/data");
-        blockSize = statEmmc.getBlockSize();
-        totalBlocks = (long)statEmmc.getBlockCount();
-        eMmcSize = totalBlocks * blockSize / (1024.0 * 1024 * 1024);
-        Log.d(TAG, "eMMC size to save: " + eMmcSize + " Gb");
-*/
-		// TODO: check if there is enough space to test and make button
-		// 'start' enabled
-		String textShow = "Total space is " + String.format("%.2f", totalSpace)
-				+ " GB; \nFree space is " + String.format("%.2f", freeSpace)
+
+		String textShow = "Total user space: " + String.format("%.2f", totalSpace)
+				+ " GB\nFree user space: " + String.format("%.2f", freeSpace)
 				+ " GB\n";
+        TextView emmc_size = (TextView) findViewById(R.id.emmc_size);
 		TextView space_info = (TextView) findViewById(R.id.space_info);
 		EditText details = (EditText) findViewById(R.id.details);
 		EditText nickText = (EditText) findViewById(R.id.nickname);
+        TextView emmc_size1 = (TextView) findViewById(R.id.emmc_size1);
 		TextView space_info1 = (TextView) findViewById(R.id.space_info1);
-		// space_info.setText(textShow);
 		EditText details1 = (EditText) findViewById(R.id.details1);
 		EditText nickText1 = (EditText) findViewById(R.id.nickname1);
 		ViewFlipper viewToShow = (ViewFlipper) findViewById(R.id.viewFlipper);
@@ -1503,21 +1496,6 @@ public void onDeleteAllClick(View view) {
 		if (usb_drive_selected) {
 			MainActivity.calling_activity = "BenchUsb";
 			fs_type = MainActivity.usbFsType;
-			// ///////////parse mount////////////////
-			// for usb case
-			// pattern0 = ".*/storage/usbdisk\\S*\\s+(\\w+)\\s+.*";
-			// pattern2 = ".*/storage/usbdisk\\S*\\s+(\\w+).*";
-			// pattern1 = ".*/mnt/media_rw/usbdisk\\S*\\s+(\\w+).*";
-			// if (mount_out.matches(pattern0)) {
-			// fs_type = mount_out.replaceAll(pattern0, "$1") + "/";
-			// if (mount_out.matches(pattern1)) {
-			// fs_type += mount_out.replaceAll(pattern1, "$1");
-			// }
-			// } else if (mount_out.matches(pattern2)) {
-			// fs_type = mount_out.replaceAll(pattern2, "$1");
-			// }
-
-			// /////////end of parse mount///////////
 
 			UsbManager usbManager = (UsbManager) getSystemService(USB_SERVICE);
 			HashMap<String, UsbDevice> devicelist = usbManager.getDeviceList();
@@ -1699,11 +1677,13 @@ public void onDeleteAllClick(View view) {
 
 		if (!(full_details.isEmpty()) && !(full_details.contains("Unknown"))) {
 			if (viewToShow.getDisplayedChild() == 0) {
-				space_info.setText(textShow);
+				emmc_size.setText("eMMC size: " + eMmcSize + " GB");
+                space_info.setText(textShow);
 				details.setText(full_details);
 				// nickText.setText(nickname);
 			} else {
-				space_info1.setText(textShow);
+                emmc_size1.setText("eMMC size: " + eMmcSize + " GB");
+                space_info1.setText(textShow);
 				details1.setText(full_details);
 				// nickText1.setText(nickname);
 			}
@@ -1843,11 +1823,13 @@ public void onDeleteAllClick(View view) {
 				}
 			}
 			if (viewToShow.getDisplayedChild() == 0) {
-				space_info.setText(textShow);
+                emmc_size.setText("eMMC size: " + eMmcSize + " GB");
+                space_info.setText(textShow);
 				details.setText(full_details);
 				// nickText.setText(nickname);
 			} else {
-				space_info1.setText(textShow);
+                emmc_size1.setText("eMMC size: " + eMmcSize + " GB");
+                space_info1.setText(textShow);
 				details1.setText(full_details);
 				// nickText1.setText(nickname);
 			}
@@ -3529,6 +3511,43 @@ public void onDeleteAllClick(View view) {
 		}
 		return !canon.getCanonicalFile().equals(canon.getAbsoluteFile());
 	}
+
+    private void getEmmcSize() {
+        String sizeToRound = "0";
+        try {
+            File fff = new File("/sys/block/mmcblk0/size");
+            String line;
+
+            if (fff.exists()) {
+                BufferedReader in_emmc_size = new BufferedReader(
+                        new FileReader(
+                                "/sys/block/mmcblk0/size"));
+                while ((line = in_emmc_size.readLine()) != null) {
+                    sizeToRound = line;
+                    Log.d(TAG, "read from sysfs: " + sizeToRound);
+                }
+                in_emmc_size.close();
+            }
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        long tmp = Long.parseLong(sizeToRound);
+        eMmcSize = roundUp2(tmp/(2*1024*1024));
+        if (LOG_ON) {
+            Log.d(TAG, "emmc size is " + eMmcSize + "GB");
+        }
+    }
+
+    private long roundUp2(long v)
+    {
+        long i, j;
+        for (i=v, j=0; i>0; i>>=1) {
+            v = i;
+            j++;
+        }
+            return v << j;
+    }
 
 	public void onDestroy() {
         //mProgressDialog.dismiss();

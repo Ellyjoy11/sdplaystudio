@@ -20,7 +20,7 @@ public class MyResDBHelper extends SQLiteOpenHelper {
 	public final String RES_SERIAL = "_serial";
 	//public final String RES_OPER_MODE = "_oper_mode";
 	public final String RES_NAME = "_name";
-	public final String RES_NOTES = "_nickname";
+	public final String RES_NOTES = "_notes";
 	public final String RES_W_SPEED = "_db_write_speed";
 	public final String RES_D_SPEED = "_db_del_speed";
 	public final String RES_RW_SPEED = "_db_rnd_write_speed";
