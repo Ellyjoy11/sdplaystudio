@@ -80,7 +80,7 @@ public class BenchStart extends Activity {
 	// storage space
 	double totalSpace;
 	double freeSpace;
-    long eMmcSize;
+    long devSize;
 	// timing values
 	long millis1, millis2, millis3, millis4, millis5, millis6, millis7,
 			millis8;
@@ -240,7 +240,7 @@ public class BenchStart extends Activity {
 			viewToShow.setDisplayedChild(1);
 			// textView.setText(tmp);
 		}
-        getEmmcSize();
+        //getEmmcSize();
 		if (checkPath()) {
 			getStoragesDetails();
 		} else {
@@ -1257,7 +1257,7 @@ public void onDeleteAllClick(View view) {
 				}
 
 				values.put(myResDB.RES_DETAILS, full_details);
-                values.put(myResDB.RES_EMMC_SIZE, eMmcSize + " GB");
+                values.put(myResDB.RES_DEV_SIZE, devSize + " GB");
 				values.put(myResDB.RES_SERIAL, serial);
 				//if (!(card_oper_mode.isEmpty())) {
 				//	values.put(myResDB.RES_OPER_MODE, card_oper_mode);
@@ -1474,15 +1474,16 @@ public void onDeleteAllClick(View view) {
 		}
 		totalSpace = totalBlocks * blockSize / (1024.0 * 1024 * 1024);
 		freeSpace = freeBlocks * blockSize / (1024.0 * 1024 * 1024);
+        devSize = roundUp2((long) totalSpace);
 
 		String textShow = "Total user space: " + String.format("%.2f", totalSpace)
 				+ " GB\nFree user space: " + String.format("%.2f", freeSpace)
 				+ " GB\n";
-        TextView emmc_size = (TextView) findViewById(R.id.emmc_size);
+        TextView dev_size = (TextView) findViewById(R.id.dev_size);
 		TextView space_info = (TextView) findViewById(R.id.space_info);
 		EditText details = (EditText) findViewById(R.id.details);
 		EditText nickText = (EditText) findViewById(R.id.nickname);
-        TextView emmc_size1 = (TextView) findViewById(R.id.emmc_size1);
+        TextView dev_size1 = (TextView) findViewById(R.id.dev_size1);
 		TextView space_info1 = (TextView) findViewById(R.id.space_info1);
 		EditText details1 = (EditText) findViewById(R.id.details1);
 		EditText nickText1 = (EditText) findViewById(R.id.nickname1);
@@ -1677,12 +1678,12 @@ public void onDeleteAllClick(View view) {
 
 		if (!(full_details.isEmpty()) && !(full_details.contains("Unknown"))) {
 			if (viewToShow.getDisplayedChild() == 0) {
-				emmc_size.setText("eMMC size: " + eMmcSize + " GB");
+				dev_size.setText("Device size: " + devSize + " GB");
                 space_info.setText(textShow);
 				details.setText(full_details);
 				// nickText.setText(nickname);
 			} else {
-                emmc_size1.setText("eMMC size: " + eMmcSize + " GB");
+                dev_size1.setText("Device size: " + devSize + " GB");
                 space_info1.setText(textShow);
 				details1.setText(full_details);
 				// nickText1.setText(nickname);
@@ -1823,12 +1824,12 @@ public void onDeleteAllClick(View view) {
 				}
 			}
 			if (viewToShow.getDisplayedChild() == 0) {
-                emmc_size.setText("eMMC size: " + eMmcSize + " GB");
+                dev_size.setText("Device size: " + devSize + " GB");
                 space_info.setText(textShow);
 				details.setText(full_details);
 				// nickText.setText(nickname);
 			} else {
-                emmc_size1.setText("eMMC size: " + eMmcSize + " GB");
+                dev_size1.setText("Device size: " + devSize + " GB");
                 space_info1.setText(textShow);
 				details1.setText(full_details);
 				// nickText1.setText(nickname);
@@ -3512,6 +3513,7 @@ public void onDeleteAllClick(View view) {
 		return !canon.getCanonicalFile().equals(canon.getAbsoluteFile());
 	}
 
+        /*
     private void getEmmcSize() {
         String sizeToRound = "0";
         try {
@@ -3538,6 +3540,7 @@ public void onDeleteAllClick(View view) {
             Log.d(TAG, "emmc size is " + eMmcSize + "GB");
         }
     }
+    */
 
     private long roundUp2(long v)
     {

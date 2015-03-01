@@ -206,7 +206,7 @@ public class MainActivity extends Activity {
 		if (mount_out.matches(pattern0)) {
 			userdata_test_path = mount_out.replaceAll(pattern0, "$1");
             isEncrypted = false;
-			// Log.d("SDPlay", "userdata is named " + userdata_test_path);
+			Log.d("SDPlay", "userdata is named " + userdata_test_path);
 		} else if (mount_out.matches(patternEncrypted)) {
 			userdata_test_path = mount_out.replaceAll(patternEncrypted, "$1");
             isEncrypted = true;
@@ -271,9 +271,10 @@ public class MainActivity extends Activity {
 
 		RadioButton[] radiobutton = new RadioButton[file_list.length
 				+ usb_drive + is_userdata + isCustom];
-		// Log.d("SDPlay", "buttons " + file_list.length + usb_drive +
-		// is_userdata
-		// + isCustom);
+        if (LOG_ON) {
+            Log.d("SDPlay", "buttons " + file_list.length + usb_drive +
+                    is_userdata + isCustom);
+        }
 		RadioGroup pick = (RadioGroup) findViewById(R.id.pick_path);
 
 		for (int i = 0; i < file_list.length; i++) {
@@ -292,6 +293,9 @@ public class MainActivity extends Activity {
 				} else if (i == 1) {
 					textShow = "External SD Card" + " [" + extFsType + "]";
                     radiobutton[i].setText(textShow);
+                    if (LOG_ON) {
+                        Log.d(TAG, "External button, i=1");
+                    }
 				} else {
 					textShow = file_list[i].toString();
                     radiobutton[i].setText(textShow);
@@ -394,6 +398,9 @@ public class MainActivity extends Activity {
 								"Please enter valid path for test",
 								Toast.LENGTH_SHORT).show();
 					} else {
+                        if (LOG_ON) {
+                            Log.d(TAG, "Selected storage is " + sdPath + "; button checked " + selectedId);
+                        }
 						Intent intent = new Intent(getApplicationContext(),
 								BenchStart.class);
 						intent.putExtra(SD_PATH, sdPath);
@@ -405,6 +412,7 @@ public class MainActivity extends Activity {
 						// intent.putExtra(EXT_FS_TYPE, extFsType);
 						// intent.putExtra(USERDATA_FS_TYPE, userdataFsType);
 						// intent.putExtra(USB_FS_TYPE, usbFsType);
+
 						Toast.makeText(getApplicationContext(), sdPath,
 								Toast.LENGTH_SHORT).show();
 						startActivity(intent);

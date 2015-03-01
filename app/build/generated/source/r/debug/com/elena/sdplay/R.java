@@ -71,8 +71,8 @@ public final class R {
         public static final int details1=0x7f0a0011;
         public static final int detailsFs=0x7f0a001e;
         public static final int details_sum=0x7f0a002f;
-        public static final int emmc_size=0x7f0a0002;
-        public static final int emmc_size1=0x7f0a000f;
+        public static final int dev_size=0x7f0a0002;
+        public static final int dev_size1=0x7f0a000f;
         public static final int fs_type=0x7f0a0040;
         public static final int fs_typeFs=0x7f0a0021;
         public static final int fs_type_sum=0x7f0a0032;
