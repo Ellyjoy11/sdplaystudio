@@ -39,7 +39,7 @@ import java.util.HashMap;
 public class MainActivity extends Activity {
 
 	private static final String TAG = "SDPlayDebug";
-    public static final boolean LOG_ON = true;
+    public static final boolean LOG_ON = false;
     public static final String ABOUT_TITLE = "\u00a9 2014-2015 Elena Last, Igor Kovalenko";
     public static String ABOUT_VERSION;
 	public final static String SD_PATH = "com.elena.sdplay.SD_PATH";
@@ -206,7 +206,9 @@ public class MainActivity extends Activity {
 		if (mount_out.matches(pattern0)) {
 			userdata_test_path = mount_out.replaceAll(pattern0, "$1");
             isEncrypted = false;
-			Log.d("SDPlay", "userdata is named " + userdata_test_path);
+            if (LOG_ON) {
+                Log.d("SDPlay", "userdata is named " + userdata_test_path);
+            }
 		} else if (mount_out.matches(patternEncrypted)) {
 			userdata_test_path = mount_out.replaceAll(patternEncrypted, "$1");
             isEncrypted = true;
@@ -538,11 +540,12 @@ public class MainActivity extends Activity {
 					R.array.reference_results);
 			REF_COUNT = ref_res.length;
 			// card_full_details = Integer.toString(card_manfs.length);
-			String[][] ref_results = new String[ref_res.length][15];
+			String[][] ref_results = new String[ref_res.length][30];
 			for (int i = 0; i < REF_COUNT; i++) {
 				ref_results[i] = ref_res[i].split("\\|");
 				res_db.beginTransaction();
 				try {
+                    /*
 					values.put(myResDB.RES_DETAILS, ref_results[i][0]);
 					values.put(myResDB.RES_BUILD_ID, ref_results[i][1]);
 					values.put(myResDB.RES_W_SPEED, ref_results[i][2]);
@@ -560,7 +563,47 @@ public class MainActivity extends Activity {
 					values.put(myResDB.SUMMARY_SCORE, ref_results[i][13]);
 					values.put(myResDB.RES_FS_TYPE, ref_results[i][14]);
 					res_db.insert(myResDB.RES_TABLE, null, values);
-					res_db.setTransactionSuccessful();
+                    */
+
+				values.put(myResDB.RES_OEMID, ref_results[i][0]);
+				values.put(myResDB.RES_MANFID, ref_results[i][1]);
+				values.put(myResDB.RES_NAME, ref_results[i][2]);
+			    values.put(myResDB.RES_DETAILS, ref_results[i][3]);
+
+                values.put(myResDB.RES_DEV_SIZE, ref_results[i][4]);
+				values.put(myResDB.RES_SERIAL, ref_results[i][5]);
+				values.put(myResDB.RES_BUILD_ID, ref_results[i][6]);
+                values.put(myResDB.RES_FS_TYPE, ref_results[i][7]);
+
+				values.put(myResDB.RES_NOTES, ref_results[i][8]);
+				values.put(myResDB.RES_W_SPEED, ref_results[i][9]);
+				values.put(myResDB.RES_RW_SPEED, ref_results[i][10]);
+				values.put(myResDB.RES_RR_SPEED, ref_results[i][11]);
+				values.put(myResDB.RES_D_SPEED, ref_results[i][12]);
+				values.put(myResDB.RES_TOTAL_SCORE, ref_results[i][13]);
+
+				values.put(myResDB.FS_C_SPEED, ref_results[i][14]);
+				values.put(myResDB.FS_L_SPEED, ref_results[i][15]);
+				values.put(myResDB.FS_RS_SPEED, ref_results[i][16]);
+				values.put(myResDB.FS_WM_SPEED, ref_results[i][17]);
+				values.put(myResDB.FS_RM_SPEED, ref_results[i][18]);
+
+				values.put(myResDB.FS_WL_SPEED, ref_results[i][19]);
+				values.put(myResDB.FS_RL_SPEED, ref_results[i][20]);
+                values.put(myResDB.FS_IOPS_W, ref_results[i][21]);
+                values.put(myResDB.FS_IOPS_R, ref_results[i][22]);
+
+                values.put(myResDB.FS_D_SPEED, ref_results[i][23]);
+                values.put(myResDB.FS_TOTAL_SCORE, ref_results[i][24]);
+                values.put(myResDB.SUMMARY_SCORE,ref_results[i][25]);
+
+				values.put(myResDB.FS_SM_SCORE, ref_results[i][26]);
+				values.put(myResDB.FS_M_SCORE, ref_results[i][27]);
+				values.put(myResDB.FS_L_SCORE,ref_results[i][28]);
+				values.put(myResDB.FS_IOPS_SCORE, ref_results[i][29]);
+
+				res_db.insert(myResDB.RES_TABLE, null, values);
+				res_db.setTransactionSuccessful();
 				} finally {
 					res_db.endTransaction();
 				}

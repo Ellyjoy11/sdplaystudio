@@ -60,7 +60,7 @@ public class BenchStart extends Activity {
 
 	private final String journalMode = "PERSIST"; // "DELETE", "TRUNCATE",
 													// "OFF", "WAL"
-	private final boolean LOG_ON = true;
+	private final boolean LOG_ON = false;
 	private final String TAG = "SDPlayDebug";
 	private String sdPath;
 	private String intPath;
@@ -3328,7 +3328,9 @@ public void onDeleteAllClick(View view) {
 		try {
 			File fstest = new File(sdPath + File.separator + "fstest_folders");
 			if (fstest.exists() && fstest.isDirectory()) {
-				Log.d(TAG, "trying to delete fs...");
+                if (LOG_ON) {
+                    Log.d(TAG, "trying to delete fs...");
+                }
 				files_deleted = walk(fstest.getAbsolutePath(), 2);
 			}
 		} catch (Exception e) {
