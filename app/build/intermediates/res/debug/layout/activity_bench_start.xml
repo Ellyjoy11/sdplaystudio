@@ -16,27 +16,85 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" >
 
+        <LinearLayout
+            android:id="@+id/lineBar1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+        <TextView
+            android:id="@+id/dev_size0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:textSize="18sp"
+            android:layout_weight="1"
+            android:text="@string/dev_size"/>
         <TextView
             android:id="@+id/dev_size"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:textSize="18sp" />
+            android:gravity="right"
+            android:paddingRight="20dp"
+            android:textSize="18sp"
+            android:layout_weight="2"/>
 
-        <TextView
-            android:id="@+id/space_info"
-            android:layout_width="wrap_content"
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/lineBar2"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_below="@id/dev_size"
-            android:textSize="18sp" />
+            android:layout_below="@id/lineBar1"
+            android:orientation="horizontal" >
+            <TextView
+                android:id="@+id/total_space0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:textSize="18sp"
+                android:layout_weight="1"
+                android:text="@string/total_space"/>
+            <TextView
+                android:id="@+id/total_space"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:paddingRight="20dp"
+                android:textSize="18sp"
+                android:layout_weight="2"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/lineBar3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/lineBar2"
+            android:orientation="horizontal" >
+            <TextView
+                android:id="@+id/free_space0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:textSize="18sp"
+                android:layout_weight="1"
+                android:text="@string/free_space"/>
+            <TextView
+                android:id="@+id/free_space"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:paddingRight="20dp"
+                android:textSize="18sp"
+                android:layout_weight="2"/>
+
+        </LinearLayout>
 
         <EditText
             android:id="@+id/details"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
-            android:layout_below="@id/space_info"
+            android:layout_below="@id/lineBar3"
             android:ems="24"
             android:hint="@string/details"
             android:inputType="text" />
@@ -121,27 +179,85 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" >
 
-        <TextView
-            android:id="@+id/dev_size1"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:id="@+id/lineBar11"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:textSize="18sp" />
+            android:orientation="horizontal" >
+            <TextView
+                android:id="@+id/dev_size01"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:textSize="18sp"
+                android:layout_weight="1"
+                android:text="@string/dev_size"/>
+            <TextView
+                android:id="@+id/dev_size1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:paddingRight="20dp"
+                android:textSize="18sp"
+                android:layout_weight="2"/>
 
-        <TextView
-            android:id="@+id/space_info1"
-            android:layout_width="wrap_content"
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/lineBar21"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_below="@id/dev_size1"
-            android:textSize="18sp" />
+            android:layout_below="@id/lineBar11"
+            android:orientation="horizontal" >
+            <TextView
+                android:id="@+id/total_space01"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:textSize="18sp"
+                android:layout_weight="1"
+                android:text="@string/total_space"/>
+            <TextView
+                android:id="@+id/total_space1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:paddingRight="20dp"
+                android:textSize="18sp"
+                android:layout_weight="2"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/lineBar31"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/lineBar21"
+            android:orientation="horizontal" >
+            <TextView
+                android:id="@+id/free_space01"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:textSize="18sp"
+                android:layout_weight="1"
+                android:text="@string/free_space"/>
+            <TextView
+                android:id="@+id/free_space1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:paddingRight="20dp"
+                android:textSize="18sp"
+                android:layout_weight="2"/>
+
+        </LinearLayout>
 
         <EditText
             android:id="@+id/details1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
-            android:layout_below="@id/space_info1"
+            android:layout_below="@id/lineBar31"
             android:ems="24"
             android:hint="@string/details"
             android:inputType="text" />

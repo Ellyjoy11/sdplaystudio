@@ -1481,11 +1481,13 @@ public void onDeleteAllClick(View view) {
 				+ " GB\nFree user space: " + String.format("%.2f", freeSpace)
 				+ " GB\n";
         TextView dev_size = (TextView) findViewById(R.id.dev_size);
-		TextView space_info = (TextView) findViewById(R.id.space_info);
+		TextView total_space = (TextView) findViewById(R.id.total_space);
+        TextView free_space = (TextView) findViewById(R.id.free_space);
 		EditText details = (EditText) findViewById(R.id.details);
 		EditText nickText = (EditText) findViewById(R.id.nickname);
         TextView dev_size1 = (TextView) findViewById(R.id.dev_size1);
-		TextView space_info1 = (TextView) findViewById(R.id.space_info1);
+        TextView total_space1 = (TextView) findViewById(R.id.total_space1);
+        TextView free_space1 = (TextView) findViewById(R.id.free_space1);
 		EditText details1 = (EditText) findViewById(R.id.details1);
 		EditText nickText1 = (EditText) findViewById(R.id.nickname1);
 		ViewFlipper viewToShow = (ViewFlipper) findViewById(R.id.viewFlipper);
@@ -1679,13 +1681,15 @@ public void onDeleteAllClick(View view) {
 
 		if (!(full_details.isEmpty()) && !(full_details.contains("Unknown"))) {
 			if (viewToShow.getDisplayedChild() == 0) {
-				dev_size.setText("Device size: " + devSize + " GB");
-                space_info.setText(textShow);
+				dev_size.setText(devSize + " GB");
+                total_space.setText(String.format("%.2f", totalSpace) + " GB");
+                free_space.setText(String.format("%.2f", freeSpace) + " GB");
 				details.setText(full_details);
 				// nickText.setText(nickname);
 			} else {
-                dev_size1.setText("Device size: " + devSize + " GB");
-                space_info1.setText(textShow);
+                dev_size1.setText(devSize + " GB");
+                total_space1.setText(String.format("%.2f", totalSpace) + " GB");
+                free_space1.setText(String.format("%.2f", freeSpace) + " GB");
 				details1.setText(full_details);
 				// nickText1.setText(nickname);
 			}
@@ -1825,13 +1829,15 @@ public void onDeleteAllClick(View view) {
 				}
 			}
 			if (viewToShow.getDisplayedChild() == 0) {
-                dev_size.setText("Device size: " + devSize + " GB");
-                space_info.setText(textShow);
+                dev_size.setText(devSize + " GB");
+                total_space.setText(String.format("%.2f", totalSpace) + " GB");
+                free_space.setText(String.format("%.2f", freeSpace) + " GB");
 				details.setText(full_details);
 				// nickText.setText(nickname);
 			} else {
-                dev_size1.setText("Device size: " + devSize + " GB");
-                space_info1.setText(textShow);
+                dev_size1.setText(devSize + " GB");
+                total_space1.setText(String.format("%.2f", totalSpace) + " GB");
+                free_space1.setText(String.format("%.2f", freeSpace) + " GB");
 				details1.setText(full_details);
 				// nickText1.setText(nickname);
 			}

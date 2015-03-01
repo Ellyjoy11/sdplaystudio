@@ -56,6 +56,9 @@
     <string name="total_db">DB Score</string>
     <string name="total_fs">FS Score</string>
     <string name="total_sum">Score</string>
+    <string name="dev_size">Device size: </string>
+    <string name="total_space">Total user space: </string>
+    <string name="free_space">Free user space: </string>
     <string name="title_activity_settings_fragment">Settings</string>
     <string name="title_activity_set_preferences">Set Preferences</string>
     <string name="title_activity_set_user_options">Set Parameters for Run</string>

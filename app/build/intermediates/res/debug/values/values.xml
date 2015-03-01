@@ -153,8 +153,10 @@
     <string name="delFs">Del</string>
     <string name="delete">Delete All</string>
     <string name="details">Storage manufacturer</string>
+    <string name="dev_size">Device size: </string>
     <string name="external">External SD card</string>
     <string name="fdetails">Details</string>
+    <string name="free_space">Free user space: </string>
     <string name="fs_test">FS Test</string>
     <string name="fs_type">FS</string>
     <string name="hello_world">Hello world!</string>
@@ -215,6 +217,7 @@
     <string name="title_activity_top_results">Top Results</string>
     <string name="total_db">DB Score</string>
     <string name="total_fs">FS Score</string>
+    <string name="total_space">Total user space: </string>
     <string name="total_sum">Score</string>
     <string name="wait">Please wait</string>
     <string name="welcome_text">Hello world!</string>
