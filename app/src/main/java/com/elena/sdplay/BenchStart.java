@@ -80,7 +80,7 @@ public class BenchStart extends Activity {
 	// storage space
 	double totalSpace;
 	double freeSpace;
-    long devSize;
+    long devSize, devSizeM;
 	// timing values
 	long millis1, millis2, millis3, millis4, millis5, millis6, millis7,
 			millis8;
@@ -1476,6 +1476,9 @@ public void onDeleteAllClick(View view) {
 		totalSpace = totalBlocks * blockSize / (1024.0 * 1024 * 1024);
 		freeSpace = freeBlocks * blockSize / (1024.0 * 1024 * 1024);
         devSize = roundUp2((long) totalSpace);
+        if (devSize == 0) {
+            devSizeM = roundUp2((long) totalBlocks * blockSize / (1024 * 1024));
+        }
 
 		String textShow = "Total user space: " + String.format("%.2f", totalSpace)
 				+ " GB\nFree user space: " + String.format("%.2f", freeSpace)
@@ -1681,13 +1684,21 @@ public void onDeleteAllClick(View view) {
 
 		if (!(full_details.isEmpty()) && !(full_details.contains("Unknown"))) {
 			if (viewToShow.getDisplayedChild() == 0) {
-				dev_size.setText(devSize + " GB");
+				if (devSize == 0) {
+                    dev_size.setText(devSizeM + " MB");
+                } else {
+                    dev_size.setText(devSize + " GB");
+                }
                 total_space.setText(String.format("%.2f", totalSpace) + " GB");
                 free_space.setText(String.format("%.2f", freeSpace) + " GB");
 				details.setText(full_details);
 				// nickText.setText(nickname);
 			} else {
-                dev_size1.setText(devSize + " GB");
+                if (devSize == 0) {
+                    dev_size1.setText(devSizeM + " MB");
+                } else {
+                    dev_size1.setText(devSize + " GB");
+                }
                 total_space1.setText(String.format("%.2f", totalSpace) + " GB");
                 free_space1.setText(String.format("%.2f", freeSpace) + " GB");
 				details1.setText(full_details);
@@ -1830,13 +1841,21 @@ public void onDeleteAllClick(View view) {
 				}
 			}
 			if (viewToShow.getDisplayedChild() == 0) {
-                dev_size.setText(devSize + " GB");
+                if (devSize == 0) {
+                    dev_size.setText(devSizeM + " MB");
+                } else {
+                    dev_size.setText(devSize + " GB");
+                }
                 total_space.setText(String.format("%.2f", totalSpace) + " GB");
                 free_space.setText(String.format("%.2f", freeSpace) + " GB");
 				details.setText(full_details);
 				// nickText.setText(nickname);
 			} else {
-                dev_size1.setText(devSize + " GB");
+                if (devSize == 0) {
+                    dev_size1.setText(devSizeM + " MB");
+                } else {
+                    dev_size1.setText(devSize + " GB");
+                }
                 total_space1.setText(String.format("%.2f", totalSpace) + " GB");
                 free_space1.setText(String.format("%.2f", freeSpace) + " GB");
 				details1.setText(full_details);
