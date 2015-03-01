@@ -1265,7 +1265,8 @@ public void onDeleteAllClick(View view) {
 				values.put(myResDB.RES_NOTES, nickname);
 				values.put(myResDB.RES_BUILD_ID, build_id + "/" + build_type);
                 if (MainActivity.isEncrypted) {
-                    values.put(myResDB.RES_FS_TYPE, fs_type + "*enc");
+                    //String enc = "\u0364\u1DE0\u0368";
+                    values.put(myResDB.RES_FS_TYPE, fs_type + " (enc)");
                 } else {
                     values.put(myResDB.RES_FS_TYPE, fs_type);
                 }
