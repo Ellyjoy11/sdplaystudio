@@ -223,7 +223,7 @@ public class ShowTopFsRes extends Activity implements ActionBar.TabListener {
 				myResDB.RES_NOTES, myResDB.RES_BUILD_ID,
 				myResDB.FS_SM_SCORE, myResDB.FS_M_SCORE, myResDB.FS_L_SCORE,
 				myResDB.FS_IOPS_SCORE, "ROUND(" + myResDB.FS_TOTAL_SCORE + ",2)",
-				myResDB.RES_FS_TYPE };
+				myResDB.RES_FS_TYPE, myResDB.RES_DEV_SIZE };
 
 		sortOrder = myResDB.FS_TOTAL_SCORE + " DESC";
 		if (!showAll) {
@@ -335,12 +335,12 @@ public class ShowTopFsRes extends Activity implements ActionBar.TabListener {
 				res_c.getColumnName(3), res_c.getColumnName(4),
 				res_c.getColumnName(5), res_c.getColumnName(6),
 				res_c.getColumnName(7), res_c.getColumnName(8),
-				res_c.getColumnName(9) };
+				res_c.getColumnName(9), res_c.getColumnName(10) };
 		// int[] to = { R.id.text0, R.id.text1, R.id.text2, R.id.text3,
 		// R.id.text4, R.id.text5, R.id.text6, R.id.text7, R.id.text8 };
 		int[] to = { R.id.text1fs, R.id.text2fs, R.id.text3fs, R.id.text4fs,
 				R.id.text5fs, R.id.text6fs, R.id.text7fs, R.id.text8fs,
-				R.id.text_fsfs };
+				R.id.text_fsfs, R.id.text_sizefs };
 
 		MyCursorAdapter adapter = new MyCursorAdapter(this,
 				R.layout.results_columns_fs, res_c, from, to);

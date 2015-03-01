@@ -57,6 +57,7 @@
     <string name="total_fs">FS Score</string>
     <string name="total_sum">Score</string>
     <string name="dev_size">Device size: </string>
+    <string name="devsize">Size</string>
     <string name="total_space">Total user space: </string>
     <string name="free_space">Free user space: </string>
     <string name="title_activity_settings_fragment">Settings</string>

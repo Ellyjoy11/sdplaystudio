@@ -43,10 +43,19 @@
                         android:textStyle="bold" />
 
                     <TextView
+                        android:id="@+id/devsize_Fs"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.2"
+                        android:layout_marginLeft="2dp"
+                        android:text="@string/devsize"
+                        android:textStyle="bold" />
+
+                    <TextView
                         android:id="@+id/fs_typeFs"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="2dp"
+                        android:gravity="center"
                         android:layout_weight="2.2"
                         android:text="@string/fs_type"
                         android:textStyle="bold" />

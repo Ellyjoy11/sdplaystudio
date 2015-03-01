@@ -55,13 +55,22 @@
                 android:layout_marginLeft="2dp"
                 android:text="@string/build_id"
                 android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/devsize_sum"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.1"
+                android:layout_marginLeft="2dp"
+                android:text="@string/devsize"
+                android:textStyle="bold" />
             
             <TextView
                 android:id="@+id/fs_type_sum"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="2.2"
-                android:layout_marginLeft="2dp"
+                android:gravity="center"
                 android:text="@string/fs_type"
                 android:textStyle="bold" />
 
