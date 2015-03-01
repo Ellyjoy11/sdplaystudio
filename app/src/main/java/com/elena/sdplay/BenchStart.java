@@ -669,7 +669,7 @@ public void onDeleteAllClick(View view) {
 				Toast.makeText(getBaseContext(), "DB creation error",
 						Toast.LENGTH_LONG).show();
 			} else {
-				tmp += "\nTotal rows created: " + ROWS;
+				//tmp += "\nTotal rows created: " + ROWS;
 				ws = ROWS * 1000.0 / diff_w;
 				tmp += "\nWrite speed " + String.format("%.2f", ws)
 						+ " records/s";
@@ -939,7 +939,7 @@ public void onDeleteAllClick(View view) {
 				Toast.makeText(getBaseContext(), "DB access error",
 						Toast.LENGTH_LONG).show();
 			else {
-				tmp += "\nWritten records count: " + rows_updated;
+				//tmp += "\nWritten records count: " + rows_updated;
 				rndws = rows_updated * 1000.0 / diff_rnd_io;
 				tmp += "\nRandom write speed " + String.format("%.2f", rndws)
 						+ " records/s";
@@ -1078,7 +1078,7 @@ public void onDeleteAllClick(View view) {
 				Toast.makeText(getBaseContext(), "DB access error",
 						Toast.LENGTH_LONG).show();
 			else {
-				tmp += "\n" + RND_ROWS + " random records have been read";
+				//tmp += "\n" + RND_ROWS + " random records have been read";
 				rndrs = RND_ROWS * 1000.0 / diff_rnd_read;
 				tmp += "\nRandom read speed " + String.format("%.2f", rndrs)
 						+ " records/s";
@@ -1200,7 +1200,7 @@ public void onDeleteAllClick(View view) {
                 Toast.makeText(getBaseContext(), "DB deletion error",
                         Toast.LENGTH_LONG).show();
             else {
-                tmp += "\n" + rows_count + " records have been deleted";
+                //tmp += "\n" + rows_count + " records have been deleted";
                 rs = rows_count * 1000.0 / diff_r;
                 tmp += "\nAverage deletion speed " + String.format("%.2f", rs)
                         + " records/s";
