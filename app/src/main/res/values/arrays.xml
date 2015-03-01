@@ -26,7 +26,7 @@
         <item>Kingston SDV Class 4|TM|0x0002|SD16G</item>
         <item>Lexar micro Class 4|BE|0x0028|LEXAR</item>
         <item>Lexar micro Class 6|BE|0x0028|LEXAR</item>
-        <item>Lexar micro class 6|AP|0x0009| </item>
+        <item>Lexar micro class 6|AP|0x0009|LEXAR</item>
         <item>Panasonic Class 10|PA|0x0001|SW04G</item>
         <item>Patriot Class 4|PH|0x0027|SD08G</item>
         <item>Patriot LX Series Class 10|PH|0x0027|SD32G</item>
@@ -46,9 +46,9 @@
         <item>Sandisk Extreme UHS-I|SD|0x0003|SE08G</item>
         <item>Samsung|SM|0x001b|00000</item>
         <item>Sony microSDHC Class 4|PH|0x0027|SD</item>
-        <item>Transcend 32 GB Class 10|JE|0x0074| </item>
+        <item>Transcend 32 GB Class 10|JE|0x0074|SD </item>
         <item>Transcend Class SDHC|JE|0x0074|SDC</item>
-        <item>Transcend microSD|JE|0x0074| </item>
+        <item>Transcend microSD|JE|0x0074|SDC</item>
         <item>Transcend microSDHC Class 4|JE|0x0074|USD</item>
         <item>Transcend Class 10|AB|0x001e|SDC</item>
         <item>Transcend Class 6|SV|0x001c|SDC</item>

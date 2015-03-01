@@ -1823,7 +1823,8 @@ public void onDeleteAllClick(View view) {
 						full_details = card_manf_names[j][0];
 						break;
 					}
-				}
+                }
+
 				if (full_details == "") {
 					full_details = "Uknown SD card";
 				}
