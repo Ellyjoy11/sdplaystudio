@@ -47,21 +47,43 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="BenchStart.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="BenchStart.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/elena/sdplay/BenchStart.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="53775" max-vertical-offset="53940">
-              <caret line="3585" column="18" selection-start-line="3585" selection-start-column="18" selection-end-line="3585" selection-end-column="18" />
+            <state vertical-scroll-proportion="0.296875" vertical-offset="19499" max-vertical-offset="52335">
+              <caret line="1406" column="0" selection-start-line="1406" selection-start-column="0" selection-end-line="1406" selection-end-column="0" />
+              <folding>
+                <element signature="e#51806#51838#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MyResDBHelper.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/elena/sdplay/MyResDBHelper.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="660" max-vertical-offset="1275">
+              <caret line="53" column="38" selection-start-line="53" selection-start-column="38" selection-end-line="53" selection-end-column="38" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="arrays.xml" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="SummaryView.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/elena/sdplay/SummaryView.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-3.2692308" vertical-offset="2615" max-vertical-offset="6225">
+              <caret line="211" column="64" selection-start-line="211" selection-start-column="39" selection-end-line="211" selection-end-column="64" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="arrays.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/values/arrays.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="2.0074348" vertical-offset="1005" max-vertical-offset="1845">
-              <caret line="103" column="117" selection-start-line="103" selection-start-column="117" selection-end-line="103" selection-end-column="117" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="1005" max-vertical-offset="1845">
+              <caret line="72" column="36" selection-start-line="72" selection-start-column="36" selection-end-line="72" selection-end-column="36" />
               <folding />
             </state>
           </provider>
@@ -1304,10 +1326,10 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_show_top_fs_res.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_summary_view.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_top_results.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/elena/sdplay/BenchStart.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/elena/sdplay/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/xml/pref_general.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/arrays.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/elena/sdplay/BenchStart.java" />
       </list>
     </option>
   </component>
@@ -1828,29 +1850,29 @@
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32998565" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.47864768" sideWeight="0.23036253" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5408895" sideWeight="0.23416789" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2496318" sideWeight="0.5010707" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5408895" sideWeight="0.23416789" order="9" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20694864" sideWeight="0.71935487" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32976827" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Memory Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32930514" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32998565" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20694864" sideWeight="0.27741936" order="4" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20694864" sideWeight="0.27741936" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32976827" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.44741532" sideWeight="0.76888216" order="15" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.44741532" sideWeight="0.76888216" order="15" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39885223" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout-to-restore>
   </component>
@@ -1917,7 +1939,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="44685" max-vertical-offset="47295">
           <caret line="3133" column="9" selection-start-line="3133" selection-start-column="9" selection-end-line="3133" selection-end-column="9" />
-          <folding />
+          <folding>
+            <element signature="e#51806#51838#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2115,14 +2139,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/elena/sdplay/MyResDBHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="675" max-vertical-offset="1275">
-          <caret line="53" column="38" selection-start-line="53" selection-start-column="38" selection-end-line="53" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_bench_start.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-3.3333333" vertical-offset="1095" max-vertical-offset="4695">
@@ -2251,6 +2267,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.7446808" vertical-offset="4260" max-vertical-offset="5760">
           <caret line="329" column="0" selection-start-line="329" selection-start-column="0" selection-end-line="329" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2258,13 +2275,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.41489363" vertical-offset="4503" max-vertical-offset="6060">
           <caret line="339" column="72" selection-start-line="339" selection-start-column="72" selection-end-line="339" selection-end-column="72" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/elena/sdplay/SummaryView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3723404" vertical-offset="2820" max-vertical-offset="6225">
-          <caret line="226" column="99" selection-start-line="226" selection-start-column="79" selection-end-line="226" selection-end-column="99" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2316,14 +2327,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/elena/sdplay/BenchStart.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="53775" max-vertical-offset="53940">
-          <caret line="3585" column="18" selection-start-line="3585" selection-start-column="18" selection-end-line="3585" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/elena/sdplay/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="8685" max-vertical-offset="11970">
@@ -2344,9 +2347,35 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/values/arrays.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.0074348" vertical-offset="1005" max-vertical-offset="1845">
-          <caret line="103" column="117" selection-start-line="103" selection-start-column="117" selection-end-line="103" selection-end-column="117" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="1005" max-vertical-offset="1845">
+          <caret line="72" column="36" selection-start-line="72" selection-start-column="36" selection-end-line="72" selection-end-column="36" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/elena/sdplay/SummaryView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.2692308" vertical-offset="2615" max-vertical-offset="6225">
+          <caret line="211" column="64" selection-start-line="211" selection-start-column="39" selection-end-line="211" selection-end-column="64" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/elena/sdplay/MyResDBHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="675" max-vertical-offset="1275">
+          <caret line="53" column="38" selection-start-line="53" selection-start-column="38" selection-end-line="53" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/elena/sdplay/BenchStart.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.296875" vertical-offset="19499" max-vertical-offset="52335">
+          <caret line="1406" column="0" selection-start-line="1406" selection-start-column="0" selection-end-line="1406" selection-end-column="0" />
+          <folding>
+            <element signature="e#51806#51838#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

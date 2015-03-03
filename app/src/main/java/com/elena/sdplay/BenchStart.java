@@ -1383,11 +1383,43 @@ public void onDeleteAllClick(View view) {
             //com.csvreader.CsvWriter csvWrite = new com.csvreader.CsvWriter(new FileWriter(file, true), ',');
 
             CsvWriter csvWrite = new CsvWriter(new FileWriter(file, true), ',');
-            Cursor curCSV = db.rawQuery("SELECT * FROM RES_TABLE", null);
+            Cursor curCSV;
+            //Cursor curCSV = db.rawQuery("SELECT * FROM RES_TABLE", null);
+
+            ////////////////
+            String[] ref_res = getResources().getStringArray(
+                    R.array.reference_results);
+            int REF_COUNT = ref_res.length;
+            String whereClause = myResDB.RES_ID + " > ?";
+            String[] whereArgs = new String[] {String.valueOf(REF_COUNT)};
+
+            String[] projection = { myResDB.RES_DETAILS,
+                    myResDB.RES_DEV_SIZE, myResDB.RES_SERIAL,
+                    myResDB.RES_BUILD_ID, myResDB.RES_FS_TYPE, myResDB.RES_NOTES,
+                    myResDB.RES_W_SPEED, myResDB.RES_RW_SPEED, myResDB.RES_RR_SPEED,
+                    myResDB.RES_D_SPEED, myResDB.RES_TOTAL_SCORE,
+                    myResDB.FS_C_SPEED, myResDB.FS_L_SPEED, myResDB.FS_RS_SPEED,
+                    myResDB.FS_WM_SPEED, myResDB.FS_RM_SPEED,
+                    myResDB.FS_WL_SPEED, myResDB.FS_RL_SPEED,
+                    myResDB.FS_IOPS_W, myResDB.FS_IOPS_R,
+                    myResDB.FS_D_SPEED, myResDB.FS_TOTAL_SCORE,
+                    myResDB.SUMMARY_SCORE };
+
+            curCSV = db.query(myResDB.RES_TABLE, // The table to query
+                    projection, // The columns to return
+                    whereClause, // The columns for the WHERE clause (null
+                    // means getting ALL records here)
+                    whereArgs, // The values for the WHERE clause
+                    null, // don't group the rows
+                    null, // don't filter by row groups
+                    null, // sort by Total score
+                    null // limit results number to 5
+            );
+            //////////////
 
             csvWrite.writeRecord(curCSV.getColumnNames());
             curCSV.moveToFirst();
-
+/*
             while (!curCSV.isAfterLast())  {
 
                 String arrStr[] = { curCSV.getString(0), curCSV.getString(1),
@@ -1407,6 +1439,24 @@ public void onDeleteAllClick(View view) {
                         curCSV.getString(26), curCSV.getString(27),
                         curCSV.getString(28), curCSV.getString(29),
                         curCSV.getString(30)
+                };
+                */
+
+            while (!curCSV.isAfterLast())  {
+
+                String arrStr[] = { curCSV.getString(0), curCSV.getString(1),
+
+                        curCSV.getString(2), curCSV.getString(3),
+                        curCSV.getString(4), curCSV.getString(5),
+                        curCSV.getString(6), curCSV.getString(7),
+                        curCSV.getString(8), curCSV.getString(9),
+                        curCSV.getString(10), curCSV.getString(11),
+                        curCSV.getString(12), curCSV.getString(13),
+                        curCSV.getString(14), curCSV.getString(15),
+                        curCSV.getString(16), curCSV.getString(17),
+                        curCSV.getString(18), curCSV.getString(19),
+                        curCSV.getString(20), curCSV.getString(21),
+                        curCSV.getString(22)
                 };
 
                 csvWrite.writeRecord(arrStr);
