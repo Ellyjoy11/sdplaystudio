@@ -50,7 +50,7 @@
       <file leaf-file-name="BenchStart.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/elena/sdplay/BenchStart.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.29296875" vertical-offset="855" max-vertical-offset="53835">
+            <state vertical-scroll-proportion="0.17578125" vertical-offset="885" max-vertical-offset="53775">
               <caret line="62" column="39" selection-start-line="62" selection-start-column="39" selection-end-line="62" selection-end-column="39" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -64,8 +64,8 @@
       <file leaf-file-name="arrays.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/values/arrays.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1440" max-vertical-offset="2100">
-              <caret line="104" column="29" selection-start-line="104" selection-start-column="21" selection-end-line="104" selection-end-column="29" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="1756" max-vertical-offset="2205">
+              <caret line="133" column="14" selection-start-line="133" selection-start-column="14" selection-end-line="133" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -1598,7 +1598,7 @@
     <property name="recentsLimit" value="5" />
     <property name="android.project.structure.last.selected" value="app" />
     <property name="android.project.structure.proportion" value="0.15" />
-    <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="LDGB2G0132" />
+    <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="T01130LGM6" />
     <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_AVD" value="Nexus_5_API_21_x86" />
     <property name="FullScreen" value="false" />
   </component>
@@ -2256,15 +2256,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/values/arrays.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1440" max-vertical-offset="2100">
-          <caret line="104" column="29" selection-start-line="104" selection-start-column="21" selection-end-line="104" selection-end-column="29" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="1756" max-vertical-offset="2205">
+          <caret line="133" column="14" selection-start-line="133" selection-start-column="14" selection-end-line="133" selection-end-column="14" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/elena/sdplay/BenchStart.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.29296875" vertical-offset="855" max-vertical-offset="53835">
+        <state vertical-scroll-proportion="0.17578125" vertical-offset="885" max-vertical-offset="53775">
           <caret line="62" column="39" selection-start-line="62" selection-start-column="39" selection-end-line="62" selection-end-column="39" />
           <folding>
             <element signature="imports" expanded="true" />

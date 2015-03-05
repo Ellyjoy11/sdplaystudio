@@ -3420,11 +3420,7 @@ public void onDeleteAllClick(View view) {
 					// Log.d("SDPlay", "Dir:" + f.getAbsoluteFile());
 					break;
 				case 2:
-					// f.delete();
 
-                    if (LOG_ON) {
-                        Log.d(TAG, "Dir deleted: " + f.getAbsolutePath());
-                    }
                     f.delete();
 					break;
 				case 3:
