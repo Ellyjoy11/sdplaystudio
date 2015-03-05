@@ -11,8 +11,6 @@ import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.database.sqlite.SQLiteDatabase;
-import android.hardware.usb.UsbDevice;
-import android.hardware.usb.UsbManager;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.text.Html;
@@ -33,7 +31,6 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.HashMap;
 
 @SuppressLint({ "NewApi", "SdCardPath" })
 public class MainActivity extends Activity {
@@ -124,7 +121,9 @@ public class MainActivity extends Activity {
 			file_list[0] = getExternalFilesDir(null);
 		} else {
 			file_list = getExternalFilesDirs(null);
-			// Log.d("SDPlay", "file_list length " + file_list.length);
+            if (LOG_ON) {
+                Log.d(TAG, "file_list length " + file_list.length);
+            }
 		}
 		intPath = file_list[0].toString();
         if (LOG_ON) {
@@ -142,7 +141,6 @@ public class MainActivity extends Activity {
 		super.onResume();
 		calling_activity = "Main";
 		mount_out = getMountOutput();
-		// isCustomChecked = false;
 
 		usb_drive = 0;
 		usb_drive_selected = false;
@@ -236,33 +234,52 @@ public class MainActivity extends Activity {
 
 		// ////////end for userdata part
 
-		UsbManager usbManager = (UsbManager) getSystemService(USB_SERVICE);
-		HashMap<String, UsbDevice> devicelist = usbManager.getDeviceList();
-		if (devicelist.size() > 0) {
-			String usb_test_path = "";
+        String usb_test_path = "";
 			// ///////////parse mount////////////////
 			// for usb case
-			pattern0 = ".*(/storage/usbdisk\\S*)\\s+.*";
+			pattern0 = ".*(/storage/usbdisk\\d*\\S*)\\s+.*";
 			// pattern1 = ".*/mnt/media_rw/usbdisk\\S*\\s+\\w*.*";
 			if (mount_out.matches(pattern0)) {
 				usb_test_path = mount_out.replaceAll(pattern0, "$1");
-			}
+                if (LOG_ON) {
+                    Log.d(TAG, "usb path: " + usb_test_path);
+                }
+			} else {
+                if (LOG_ON) {
+                    Log.d(TAG, "usb pattern does not match");
+                }
+            }
 
 			// /////////end of parse mount///////////
-			// File usb_f = new File("/storage/usbdisk");
-			// File usb_f = new File("/storage/usbdisk_1.1.1");
 			File usb_f = new File(usb_test_path);
+            if (LOG_ON) {
+                Log.d(TAG, "usb exist? and isDirectory? " + usb_f.exists() + "; " + usb_f.isDirectory());
+            }
 			if (usb_f.exists() && usb_f.isDirectory()) {
-				new File(usb_f.getAbsolutePath()
-						+ "/Android/data/com.elena.sdplay/files").mkdirs();
-				File usb_f2 = new File(usb_f.getAbsolutePath()
-						+ "/Android/data/com.elena.sdplay/files");
-				if (usb_f2.exists() && usb_f2.isDirectory()) {
-					usb_drive = 1;
-					usb_drive_path = usb_f2.getAbsolutePath();
-				}
-			}
-		}
+                //try {
+                if (LOG_ON) {
+                    Log.d(TAG, "usb is writable: " + usb_f.canWrite());
+                }
+                    new File(usb_f.getAbsolutePath()
+                            + File.separator + "apps" + File.separator +
+                            "com.elena.sdplay" + File.separator + "files").mkdirs();
+                    File usb_f2 = new File(usb_f.getAbsolutePath() + File.separator + "apps" +
+                            File.separator +
+                            "com.elena.sdplay" + File.separator + "files");
+
+                if (LOG_ON) {
+                    Log.d(TAG, "usb full path exist? and isDirectory? " + usb_f2.exists() + "; " + usb_f2.isDirectory());
+                }
+                if (usb_f2.exists() && usb_f2.isDirectory()) {
+                    usb_drive = 1;
+                    usb_drive_path = usb_f2.getAbsolutePath();
+                    if (LOG_ON) {
+                        Log.d(TAG, "usb path for test is " + usb_drive_path);
+                    }
+
+                }
+
+            }
 
 	}
 

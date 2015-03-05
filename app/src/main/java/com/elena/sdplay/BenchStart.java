@@ -62,6 +62,7 @@ public class BenchStart extends Activity {
 													// "OFF", "WAL"
 	private final boolean LOG_ON = false;
 	private final String TAG = "SDPlayDebug";
+    private String device_name;
 	private String sdPath;
 	private String intPath;
 	private String nickname = "";
@@ -196,6 +197,8 @@ public class BenchStart extends Activity {
 				MainActivity.CUSTOM_SELECTED, false);
 		userdata_selected = intent.getBooleanExtra(
 				MainActivity.USERDATA_SELECTED, false);
+
+        device_name = Build.DEVICE;
 
 		textView = (TextView) findViewById(R.id.text1);
 		textView11 = (TextView) findViewById(R.id.text11);
@@ -1361,7 +1364,7 @@ public void onDeleteAllClick(View view) {
 
         new File("sdcard" + File.separator + "sdplay_results").mkdirs();
         File exportDir = new File("sdcard" + File.separator + "sdplay_results");
-        file = new File(exportDir.getAbsolutePath(), "sdPlayRes.csv");
+        file = new File(exportDir.getAbsolutePath(), device_name + "-" + serial + "-SDPlay.csv");
 
 
         try
