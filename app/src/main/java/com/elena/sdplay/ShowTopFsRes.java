@@ -37,8 +37,8 @@ public class ShowTopFsRes extends Activity implements ActionBar.TabListener {
 	private ArrayList<Integer> REF_COLORS;
 	private String model_name, device_name, manufacturer, product_name;
 	private boolean showCurrent;
-	private boolean showRefs = true;
-	private boolean showAll = false;
+	public boolean showRefs;
+	public boolean showAll;
 	private Menu menu;
 
 	@Override
@@ -120,6 +120,8 @@ public class ShowTopFsRes extends Activity implements ActionBar.TabListener {
 		SharedPreferences userPref = PreferenceManager
 				.getDefaultSharedPreferences(this);
 		TOP_COUNT = Integer.parseInt(userPref.getString("top_count", "10"));
+        showRefs = userPref.getBoolean("show_refs", true);
+        showAll = userPref.getBoolean("show_all", false);
 		// isWritten = intent.getBooleanExtra(BenchStart.CURR_RES_EXIST, false);
 		isFsDone = BenchStart.isFsDone;
 		getTopRes();
@@ -370,6 +372,9 @@ public class ShowTopFsRes extends Activity implements ActionBar.TabListener {
 				.getDefaultSharedPreferences(this);
 		TOP_COUNT = Integer.parseInt(userPref.getString("top_count", "10"));
 		showRefs = !showRefs;
+        SharedPreferences.Editor editor = userPref.edit();
+        editor.putBoolean("show_refs", showRefs);
+        editor.commit();
 		getTopRes();
 		showResTable();
 	}
@@ -379,6 +384,9 @@ public class ShowTopFsRes extends Activity implements ActionBar.TabListener {
 				.getDefaultSharedPreferences(this);
 		TOP_COUNT = Integer.parseInt(userPref.getString("top_count", "10"));
 		showAll = !showAll;
+        SharedPreferences.Editor editor = userPref.edit();
+        editor.putBoolean("show_all", showAll);
+        editor.commit();
 		getTopRes();
 		showResTable();
 	}
