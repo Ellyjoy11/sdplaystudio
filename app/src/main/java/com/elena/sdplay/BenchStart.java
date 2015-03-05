@@ -1344,6 +1344,7 @@ public void onDeleteAllClick(View view) {
 				// isWritten = true;
 			}
 			res_db.close();
+
 			return 1;
 		} else {
 			if (LOG_ON) {
@@ -1364,7 +1365,7 @@ public void onDeleteAllClick(View view) {
 
         new File("sdcard" + File.separator + "sdplay_results").mkdirs();
         File exportDir = new File("sdcard" + File.separator + "sdplay_results");
-        file = new File(exportDir.getAbsolutePath(), device_name + "-" + serial + "-SDPlay.csv");
+        file = new File(exportDir.getAbsolutePath(), device_name + "-" + Build.SERIAL + "-SDPlay.csv");
 
 
         try
@@ -1501,6 +1502,7 @@ public void onDeleteAllClick(View view) {
 	}
 
 	public boolean checkPath() {
+        new File(sdPath).mkdirs();
 		File f = new File(sdPath);
 		if (f.exists() && f.isDirectory()) {
 			return true;
@@ -1928,6 +1930,12 @@ public void onDeleteAllClick(View view) {
 
 	public void onPause() {
 		this.unregisterReceiver(listener);
+        if ((ALL && isWritten && isFsDone) || (!ALL && isWritten)
+                || (!ALL && isFsDone)) {
+            if (!sdPath.equals(intPath) && !userdata_selected) {
+                cleanAppDirsOnExternalStorage();
+            }
+        }
 		super.onPause();
 	}
 
@@ -3413,8 +3421,11 @@ public void onDeleteAllClick(View view) {
 					break;
 				case 2:
 					// f.delete();
-					f.delete();
-					// Log.d("SDPlay", "Dir deleted");
+
+                    if (LOG_ON) {
+                        Log.d(TAG, "Dir deleted: " + f.getAbsolutePath());
+                    }
+                    f.delete();
 					break;
 				case 3:
 					break;
@@ -3634,9 +3645,42 @@ public void onDeleteAllClick(View view) {
             return v << j;
     }
 
+
+    public int cleanAppDirsOnExternalStorage() {
+        int files_deleted = 0;
+        String pathToDelete = "";
+        String patternToClean = "(/.+/com.elena.sdplay)/.+";
+        if (sdPath.matches(patternToClean)) {
+            pathToDelete = sdPath.replaceAll(patternToClean, "$1");
+            if (LOG_ON) {
+                Log.d(TAG, "path to delete: " + pathToDelete);
+            }
+        }
+        try {
+            File appdirs = new File(pathToDelete);
+            if (appdirs.exists() && appdirs.isDirectory()) {
+                if (LOG_ON) {
+                    Log.d(TAG, "trying to delete temporary dirs on external storage...");
+                }
+                files_deleted = walk(appdirs.getAbsolutePath(), 2);
+            }
+            appdirs.delete();
+        } catch (Exception e) {
+            Log.d(TAG, "Nothing to clean here: " + e);
+        }
+
+        return files_deleted;
+    }
+
 	public void onDestroy() {
         //mProgressDialog.dismiss();
+        if (LOG_ON){
+            Log.d(TAG, "onDestroy() has been called");
+        }
         cleanFs();
+        if (!sdPath.equals(intPath) && !userdata_selected) {
+            cleanAppDirsOnExternalStorage();
+        }
 		super.onDestroy();
 	}
 	// class finish

@@ -59,7 +59,7 @@
         <item>Sandisk Extreme UHS-I|SD|0x0003|SE32G</item>
         <item>Sandisk Extreme UHS-I|SD|0x0003|SE08G</item>
         <item>Sandisk|SD|0x0003|SU08G</item>
-        <item>Samsung|SM|0x001b|0</item>
+
         <item>Silicon Power	Class 10|JT|0x0082|NCard</item>
         <item>Sony microSDHC Class 4|PH|0x0027|SD</item>
         <item>Transcend	Class 6|JE|0x0074|USD</item>
@@ -69,6 +69,10 @@
         <item>Transcend Class 10|AB|0x001e|SDC</item>
         <item>Transcend Class 6|SV|0x001c|SDC</item>
         <item>Toshiba Class 4|TM|0x0002|SA32G</item>
+        <item>Samsung|SM|0x001b|0</item>
+        <item>Samsung|SM|0x001b|00</item>
+        <item>Samsung|SM|0x001b|000</item>
+        <item>Samsung|SM|0x001b|0000</item>
         
     </string-array>
     <!-- From: file:/Users/elenalast/AndroidstudioProjects/SDPlay/app/src/main/res/values/strings_activity_settings.xml -->
