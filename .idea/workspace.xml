@@ -50,12 +50,24 @@
       <file leaf-file-name="BenchStart.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/elena/sdplay/BenchStart.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1965" max-vertical-offset="52440">
-              <caret line="2028" column="0" selection-start-line="2028" selection-start-column="0" selection-end-line="2028" selection-end-column="0" />
+            <state vertical-scroll-proportion="-6.423077" vertical-offset="26668" max-vertical-offset="52470">
+              <caret line="1890" column="0" selection-start-line="1890" selection-start-column="0" selection-end-line="1890" selection-end-column="0" />
               <folding>
-                <element signature="e#68916#69169#0" expanded="true" />
-                <element signature="e#69161#69162#0" expanded="true" />
+                <element signature="e#66562#66563#0" expanded="true" />
+                <element signature="e#66590#66591#0" expanded="true" />
+                <element signature="e#69068#69321#0" expanded="true" />
+                <element signature="e#69313#69314#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="arrays.xml" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/values/arrays.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.72490704" vertical-offset="765" max-vertical-offset="2100">
+              <caret line="64" column="36" selection-start-line="64" selection-start-column="36" selection-end-line="64" selection-end-column="36" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -94,11 +106,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ShowTopFsRes.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="ShowTopFsRes.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/elena/sdplay/ShowTopFsRes.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7421875" vertical-offset="5135" max-vertical-offset="6180">
-              <caret line="388" column="24" selection-start-line="388" selection-start-column="24" selection-end-line="388" selection-end-column="24" />
+            <state vertical-scroll-proportion="-8.461538" vertical-offset="5135" max-vertical-offset="6180">
+              <caret line="390" column="23" selection-start-line="390" selection-start-column="23" selection-end-line="390" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -1346,13 +1358,13 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_summary_view.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_top_results.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/xml/pref_general.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/values/arrays.xml" />
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/elena/sdplay/MainActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/elena/sdplay/BenchStart.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/elena/sdplay/SummaryView.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/elena/sdplay/TopResults.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/elena/sdplay/ShowTopFsRes.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/elena/sdplay/BenchStart.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/arrays.xml" />
       </list>
     </option>
   </component>
@@ -1651,7 +1663,7 @@
     <property name="recentsLimit" value="5" />
     <property name="android.project.structure.last.selected" value="app" />
     <property name="android.project.structure.proportion" value="0.15" />
-    <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="TA989000WU" />
+    <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="NTIO0F0122" />
     <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_AVD" value="Nexus_5_API_21_x86" />
     <property name="FullScreen" value="false" />
   </component>
@@ -1961,8 +1973,10 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="44685" max-vertical-offset="47295">
           <caret line="3133" column="9" selection-start-line="3133" selection-start-column="9" selection-end-line="3133" selection-end-column="9" />
           <folding>
-            <element signature="e#68916#69169#0" expanded="true" />
-            <element signature="e#69161#69162#0" expanded="true" />
+            <element signature="e#66562#66563#0" expanded="true" />
+            <element signature="e#66590#66591#0" expanded="true" />
+            <element signature="e#69068#69321#0" expanded="true" />
+            <element signature="e#69313#69314#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2251,14 +2265,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/arrays.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.598513" vertical-offset="1505" max-vertical-offset="2025">
-          <caret line="129" column="12" selection-start-line="129" selection-start-column="12" selection-end-line="129" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="75" max-vertical-offset="1290">
@@ -2291,17 +2297,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/elena/sdplay/BenchStart.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1965" max-vertical-offset="52440">
-          <caret line="2028" column="0" selection-start-line="2028" selection-start-column="0" selection-end-line="2028" selection-end-column="0" />
-          <folding>
-            <element signature="e#68916#69169#0" expanded="true" />
-            <element signature="e#69161#69162#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/elena/sdplay/SummaryView.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-5.576923" vertical-offset="5720" max-vertical-offset="6780">
@@ -2324,8 +2319,29 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/elena/sdplay/ShowTopFsRes.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7421875" vertical-offset="5135" max-vertical-offset="6180">
-          <caret line="388" column="24" selection-start-line="388" selection-start-column="24" selection-end-line="388" selection-end-column="24" />
+        <state vertical-scroll-proportion="-8.461538" vertical-offset="5135" max-vertical-offset="6180">
+          <caret line="390" column="23" selection-start-line="390" selection-start-column="23" selection-end-line="390" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/elena/sdplay/BenchStart.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.423077" vertical-offset="26668" max-vertical-offset="52470">
+          <caret line="1890" column="0" selection-start-line="1890" selection-start-column="0" selection-end-line="1890" selection-end-column="0" />
+          <folding>
+            <element signature="e#66562#66563#0" expanded="true" />
+            <element signature="e#66590#66591#0" expanded="true" />
+            <element signature="e#69068#69321#0" expanded="true" />
+            <element signature="e#69313#69314#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/arrays.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.72490704" vertical-offset="765" max-vertical-offset="2100">
+          <caret line="64" column="36" selection-start-line="64" selection-start-column="36" selection-end-line="64" selection-end-column="36" />
           <folding />
         </state>
       </provider>

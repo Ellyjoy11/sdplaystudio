@@ -50,15 +50,16 @@
         <item>Sandisk 2009 White Label|SD|0x0003|SD02G</item>
         <item>Sandisk Class 4|SD|0x0003|SD08G</item>
         <item>Sandisk Extreme-III|SD|0x0003|SD04G</item>
+        <item>Sandisk Extreme Pro|SD|0x0003|SP32G</item>
         <item>Sandisk Ultra Class 4|SD|0x0003|SU04G</item>
         <item>Sandisk micro Class 4|SD|0x0003|SD16G</item>
-        <item>SanDisk Mobile Ultra|SD|0x0003|SU04G</item>
+        <item>SanDisk Ultra|SD|0x0003|SL64G</item>
         <item>Sandisk Ultra UHS-I|SD|0x0003|SU16G</item>
         <item>Sandisk Extreme UHS-I|SD|0x0003|SE16G</item>
         <item>Sandisk Extreme UHS-I|SD|0x0003|SE32G</item>
         <item>Sandisk Extreme UHS-I|SD|0x0003|SE08G</item>
         <item>Sandisk|SD|0x0003|SU08G</item>
-        <item>Samsung|SM|0x001b|00000</item>
+        <item>Samsung|SM|0x001b|0</item>
         <item>Silicon Power	Class 10|JT|0x0082|NCard</item>
         <item>Sony microSDHC Class 4|PH|0x0027|SD</item>
         <item>Transcend	Class 6|JE|0x0074|USD</item>

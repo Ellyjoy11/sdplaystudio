@@ -1879,14 +1879,14 @@ public void onDeleteAllClick(View view) {
 				}
 
 				for (int j = 0; j < card_manfs.length; j++) {
-					if ((oemid.equals(card_manf_names[j][1]))
-							&& (manfid.substring(2)
-									.contains(card_manf_names[j][2]
-											.substring(2)))
-							&& (name.equals(card_manf_names[j][3]))) {
-						full_details = card_manf_names[j][0];
-						break;
-					}
+                    if ((oemid.equals(card_manf_names[j][1]))
+                            && (manfid.substring(2)
+                            .contains(card_manf_names[j][2]
+                                    .substring(2)))
+                            && (name.equals(card_manf_names[j][3]))) {
+                        full_details = card_manf_names[j][0];
+                        break;
+                    }
                 }
 
 				if (full_details == "") {
