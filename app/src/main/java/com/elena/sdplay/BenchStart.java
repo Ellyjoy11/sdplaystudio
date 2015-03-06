@@ -1471,8 +1471,9 @@ public void onDeleteAllClick(View view) {
                         curCSV.getString(18), curCSV.getString(19),
                         curCSV.getString(20), curCSV.getString(21),
                         curCSV.getString(22)
-                };
 
+                };
+                //Log.d(TAG, "notes " + curCSV.getString(5));
                 csvWrite.writeRecord(arrStr);
                 curCSV.moveToNext();
 
