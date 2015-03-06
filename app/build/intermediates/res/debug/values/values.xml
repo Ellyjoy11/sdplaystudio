@@ -73,6 +73,8 @@
         <item>Samsung|SM|0x001b|00</item>
         <item>Samsung|SM|0x001b|000</item>
         <item>Samsung|SM|0x001b|0000</item>
+        <item>Samsung|SM|0x001b|00000</item>
+        <item>Samsung|SM|0x001b|000000</item>
         
     </string-array>
     <!-- From: file:/Users/elenalast/AndroidstudioProjects/SDPlay/app/src/main/res/values/strings_activity_settings.xml -->

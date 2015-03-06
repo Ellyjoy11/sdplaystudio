@@ -117,7 +117,6 @@ public class BenchStart extends Activity {
 	byte[] bytesForIops;
 	byte[] bytesToWriteMedium;
 	byte[] bytesToWriteLarge;
-	private boolean wasCancelled;
 	private int buffIopsSize;
 	private long iopsFileSize;
 	private int bufferSize;
@@ -144,6 +143,7 @@ public class BenchStart extends Activity {
 	private boolean custom_drive_selected;
 	public static boolean isWritten;
 	public static boolean isFsDone;
+//    private boolean wasCancelled;
     //public static boolean isFsTestStarted;
 	private int isSaved = 0;
 	private BroadcastReceiver SDCardStateChangeListener;
@@ -443,6 +443,7 @@ public class BenchStart extends Activity {
 				.setOnCancelListener(new DialogInterface.OnCancelListener() {
 					@Override
 					public void onCancel(DialogInterface dialog) {
+
 						readAll.cancel(true);
 					}
 				});
@@ -456,6 +457,7 @@ public void onDeleteAllClick(View view) {
             .setOnCancelListener(new DialogInterface.OnCancelListener() {
                 @Override
                 public void onCancel(DialogInterface dialog) {
+
                     deleteAll.cancel(true);
                 }
             });
@@ -480,7 +482,8 @@ public void onDeleteAllClick(View view) {
 				.setOnCancelListener(new DialogInterface.OnCancelListener() {
 					@Override
 					public void onCancel(DialogInterface dialog) {
-						rndRead.cancel(true);
+
+                        rndRead.cancel(true);
 					}
 				});
 		// SQLiteDatabase.releaseMemory();
@@ -521,7 +524,8 @@ public void onDeleteAllClick(View view) {
 					.setOnCancelListener(new DialogInterface.OnCancelListener() {
 						@Override
 						public void onCancel(DialogInterface dialog) {
-							writeNew.cancel(true);
+
+                            writeNew.cancel(true);
 						}
 					});
 			// SQLiteDatabase.releaseMemory();
@@ -557,7 +561,8 @@ public void onDeleteAllClick(View view) {
 				.setOnCancelListener(new DialogInterface.OnCancelListener() {
 					@Override
 					public void onCancel(DialogInterface dialog) {
-						rndWrite.cancel(true);
+
+                        rndWrite.cancel(true);
 					}
 				});
 		// SQLiteDatabase.releaseMemory();
@@ -601,6 +606,7 @@ public void onDeleteAllClick(View view) {
 			for (int j = 1; j <= ROWS; j++) {
 				if (isCancelled()) {
 					mWakeLockW.release();
+                 //   wasCancelled = true;
 					db.close();
 					return 0;
 				} else {
@@ -723,6 +729,7 @@ public void onDeleteAllClick(View view) {
 			for (int g = 0; g < READ_CYCLES; g++) {
 				if (isCancelled()) {
 					mWakeLockR.release();
+				//	wasCancelled = true;
 					db.close();
 					return 0;
 				} else {
@@ -876,6 +883,7 @@ public void onDeleteAllClick(View view) {
 			for (int j = 0; j < RND_ROWS; j++) {
 				if (isCancelled()) {
 					mWakeLockRW.release();
+                 //   wasCancelled = true;
 					db.close();
 					return 0;
 				} else {
@@ -996,6 +1004,7 @@ public void onDeleteAllClick(View view) {
 			for (int j = 0; j < RND_ROWS; j++) {
 				if (isCancelled()) {
 					mWakeLockRR.release();
+                //    wasCancelled = true;
 					db.close();
 					return 0;
 				} else {
@@ -1136,6 +1145,7 @@ public void onDeleteAllClick(View view) {
 
                 if (isCancelled()) {
                     mWakeLockD.release();
+                //    wasCancelled = true;
                     db.close();
                     return 0;
                 } else {
@@ -1930,12 +1940,15 @@ public void onDeleteAllClick(View view) {
 
 	public void onPause() {
 		this.unregisterReceiver(listener);
+
         if ((ALL && isWritten && isFsDone) || (!ALL && isWritten)
-                || (!ALL && isFsDone)) {
+                || (!ALL && isFsDone)
+                ) {
             if (!sdPath.equals(intPath) && !userdata_selected) {
                 cleanAppDirsOnExternalStorage();
             }
         }
+
 		super.onPause();
 	}
 
@@ -2001,7 +2014,7 @@ public void onDeleteAllClick(View view) {
 					.setOnCancelListener(new DialogInterface.OnCancelListener() {
 						@Override
 						public void onCancel(DialogInterface dialog) {
-							wasCancelled = true;
+
 							createFs.cancel(true);
 						}
 					});
@@ -2060,6 +2073,7 @@ public void onDeleteAllClick(View view) {
 					for (int k = 1; k <= 10; k++) {
 						if (isCancelled()) {
 							mWakeLockCrFS.release();
+                         //   wasCancelled = true;
 							Log.d("SDPLay", "Dialog cancelled");
 							return 0;
 						} else {
@@ -2179,7 +2193,7 @@ public void onDeleteAllClick(View view) {
 				.setOnCancelListener(new DialogInterface.OnCancelListener() {
 					@Override
 					public void onCancel(DialogInterface dialog) {
-						wasCancelled = true;
+
 						listFs.cancel(true);
 					}
 				});
@@ -2292,7 +2306,7 @@ public void onDeleteAllClick(View view) {
 				.setOnCancelListener(new DialogInterface.OnCancelListener() {
 					@Override
 					public void onCancel(DialogInterface dialog) {
-						wasCancelled = true;
+
 						readSmallFiles.cancel(true);
 					}
 				});
@@ -2411,7 +2425,7 @@ public void onDeleteAllClick(View view) {
 				.setOnCancelListener(new DialogInterface.OnCancelListener() {
 					@Override
 					public void onCancel(DialogInterface dialog) {
-						wasCancelled = true;
+
 						writeMediumFiles.cancel(true);
 					}
 				});
@@ -2437,6 +2451,7 @@ public void onDeleteAllClick(View view) {
 				if (dir_lvl1_path.exists() && dir_lvl1_path.isDirectory()) {
 					if (isCancelled()) {
 						mWakeLockCrFS.release();
+                     //   wasCancelled = true;
 						return 0;
 					} else {
 						for (int k = 1; k <= 5; k++) {
@@ -2545,7 +2560,7 @@ public void onDeleteAllClick(View view) {
 				.setOnCancelListener(new DialogInterface.OnCancelListener() {
 					@Override
 					public void onCancel(DialogInterface dialog) {
-						wasCancelled = true;
+
 						readMediumFiles.cancel(true);
 					}
 				});
@@ -2680,7 +2695,7 @@ public void onDeleteAllClick(View view) {
 				.setOnCancelListener(new DialogInterface.OnCancelListener() {
 					@Override
 					public void onCancel(DialogInterface dialog) {
-						wasCancelled = true;
+
 						writeLargeFiles.cancel(true);
 					}
 				});
@@ -2706,6 +2721,7 @@ public void onDeleteAllClick(View view) {
 				if (dir_lvl0_path.exists() && dir_lvl0_path.isDirectory()) {
 					if (isCancelled()) {
 						mWakeLockCrFS.release();
+                    //    wasCancelled = true;
 						return 0;
 					} else {
 						String path = dir_lvl0_path + File.separator
@@ -2820,7 +2836,7 @@ public void onDeleteAllClick(View view) {
 				.setOnCancelListener(new DialogInterface.OnCancelListener() {
 					@Override
 					public void onCancel(DialogInterface dialog) {
-						wasCancelled = true;
+
 						readLargeFiles.cancel(true);
 					}
 				});
@@ -2957,7 +2973,7 @@ public void onDeleteAllClick(View view) {
 				.setOnCancelListener(new DialogInterface.OnCancelListener() {
 					@Override
 					public void onCancel(DialogInterface dialog) {
-						wasCancelled = true;
+
 						runIOPSTest.cancel(true);
 					}
 				});
@@ -2982,6 +2998,7 @@ public void onDeleteAllClick(View view) {
 			if (dir_lvl0_path.exists() && dir_lvl0_path.isDirectory()) {
 				if (isCancelled()) {
 					mWakeLockCrFS.release();
+                //    wasCancelled = true;
 					return 0;
 				} else {
 					String path = dir_lvl0_path + File.separator + "iops_f"
@@ -3123,7 +3140,7 @@ public void onDeleteAllClick(View view) {
 				.setOnCancelListener(new DialogInterface.OnCancelListener() {
 					@Override
 					public void onCancel(DialogInterface dialog) {
-						wasCancelled = true;
+
 						runIOPSReadTest.cancel(true);
 					}
 				});
@@ -3148,6 +3165,7 @@ public void onDeleteAllClick(View view) {
 			if (dir_lvl0_path.exists() && dir_lvl0_path.isDirectory()) {
 				if (isCancelled()) {
 					mWakeLockCrFS.release();
+                //    wasCancelled = true;
 					return 0;
 				} else {
 					String path = dir_lvl0_path + File.separator + "iops_f"
@@ -3276,7 +3294,7 @@ public void onDeleteAllClick(View view) {
 				.setOnCancelListener(new DialogInterface.OnCancelListener() {
 					@Override
 					public void onCancel(DialogInterface dialog) {
-						wasCancelled = true;
+
 						deleteAllFiles.cancel(true);
 					}
 				});
@@ -3366,7 +3384,7 @@ public void onDeleteAllClick(View view) {
 				Log.d(TAG, "Before calling ALL value is " + ALL
 						+ "; DB test done is " + isWritten);
 			}
-			wasCancelled = false;
+		//	wasCancelled = false;
             exportResToCsv();
 			if (ALL) {
 				// onReadAllClick(findViewById(android.R.id.content).getRootView());
