@@ -218,6 +218,7 @@ public class BenchStart extends Activity {
 
 		// this.registerSDCardStateChangeListener();
 		MainActivity.calling_activity = "Bench";
+        ALL = false;
 		fs_type = "";
 		filter = new IntentFilter();
 		// filter.addAction(MEDIA_REMOVED);
@@ -1941,17 +1942,26 @@ public void onDeleteAllClick(View view) {
 
 	public void onPause() {
 		this.unregisterReceiver(listener);
+		super.onPause();
+	}
 
+    public void onStop() {
+        if (LOG_ON) {
+            Log.d(TAG, "onStop() is called");
+        }
         if ((ALL && isWritten && isFsDone) || (!ALL && isWritten)
                 || (!ALL && isFsDone)
                 ) {
             if (!sdPath.equals(intPath) && !userdata_selected) {
+                if(LOG_ON) {
+                    Log.d(TAG, "Trying to delete...; ALL = " + ALL + "; isWritten = " + isWritten + "; isFsDone = " + isFsDone);
+                }
                 cleanAppDirsOnExternalStorage();
             }
+            ALL = false;
         }
-
-		super.onPause();
-	}
+        super.onStop();
+    }
 
 	// ////////////////FS Test part/////////////////////////////////////////////
 	public void onFsTestClick(View view) {
@@ -3391,7 +3401,7 @@ public void onDeleteAllClick(View view) {
 				// onReadAllClick(findViewById(android.R.id.content).getRootView());
 				// TODO
 				textView11.setText(tmp);
-				ALL = false;
+				//ALL = false;
 				showSummary();
 			} else {
 				textView.setText(tmp);
