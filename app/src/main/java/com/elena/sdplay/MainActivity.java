@@ -394,18 +394,27 @@ public class MainActivity extends Activity {
 					if (selectedId == file_list.length && is_userdata == 0) {
 						sdPath = usb_drive_path;
 						usb_drive_selected = true;
+                        userdata_selected = false;
+                        custom_drive_selected = false;
 					} else if (selectedId == file_list.length
 							&& is_userdata == 1) {
 						sdPath = userdata_path;
 						userdata_selected = true;
+                        usb_drive_selected = false;
+                        custom_drive_selected = false;
 					} else if ((selectedId == (file_list.length + is_userdata))
 							&& is_userdata == 1 && usb_drive == 1) {
 						sdPath = usb_drive_path;
 						usb_drive_selected = true;
+                        userdata_selected = false;
+                        custom_drive_selected = false;
 					} else if (((selectedId == (file_list.length + is_userdata)) && usb_drive == 0)
 							|| ((selectedId == (file_list.length + is_userdata + usb_drive)) && usb_drive == 1)) {
 						sdPath = customPathVerified;
 						custom_drive_selected = true;
+                        usb_drive_selected = false;
+                        userdata_selected = false;
+
 					} else {
 						sdPath = file_list[selectedId].toString();
 						usb_drive_selected = false;

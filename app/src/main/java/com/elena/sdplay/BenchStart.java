@@ -82,6 +82,7 @@ public class BenchStart extends Activity {
 	double totalSpace;
 	double freeSpace;
     long devSize, devSizeM;
+    private long eMmcSize;
 	// timing values
 	long millis1, millis2, millis3, millis4, millis5, millis6, millis7,
 			millis8;
@@ -219,6 +220,8 @@ public class BenchStart extends Activity {
 		// this.registerSDCardStateChangeListener();
 		MainActivity.calling_activity = "Bench";
         ALL = false;
+        eMmcSize = 0;
+        devSize = 0;
 		fs_type = "";
 		filter = new IntentFilter();
 		// filter.addAction(MEDIA_REMOVED);
@@ -1542,11 +1545,15 @@ public void onDeleteAllClick(View view) {
 		}
 		totalSpace = totalBlocks * blockSize / (1024.0 * 1024 * 1024);
 		freeSpace = freeBlocks * blockSize / (1024.0 * 1024 * 1024);
-        devSize = roundUp2((long) totalSpace);
-        if (devSize == 0) {
-            devSizeM = roundUp2((long) totalBlocks * blockSize / (1024 * 1024));
+        if (sdPath.equals(intPath) || userdata_selected || custom_drive_selected) {
+            getEmmcSize();
+            devSize = eMmcSize;
+        } else {
+            devSize = roundUp2((long) totalSpace);
+            if (devSize == 0) {
+                devSizeM = roundUp2((long) totalBlocks * blockSize / (1024 * 1024));
+            }
         }
-
 		String textShow = "Total user space: " + String.format("%.2f", totalSpace)
 				+ " GB\nFree user space: " + String.format("%.2f", freeSpace)
 				+ " GB\n";
@@ -3631,7 +3638,7 @@ public void onDeleteAllClick(View view) {
 		return !canon.getCanonicalFile().equals(canon.getAbsoluteFile());
 	}
 
-        /*
+
     private void getEmmcSize() {
         String sizeToRound = "0";
         try {
@@ -3658,7 +3665,7 @@ public void onDeleteAllClick(View view) {
             Log.d(TAG, "emmc size is " + eMmcSize + "GB");
         }
     }
-    */
+
 
     private long roundUp2(long v)
     {
