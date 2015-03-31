@@ -58,9 +58,10 @@ import java.util.concurrent.Executor;
 @SuppressLint("NewApi")
 public class BenchStart extends Activity {
 
-	private final String journalMode = "PERSIST"; // "DELETE", "TRUNCATE",
+	private String journalMode = "default"; // "DELETE", "TRUNCATE",
 													// "OFF", "WAL"
-	private final boolean LOG_ON = false;
+	private Cursor ccc;
+    private final boolean LOG_ON = true;
 	private final String TAG = "SDPlayDebug";
     private String device_name;
 	private String sdPath;
@@ -273,7 +274,10 @@ public class BenchStart extends Activity {
 		}
 
 		// get user options from shared preferences
-
+        journalMode = userPref.getString("journal", "default");
+        if (LOG_ON) {
+            Log.d(TAG, "DB journal mode is " + journalMode);
+        }
 		ROWS = Integer.parseInt(userPref.getString("rows", "1000"));
 		RND_ROWS = Integer.parseInt(userPref.getString("rnd_rows", "1000"));
 		READ_CYCLES = Integer.parseInt(userPref.getString("cycles", "100"));
@@ -591,11 +595,13 @@ public void onDeleteAllClick(View view) {
 			// clean test table and reset auto-increment key
 			db.execSQL("DELETE FROM 'My_table'");
 			db.execSQL("DELETE FROM SQLITE_SEQUENCE WHERE NAME = 'My_table'");
-			Cursor ccc = db.rawQuery("PRAGMA journal_mode = " + journalMode
-					+ "; PRAGMA synchronous = FULL;", null);
-			// ccc = db.rawQuery("PRAGMA synchronous = FULL;", null);
-			ccc.moveToNext();
-			ccc.getString(0);
+            if (!journalMode.equals("default")) {
+                ccc = db.rawQuery("PRAGMA journal_mode = " + journalMode
+                        + "; PRAGMA synchronous = FULL;", null);
+                ccc.moveToNext();
+                ccc.getString(0);
+                ccc.close();
+            }
 
 			// Create a new map of values, where column names are the keys
 			ContentValues values = new ContentValues();
@@ -642,8 +648,6 @@ public void onDeleteAllClick(View view) {
 			// Log.d("SDPlay", "random time " + randTime + "ms");
 			// writing time in ms
 			diff_w = millis2 - millis1;
-			// Log.d("SDPlay", "write time " + diff_w + "ms");
-			ccc.close();
 			db.close();
 			return 1;
 			// When finished, return the resulting 1, this will cause the
@@ -875,10 +879,13 @@ public void onDeleteAllClick(View view) {
 		protected Integer doInBackground(Integer... params) {
 			MyDBHelper myDB = new MyDBHelper(getBaseContext(), sdPath);
 			SQLiteDatabase db = myDB.getWritableDatabase();
-			Cursor ccc = db.rawQuery("PRAGMA journal_mode = " + journalMode
-					+ "; PRAGMA synchronous = FULL;", null);
-			ccc.moveToNext();
-			ccc.getString(0);
+            if (!journalMode.equals("default")) {
+                ccc = db.rawQuery("PRAGMA journal_mode = " + journalMode
+                        + "; PRAGMA synchronous = FULL;", null);
+                ccc.moveToNext();
+                ccc.getString(0);
+                ccc.close();
+            }
 
 			ContentValues values = new ContentValues();
 			Random rand = new Random();
@@ -916,7 +923,7 @@ public void onDeleteAllClick(View view) {
 			millis6 = SystemClock.elapsedRealtime();
 			// Time spent for random selection and update records
 			diff_rnd_io = millis6 - millis5;
-			ccc.close();
+
 			db.close();
 			return 1;
 			// When finished, return the resulting 1, this will cause the
@@ -996,10 +1003,13 @@ public void onDeleteAllClick(View view) {
 		protected Integer doInBackground(Integer... params) {
 			MyDBHelper myDB = new MyDBHelper(getBaseContext(), sdPath);
 			SQLiteDatabase db = myDB.getReadableDatabase();
-			Cursor ccc = db.rawQuery("PRAGMA journal_mode = " + journalMode
-					+ "; PRAGMA synchronous = FULL;", null);
-			ccc.moveToNext();
-			ccc.getString(0);
+            if (!journalMode.equals("default")) {
+                ccc = db.rawQuery("PRAGMA journal_mode = " + journalMode
+                        + "; PRAGMA synchronous = FULL;", null);
+                ccc.moveToNext();
+                ccc.getString(0);
+                ccc.close();
+            }
 
 			List<String> recs = new ArrayList<String>();
 			Random rand = new Random();
@@ -1056,7 +1066,7 @@ public void onDeleteAllClick(View view) {
 			// Time spent for random selection
 			diff_rnd_read = millis8 - millis7;
 			// //////////////////////////////////////////////////////
-			ccc.close();
+
 			db.close();
 			return 1;
 			// When finished, return the resulting 1, this will cause the
@@ -1142,10 +1152,13 @@ public void onDeleteAllClick(View view) {
             List<String> recs = new ArrayList<String>();
             Cursor c;
             SQLiteDatabase db = myDB.getWritableDatabase();
-            Cursor ccc = db.rawQuery("PRAGMA journal_mode = " + journalMode
-                    + "; PRAGMA synchronous = FULL;", null);
-            ccc.moveToNext();
-            ccc.getString(0);
+            if (!journalMode.equals("default")) {
+                ccc = db.rawQuery("PRAGMA journal_mode = " + journalMode
+                        + "; PRAGMA synchronous = FULL;", null);
+                ccc.moveToNext();
+                ccc.getString(0);
+                ccc.close();
+            }
 
                 if (isCancelled()) {
                     mWakeLockD.release();
@@ -1177,8 +1190,6 @@ public void onDeleteAllClick(View view) {
             millis4 = SystemClock.elapsedRealtime();
             // Time spent on reading all db rows
             diff_r = millis4 - millis3;
-
-            ccc.close();
             db.close();
 
             return 1;

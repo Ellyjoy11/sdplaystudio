@@ -17,6 +17,12 @@
         android:selectAllOnFocus="true"
         android:singleLine="true"
         android:title="Rows for random read/write" />
+    <ListPreference
+        android:title="DB journal mode"
+        android:key="journal"
+        android:defaultValue="default"
+        android:entries="@array/journalArray"
+        android:entryValues="@array/journalValues" />
     <!--
     <EditTextPreference
         android:defaultValue="100"

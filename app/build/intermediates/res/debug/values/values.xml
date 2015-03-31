@@ -11,6 +11,22 @@
         <item>Sandisk|0x0045</item>
         <item>Elpida|0x00FE</item>
     </string-array>
+    <string-array name="journalArray">
+        <item>System default</item>
+        <item>PERSIST</item>
+        <item>TRUNCATE</item>
+        <item>DELETE</item>
+        <item>WAL</item>
+        <item>OFF</item>
+    </string-array>
+    <string-array name="journalValues">
+        <item>default</item>
+        <item>PERSIST</item>
+        <item>TRUNCATE</item>
+        <item>DELETE</item>
+        <item>WAL</item>
+        <item>OFF</item>
+    </string-array>
     <string-array name="known_sdcards">
         
         <item>Adata UHS-I Class 10|AD|0x001d|SD</item>

@@ -10,14 +10,16 @@ package com.elena.sdplay;
 public final class R {
     public static final class array {
         public static final int internal_memories=0x7f050000;
-        public static final int known_sdcards=0x7f050001;
-        public static final int pref_example_list_titles=0x7f050002;
-        public static final int pref_example_list_values=0x7f050003;
-        public static final int pref_sync_frequency_titles=0x7f050004;
-        public static final int pref_sync_frequency_values=0x7f050005;
-        public static final int reference_fs_results=0x7f050006;
-        public static final int reference_results=0x7f050007;
-        public static final int usb_drives=0x7f050008;
+        public static final int journalArray=0x7f050001;
+        public static final int journalValues=0x7f050002;
+        public static final int known_sdcards=0x7f050003;
+        public static final int pref_example_list_titles=0x7f050004;
+        public static final int pref_example_list_values=0x7f050005;
+        public static final int pref_sync_frequency_titles=0x7f050006;
+        public static final int pref_sync_frequency_values=0x7f050007;
+        public static final int reference_fs_results=0x7f050008;
+        public static final int reference_results=0x7f050009;
+        public static final int usb_drives=0x7f05000a;
     }
     public static final class attr {
     }
