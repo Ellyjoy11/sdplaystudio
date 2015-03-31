@@ -1430,10 +1430,10 @@ public void onDeleteAllClick(View view) {
             CsvWriter csvWrite = new CsvWriter(new FileWriter(file, true), ',');
             Cursor curCSV;
             //in case if all DB is needed to be saved
-            curCSV = db.rawQuery("SELECT * FROM RES_TABLE", null);
+            //curCSV = db.rawQuery("SELECT * FROM RES_TABLE", null);
 
             ////////////////
-            /*
+
             String[] ref_res = getResources().getStringArray(
                     R.array.reference_results);
             int REF_COUNT = ref_res.length;
@@ -1463,13 +1463,14 @@ public void onDeleteAllClick(View view) {
                     null, // sort by Total score
                     null // limit results number to 5
             );
-            */
+
             //////////////
 
             csvWrite.writeRecord(curCSV.getColumnNames());
             curCSV.moveToFirst();
 
             //in case if all DB is needed to be saved
+            /*
             while (!curCSV.isAfterLast())  {
 
                 String arrStr[] = { curCSV.getString(0), curCSV.getString(1),
@@ -1491,7 +1492,7 @@ public void onDeleteAllClick(View view) {
                         curCSV.getString(30), curCSV.getString(31),
                         curCSV.getString(32)
                 };
- /*
+ */
 
             while (!curCSV.isAfterLast())  {
 
@@ -1510,7 +1511,7 @@ public void onDeleteAllClick(View view) {
                         curCSV.getString(22), curCSV.getString(23)
 
                 };
-                */
+
                 //Log.d(TAG, "notes " + curCSV.getString(5));
                 csvWrite.writeRecord(arrStr);
                 curCSV.moveToNext();
