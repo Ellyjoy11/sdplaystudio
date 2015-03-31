@@ -1298,6 +1298,7 @@ public void onDeleteAllClick(View view) {
                 } else {
                     values.put(myResDB.RES_FS_TYPE, fs_type);
                 }
+                values.put(myResDB.RES_JOURNAL, journalMode);
 				values.put(myResDB.RES_W_SPEED, String.format("%.2f", ws));
 				values.put(myResDB.RES_D_SPEED, String.format("%.2f", rs));
 				values.put(myResDB.RES_RW_SPEED, String.format("%.2f", rndws));
@@ -1425,6 +1426,7 @@ public void onDeleteAllClick(View view) {
             String[] projection = { myResDB.RES_DETAILS,
                     myResDB.RES_DEV_SIZE, myResDB.RES_SERIAL,
                     myResDB.RES_BUILD_ID, myResDB.RES_FS_TYPE, myResDB.RES_NOTES,
+                    myResDB.RES_JOURNAL,
                     myResDB.RES_W_SPEED, myResDB.RES_RW_SPEED, myResDB.RES_RR_SPEED,
                     myResDB.RES_D_SPEED, myResDB.RES_TOTAL_SCORE,
                     myResDB.FS_C_SPEED, myResDB.FS_L_SPEED, myResDB.FS_RS_SPEED,
@@ -1467,7 +1469,7 @@ public void onDeleteAllClick(View view) {
                         curCSV.getString(24), curCSV.getString(25),
                         curCSV.getString(26), curCSV.getString(27),
                         curCSV.getString(28), curCSV.getString(29),
-                        curCSV.getString(30)
+                        curCSV.getString(30), curCSV.getString(31)
                 };
                 */
 
@@ -1485,7 +1487,7 @@ public void onDeleteAllClick(View view) {
                         curCSV.getString(16), curCSV.getString(17),
                         curCSV.getString(18), curCSV.getString(19),
                         curCSV.getString(20), curCSV.getString(21),
-                        curCSV.getString(22)
+                        curCSV.getString(22), curCSV.getString(23)
 
                 };
                 //Log.d(TAG, "notes " + curCSV.getString(5));

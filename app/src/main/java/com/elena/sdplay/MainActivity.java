@@ -571,25 +571,6 @@ public class MainActivity extends Activity {
 				ref_results[i] = ref_res[i].split("\\|");
 				res_db.beginTransaction();
 				try {
-                    /*
-					values.put(myResDB.RES_DETAILS, ref_results[i][0]);
-					values.put(myResDB.RES_BUILD_ID, ref_results[i][1]);
-					values.put(myResDB.RES_W_SPEED, ref_results[i][2]);
-					values.put(myResDB.RES_D_SPEED, ref_results[i][3]);
-					values.put(myResDB.RES_RW_SPEED, ref_results[i][4]);
-					values.put(myResDB.RES_RR_SPEED, ref_results[i][5]);
-					values.put(myResDB.RES_TOTAL_SCORE, ref_results[i][6]);
-					values.put(myResDB.RES_NOTES, ref_results[i][7]);
-					values.put(myResDB.FS_SM_SCORE, ref_results[i][8]);
-					// Log.d("SDPLay", "put " + ref_results[i][8]);
-					values.put(myResDB.FS_M_SCORE, ref_results[i][9]);
-					values.put(myResDB.FS_L_SCORE, ref_results[i][10]);
-					values.put(myResDB.FS_IOPS_SCORE, ref_results[i][11]);
-					values.put(myResDB.FS_TOTAL_SCORE, ref_results[i][12]);
-					values.put(myResDB.SUMMARY_SCORE, ref_results[i][13]);
-					values.put(myResDB.RES_FS_TYPE, ref_results[i][14]);
-					res_db.insert(myResDB.RES_TABLE, null, values);
-                    */
 
 				values.put(myResDB.RES_OEMID, ref_results[i][0]);
 				values.put(myResDB.RES_MANFID, ref_results[i][1]);
@@ -602,6 +583,8 @@ public class MainActivity extends Activity {
                 values.put(myResDB.RES_FS_TYPE, ref_results[i][7]);
 
 				values.put(myResDB.RES_NOTES, ref_results[i][8]);
+                    //TODO: rework references order when new refs are ready
+                //values.put(myResDB.RES_JOURNAL, ref_results[i][30]);
 				values.put(myResDB.RES_W_SPEED, ref_results[i][9]);
 				values.put(myResDB.RES_RW_SPEED, ref_results[i][10]);
 				values.put(myResDB.RES_RR_SPEED, ref_results[i][11]);

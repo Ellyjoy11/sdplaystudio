@@ -226,6 +226,7 @@
     <string name="hide">Hide/Show Refs</string>
     <string name="internal">Internal Storage</string>
     <string name="iopsOper">IOPS (4K) write/read</string>
+    <string name="journal">Mode</string>
     <string name="lOper">Large files write/read</string>
     <string name="listFs">List</string>
     <string name="medOper">Medium files write/read</string>
