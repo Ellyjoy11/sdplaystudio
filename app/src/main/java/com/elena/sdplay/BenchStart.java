@@ -60,6 +60,7 @@ public class BenchStart extends Activity {
 
 	private String journalMode = "default"; // "DELETE", "TRUNCATE",
 													// "OFF", "WAL"
+    private String journalModeShort = "def";
 	private Cursor ccc;
     private final boolean LOG_ON = true;
 	private final String TAG = "SDPlayDebug";
@@ -275,6 +276,19 @@ public class BenchStart extends Activity {
 
 		// get user options from shared preferences
         journalMode = userPref.getString("journal", "default");
+        if (journalMode.equals("PERSIST")) {
+            journalModeShort = "PRS";
+        } else if (journalMode.equals("TRUNCATE")) {
+            journalModeShort = "TRN";
+        } else if (journalMode.equals("DELETE")) {
+            journalModeShort = "DEL";
+        } else if (journalMode.equals("WAL")) {
+            journalModeShort = "WAL";
+        } else if (journalMode.equals("OFF")) {
+            journalModeShort = "OFF";
+        } else {
+            journalModeShort = "def";
+        }
         if (LOG_ON) {
             Log.d(TAG, "DB journal mode is " + journalMode);
         }
@@ -1299,6 +1313,7 @@ public void onDeleteAllClick(View view) {
                     values.put(myResDB.RES_FS_TYPE, fs_type);
                 }
                 values.put(myResDB.RES_JOURNAL, journalMode);
+                values.put(myResDB.RES_JOURNAL_SHORT, journalModeShort);
 				values.put(myResDB.RES_W_SPEED, String.format("%.2f", ws));
 				values.put(myResDB.RES_D_SPEED, String.format("%.2f", rs));
 				values.put(myResDB.RES_RW_SPEED, String.format("%.2f", rndws));

@@ -22,6 +22,7 @@ public class MyResDBHelper extends SQLiteOpenHelper {
 	public final String RES_NAME = "_name";
 	public final String RES_NOTES = "_notes";
     public final String RES_JOURNAL = "_db_journal_mode";
+    public final String RES_JOURNAL_SHORT  = "_db_journal_short";
 	public final String RES_W_SPEED = "_db_write_speed";
 	public final String RES_D_SPEED = "_db_del_speed";
 	public final String RES_RW_SPEED = "_db_rnd_write_speed";
@@ -51,7 +52,7 @@ public class MyResDBHelper extends SQLiteOpenHelper {
 			+ RES_ID + " integer primary key autoincrement, " + RES_OEMID
 			+ " text, " + RES_MANFID + " text, " + RES_NAME + " text, " + RES_DETAILS + " text, " + RES_DEV_SIZE + " text, " + RES_SERIAL + " text, "
             + RES_BUILD_ID + " text, " + RES_FS_TYPE + " text, " + RES_NOTES
-			+ " text, " + RES_JOURNAL + " text, " + RES_W_SPEED + " text, " + RES_RW_SPEED + " text, "
+			+ " text, " + RES_JOURNAL + " text, " + RES_JOURNAL_SHORT + " text, " + RES_W_SPEED + " text, " + RES_RW_SPEED + " text, "
 			+ RES_RR_SPEED + " text, " + RES_D_SPEED + " text, " + RES_TOTAL_SCORE + " integer, " + FS_C_SPEED + " text, " + FS_L_SPEED
 			+ " text, " + FS_RS_SPEED + " text, " + FS_WM_SPEED + " text, " + FS_RM_SPEED + " text, "
 			+ FS_WL_SPEED + " text, " + FS_RL_SPEED + " text, " + FS_IOPS_W

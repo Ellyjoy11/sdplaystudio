@@ -209,7 +209,8 @@ public class TopResults extends Activity implements ActionBar.TabListener {
 				myResDB.RES_NOTES, myResDB.RES_BUILD_ID,
 				myResDB.RES_W_SPEED, myResDB.RES_D_SPEED, myResDB.RES_RW_SPEED,
 				myResDB.RES_RR_SPEED,
-				"ROUND(" + myResDB.RES_TOTAL_SCORE + ",2)", myResDB.RES_FS_TYPE, myResDB.RES_DEV_SIZE };
+				"ROUND(" + myResDB.RES_TOTAL_SCORE + ",2)", myResDB.RES_FS_TYPE,
+                myResDB.RES_DEV_SIZE, myResDB.RES_JOURNAL_SHORT };
 
 		sortOrder = myResDB.RES_TOTAL_SCORE + " DESC";
 		if (!showAll) {
@@ -321,11 +322,12 @@ public class TopResults extends Activity implements ActionBar.TabListener {
 				res_c.getColumnName(3), res_c.getColumnName(4),
 				res_c.getColumnName(5), res_c.getColumnName(6),
 				res_c.getColumnName(7), res_c.getColumnName(8),
-				res_c.getColumnName(9), res_c.getColumnName(10) };
+				res_c.getColumnName(9), res_c.getColumnName(10),
+                res_c.getColumnName(11)};
 		// int[] to = { R.id.text0, R.id.text1, R.id.text2, R.id.text3,
 		// R.id.text4, R.id.text5, R.id.text6, R.id.text7, R.id.text8 };
 		int[] to = { R.id.text1, R.id.text2, R.id.text3, R.id.text4,
-				R.id.text5, R.id.text6, R.id.text7, R.id.text8, R.id.text_fs, R.id.text_size };
+				R.id.text5, R.id.text6, R.id.text7, R.id.text8, R.id.text_fs, R.id.text_size, R.id.text_journal };
 
 		MyCursorAdapter adapter = new MyCursorAdapter(this,
 				R.layout.results_columns, res_c, from, to);
