@@ -213,7 +213,7 @@
     <string name="custom_path">Custom storage for test</string>
     <string name="db_inserts">DB Insert</string>
     <string name="delFs">Del</string>
-    <string name="delete">Delete All</string>
+    <string name="delete">Delete</string>
     <string name="details">Storage manufacturer</string>
     <string name="dev_size">Device size: </string>
     <string name="devsize">Size</string>

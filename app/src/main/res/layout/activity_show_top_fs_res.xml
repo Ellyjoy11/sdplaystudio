@@ -55,7 +55,7 @@
                         android:id="@+id/fs_typeFs"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:gravity="center"
+                        android:layout_marginLeft="4dp"
                         android:layout_weight="2.2"
                         android:text="@string/fs_type"
                         android:textStyle="bold" />
