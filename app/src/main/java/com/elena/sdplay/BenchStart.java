@@ -62,7 +62,7 @@ public class BenchStart extends Activity {
 													// "OFF", "WAL"
     private String journalModeShort = "def";
 	private Cursor ccc;
-    private final boolean LOG_ON = true;
+    private final boolean LOG_ON = false;
 	private final String TAG = "SDPlayDebug";
     private String device_name;
 	private String sdPath;
