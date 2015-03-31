@@ -50,123 +50,12 @@
       <file leaf-file-name="BenchStart.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/elena/sdplay/BenchStart.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.17578125" vertical-offset="45" max-vertical-offset="54060">
-              <caret line="55" column="29" selection-start-line="55" selection-start-column="29" selection-end-line="55" selection-end-column="29" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MyResDBHelper.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/elena/sdplay/MyResDBHelper.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="690" max-vertical-offset="1290">
-              <caret line="27" column="61" selection-start-line="27" selection-start-column="61" selection-end-line="27" selection-end-column="61" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="results_columns.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/results_columns.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.333333" vertical-offset="630" max-vertical-offset="1545">
-              <caret line="57" column="10" selection-start-line="51" selection-start-column="0" selection-end-line="57" selection-end-column="10" />
-              <folding />
-            </state>
-          </provider>
-          <provider editor-type-id="android-designer">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="results_columns_summary.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/results_columns_summary.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.3333333" vertical-offset="660" max-vertical-offset="1470">
-              <caret line="50" column="10" selection-start-line="50" selection-start-column="10" selection-end-line="50" selection-end-column="10" />
-              <folding />
-            </state>
-          </provider>
-          <provider editor-type-id="android-designer">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TopResults.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/elena/sdplay/TopResults.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="4320" max-vertical-offset="5910">
-              <caret line="216" column="42" selection-start-line="216" selection-start-column="42" selection-end-line="216" selection-end-column="42" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SummaryView.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/elena/sdplay/SummaryView.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="4590" max-vertical-offset="6375">
-              <caret line="340" column="50" selection-start-line="340" selection-start-column="50" selection-end-line="340" selection-end-column="50" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="activity_top_results.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_top_results.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.7777777" vertical-offset="1005" max-vertical-offset="2730">
-              <caret line="81" column="0" selection-start-line="73" selection-start-column="0" selection-end-line="81" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.80078125" vertical-offset="20765" max-vertical-offset="54150">
+              <caret line="1491" column="43" selection-start-line="1491" selection-start-column="43" selection-end-line="1491" selection-end-column="43" />
               <folding>
-                <element signature="e#1226#1244#0" expanded="true" />
-                <element signature="e#1566#1580#0" expanded="true" />
-                <element signature="e#1903#1921#0" expanded="true" />
-                <element signature="e#2248#2265#0" expanded="true" />
-                <element signature="e#2592#2609#0" expanded="true" />
-                <element signature="e#2935#2952#0" expanded="true" />
-                <element signature="e#3275#3291#0" expanded="true" />
-                <element signature="e#3615#3631#0" expanded="true" />
-                <element signature="e#3955#3971#0" expanded="true" />
-                <element signature="e#4296#4311#0" expanded="true" />
-                <element signature="e#4636#4654#0" expanded="true" />
-                <element signature="e#5582#5596#0" expanded="true" />
-                <element signature="e#5876#5890#0" expanded="true" />
-                <element signature="e#6176#6194#0" expanded="true" />
-                <element signature="e#6486#6508#0" expanded="true" />
+                <element signature="e#53827#53859#0" expanded="true" />
               </folding>
             </state>
-          </provider>
-          <provider editor-type-id="android-designer">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="activity_summary_view.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_summary_view.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.2222223" vertical-offset="1020" max-vertical-offset="2700">
-              <caret line="72" column="47" selection-start-line="72" selection-start-column="47" selection-end-line="72" selection-end-column="47" />
-              <folding>
-                <element signature="e#1312#1330#0" expanded="true" />
-                <element signature="e#1656#1670#0" expanded="true" />
-                <element signature="e#1997#2015#0" expanded="true" />
-                <element signature="e#2346#2363#0" expanded="true" />
-                <element signature="e#2706#2723#0" expanded="true" />
-                <element signature="e#3049#3066#0" expanded="true" />
-                <element signature="e#3394#3414#0" expanded="true" />
-                <element signature="e#3789#3804#0" expanded="true" />
-                <element signature="e#4218#4236#0" expanded="true" />
-                <element signature="e#4571#4590#0" expanded="true" />
-                <element signature="e#5548#5562#0" expanded="true" />
-                <element signature="e#5842#5856#0" expanded="true" />
-                <element signature="e#6142#6160#0" expanded="true" />
-                <element signature="e#6452#6474#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-          <provider editor-type-id="android-designer">
-            <state />
           </provider>
         </entry>
       </file>
@@ -2024,7 +1913,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="44685" max-vertical-offset="47295">
           <caret line="3133" column="9" selection-start-line="3133" selection-start-column="9" selection-end-line="3133" selection-end-column="9" />
-          <folding />
+          <folding>
+            <element signature="e#53827#53859#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2422,9 +2313,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/elena/sdplay/BenchStart.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.17578125" vertical-offset="45" max-vertical-offset="54060">
-          <caret line="55" column="29" selection-start-line="55" selection-start-column="29" selection-end-line="55" selection-end-column="29" />
-          <folding />
+        <state vertical-scroll-proportion="0.80078125" vertical-offset="20765" max-vertical-offset="54150">
+          <caret line="1491" column="43" selection-start-line="1491" selection-start-column="43" selection-end-line="1491" selection-end-column="43" />
+          <folding>
+            <element signature="e#53827#53859#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
