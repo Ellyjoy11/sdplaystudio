@@ -583,33 +583,34 @@ public class MainActivity extends Activity {
                 values.put(myResDB.RES_FS_TYPE, ref_results[i][7]);
 
 				values.put(myResDB.RES_NOTES, ref_results[i][8]);
-                    //TODO: rework references order when new refs are ready
-                //values.put(myResDB.RES_JOURNAL, ref_results[i][30]);
-				values.put(myResDB.RES_W_SPEED, ref_results[i][9]);
-				values.put(myResDB.RES_RW_SPEED, ref_results[i][10]);
-				values.put(myResDB.RES_RR_SPEED, ref_results[i][11]);
-				values.put(myResDB.RES_D_SPEED, ref_results[i][12]);
-				values.put(myResDB.RES_TOTAL_SCORE, ref_results[i][13]);
+                values.put(myResDB.RES_JOURNAL, ref_results[i][9]);
+                values.put(myResDB.RES_JOURNAL_SHORT, ref_results[i][10]);
 
-				values.put(myResDB.FS_C_SPEED, ref_results[i][14]);
-				values.put(myResDB.FS_L_SPEED, ref_results[i][15]);
-				values.put(myResDB.FS_RS_SPEED, ref_results[i][16]);
-				values.put(myResDB.FS_WM_SPEED, ref_results[i][17]);
-				values.put(myResDB.FS_RM_SPEED, ref_results[i][18]);
+				values.put(myResDB.RES_W_SPEED, ref_results[i][11]);
+				values.put(myResDB.RES_RW_SPEED, ref_results[i][12]);
+				values.put(myResDB.RES_RR_SPEED, ref_results[i][13]);
+				values.put(myResDB.RES_D_SPEED, ref_results[i][14]);
+				values.put(myResDB.RES_TOTAL_SCORE, ref_results[i][15]);
 
-				values.put(myResDB.FS_WL_SPEED, ref_results[i][19]);
-				values.put(myResDB.FS_RL_SPEED, ref_results[i][20]);
-                values.put(myResDB.FS_IOPS_W, ref_results[i][21]);
-                values.put(myResDB.FS_IOPS_R, ref_results[i][22]);
+				values.put(myResDB.FS_C_SPEED, ref_results[i][16]);
+				values.put(myResDB.FS_L_SPEED, ref_results[i][17]);
+				values.put(myResDB.FS_RS_SPEED, ref_results[i][18]);
+				values.put(myResDB.FS_WM_SPEED, ref_results[i][19]);
+				values.put(myResDB.FS_RM_SPEED, ref_results[i][20]);
 
-                values.put(myResDB.FS_D_SPEED, ref_results[i][23]);
-                values.put(myResDB.FS_TOTAL_SCORE, ref_results[i][24]);
-                values.put(myResDB.SUMMARY_SCORE,ref_results[i][25]);
+				values.put(myResDB.FS_WL_SPEED, ref_results[i][21]);
+				values.put(myResDB.FS_RL_SPEED, ref_results[i][22]);
+                values.put(myResDB.FS_IOPS_W, ref_results[i][23]);
+                values.put(myResDB.FS_IOPS_R, ref_results[i][24]);
 
-				values.put(myResDB.FS_SM_SCORE, ref_results[i][26]);
-				values.put(myResDB.FS_M_SCORE, ref_results[i][27]);
-				values.put(myResDB.FS_L_SCORE,ref_results[i][28]);
-				values.put(myResDB.FS_IOPS_SCORE, ref_results[i][29]);
+                values.put(myResDB.FS_D_SPEED, ref_results[i][25]);
+                values.put(myResDB.FS_TOTAL_SCORE, ref_results[i][26]);
+                values.put(myResDB.SUMMARY_SCORE,ref_results[i][27]);
+
+				values.put(myResDB.FS_SM_SCORE, ref_results[i][28]);
+				values.put(myResDB.FS_M_SCORE, ref_results[i][29]);
+				values.put(myResDB.FS_L_SCORE,ref_results[i][30]);
+				values.put(myResDB.FS_IOPS_SCORE, ref_results[i][31]);
 
 				res_db.insert(myResDB.RES_TABLE, null, values);
 				res_db.setTransactionSuccessful();
