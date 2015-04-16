@@ -1180,8 +1180,7 @@ public void onDeleteAllClick(View view) {
                     db.close();
                     return 0;
                 } else {
-
-                    db.beginTransaction();
+                    //db.beginTransaction();
                     publishProgress(0);
                     String whereClause = myDB.REC_ID + " = ? ";
                     for (int i=1; i <= Math.round(ROWS/2); i++) {
@@ -1193,11 +1192,10 @@ public void onDeleteAllClick(View view) {
                                 whereClause, whereArgs1);
                         rows_count += db.delete(myDB.MY_TABLE,
                                 whereClause, whereArgs2);
-                        //rows_count = db.delete(myDB.MY_TABLE, null, null);
                         publishProgress(2 * i * mProgressDialog.getMax() / ROWS);
                     }
-                    db.setTransactionSuccessful();
-                    db.endTransaction();
+                    //db.setTransactionSuccessful();
+                    //db.endTransaction();
                 }
 
             // timestamp after deletion
