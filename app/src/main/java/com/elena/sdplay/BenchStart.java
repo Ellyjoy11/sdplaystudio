@@ -634,7 +634,7 @@ public void onDeleteAllClick(View view) {
 					db.close();
 					return 0;
 				} else {
-					db.beginTransaction();
+					//db.beginTransaction();
 					try {
 						// randTime1 = SystemClock.elapsedRealtime();
 						values.put(
@@ -649,9 +649,9 @@ public void onDeleteAllClick(View view) {
 						// Insert the new row, returning the primary key value
 						// of the new row
 						/* newRowId = */db.insert(myDB.MY_TABLE, null, values);
-						db.setTransactionSuccessful();
+						//db.setTransactionSuccessful();
 					} finally {
-						db.endTransaction();
+						//db.endTransaction();
 					}
 					publishProgress(j * mProgressDialog.getMax() / ROWS);
 				}
@@ -912,7 +912,7 @@ public void onDeleteAllClick(View view) {
 					db.close();
 					return 0;
 				} else {
-					db.beginTransaction();
+					//db.beginTransaction();
 					try {
 						values.put(
 								myDB.REC_NAME,
@@ -925,9 +925,9 @@ public void onDeleteAllClick(View view) {
 						rows_updated += db.update(myDB.MY_TABLE, values,
 								whereClause, whereArgs);
 
-						db.setTransactionSuccessful();
+						//db.setTransactionSuccessful();
 					} finally {
-						db.endTransaction();
+						//db.endTransaction();
 						publishProgress(j * mProgressDialog.getMax() / RND_ROWS);
 					}
 				}
@@ -1036,7 +1036,7 @@ public void onDeleteAllClick(View view) {
 					db.close();
 					return 0;
 				} else {
-					db.beginTransaction();
+					//db.beginTransaction();
 					// Define a projection that specifies which columns from the
 					// database
 					// you will actually use after this query.
@@ -1066,9 +1066,9 @@ public void onDeleteAllClick(View view) {
 									+ "\n");
 							c.moveToNext();
 						}
-						db.setTransactionSuccessful();
+						//db.setTransactionSuccessful();
 					} finally {
-						db.endTransaction();
+						//db.endTransaction();
 						c.close();
 					}
 					publishProgress(j * mProgressDialog.getMax() / RND_ROWS);

@@ -112,9 +112,9 @@ public final class R {
         public static final int nickname=0x7f0a000c;
         public static final int nickname1=0x7f0a0020;
         public static final int pick_path=0x7f0a0025;
-        public static final int read=0x7f0a0054;
-        public static final int rread=0x7f0a0056;
-        public static final int rwrite=0x7f0a0055;
+        public static final int read=0x7f0a0056;
+        public static final int rread=0x7f0a0055;
+        public static final int rwrite=0x7f0a0054;
         public static final int smOper=0x7f0a0031;
         public static final int summaryRes=0x7f0a0048;
         public static final int text1=0x7f0a000d;

@@ -93,9 +93,9 @@ int id nick_sum 0x7f0a003f
 int id nickname 0x7f0a000c
 int id nickname1 0x7f0a0020
 int id pick_path 0x7f0a0025
-int id read 0x7f0a0054
-int id rread 0x7f0a0056
-int id rwrite 0x7f0a0055
+int id read 0x7f0a0056
+int id rread 0x7f0a0055
+int id rwrite 0x7f0a0054
 int id smOper 0x7f0a0031
 int id summaryRes 0x7f0a0048
 int id text1 0x7f0a000d

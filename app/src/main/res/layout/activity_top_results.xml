@@ -90,15 +90,6 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/read"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="2.8"
-                android:layout_marginLeft="2dp"
-                android:text="@string/delete"
-                android:textStyle="bold" />
-
-            <TextView
                 android:id="@+id/rwrite"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -114,6 +105,15 @@
                 android:layout_weight="2.1"
                 android:layout_marginLeft="2dp"
                 android:text="@string/rread"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/read"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2.8"
+                android:layout_marginLeft="4dp"
+                android:text="@string/delete"
                 android:textStyle="bold" />
 
             <TextView
