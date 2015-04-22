@@ -1318,7 +1318,7 @@ public void onDeleteAllClick(View view) {
 				values.put(myResDB.RES_RR_SPEED, String.format("%.2f", rndrs));
 				// values.put(myResDB.RES_TOTAL_SCORE, String.format("%.2f", (ws
 				// * 1000 + rs + rndws * 1000 + rndrs * 100) / 400));
-				double totalDbScore = (ws * 10 + rs * 10 + rndws * 10 + rndrs) / 40;
+				double totalDbScore = (ws * 20 + rs * 20 + rndws * 20 + rndrs * 2) / 40;
 				values.put(myResDB.RES_TOTAL_SCORE, totalDbScore);
 				// fs part
 				values.put(myResDB.FS_C_SPEED, String.format("%.2f", create_fs));
