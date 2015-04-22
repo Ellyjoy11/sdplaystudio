@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class MyResDBHelper extends SQLiteOpenHelper {
 	// If you change the database schema, you must increment the database
 	// version.
-	public static final int RES_DATABASE_VERSION = 2;
+	public static final int RES_DATABASE_VERSION = 3;
 	public static final String RES_DATABASE_NAME = "MyResDBHelper.db";
 	public final String RES_TABLE = "Res_table";
 	public final String RES_ID = "_id";
