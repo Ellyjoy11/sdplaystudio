@@ -1304,7 +1304,8 @@ public void onDeleteAllClick(View view) {
 				//}
 				values.put(myResDB.RES_NOTES, nickname);
 				values.put(myResDB.RES_BUILD_ID, build_id + "/" + build_type);
-                if (MainActivity.isEncrypted) {
+                if (MainActivity.isEncrypted &&
+                        (sdPath.equals(intPath) || userdata_selected || custom_drive_selected)) {
                     //String enc = "\u0364\u1DE0\u0368";
                     values.put(myResDB.RES_FS_TYPE, fs_type + " (enc)");
                 } else {
@@ -1319,6 +1320,7 @@ public void onDeleteAllClick(View view) {
 				// values.put(myResDB.RES_TOTAL_SCORE, String.format("%.2f", (ws
 				// * 1000 + rs + rndws * 1000 + rndrs * 100) / 400));
 				double totalDbScore = (ws * 20 + rs * 20 + rndws * 20 + rndrs * 2) / 40;
+
 				values.put(myResDB.RES_TOTAL_SCORE, totalDbScore);
 				// fs part
 				values.put(myResDB.FS_C_SPEED, String.format("%.2f", create_fs));
@@ -1338,24 +1340,26 @@ public void onDeleteAllClick(View view) {
 				values.put(myResDB.FS_IOPS_SCORE, String.format("%.2f", iops_rate)
 						+ " / " + String.format("%.2f", iops_read_rate));
 				values.put(myResDB.FS_D_SPEED, String.format("%.2f", del_f));
-				double totalFsScore = (create_fs * 10 + list_fs
-						+ small_read_rate * 10 + medium_write_rate * 100
-						+ medium_read_rate * 100 + large_write_rate * 100
-						+ large_read_rate * 100 + del_f * 10 + iops_rate * 10 + iops_read_rate) / 100;
-				values.put(myResDB.FS_TOTAL_SCORE, totalFsScore);
+
+                double smScore = (create_fs * 10 + list_fs
+                        + small_read_rate * 10 + del_f * 10) / 40;
 				values.put(
-						myResDB.FS_SM_SCORE,
-						String.format("%.2f", (create_fs * 10 + list_fs
-								+ small_read_rate * 10 + del_f * 10) / 40));
+						myResDB.FS_SM_SCORE, String.format("%.2f", smScore));
 				values.put(myResDB.FS_M_SCORE,
 						String.format("%.2f", medium_write_rate) + " / "
 								+ String.format("%.2f", medium_read_rate));
 				values.put(myResDB.FS_L_SCORE,
 						String.format("%.2f", large_write_rate) + " / "
 								+ String.format("%.2f", large_read_rate));
+
+                double totalFsScore = (smScore + (medium_write_rate + medium_read_rate
+                        + large_write_rate + large_read_rate) * 100
+                        + (iops_rate + iops_read_rate) * 10) / 70;
+                values.put(myResDB.FS_TOTAL_SCORE, totalFsScore);
+
 				if (ALL) {
 					values.put(myResDB.SUMMARY_SCORE,
-							(totalDbScore + totalFsScore) / 2);
+                            (0.7 * totalDbScore + 1.3 * totalFsScore) / 2);
 				} else {
 					values.put(myResDB.SUMMARY_SCORE, 0);
 				}
