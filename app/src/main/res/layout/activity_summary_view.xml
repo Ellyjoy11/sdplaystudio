@@ -73,6 +73,7 @@
                 android:layout_marginLeft="4dp"
                 android:text="@string/fs_type"
                 android:textStyle="bold" />
+            <!--
             <TextView
                 android:id="@+id/journal"
                 android:layout_width="0dp"
@@ -81,7 +82,7 @@
                 android:layout_marginLeft="2dp"
                 android:text="@string/journal"
                 android:textStyle="bold" />
-
+            -->
 
             <TextView
                 android:id="@+id/write_sum"

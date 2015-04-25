@@ -227,7 +227,7 @@ public class SummaryView extends Activity implements ActionBar.TabListener {
 				myResDB.RES_NOTES, myResDB.RES_BUILD_ID,
 				myResDB.RES_W_SPEED, myResDB.FS_L_SCORE, myResDB.FS_IOPS_SCORE,
 				"ROUND(" + myResDB.SUMMARY_SCORE + ",2)", myResDB.RES_FS_TYPE,
-                myResDB.RES_DEV_SIZE, myResDB.RES_JOURNAL_SHORT };
+                myResDB.RES_DEV_SIZE };
 
 		sortOrder = myResDB.SUMMARY_SCORE + " DESC";
 		if (!showAll) {
@@ -343,12 +343,12 @@ public class SummaryView extends Activity implements ActionBar.TabListener {
 				res_c.getColumnName(3), res_c.getColumnName(4),
 				res_c.getColumnName(5), res_c.getColumnName(6),
 				res_c.getColumnName(7), res_c.getColumnName(8),
-                res_c.getColumnName(9), res_c.getColumnName(10)};
+                res_c.getColumnName(9)};
 		// int[] to = { R.id.text0, R.id.text1, R.id.text2, R.id.text3,
 		// R.id.text4, R.id.text5, R.id.text6, R.id.text7, R.id.text8 };
 		int[] to = { R.id.text1sum, R.id.text2sum, R.id.text3sum,
 				R.id.text4sum, R.id.text5sum, R.id.text6sum, R.id.text7sum,
-				R.id.text_fssum, R.id.text_sizesum, R.id.text_journal };
+				R.id.text_fssum, R.id.text_sizesum };
 
 		MyCursorAdapter adapter = new MyCursorAdapter(this,
 				R.layout.results_columns_summary, res_c, from, to);
