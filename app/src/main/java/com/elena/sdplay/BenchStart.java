@@ -1330,11 +1330,11 @@ public void onDeleteAllClick(View view) {
 				values.put(myResDB.RES_D_SPEED, String.format("%.2f", rs));
 				values.put(myResDB.RES_RW_SPEED, String.format("%.2f", rndws));
 				values.put(myResDB.RES_RR_SPEED, String.format("%.2f", rndrs));
-			    //values.put(myResDB.RES_TOTAL_SCORE, String.format("%.2f", (ws
-				// * 1000 + rs + rndws * 1000 + rndrs * 100) / 400));
-				double totalDbScore = (ws * 20 + rs * 20 + rndws * 20 + rndrs * 2) / 40;
-
-				//values.put(myResDB.RES_TOTAL_SCORE, totalDbScore);
+                //old formula
+				double totalDbScore = ((ws+rndws) * 1000 + rs + rndrs * 100) / 400;
+                //new formula
+                //double totalDbScore = (ws * 20 + rs * 20 + rndws * 20 + rndrs * 2) / 40;
+				values.put(myResDB.RES_TOTAL_SCORE, totalDbScore);
 				// fs part
 				values.put(myResDB.FS_C_SPEED, String.format("%.2f", create_fs));
 				values.put(myResDB.FS_L_SPEED, String.format("%.2f", list_fs));
@@ -1354,8 +1354,7 @@ public void onDeleteAllClick(View view) {
 						+ " / " + String.format("%.2f", iops_read_rate));
 				values.put(myResDB.FS_D_SPEED, String.format("%.2f", del_f));
 
-                double smScore = (create_fs * 10 + list_fs
-                        + small_read_rate * 10 + del_f * 10) / 40;
+                double smScore = ((create_fs + small_read_rate + del_f) * 10 + list_fs) / 40;
 				values.put(
 						myResDB.FS_SM_SCORE, String.format("%.2f", smScore));
 				values.put(myResDB.FS_M_SCORE,
@@ -1364,15 +1363,20 @@ public void onDeleteAllClick(View view) {
 				values.put(myResDB.FS_L_SCORE,
 						String.format("%.2f", large_write_rate) + " / "
 								+ String.format("%.2f", large_read_rate));
-
-                double totalFsScore = (smScore + (medium_write_rate + medium_read_rate
+                //old formula
+                double totalFsScore = ((create_fs + small_read_rate + del_f) * 10 + list_fs
+                        + (medium_write_rate + medium_read_rate
                         + large_write_rate + large_read_rate) * 100
-                        + (iops_rate + iops_read_rate) * 10) / 70;
+                        + iops_rate * 10 + iops_read_rate) / 100;
+                //new formula
+                //double totalFsScore = (smScore + (medium_write_rate + medium_read_rate
+                //        + large_write_rate + large_read_rate) * 100
+                //        + (iops_rate + iops_read_rate) * 10) / 70;
                 values.put(myResDB.FS_TOTAL_SCORE, totalFsScore);
 
 				if (ALL) {
 					values.put(myResDB.SUMMARY_SCORE,
-                            (0.7 * totalDbScore + 1.3 * totalFsScore) / 2);
+                            (totalDbScore + totalFsScore) / 2);
 				} else {
 					values.put(myResDB.SUMMARY_SCORE, 0);
 				}
