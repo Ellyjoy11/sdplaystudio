@@ -178,6 +178,8 @@ public class BenchStart extends Activity {
     public native int directIOPSr(String path, int mode, int bsize);
     public native int directIOPSw(String path, int mode, int bsize);
 
+    public static String defJournal;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -219,7 +221,6 @@ public class BenchStart extends Activity {
         mProgressDialog.setCancelable(true);
         mProgressDialog.setCanceledOnTouchOutside(false);
 
-		// this.registerSDCardStateChangeListener();
 		MainActivity.calling_activity = "Bench";
         ALL = false;
         eMmcSize = 0;
@@ -276,19 +277,7 @@ public class BenchStart extends Activity {
 
 		// get user options from shared preferences
         journalMode = userPref.getString("journal", "default");
-        if (journalMode.equals("PERSIST")) {
-            journalModeShort = "PRS";
-        } else if (journalMode.equals("TRUNCATE")) {
-            journalModeShort = "TRN";
-        } else if (journalMode.equals("DELETE")) {
-            journalModeShort = "DEL";
-        } else if (journalMode.equals("WAL")) {
-            journalModeShort = "WAL";
-        } else if (journalMode.equals("OFF")) {
-            journalModeShort = "OFF";
-        } else {
-            journalModeShort = "def";
-        }
+
         if (LOG_ON) {
             Log.d(TAG, "DB journal mode is " + journalMode);
         }
@@ -609,6 +598,15 @@ public void onDeleteAllClick(View view) {
 			// clean test table and reset auto-increment key
 			db.execSQL("DELETE FROM 'My_table'");
 			db.execSQL("DELETE FROM SQLITE_SEQUENCE WHERE NAME = 'My_table'");
+            //check default journal mode of the system
+            ccc = db.rawQuery("PRAGMA journal_mode", null);
+            ccc.moveToFirst();
+            defJournal = ccc.getString(0);
+            if (LOG_ON) {
+                Log.d(TAG, "System default journal mode is " + defJournal.toUpperCase());
+                //default journal mode saved here
+            }
+
             if (!journalMode.equals("default")) {
                 ccc = db.rawQuery("PRAGMA journal_mode = " + journalMode
                         + "; PRAGMA synchronous = FULL;", null);
@@ -1311,17 +1309,32 @@ public void onDeleteAllClick(View view) {
                 } else {
                     values.put(myResDB.RES_FS_TYPE, fs_type);
                 }
+                if (journalMode.equals("default")) {
+                    journalMode = defJournal.toUpperCase();
+                }
+
+                if (journalMode.equals("PERSIST")) {
+                    journalModeShort = "PRS";
+                } else if (journalMode.equals("TRUNCATE")) {
+                    journalModeShort = "TRN";
+                } else if (journalMode.equals("DELETE")) {
+                    journalModeShort = "DEL";
+                } else if (journalMode.equals("WAL")) {
+                    journalModeShort = "WAL";
+                } else if (journalMode.equals("OFF")) {
+                    journalModeShort = "OFF";
+                }
                 values.put(myResDB.RES_JOURNAL, journalMode);
                 values.put(myResDB.RES_JOURNAL_SHORT, journalModeShort);
 				values.put(myResDB.RES_W_SPEED, String.format("%.2f", ws));
 				values.put(myResDB.RES_D_SPEED, String.format("%.2f", rs));
 				values.put(myResDB.RES_RW_SPEED, String.format("%.2f", rndws));
 				values.put(myResDB.RES_RR_SPEED, String.format("%.2f", rndrs));
-				// values.put(myResDB.RES_TOTAL_SCORE, String.format("%.2f", (ws
+			    //values.put(myResDB.RES_TOTAL_SCORE, String.format("%.2f", (ws
 				// * 1000 + rs + rndws * 1000 + rndrs * 100) / 400));
 				double totalDbScore = (ws * 20 + rs * 20 + rndws * 20 + rndrs * 2) / 40;
 
-				values.put(myResDB.RES_TOTAL_SCORE, totalDbScore);
+				//values.put(myResDB.RES_TOTAL_SCORE, totalDbScore);
 				// fs part
 				values.put(myResDB.FS_C_SPEED, String.format("%.2f", create_fs));
 				values.put(myResDB.FS_L_SPEED, String.format("%.2f", list_fs));
