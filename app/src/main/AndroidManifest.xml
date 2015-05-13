@@ -33,9 +33,13 @@
         </activity>
         <activity
             android:name="com.elena.sdplay.BenchStart"
+            android:exported="true"
             android:configChanges="orientation"
             android:label="@string/title_activity_bench_start"
             android:screenOrientation="portrait" >
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name="com.elena.sdplay.SettingsFragment"

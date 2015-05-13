@@ -178,7 +178,11 @@ public class BenchStart extends Activity {
     public native int directIOPSr(String path, int mode, int bsize);
     public native int directIOPSw(String path, int mode, int bsize);
 
-    public static String defJournal;
+    public static String defJournal = "def";
+    private String testToRun = "";
+    private String userNotes = "";
+    private boolean advMode = false;
+    private String detailsForCmd = "";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -191,17 +195,34 @@ public class BenchStart extends Activity {
 		setContentView(R.layout.activity_bench_start);
 
 		Intent intent = getIntent();
-		// //////////////////
-		sdPath = intent.getStringExtra(MainActivity.SD_PATH);
 
-		intPath = intent.getStringExtra(MainActivity.INT_PATH);
+            if (intent.hasExtra("test")) {
+                testToRun = intent.getStringExtra("test");
+                sdPath = MainActivity.sdPath;
+                intPath = MainActivity.intPath;
+                usb_drive_selected = MainActivity.usb_drive_selected;
+                custom_drive_selected = MainActivity.custom_drive_selected;
+                userdata_selected = MainActivity.userdata_selected;
+                if (intent.hasExtra("notes")) {
+                    userNotes = intent.getStringExtra("notes");
+                }
+            } else {
+                // //////////////////
+                testToRun = "";
+                userNotes = "";
+                if (intent.getExtras() != null) {
+                    sdPath = intent.getStringExtra(MainActivity.SD_PATH);
 
-		usb_drive_selected = intent.getBooleanExtra(
-				MainActivity.USB_DRIVE_SELECTED, false);
-		custom_drive_selected = intent.getBooleanExtra(
-				MainActivity.CUSTOM_SELECTED, false);
-		userdata_selected = intent.getBooleanExtra(
-				MainActivity.USERDATA_SELECTED, false);
+                    intPath = intent.getStringExtra(MainActivity.INT_PATH);
+
+                    usb_drive_selected = intent.getBooleanExtra(
+                            MainActivity.USB_DRIVE_SELECTED, false);
+                    custom_drive_selected = intent.getBooleanExtra(
+                            MainActivity.CUSTOM_SELECTED, false);
+                    userdata_selected = intent.getBooleanExtra(
+                            MainActivity.USERDATA_SELECTED, false);
+                }
+            }
 
         device_name = Build.DEVICE;
 
@@ -245,9 +266,11 @@ public class BenchStart extends Activity {
 		ViewFlipper viewToShow = (ViewFlipper) findViewById(R.id.viewFlipper);
 		if (userPref.getBoolean("advanced", true)) {
 			viewToShow.setDisplayedChild(0);
+            advMode = true;
 			// textView11.setText(tmp);
 		} else {
 			viewToShow.setDisplayedChild(1);
+            advMode = false;
 			// textView.setText(tmp);
 		}
         //getEmmcSize();
@@ -371,7 +394,8 @@ public class BenchStart extends Activity {
             Log.d("SDPlay", "need space: " + spaceForFsTest / 1024 + "Gb");
             Log.d("SDPlay", "free space: " + freeSpace + "Gb");
 
-            if ((spaceForFsTest / 1024) > freeSpace) {
+            if ((spaceForFsTest / 1024) > freeSpace &&
+                    (!testToRun.equals("db"))) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
                 builder.setMessage(
                         "There is no enough space for FS test\n"
@@ -400,6 +424,28 @@ public class BenchStart extends Activity {
                 AlertDialog dialog = builder.create();
                 dialog.show();
 
+            } else if (!testToRun.isEmpty()) {
+                if (testToRun.equals("full")) {
+                    if (advMode) {
+                        EditText details = (EditText) findViewById(R.id.details);
+                        detailsForCmd = details.getText().toString();
+                    }
+                    onAllTestClick(findViewById(android.R.id.content).getRootView());
+                } else if (testToRun.equals("db")) {
+                    ALL = false;
+                    if (!advMode) {
+                        EditText details = (EditText) findViewById(R.id.details1);
+                        detailsForCmd = details.getText().toString();
+                    }
+                    onWriteClick(findViewById(android.R.id.content).getRootView());
+                } else if (testToRun.equals("fs")) {
+                    ALL = false;
+                    if (!advMode) {
+                        EditText details = (EditText) findViewById(R.id.details1);
+                        detailsForCmd = details.getText().toString();
+                    }
+                    onFsTestClick(findViewById(android.R.id.content).getRootView());
+                }
             }
 
 	}
@@ -479,7 +525,14 @@ public void onDeleteAllClick(View view) {
 		EditText nickName = (EditText) findViewById(R.id.nickname1);
 		EditText details = (EditText) findViewById(R.id.details1);
 		nickname = nickName.getText().toString();
-		full_details = details.getText().toString();
+        if (!userNotes.isEmpty()) {
+            nickname = userNotes;
+        }
+        if (!detailsForCmd.isEmpty()) {
+            full_details = detailsForCmd;
+        } else {
+            full_details = details.getText().toString();
+        }
 		if (LOG_ON) {
 			Log.d(TAG, "Starting full test...");
 		}
@@ -521,11 +574,18 @@ public void onDeleteAllClick(View view) {
 			textView.setText(tmp);
 			textView11.setText(tmp);
 			if (!ALL) {
-				EditText nickName = (EditText) findViewById(R.id.nickname);
-				EditText details = (EditText) findViewById(R.id.details);
-				nickname = nickName.getText().toString();
-				full_details = details.getText().toString();
-			}
+                EditText nickName = (EditText) findViewById(R.id.nickname);
+                EditText details = (EditText) findViewById(R.id.details);
+                nickname = nickName.getText().toString();
+                if (!userNotes.isEmpty()) {
+                    nickname = userNotes;
+                }
+                if (!detailsForCmd.isEmpty()) {
+                    full_details = detailsForCmd;
+                } else {
+                    full_details = details.getText().toString();
+                }
+            }
 			if (LOG_ON) {
 				Log.d(TAG, "DB testing is started...");
 			}
@@ -1309,7 +1369,7 @@ public void onDeleteAllClick(View view) {
                 } else {
                     values.put(myResDB.RES_FS_TYPE, fs_type);
                 }
-                if (journalMode.equals("default")) {
+                if (journalMode.equals("default") && !defJournal.equals("def")) {
                     journalMode = defJournal.toUpperCase();
                 }
 
@@ -2072,13 +2132,19 @@ public void onDeleteAllClick(View view) {
 				EditText nickName = (EditText) findViewById(R.id.nickname);
 				EditText details = (EditText) findViewById(R.id.details);
 				nickname = nickName.getText().toString();
-				full_details = details.getText().toString();
+                if (!userNotes.isEmpty()) {
+                    nickname = userNotes;
+                }
+                if (!detailsForCmd.isEmpty()) {
+                    full_details = detailsForCmd;
+                } else {
+                    full_details = details.getText().toString();
+                }
 				tmp = "";
 				textView.setText(tmp);
 				textView11.setText(tmp);
-			} else {
-				// isWritten = true;
 			}
+
 			final CreateFS createFs = new CreateFS(this);
 			// createFs.cancel(false);
 			createFs.executeOnExecutor(executor, 100, 0, 1);

@@ -40,15 +40,15 @@ public class MainActivity extends Activity {
     public static final String ABOUT_TITLE = "\u00a9 2014-2015 Elena Last, Igor Kovalenko";
     public static String ABOUT_VERSION;
 	public final static String SD_PATH = "com.elena.sdplay.SD_PATH";
-	private String sdPath = "";
+	public static String sdPath = "";
 	public final static String INT_PATH = "com.elena.sdplay.INT_PATH";
-	private String intPath = "";
+	public static String intPath = "";
 	public String mount_out; // output of mount command
 	private int usb_drive = 0;
 	public final static String USB_DRIVE_SELECTED = "com.elena.sdplay.USB_DRIVE_SELECTED";
-	private boolean usb_drive_selected = false;
+	public static boolean usb_drive_selected = false;
 	public final static String CUSTOM_SELECTED = "com.elena.sdplay.CUSTOM_SELECTED";
-	private boolean custom_drive_selected = false;
+	public static boolean custom_drive_selected = false;
 	private String usb_drive_path;
 	private int is_userdata = 0;
 	private int isCustom = 1;
@@ -58,10 +58,19 @@ public class MainActivity extends Activity {
 	String customPathVerified;
 	public static String userdata_path;
 	public final static String USERDATA_SELECTED = "com.elena.sdplay.USERDATA_SELECTED";
-	private boolean userdata_selected = false;
+	public static boolean userdata_selected = false;
 	private File[] file_list;
+    private String storageToTest = "internal";
 
-	// public final static String INT_FS_TYPE = "com.elena.sdplay.INT_FS_TYPE";
+    //intent to run app from command line is
+    // adb shell am start -a android.intent.action.VIEW -c android.intent.category.DEFAULT -e storage userdata -n com.elena.sdplay/com.elena.sdplay.MainActivity
+    // when app starts
+    // adb shell am start -a android.intent.action.VIEW -c android.intent.category.DEFAULT -e test db -e notes "User notes for this run" -n com.elena.sdplay/com.elena.sdplay.BenchStart
+    // values for -e storage: internal|userdata|external|usb
+    // values for -e test: full|db|fs
+    // the only optional extra in command: -e notes <"value">
+
+    // public final static String INT_FS_TYPE = "com.elena.sdplay.INT_FS_TYPE";
 	// public final static String EXT_FS_TYPE = "com.elena.sdplay.EXT_FS_TYPE";
 	// public final static String USERDATA_FS_TYPE =
 	// "com.elena.sdplay.USERDATA_FS_TYPE";
@@ -377,6 +386,7 @@ public class MainActivity extends Activity {
                     ""), false);
         }
 		addListenerOnStart();
+        ifCalledFromCmd();
 	}
 
 	public void addListenerOnStart() {
@@ -455,6 +465,56 @@ public class MainActivity extends Activity {
 		});
 
 	}
+
+    public void ifCalledFromCmd() {
+        Bundle cmdExtras = this.getIntent().getExtras();
+        if (cmdExtras != null) {
+            sdPath = "";
+            usb_drive_selected = false;
+            userdata_selected = false;
+            custom_drive_selected = false;
+            if (cmdExtras.containsKey("storage")) {
+                storageToTest = cmdExtras.getString("storage");
+            } else {
+                storageToTest = "internal";
+            }
+            if (LOG_ON) {
+                Log.d(TAG, "selected storage is " + storageToTest);
+            }
+
+            if (storageToTest.equals("internal")) {
+                sdPath = intPath;
+                usb_drive_selected = false;
+                userdata_selected = false;
+                custom_drive_selected = false;
+            } else if (storageToTest.equals("userdata")) {
+                sdPath = userdata_path;
+                usb_drive_selected = false;
+                userdata_selected = true;
+                custom_drive_selected = false;
+            }
+            else if (storageToTest.equals("external")) {
+                if (file_list.length > 1) {
+                    sdPath = file_list[1].toString();
+                    usb_drive_selected = false;
+                    userdata_selected = false;
+                    custom_drive_selected = false;
+                }
+            } else if (storageToTest.equals("usb")) {
+                if (usb_drive == 1) {
+                    sdPath = usb_drive_path;
+                    usb_drive_selected = true;
+                    userdata_selected = false;
+                    custom_drive_selected = false;
+                }
+            }
+            if (LOG_ON) {
+                Log.d(TAG, "selected path is " + sdPath);
+            }
+        } else {
+            //TODO dialog for cmdline syntax
+        }
+    }
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -554,6 +614,9 @@ public class MainActivity extends Activity {
 
 		// //////Add reference results to Results database
 		if (!userPref.getBoolean("isRef", false)) {
+            if (LOG_ON) {
+                Log.d(TAG, "Adding references into result DB...");
+            }
 			// TODO
 			// Toast.makeText(getApplicationContext(), "this works!!!!!!!!",
 			// Toast.LENGTH_SHORT).show();
