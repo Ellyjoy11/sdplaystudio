@@ -62,7 +62,7 @@ public class BenchStart extends Activity {
 													// "OFF", "WAL"
     private String journalModeShort = "def";
 	private Cursor ccc;
-    private final boolean LOG_ON = false;
+    private final boolean LOG_ON = true;
 	private final String TAG = "SDPlayDebug";
     private String device_name;
 	private String sdPath;
@@ -273,7 +273,8 @@ public class BenchStart extends Activity {
             advMode = false;
 			// textView.setText(tmp);
 		}
-        //getEmmcSize();
+        //getEmmcSize(); //was commented before tmpr change
+
 		if (checkPath()) {
 			getStoragesDetails();
 		} else {
@@ -297,6 +298,7 @@ public class BenchStart extends Activity {
 			AlertDialog dialog = builder.create();
 			dialog.show();
 		}
+
 
 		// get user options from shared preferences
         journalMode = userPref.getString("journal", "default");
@@ -2656,7 +2658,12 @@ public void onDeleteAllClick(View view) {
 		protected void onPostExecute(Integer result) {
 			mWakeLockCrFS.release();
 			mProgressDialog.dismiss();
-			// Log.d("SDPlay", "dialog dismissed");
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            // Log.d("SDPlay", "dialog dismissed");
 			if (result != 1) {
 				Toast.makeText(getBaseContext(), "File writing error",
 						Toast.LENGTH_LONG).show();

@@ -36,7 +36,7 @@ import java.io.InputStreamReader;
 public class MainActivity extends Activity {
 
 	private static final String TAG = "SDPlayDebug";
-    public static final boolean LOG_ON = false;
+    public static final boolean LOG_ON = true;
     public static final String ABOUT_TITLE = "\u00a9 2014-2015 Elena Last, Igor Kovalenko";
     public static String ABOUT_VERSION;
 	public final static String SD_PATH = "com.elena.sdplay.SD_PATH";
@@ -206,8 +206,8 @@ public class MainActivity extends Activity {
 
 		// ///////////parse mount////////////////
 		// for usb case
-		String pattern0 = ".*\\S+/userdata\\s+(/data)\\s+.*"; // (/\\w+)
-		String patternEncrypted = ".*\\S+/dm-\\d+\\s+(/data)\\s+.*"; // (/\\w+)
+		String pattern0 = "(?i).*\\S+/userdata\\s+(/data)\\s+.*"; // (/\\w+)
+		String patternEncrypted = "(?i).*\\S+/dm-\\d+\\s+(/data)\\s+.*"; // (/\\w+)
 		String userdata_test_path = "";
 		// pattern1 = ".*/mnt/media_rw/usbdisk\\S*\\s+\\w*.*";
 		if (mount_out.matches(pattern0)) {
@@ -238,7 +238,14 @@ public class MainActivity extends Activity {
 			if (userdata_f2.exists() && userdata_f2.isDirectory()) {
 				is_userdata = 1;
 				userdata_path = userdata_f2.getAbsolutePath();
-			}
+                if (LOG_ON) {
+                    Log.d(TAG, "userdata path is exist: " + userdata_path);
+                }
+			} else {
+                if (LOG_ON) {
+                    Log.d(TAG, "userdata path does not exist!!!");
+                }
+            }
 		}
 
 		// ////////end for userdata part
@@ -401,6 +408,7 @@ public class MainActivity extends Activity {
 				int selectedId = pick_path.getCheckedRadioButtonId();
 
 				if (selectedId != -1) {
+
 					if (selectedId == file_list.length && is_userdata == 0) {
 						sdPath = usb_drive_path;
 						usb_drive_selected = true;
@@ -431,6 +439,7 @@ public class MainActivity extends Activity {
 						userdata_selected = false;
 						custom_drive_selected = false;
 					}
+
 					if (sdPath.isEmpty()) {
 						Toast.makeText(getApplicationContext(),
 								"Please enter valid path for test",
@@ -439,6 +448,8 @@ public class MainActivity extends Activity {
                         if (LOG_ON) {
                             Log.d(TAG, "Selected storage is " + sdPath + "; button checked " + selectedId);
                         }
+
+					    //sdPath = userdata_path;//intPath;
 						Intent intent = new Intent(getApplicationContext(),
 								BenchStart.class);
 						intent.putExtra(SD_PATH, sdPath);
@@ -460,6 +471,7 @@ public class MainActivity extends Activity {
 							"Please select storage for test",
 							Toast.LENGTH_SHORT).show();
 				}
+
 			}
 
 		});
