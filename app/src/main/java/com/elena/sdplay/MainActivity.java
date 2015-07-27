@@ -99,6 +99,7 @@ public class MainActivity extends Activity {
 	SDCardStateChangeListener listener;
 	public int currentApiVersion;
 	public static String appVersion;
+    public static int numberOfProc;
 
 	// private boolean isCustomChecked;
 
@@ -150,6 +151,7 @@ public class MainActivity extends Activity {
 	public void onResume() {
 		super.onResume();
 		calling_activity = "Main";
+
 		mount_out = getMountOutput();
 
 		usb_drive = 0;
@@ -162,6 +164,10 @@ public class MainActivity extends Activity {
 
 		prepareScreen();
 		getStorageOptions();
+        numberOfProc = Runtime.getRuntime().availableProcessors();
+        if (LOG_ON) {
+            Log.d(TAG, "number of proc returned: " + numberOfProc);
+        }
 
 		// register sd card state change listener - unregister it in onPause!!!
 		filter = new IntentFilter();

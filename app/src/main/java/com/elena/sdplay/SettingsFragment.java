@@ -13,11 +13,21 @@ public class SettingsFragment extends PreferenceFragment implements
 
 	private final String[] keys = { "rows", "rnd_rows", "top_count", //"cycles" - for read all cycles
 			"medium_file", "large_file", "buff_size", "journal", "threads" };
+    SharedPreferences userPref;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+        userPref = PreferenceManager
+                .getDefaultSharedPreferences(getActivity());
 		addPreferencesFromResource(R.xml.pref_general);
+		Preference prefThreads = (Preference) findPreference("threads");
+        String val = Integer.toString(MainActivity.numberOfProc * 2);
+        if (userPref.getString("threads", "undef").equals("undef")){
+            SharedPreferences.Editor editor = userPref.edit();
+            editor.putString("threads", val);
+            editor.commit();
+        }
 		setSummary();
 	}
 
@@ -44,8 +54,6 @@ public class SettingsFragment extends PreferenceFragment implements
 
 	private void setSummary() {
 
-		SharedPreferences userPref = PreferenceManager
-				.getDefaultSharedPreferences(getActivity());
 		for (int i = 0; i < keys.length; i++) {
 			String key_string = keys[i];
 			Preference pref = (Preference) findPreference(key_string);

@@ -3154,6 +3154,9 @@ public void onDeleteAllClick(View view) {
 					random.nextBytes(bytesForIops);
 
 					millis3 = SystemClock.elapsedRealtime();
+                    if (LOG_ON) {
+                        Log.d(TAG, "call IOPS write with no of threads: " + THREADS_NO);
+                    }
                     oper_count = directIOPSw(path, 0, buffIopsSize, THREADS_NO);
 
                     /*
@@ -3319,6 +3322,9 @@ public void onDeleteAllClick(View view) {
 							+ ".txt";
 
 					millis3 = SystemClock.elapsedRealtime();
+                    if (LOG_ON) {
+                        Log.d(TAG, "call IOPS read with no of threads: " + THREADS_NO);
+                    }
 
                     oper_read_count = directIOPSr(path, 0, buffIopsSize, THREADS_NO);
                     /*
