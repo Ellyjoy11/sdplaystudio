@@ -165,6 +165,9 @@ public class MainActivity extends Activity {
 		prepareScreen();
 		getStorageOptions();
         numberOfProc = Runtime.getRuntime().availableProcessors();
+        if (numberOfProc < 1) {
+            numberOfProc = 1;
+        }
         if (LOG_ON) {
             Log.d(TAG, "number of proc returned: " + numberOfProc);
         }
