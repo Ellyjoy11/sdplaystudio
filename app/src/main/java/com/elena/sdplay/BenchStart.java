@@ -105,6 +105,7 @@ public class BenchStart extends Activity {
 	public int IOPS_SIZE; // 1536; // in MB
 	public int BUFFER_SIZE; // MB
 	public int BUFF_IOPS_WRITE; // 256KB
+	public int THREADS_NO;
 	private int f_count;
 	private int d_count;
 	private int small_f_count;
@@ -175,8 +176,8 @@ public class BenchStart extends Activity {
 	public native int directRead(int fd, ByteBuffer buffer, int size);
 	public native int directWrite(int fd, ByteBuffer buffer, int size);
 
-    public native int directIOPSr(String path, int mode, int bsize);
-    public native int directIOPSw(String path, int mode, int bsize);
+    public native int directIOPSr(String path, int mode, int bsize, int threads);
+    public native int directIOPSw(String path, int mode, int bsize, int threads);
 
     public static String defJournal = "def";
     private String testToRun = "";
@@ -311,6 +312,7 @@ public class BenchStart extends Activity {
 		READ_CYCLES = Integer.parseInt(userPref.getString("cycles", "100"));
 		MEDIUM_SIZE = Integer.parseInt(userPref.getString("medium_file", "10"));
 		// TODO check medium size and add dialog if size > 20MB
+        THREADS_NO = Integer.parseInt(userPref.getString("threads", "10"));
 
 		if (MEDIUM_SIZE > 20) {
 			MEDIUM_SIZE = 20;
@@ -3152,7 +3154,7 @@ public void onDeleteAllClick(View view) {
 					random.nextBytes(bytesForIops);
 
 					millis3 = SystemClock.elapsedRealtime();
-                    oper_count = directIOPSw(path, 0, buffIopsSize);
+                    oper_count = directIOPSw(path, 0, buffIopsSize, THREADS_NO);
 
                     /*
 					oper_count = 0;
@@ -3318,7 +3320,7 @@ public void onDeleteAllClick(View view) {
 
 					millis3 = SystemClock.elapsedRealtime();
 
-                    oper_read_count = directIOPSr(path, 0, buffIopsSize);
+                    oper_read_count = directIOPSr(path, 0, buffIopsSize, THREADS_NO);
                     /*
 					int fd = directOpen(path, 0);
 					ByteBuffer buff = directAllocate(buffIopsSize);

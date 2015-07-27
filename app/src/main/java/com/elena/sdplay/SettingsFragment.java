@@ -12,7 +12,7 @@ public class SettingsFragment extends PreferenceFragment implements
 		OnSharedPreferenceChangeListener {
 
 	private final String[] keys = { "rows", "rnd_rows", "top_count", //"cycles" - for read all cycles
-			"medium_file", "large_file", "buff_size", "journal" };
+			"medium_file", "large_file", "buff_size", "journal", "threads" };
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {

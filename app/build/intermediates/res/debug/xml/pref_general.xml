@@ -61,6 +61,16 @@
         android:selectAllOnFocus="true"
         android:singleLine="true"
         android:title="Buffer size (KB by default) for large files" />
+
+    <EditTextPreference
+        android:defaultValue="6"
+        android:inputType="number"
+        android:key="threads"
+        android:maxLines="1"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:title="Threads" />
+
     <EditTextPreference
         android:defaultValue="5"
         android:inputType="number"
