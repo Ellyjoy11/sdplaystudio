@@ -12,6 +12,7 @@
 #include <malloc.h>
 
 #include <errno.h>
+#include <pthread.h>
 
 #include <android/log.h>
 
@@ -91,7 +92,7 @@ Java_com_elena_sdplay_BenchStart_directWrite( JNIEnv* env, jobject obj, int fd, 
 }
 
 JNIEXPORT int JNICALL
-Java_com_elena_sdplay_BenchStart_directIOPSr( JNIEnv* env, jobject obj, jstring path, int mode, int bsize)
+Java_com_elena_sdplay_BenchStart_directIOPSr( JNIEnv* env, jobject obj, jstring path, int mode, int bsize, int threads)
 {
     int bytes = 0, ops = 0;
     int i, r;
@@ -138,16 +139,48 @@ Java_com_elena_sdplay_BenchStart_directIOPSr( JNIEnv* env, jobject obj, jstring 
     return ops;
 }
 
-JNIEXPORT int JNICALL
-Java_com_elena_sdplay_BenchStart_directIOPSw( JNIEnv* env, jobject obj, jstring path, int mode, int bsize)
+struct stat st;
+jbyte *dbuf = NULL;
+int ops[32];
+int fd;
+
+typedef struct {
+    int id;
+    int threads;
+    int bsize;
+} tdata;
+
+void *worker_bee(void *data)
 {
-    int bytes = 0, ops = 0;
+    int bytes, j, r;
+    tdata *td = (tdata *)data;
+
+    // pthread_cond_wait();
+
+    bytes = st.st_size/td->threads;
+    for (j=0; j<bytes/td->bsize; j++) {
+        lseek(fd, td->id * bytes * j, SEEK_SET);
+        if ((r = write(fd, dbuf, td->bsize)) < 0) {
+           ops[td->id] = r;
+           printf("Error on write(fd=%d, dbuf=%p, len=%d) , errno: %d", fd, dbuf, td->bsize, errno);
+           break;
+        }
+        ops[td->id]++;
+    }
+
+    return &ops[td->id];
+}
+
+JNIEXPORT int JNICALL
+Java_com_elena_sdplay_BenchStart_directIOPSw( JNIEnv* env, jobject obj, jstring path, int mode, int bsize, int threads)
+{
+    int opsa = 0;
     int i, r;
 	const char * filepath = (*env)->GetStringUTFChars(env, path, NULL);
-	struct stat st;
-	jbyte *dbuf = NULL;
+	pthread_t tid[32];
+	tdata td[32];
 
-	int fd = open(filepath, mode ? mode : O_RDWR | O_DIRECT /*| O_SYNC*/);
+	fd = open(filepath, mode ? mode : O_RDWR | O_DIRECT /*| O_SYNC*/);
 	if (fd >= 0) {
 	    fstat(fd, &st);
 	    printf("Opened directIO file (%s, %lu bytes), fd: %d", filepath, st.st_size, fd);
@@ -164,26 +197,23 @@ Java_com_elena_sdplay_BenchStart_directIOPSw( JNIEnv* env, jobject obj, jstring 
 	    return errno;
 	}
 
-    for(i=0; i<st.st_size/2; i+=bsize) {
-        lseek(fd, i, SEEK_SET);
-        if ((r = write(fd, dbuf, bsize)) < 0) {
-          	ops = r;
-          	printf("Error on write(fd=%d, dbuf=%p, len=%d) , errno: %d", fd, dbuf, bsize, errno);
-          	break;
-        }
-        ops++;
-        bytes += r;
-        lseek(fd, i+st.st_size/2, SEEK_SET);
-        if ((r = write(fd, dbuf, bsize)) < 0) {
-          	ops = r;
-          	printf("Error on write(fd=%d, dbuf=%p, len=%d) , errno: %d", fd, dbuf, bsize, errno);
-          	break;
-        }
-        ops++;
-        bytes += r;
+    for(i=0; i<threads; i++) {
+        td[i].threads = threads;
+        td[i].bsize = bsize;
+        td[i].id = i;
+        pthread_create(&tid[i], NULL, worker_bee, &td[i]);
+    }
+
+    // pthread_cond_broadcast(BLAH);
+
+    for(i=0; i<threads; i++) {
+        pthread_join(&tid[i], NULL);
     }
 
     free(dbuf);
     close(fd);
+    for (i=0; i<threads; i++) {
+        opsa += ops[i];
+    }
     return ops;
 }

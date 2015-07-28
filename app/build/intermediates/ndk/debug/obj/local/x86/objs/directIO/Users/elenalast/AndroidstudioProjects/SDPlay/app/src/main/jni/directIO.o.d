@@ -64,6 +64,9 @@
  /Users/elenalast/Library/Android/ndk/platforms/android-21/arch-x86/usr/include/asm-generic/fcntl.h \
  /Users/elenalast/Library/Android/ndk/platforms/android-21/arch-x86/usr/include/linux/uio.h \
  /Users/elenalast/Library/Android/ndk/platforms/android-21/arch-x86/usr/include/time.h \
+ /Users/elenalast/Library/Android/ndk/platforms/android-21/arch-x86/usr/include/pthread.h \
+ /Users/elenalast/Library/Android/ndk/platforms/android-21/arch-x86/usr/include/sched.h \
+ /Users/elenalast/Library/Android/ndk/platforms/android-21/arch-x86/usr/include/linux/sched.h \
  /Users/elenalast/Library/Android/ndk/platforms/android-21/arch-x86/usr/include/android/log.h
 
 /Users/elenalast/Library/Android/ndk/platforms/android-21/arch-x86/usr/include/jni.h:
@@ -193,5 +196,11 @@
 /Users/elenalast/Library/Android/ndk/platforms/android-21/arch-x86/usr/include/linux/uio.h:
 
 /Users/elenalast/Library/Android/ndk/platforms/android-21/arch-x86/usr/include/time.h:
+
+/Users/elenalast/Library/Android/ndk/platforms/android-21/arch-x86/usr/include/pthread.h:
+
+/Users/elenalast/Library/Android/ndk/platforms/android-21/arch-x86/usr/include/sched.h:
+
+/Users/elenalast/Library/Android/ndk/platforms/android-21/arch-x86/usr/include/linux/sched.h:
 
 /Users/elenalast/Library/Android/ndk/platforms/android-21/arch-x86/usr/include/android/log.h:

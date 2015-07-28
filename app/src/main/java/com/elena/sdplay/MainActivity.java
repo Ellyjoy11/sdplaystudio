@@ -61,6 +61,7 @@ public class MainActivity extends Activity {
 	public static boolean userdata_selected = false;
 	private File[] file_list;
     private String storageToTest = "internal";
+	SharedPreferences userPref;
 
     //intent to run app from command line is
     // adb shell am start -a android.intent.action.VIEW -c android.intent.category.DEFAULT -e storage userdata -n com.elena.sdplay/com.elena.sdplay.MainActivity
@@ -170,6 +171,15 @@ public class MainActivity extends Activity {
         }
         if (LOG_ON) {
             Log.d(TAG, "number of proc returned: " + numberOfProc);
+        }
+        userPref = PreferenceManager
+                .getDefaultSharedPreferences(this);
+
+        if (userPref.getString("threads", "undef").equals("undef")) {
+            SharedPreferences.Editor editor = userPref.edit();
+            String val = Integer.toString(numberOfProc * 2);
+            editor.putString("threads", val);
+            editor.commit();
         }
 
 		// register sd card state change listener - unregister it in onPause!!!

@@ -12,7 +12,7 @@ public class SettingsFragment extends PreferenceFragment implements
 		OnSharedPreferenceChangeListener {
 
 	private final String[] keys = { "rows", "rnd_rows", "top_count", //"cycles" - for read all cycles
-			"medium_file", "large_file", "buff_size", "journal", "threads" };
+			"medium_file", "large_file", "buff_size", "journal" };
     SharedPreferences userPref;
 
 	@Override
@@ -21,13 +21,6 @@ public class SettingsFragment extends PreferenceFragment implements
         userPref = PreferenceManager
                 .getDefaultSharedPreferences(getActivity());
 		addPreferencesFromResource(R.xml.pref_general);
-		Preference prefThreads = (Preference) findPreference("threads");
-        String val = Integer.toString(MainActivity.numberOfProc * 2);
-        if (userPref.getString("threads", "undef").equals("undef")){
-            SharedPreferences.Editor editor = userPref.edit();
-            editor.putString("threads", val);
-            editor.commit();
-        }
 		setSummary();
 	}
 
@@ -60,6 +53,15 @@ public class SettingsFragment extends PreferenceFragment implements
 			String value = userPref.getString(key_string, "5");
 			pref.setSummary(value);
 		}
+		Preference prefThreads = (Preference) findPreference("threads");
+		//SharedPreferences.Editor editor = userPref.edit();
+		String val = Integer.toString(MainActivity.numberOfProc * 2);
+		if (!userPref.getString("threads", "undef").equals("undef")){
+		    val = userPref.getString("threads", "1");
+		}
+		//editor.putString("threads", val);
+		//editor.commit();
+		prefThreads.setSummary(val);
 	}
 
 }
