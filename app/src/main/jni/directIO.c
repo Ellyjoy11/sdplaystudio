@@ -92,7 +92,7 @@ Java_com_elena_sdplay_BenchStart_directWrite( JNIEnv* env, jobject obj, int fd, 
 }
 
 JNIEXPORT int JNICALL
-Java_com_elena_sdplay_BenchStart_directIOPSr( JNIEnv* env, jobject obj, jstring path, int mode, int bsize, int threads)
+Java_com_elena_sdplay_BenchStart_directIOPSrr( JNIEnv* env, jobject obj, jstring path, int mode, int bsize, int threads)
 {
     int bytes = 0, ops = 0;
     int i, r;
@@ -139,16 +139,19 @@ Java_com_elena_sdplay_BenchStart_directIOPSr( JNIEnv* env, jobject obj, jstring 
     return ops;
 }
 
-struct stat st;
-jbyte *dbuf = NULL;
-int ops[32];
-int fd;
-
 typedef struct {
     int id;
     int threads;
+    int fd;
+    off_t fsize;
     int bsize;
+    int mode;
+    int ops;
+    void *dbuf;
 } tdata;
+
+tdata tdr[32];
+tdata tdw[32];
 
 void *worker_bee(void *data)
 {
@@ -157,30 +160,46 @@ void *worker_bee(void *data)
 
     // pthread_cond_wait();
 
-    bytes = st.st_size/td->threads;
-    for (j=0; j<bytes/td->bsize; j++) {
-        lseek(fd, td->id * bytes * j, SEEK_SET);
-        if ((r = write(fd, dbuf, td->bsize)) < 0) {
-           ops[td->id] = r;
-           printf("Error on write(fd=%d, dbuf=%p, len=%d) , errno: %d", fd, dbuf, td->bsize, errno);
-           break;
-        }
-        ops[td->id]++;
-    }
+    bytes = td->fsize/td->threads;
+    if (td->mode)
+        printf("Worker bee #%d, writing %d bytes at position %ld...\n", td->id, bytes, (long)td->id * bytes);
+    else
+        printf("Worker bee #%d, reading %d bytes at position %ld...\n", td->id, bytes, (long)td->id * bytes);
 
-    return &ops[td->id];
+    lseek(td->fd, td->id * bytes, SEEK_SET);
+    for (j=0; j<bytes/td->bsize; j++) {
+        if (td->mode) {
+            if ((r = write(td->fd, td->dbuf, td->bsize)) < 0) {
+                td->ops = r;
+                printf("Error on write(fd=%d, dbuf=%p, len=%d) , errno: %d", td->fd, td->dbuf, td->bsize, errno);
+                break;
+            }
+        } else {
+            if ((r = read(td->fd, td->dbuf, td->bsize)) < 0) {
+                td->ops = r;
+                printf("Error on read(fd=%d, dbuf=%p, len=%d) , errno: %d", td->fd, td->dbuf, td->bsize, errno);
+                break;
+            }
+        }
+        td->ops++;
+    }
+    return &td->ops;
 }
 
 JNIEXPORT int JNICALL
-Java_com_elena_sdplay_BenchStart_directIOPSw( JNIEnv* env, jobject obj, jstring path, int mode, int bsize, int threads)
+Java_com_elena_sdplay_BenchStart_directIOPSr(JNIEnv* env, jobject obj, jstring path, int mode, int bsize, int threads)
 {
-    int opsa = 0;
+    int ops = 0;
     int i, r;
 	const char * filepath = (*env)->GetStringUTFChars(env, path, NULL);
 	pthread_t tid[32];
-	tdata td[32];
+	struct stat st;
+    jbyte *dbuf = NULL;
+    int fd;
 
-	fd = open(filepath, mode ? mode : O_RDWR | O_DIRECT /*| O_SYNC*/);
+    if (!mode)
+        mode = O_RDWR | O_DIRECT; /* opening R/W to avoid interference */
+	fd = open(filepath, mode);
 	if (fd >= 0) {
 	    fstat(fd, &st);
 	    printf("Opened directIO file (%s, %lu bytes), fd: %d", filepath, st.st_size, fd);
@@ -198,22 +217,85 @@ Java_com_elena_sdplay_BenchStart_directIOPSw( JNIEnv* env, jobject obj, jstring 
 	}
 
     for(i=0; i<threads; i++) {
-        td[i].threads = threads;
-        td[i].bsize = bsize;
-        td[i].id = i;
-        pthread_create(&tid[i], NULL, worker_bee, &td[i]);
+        tdr[i].threads = threads;
+        tdr[i].bsize = bsize;
+        tdr[i].fsize = st.st_size;
+        tdr[i].dbuf = dbuf;
+        tdr[i].fd = dup(fd);
+        tdr[i].id = i;
+        tdr[i].ops = 0;
+        tdr[i].mode = 0;
+        printf("Creating worker thread %d ...\n", i);
+        pthread_create(&tid[i], NULL, worker_bee, &tdr[i]);
     }
 
     // pthread_cond_broadcast(BLAH);
 
     for(i=0; i<threads; i++) {
-        pthread_join(&tid[i], NULL);
+        printf("Joining worker thread %d ...\n", i);
+        pthread_join(tid[i], NULL);
+        close(tdr[i].fd);
+        ops += tdr[i].ops;
     }
 
     free(dbuf);
     close(fd);
-    for (i=0; i<threads; i++) {
-        opsa += ops[i];
+    return ops;
+}
+
+JNIEXPORT int JNICALL
+Java_com_elena_sdplay_BenchStart_directIOPSw(JNIEnv* env, jobject obj, jstring path, int mode, int bsize, int threads)
+{
+    int ops = 0;
+    int i, r;
+	const char * filepath = (*env)->GetStringUTFChars(env, path, NULL);
+	pthread_t tid[32];
+	struct stat st;
+    jbyte *dbuf = NULL;
+    int fd;
+
+    if (!mode)
+        mode = O_RDWR | O_DIRECT /*| O_SYNC*/;
+	fd = open(filepath, mode);
+	if (fd >= 0) {
+	    fstat(fd, &st);
+	    printf("Opened directIO file (%s, %lu bytes), fd: %d", filepath, st.st_size, fd);
+	} else {
+	    printf("Failed to open directIO file (%s), errno: %d", filepath, errno);
+	    return fd;
     }
+
+	if ((dbuf = memalign(bsize, bsize)) != NULL) {
+	    printf("Allocated aligned buffer [%p:%d)", dbuf, bsize);
+	    memset(dbuf, 0, bsize);
+	} else {
+	    printf("Failed to allocate aligned buffer [%d bytes], errno: %d", bsize, errno);
+	    return errno;
+	}
+
+    for(i=0; i<threads; i++) {
+        tdw[i].threads = threads;
+        tdw[i].bsize = bsize;
+        tdw[i].fsize = st.st_size;
+        tdw[i].dbuf = dbuf;
+        tdw[i].fd = dup(fd);
+        tdw[i].id = i;
+        tdw[i].ops = 0;
+        tdw[i].mode = 1;
+        printf("Creating worker thread %d ...\n", i);
+        pthread_create(&tid[i], NULL, worker_bee, &tdw[i]);
+    }
+
+    // pthread_cond_broadcast(BLAH);
+
+    for(i=0; i<threads; i++) {
+        printf("Joining worker thread %d ...\n", i);
+        pthread_join(tid[i], NULL);
+        close(tdw[i].fd);
+        ops += tdw[i].ops;
+    }
+
+    free(dbuf);
+    close(fd);
     return ops;
 }

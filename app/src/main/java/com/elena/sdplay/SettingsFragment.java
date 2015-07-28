@@ -55,10 +55,10 @@ public class SettingsFragment extends PreferenceFragment implements
 		}
 		Preference prefThreads = (Preference) findPreference("threads");
 		//SharedPreferences.Editor editor = userPref.edit();
-		String val = Integer.toString(MainActivity.numberOfProc * 2);
-		if (!userPref.getString("threads", "undef").equals("undef")){
+		String val = Integer.toString(MainActivity.defThreads);
+		//if (!userPref.getString("threads", "undef").equals("undef")){
 		    val = userPref.getString("threads", "1");
-		}
+		//}
 		//editor.putString("threads", val);
 		//editor.commit();
 		prefThreads.setSummary(val);

@@ -3157,7 +3157,7 @@ public void onDeleteAllClick(View view) {
                     if (LOG_ON) {
                         Log.d(TAG, "call IOPS write with no of threads: " + THREADS_NO);
                     }
-                    //oper_count = directIOPSw(path, 0, buffIopsSize, THREADS_NO);
+                    oper_count = directIOPSw(path, 0, buffIopsSize, THREADS_NO);
 
                     /*
 					oper_count = 0;

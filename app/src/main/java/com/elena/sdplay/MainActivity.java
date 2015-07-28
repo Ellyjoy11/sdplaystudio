@@ -100,7 +100,8 @@ public class MainActivity extends Activity {
 	SDCardStateChangeListener listener;
 	public int currentApiVersion;
 	public static String appVersion;
-    public static int numberOfProc;
+    private int numberOfProc;
+	public static int defThreads;
 
 	// private boolean isCustomChecked;
 
@@ -166,18 +167,22 @@ public class MainActivity extends Activity {
 		prepareScreen();
 		getStorageOptions();
         numberOfProc = Runtime.getRuntime().availableProcessors();
-        if (numberOfProc < 1) {
-            numberOfProc = 1;
+        if (numberOfProc > 1 && numberOfProc < 8) {
+            defThreads = 2;
+        } else if (numberOfProc >= 8) {
+            defThreads = 4;
+        } else {
+            defThreads = 1;
         }
         if (LOG_ON) {
-            Log.d(TAG, "number of proc returned: " + numberOfProc);
+            Log.d(TAG, "number of proc returned: " + numberOfProc + "; setting default threads: " + defThreads);
         }
         userPref = PreferenceManager
                 .getDefaultSharedPreferences(this);
 
         if (userPref.getString("threads", "undef").equals("undef")) {
             SharedPreferences.Editor editor = userPref.edit();
-            String val = Integer.toString(numberOfProc * 2);
+            String val = Integer.toString(defThreads);
             editor.putString("threads", val);
             editor.commit();
         }
