@@ -312,7 +312,13 @@ public class BenchStart extends Activity {
 		READ_CYCLES = Integer.parseInt(userPref.getString("cycles", "100"));
 		MEDIUM_SIZE = Integer.parseInt(userPref.getString("medium_file", "10"));
 		// TODO check medium size and add dialog if size > 20MB
-        THREADS_NO = Integer.parseInt(userPref.getString("threads", "10"));
+        Intent intent = getIntent();
+
+        if (intent.hasExtra("threads")) {
+            THREADS_NO = Integer.parseInt(intent.getStringExtra("threads"));
+        } else {
+            THREADS_NO = Integer.parseInt(userPref.getString("threads", "1"));
+        }
 
 		if (MEDIUM_SIZE > 20) {
 			MEDIUM_SIZE = 20;
