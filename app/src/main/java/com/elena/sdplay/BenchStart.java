@@ -1533,6 +1533,7 @@ public void onDeleteAllClick(View view) {
                     myResDB.FS_C_SPEED, myResDB.FS_L_SPEED, myResDB.FS_RS_SPEED,
                     myResDB.FS_WM_SPEED, myResDB.FS_RM_SPEED,
                     myResDB.FS_WL_SPEED, myResDB.FS_RL_SPEED,
+                    myResDB.FS_THREADS,
                     myResDB.FS_IOPS_W, myResDB.FS_IOPS_R,
                     myResDB.FS_D_SPEED, myResDB.FS_TOTAL_SCORE,
                     myResDB.SUMMARY_SCORE };
@@ -1574,7 +1575,7 @@ public void onDeleteAllClick(View view) {
                         curCSV.getString(26), curCSV.getString(27),
                         curCSV.getString(28), curCSV.getString(29),
                         curCSV.getString(30), curCSV.getString(31),
-                        curCSV.getString(32)
+                        curCSV.getString(32), curCSV.getString(33)
                 };
  */
 
@@ -1592,7 +1593,8 @@ public void onDeleteAllClick(View view) {
                         curCSV.getString(16), curCSV.getString(17),
                         curCSV.getString(18), curCSV.getString(19),
                         curCSV.getString(20), curCSV.getString(21),
-                        curCSV.getString(22), curCSV.getString(23)
+                        curCSV.getString(22), curCSV.getString(23),
+                        curCSV.getString(24)
 
                 };
 
