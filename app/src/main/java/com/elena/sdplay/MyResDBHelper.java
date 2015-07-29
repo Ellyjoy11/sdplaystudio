@@ -36,13 +36,13 @@ public class MyResDBHelper extends SQLiteOpenHelper {
 	public final String FS_RM_SPEED = "_fs_med_read_speed";
 	public final String FS_WL_SPEED = "_fs_large_write_speed";
 	public final String FS_RL_SPEED = "_fs_large_read_speed";
+    public final String FS_THREADS = "_fs_threads";
     public final String FS_IOPS_W = "_fs_iops_write_speed";
     public final String FS_IOPS_R = "_fs_iops_read_speed";
 	public final String FS_D_SPEED = "_fs_del_speed";
 	public final String FS_SM_SCORE = "_fs_small_score";
 	public final String FS_M_SCORE = "_fs_med_score";
 	public final String FS_L_SCORE = "_fs_large_score";
-	public final String FS_THREADS = "_fs_threads";
     public final String FS_IOPS_SCORE = "_fs_iops_score";
 	public final String FS_TOTAL_SCORE = "_fs_total_score";
 
@@ -56,10 +56,10 @@ public class MyResDBHelper extends SQLiteOpenHelper {
 			+ " text, " + RES_JOURNAL + " text, " + RES_JOURNAL_SHORT + " text, " + RES_W_SPEED + " text, " + RES_RW_SPEED + " text, "
 			+ RES_RR_SPEED + " text, " + RES_D_SPEED + " text, " + RES_TOTAL_SCORE + " integer, " + FS_C_SPEED + " text, " + FS_L_SPEED
 			+ " text, " + FS_RS_SPEED + " text, " + FS_WM_SPEED + " text, " + FS_RM_SPEED + " text, "
-			+ FS_WL_SPEED + " text, " + FS_RL_SPEED + " text, " + FS_IOPS_W
+			+ FS_WL_SPEED + " text, " + FS_RL_SPEED + " text, " + FS_THREADS + " text, "  + FS_IOPS_W
 			+ " text, " + FS_IOPS_R + " text, " + FS_D_SPEED + " text, " + FS_TOTAL_SCORE
 			+ " integer, " + SUMMARY_SCORE + " integer, " + FS_SM_SCORE
-			+ " text, " + FS_M_SCORE + " text, " + FS_L_SCORE + " text, "+ FS_THREADS + " text, " + FS_IOPS_SCORE + " text);";
+			+ " text, " + FS_M_SCORE + " text, " + FS_L_SCORE + " text, " + FS_IOPS_SCORE + " text);";
 
 	public MyResDBHelper(Context context, String intPath) {
 		super(context, intPath + RES_DATABASE_NAME, null, RES_DATABASE_VERSION);

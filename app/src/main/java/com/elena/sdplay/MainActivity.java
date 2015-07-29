@@ -666,7 +666,7 @@ public class MainActivity extends Activity {
 					R.array.reference_results);
 			REF_COUNT = ref_res.length;
 			// card_full_details = Integer.toString(card_manfs.length);
-			String[][] ref_results = new String[ref_res.length][30];
+			String[][] ref_results = new String[ref_res.length][33];
 			for (int i = 0; i < REF_COUNT; i++) {
 				ref_results[i] = ref_res[i].split("\\|");
 				res_db.beginTransaction();
@@ -700,17 +700,18 @@ public class MainActivity extends Activity {
 
 				values.put(myResDB.FS_WL_SPEED, ref_results[i][21]);
 				values.put(myResDB.FS_RL_SPEED, ref_results[i][22]);
-                values.put(myResDB.FS_IOPS_W, ref_results[i][23]);
-                values.put(myResDB.FS_IOPS_R, ref_results[i][24]);
+                    values.put(myResDB.FS_THREADS, ref_results[i][23]);
+                values.put(myResDB.FS_IOPS_W, ref_results[i][24]);
+                values.put(myResDB.FS_IOPS_R, ref_results[i][25]);
 
-                values.put(myResDB.FS_D_SPEED, ref_results[i][25]);
-                values.put(myResDB.FS_TOTAL_SCORE, ref_results[i][26]);
-                values.put(myResDB.SUMMARY_SCORE,ref_results[i][27]);
+                values.put(myResDB.FS_D_SPEED, ref_results[i][26]);
+                values.put(myResDB.FS_TOTAL_SCORE, ref_results[i][27]);
+                values.put(myResDB.SUMMARY_SCORE,ref_results[i][28]);
 
-				values.put(myResDB.FS_SM_SCORE, ref_results[i][28]);
-				values.put(myResDB.FS_M_SCORE, ref_results[i][29]);
-				values.put(myResDB.FS_L_SCORE,ref_results[i][30]);
-				values.put(myResDB.FS_IOPS_SCORE, ref_results[i][31]);
+				values.put(myResDB.FS_SM_SCORE, ref_results[i][29]);
+				values.put(myResDB.FS_M_SCORE, ref_results[i][30]);
+				values.put(myResDB.FS_L_SCORE,ref_results[i][31]);
+				values.put(myResDB.FS_IOPS_SCORE, ref_results[i][32]);
 
 				res_db.insert(myResDB.RES_TABLE, null, values);
 				res_db.setTransactionSuccessful();
