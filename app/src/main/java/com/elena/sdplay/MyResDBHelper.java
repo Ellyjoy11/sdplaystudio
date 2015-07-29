@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class MyResDBHelper extends SQLiteOpenHelper {
 	// If you change the database schema, you must increment the database
 	// version.
-	public static final int RES_DATABASE_VERSION = 3;
+	public static final int RES_DATABASE_VERSION = 4;
 	public static final String RES_DATABASE_NAME = "MyResDBHelper.db";
 	public final String RES_TABLE = "Res_table";
 	public final String RES_ID = "_id";
@@ -42,6 +42,7 @@ public class MyResDBHelper extends SQLiteOpenHelper {
 	public final String FS_SM_SCORE = "_fs_small_score";
 	public final String FS_M_SCORE = "_fs_med_score";
 	public final String FS_L_SCORE = "_fs_large_score";
+	public final String FS_THREADS = "_fs_threads";
     public final String FS_IOPS_SCORE = "_fs_iops_score";
 	public final String FS_TOTAL_SCORE = "_fs_total_score";
 
@@ -58,7 +59,7 @@ public class MyResDBHelper extends SQLiteOpenHelper {
 			+ FS_WL_SPEED + " text, " + FS_RL_SPEED + " text, " + FS_IOPS_W
 			+ " text, " + FS_IOPS_R + " text, " + FS_D_SPEED + " text, " + FS_TOTAL_SCORE
 			+ " integer, " + SUMMARY_SCORE + " integer, " + FS_SM_SCORE
-			+ " text, " + FS_M_SCORE + " text, " + FS_L_SCORE + " text, " + FS_IOPS_SCORE + " text);";
+			+ " text, " + FS_M_SCORE + " text, " + FS_L_SCORE + " text, "+ FS_THREADS + " text, " + FS_IOPS_SCORE + " text);";
 
 	public MyResDBHelper(Context context, String intPath) {
 		super(context, intPath + RES_DATABASE_NAME, null, RES_DATABASE_VERSION);

@@ -1414,6 +1414,7 @@ public void onDeleteAllClick(View view) {
 						String.format("%.2f", large_read_rate));
                 values.put(myResDB.FS_IOPS_W, String.format("%.2f", iops_rate));
                 values.put(myResDB.FS_IOPS_R, String.format("%.2f", iops_read_rate));
+				values.put(myResDB.FS_THREADS, THREADS_NO);
 				values.put(myResDB.FS_IOPS_SCORE, String.format("%.2f", iops_rate)
 						+ " / " + String.format("%.2f", iops_read_rate));
 				values.put(myResDB.FS_D_SPEED, String.format("%.2f", del_f));
