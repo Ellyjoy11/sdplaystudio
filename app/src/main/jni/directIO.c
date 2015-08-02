@@ -13,6 +13,7 @@
 
 #include <errno.h>
 #include <pthread.h>
+#include <sys/mman.h>
 
 #include <android/log.h>
 
@@ -91,54 +92,6 @@ Java_com_elena_sdplay_BenchStart_directWrite( JNIEnv* env, jobject obj, int fd, 
     return bytes;
 }
 
-JNIEXPORT int JNICALL
-Java_com_elena_sdplay_BenchStart_directIOPSrr( JNIEnv* env, jobject obj, jstring path, int mode, int bsize, int threads)
-{
-    int bytes = 0, ops = 0;
-    int i, r;
-	const char * filepath = (*env)->GetStringUTFChars(env, path, NULL);
-	struct stat st;
-	jbyte *dbuf = NULL;
-
-	int fd = open(filepath, mode ? mode : O_RDWR | O_DIRECT /*| O_SYNC*/);
-	if (fd >= 0) {
-	    fstat(fd, &st);
-	    printf("Opened directIO file (%s, %lu bytes), fd: %d", filepath, st.st_size, fd);
-	} else {
-	    printf("Failed to open directIO file (%s), errno: %d", filepath, errno);
-	    return fd;
-    }
-
-	if ((dbuf = memalign(bsize, bsize)) != NULL) {
-	    printf("Allocated aligned buffer [%p:%d)", dbuf, bsize);
-	} else {
-	    printf("Failed to allocate aligned buffer [%d bytes], errno: %d", bsize, errno);
-	    return errno;
-	}
-
-    for(i=0; i<st.st_size/2; i+=bsize) {
-        lseek(fd, i, SEEK_SET);
-        if ((r = read(fd, dbuf, bsize)) < 0) {
-          	ops = r;
-          	printf("Error on read(fd=%d, dbuf=%p, len=%d) , errno: %d", fd, dbuf, bsize, errno);
-          	break;
-        }
-        ops++;
-        bytes += r;
-        lseek(fd, i+st.st_size/2, SEEK_SET);
-        if ((r = read(fd, dbuf, bsize)) < 0) {
-          	ops = r;
-          	printf("Error on read(fd=%d, dbuf=%p, len=%d) , errno: %d", fd, dbuf, bsize, errno);
-          	break;
-        }
-        ops++;
-        bytes += r;
-    }
-    free(dbuf);
-    close(fd);
-    return ops;
-}
-
 typedef struct {
     int id;
     int threads;
@@ -157,16 +110,25 @@ void *worker_bee(void *data)
 {
     int bytes, j, r;
     tdata *td = (tdata *)data;
+    off_t pos;
 
     // pthread_cond_wait();
 
-    bytes = td->fsize/td->threads;
+    // chunk size must be aligned to bsize
+    bytes = ((td->fsize/td->threads)/td->bsize) * td->bsize;
+
     if (td->mode)
         printf("Worker bee #%d, writing %d bytes at position %ld...\n", td->id, bytes, (long)td->id * bytes);
     else
         printf("Worker bee #%d, reading %d bytes at position %ld...\n", td->id, bytes, (long)td->id * bytes);
 
-    lseek(td->fd, td->id * bytes, SEEK_SET);
+    pos = lseek(td->fd, td->id * bytes, SEEK_SET);
+    if (pos < 0) {
+        printf("worker bee #%d, error %d seeking fd #%d", td->id, errno, td->fd);
+    } else {
+        printf("worker bee #%d, offset %ld for fd #%d", td->id, pos, td->fd);
+    }
+
     for (j=0; j<bytes/td->bsize; j++) {
         if (td->mode) {
             if ((r = write(td->fd, td->dbuf, td->bsize)) < 0) {
@@ -198,7 +160,7 @@ Java_com_elena_sdplay_BenchStart_directIOPSr(JNIEnv* env, jobject obj, jstring p
     int fd;
 
     if (!mode)
-        mode = O_RDWR | O_DIRECT; /* opening R/W to avoid interference */
+        mode = O_RDONLY | O_DIRECT;
 	fd = open(filepath, mode);
 	if (fd >= 0) {
 	    fstat(fd, &st);
@@ -208,6 +170,7 @@ Java_com_elena_sdplay_BenchStart_directIOPSr(JNIEnv* env, jobject obj, jstring p
 	    return fd;
     }
 
+/*
 	if ((dbuf = memalign(bsize, bsize)) != NULL) {
 	    printf("Allocated aligned buffer [%p:%d)", dbuf, bsize);
 	    memset(dbuf, 0, bsize);
@@ -215,13 +178,14 @@ Java_com_elena_sdplay_BenchStart_directIOPSr(JNIEnv* env, jobject obj, jstring p
 	    printf("Failed to allocate aligned buffer [%d bytes], errno: %d", bsize, errno);
 	    return errno;
 	}
+*/
 
     for(i=0; i<threads; i++) {
         tdr[i].threads = threads;
         tdr[i].bsize = bsize;
         tdr[i].fsize = st.st_size;
-        tdr[i].dbuf = dbuf;
-        tdr[i].fd = dup(fd);
+        tdr[i].dbuf = memalign(bsize, bsize);
+        tdr[i].fd = open(filepath, mode);
         tdr[i].id = i;
         tdr[i].ops = 0;
         tdr[i].mode = 0;
@@ -235,10 +199,11 @@ Java_com_elena_sdplay_BenchStart_directIOPSr(JNIEnv* env, jobject obj, jstring p
         printf("Joining worker thread %d ...\n", i);
         pthread_join(tid[i], NULL);
         close(tdr[i].fd);
+        free(tdr[i].dbuf);
         ops += tdr[i].ops;
     }
 
-    free(dbuf);
+//    free(dbuf);
     close(fd);
     return ops;
 }
@@ -255,7 +220,7 @@ Java_com_elena_sdplay_BenchStart_directIOPSw(JNIEnv* env, jobject obj, jstring p
     int fd;
 
     if (!mode)
-        mode = O_RDWR | O_DIRECT /*| O_SYNC*/;
+        mode = O_WRONLY | O_DIRECT | O_SYNC;
 	fd = open(filepath, mode);
 	if (fd >= 0) {
 	    fstat(fd, &st);
@@ -265,6 +230,7 @@ Java_com_elena_sdplay_BenchStart_directIOPSw(JNIEnv* env, jobject obj, jstring p
 	    return fd;
     }
 
+/*
 	if ((dbuf = memalign(bsize, bsize)) != NULL) {
 	    printf("Allocated aligned buffer [%p:%d)", dbuf, bsize);
 	    memset(dbuf, 0, bsize);
@@ -272,13 +238,14 @@ Java_com_elena_sdplay_BenchStart_directIOPSw(JNIEnv* env, jobject obj, jstring p
 	    printf("Failed to allocate aligned buffer [%d bytes], errno: %d", bsize, errno);
 	    return errno;
 	}
+*/
 
     for(i=0; i<threads; i++) {
         tdw[i].threads = threads;
         tdw[i].bsize = bsize;
         tdw[i].fsize = st.st_size;
-        tdw[i].dbuf = dbuf;
-        tdw[i].fd = dup(fd);
+        tdw[i].dbuf = memalign(bsize, bsize);
+        tdw[i].fd = open(filepath, mode);
         tdw[i].id = i;
         tdw[i].ops = 0;
         tdw[i].mode = 1;
@@ -292,10 +259,11 @@ Java_com_elena_sdplay_BenchStart_directIOPSw(JNIEnv* env, jobject obj, jstring p
         printf("Joining worker thread %d ...\n", i);
         pthread_join(tid[i], NULL);
         close(tdw[i].fd);
+        free(tdw[i].dbuf);
         ops += tdw[i].ops;
     }
 
-    free(dbuf);
+//    free(dbuf);
     close(fd);
     return ops;
 }
