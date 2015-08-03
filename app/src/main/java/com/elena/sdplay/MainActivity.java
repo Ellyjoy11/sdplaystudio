@@ -167,10 +167,8 @@ public class MainActivity extends Activity {
 		prepareScreen();
 		getStorageOptions();
         numberOfProc = Runtime.getRuntime().availableProcessors();
-        if (numberOfProc > 1 && numberOfProc < 8) {
-            defThreads = 2;
-        } else if (numberOfProc >= 8) {
-            defThreads = 4;
+        if (numberOfProc > 1) {
+            defThreads = numberOfProc;
         } else {
             defThreads = 1;
         }
