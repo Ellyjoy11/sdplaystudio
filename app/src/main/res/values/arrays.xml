@@ -95,7 +95,15 @@
         <item>Toshiba|0x0098</item>
         <item>Hynix|0x0090</item>
         <item>Sandisk|0x0045</item>
+        <item>Sandisk|0x0002</item>
         <item>Elpida|0x00FE</item>
+        <item>Micron|0x0013</item>
+        <item>Micron|0x00FE</item>
+        <item>STM_Micron|0x0020</item>
+        <item>Intel_Micron|0x0089</item>
+        <item>Crucial_Micron|0x009B</item>
+        <item>Lexar_Micron|0x005E</item>
+        <item>Kingston|0x0070</item>
     </string-array>
     
     <string-array name="usb_drives">
