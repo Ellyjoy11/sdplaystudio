@@ -1944,16 +1944,20 @@ public void onDeleteAllClick(View view) {
 				String[] manfs = getResources().getStringArray(
 						R.array.internal_memories);
 				String[][] manf_names = new String[manfs.length][2];
+
 				for (int i = 0; i < manfs.length; i++) {
 					manf_names[i] = manfs[i].split("\\|");
 				}
-				for (int j = 0; j < manfs.length; j++) {
-					if (manfid.substring(2).contains(
-							manf_names[j][1].substring(2))) {
-						full_details += manf_names[j][0];
-						break;
+				if (!manfid.isEmpty()) {
+					for (int j = 0; j < manfs.length; j++) {
+						if (manfid.substring(2).contains(
+								manf_names[j][1].substring(2))) {
+							full_details += manf_names[j][0];
+							break;
+						}
 					}
 				}
+
 				if (full_details == "" || full_details.contains("Unknown")) {
 					full_details = "Unknown Vendor " + name;
 				} else {

@@ -63,6 +63,7 @@ public class MyResDBHelper extends SQLiteOpenHelper {
 
 	public MyResDBHelper(Context context, String intPath) {
 		super(context, intPath + RES_DATABASE_NAME, null, RES_DATABASE_VERSION);
+		//super(context, intPath + "MyResDBHelper", null, RES_DATABASE_VERSION);
 	}
 
 	@Override
