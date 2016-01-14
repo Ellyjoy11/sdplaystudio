@@ -834,9 +834,19 @@ public class MainActivity extends Activity {
 		if (!cust_f.exists() || !cust_f.isDirectory()) {
 			new File(customPath).mkdirs();
 		}
+		cust_r.setExecutable(true);
+		cust_r.setReadable(true);
+		cust_r.setWritable(true);
+
 		cust_f.setExecutable(true);
 		cust_f.setReadable(true);
 		cust_f.setWritable(true);
+
+		if (LOG_ON && cust_r.exists()) {
+			Log.d(TAG,
+					"Root of custom permissions: " + cust_r.canExecute() + "; "
+							+ cust_r.canRead() + "; "+ cust_r.canWrite());
+		}
 
 		if (!cust_r.exists() || !cust_r.isDirectory()) {
 			Toast.makeText(getApplicationContext(),

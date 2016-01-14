@@ -138,7 +138,7 @@ public class BenchStart extends Activity {
 	private long largeSize;
 	String largeSizeToPrint;
 	double spaceForFsTest;
-	double MAGIC_NUMBER = 100; // 100MB and must be > 1
+	double MAGIC_NUMBER = 2; // 100MB and must be > 1
 	// ///////////////////////////////
 
 	String tmp;
@@ -413,7 +413,7 @@ public class BenchStart extends Activity {
             Log.d("SDPlay", "need space: " + spaceForFsTest / 1024 + "Gb");
             Log.d("SDPlay", "free space: " + freeSpace + "Gb");
 
-            if ((spaceForFsTest / 1024) > freeSpace &&
+            if ((spaceForFsTest / 1024.0) > freeSpace &&
                     (!testToRun.equals("db"))) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
                 builder.setMessage(
@@ -1887,7 +1887,9 @@ public void onDeleteAllClick(View view) {
 			// Record all selected rows into array
 			if (c.getCount() > 0) {
 				c.moveToFirst();
-				full_details = c.getString(0);
+                if (!c.getString(0).contains("Unknown")) {
+                    full_details = c.getString(0);
+                }
 				// nickname = c.getString(1);
 				c.close();
 			}
@@ -1940,18 +1942,17 @@ public void onDeleteAllClick(View view) {
                         for (int j = 0; j < manfs.length; j++) {
                             if (manfid.substring(2).contains(
                                     manf_names[j][1].substring(2))) {
-                                full_details += manf_names[j][0];
+                                full_details = manf_names[j][0];
                                 break;
                             }
                         }
                     }
                 } else {
                     if (!ufsVendor.isEmpty()) {
-                        full_details += ufsVendor + " " + ufsModel;
+                        full_details = ufsVendor + " " + ufsModel;
                     }
                 }
-
-				if (full_details == "" || full_details.contains("Unknown")) {
+				if (full_details.isEmpty() || full_details.contains("Unknown")) {
 					full_details = "Unknown Vendor " + name;
 				} else {
 					full_details += " " + name;
@@ -2068,13 +2069,17 @@ public void onDeleteAllClick(View view) {
 
         isUfs = false;
         String line = "";
-        String tmp2Check = "";
-        String patternForBlock = ".*/dev/block/([a-z]+\\d+).*";
-        String rootPatternForBlock = ".*/dev/block/([a-z]+)\\d+.*";
+        //String tmp2Check = "";
+        //String patternForBlock = ".*/dev/block/([a-z]+\\d+).*";
+        //String rootPatternForBlock = ".*/dev/block/([a-z]+)\\d+.*";
 
         //Log.d(TAG, "block names: " + blockName + "..." + rootBlockName);
+/*
+/////
+			Bring this back to code if selinux policy will be updated!!!!!!!!!!
 
         try {
+
             Runtime run = Runtime.getRuntime();
             Process prLs = run.exec("ls -l /dev/block/bootdevice/by-name/userdata");
             prLs.waitFor();
@@ -2092,12 +2097,23 @@ public void onDeleteAllClick(View view) {
                     rootBlockName = tmp2Check.replaceAll(rootPatternForBlock, "$1");
                 }
             }
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
+            } catch (IOException e) {
             e.printStackTrace();
         }
-        //Log.d(TAG, "block names: " + blockName + "..." + rootBlockName);
+            */
+
+			File ufsBlock = new File("/sys/class/block/sda");
+			if (ufsBlock.exists()) {
+				blockName = "sda";
+				isUfs = true;
+			}
+			File emmcBlock = new File("/sys/class/block/mmcblk0");
+			if (emmcBlock.exists() && !isUfs) {
+				blockName = "mmcblk0";
+				isUfs = false;
+			}
+
+        Log.d(TAG, "block name: " + blockName + "..., isUfs? " + isUfs);
         //Log.d(TAG, "read: " + tmp2Check);
 
         if (!isUfs) {
@@ -2131,17 +2147,17 @@ public void onDeleteAllClick(View view) {
             }
         } else {
             try {
-                File iff = new File("/sys/class/block/" + rootBlockName + "/device/vendor");
+                File iff = new File("/sys/class/block/" + blockName + "/device/vendor");
                 if (iff.exists()) {
                     BufferedReader in_manfid = new BufferedReader(
                             new FileReader(
-                                    "/sys/class/block/" + rootBlockName + "/device/vendor"));
+                                    "/sys/class/block/" + blockName + "/device/vendor"));
                     while ((line = in_manfid.readLine()) != null) {
                         ufsVendor = line;
                     }
                     BufferedReader in_oemid = new BufferedReader(
                             new FileReader(
-                                    "/sys/class/block/" + rootBlockName + "/device/model"));
+                                    "/sys/class/block/" + blockName + "/device/model"));
                     while ((line = in_oemid.readLine()) != null) {
                         ufsModel = line;
                     }
@@ -3934,13 +3950,13 @@ public void onDeleteAllClick(View view) {
     private void getUfsSize() {
         String sizeToRound = "0";
         try {
-            File fff = new File("/sys/class/block/" + rootBlockName + "/" + blockName + "/size");
+            File fff = new File("/sys/class/block/" + blockName + "/size");
             String line;
 
             if (fff.exists()) {
                 BufferedReader in_ufs_size = new BufferedReader(
                         new FileReader(
-                                "/sys/class/block/" + rootBlockName + "/" + blockName + "/size"));
+                                "/sys/class/block/" + blockName + "/size"));
                 while ((line = in_ufs_size.readLine()) != null) {
                     sizeToRound = line;
                     Log.d(TAG, "read from sysfs: " + sizeToRound);
