@@ -36,7 +36,7 @@ import java.io.InputStreamReader;
 public class MainActivity extends Activity {
 
 	private static final String TAG = "SDPlayDebug";
-    public static final boolean LOG_ON = true;
+    public static final boolean LOG_ON = false;
     public static final String ABOUT_TITLE = "\u00a9 2014-2016 Elena Last, Igor Kovalenko";
     public static String ABOUT_VERSION;
 	public final static String SD_PATH = "com.elena.sdplay.SD_PATH";
@@ -781,7 +781,7 @@ public class MainActivity extends Activity {
 		if (extFsType.isEmpty()) {
 			if (mount_out.matches(extPattern2)) {
 				String sdCardMount = mount_out.replaceAll(extPattern2, "$1");
-				Log.d(TAG, "sd mount: " + sdCardMount);
+				//Log.d(TAG, "sd mount: " + sdCardMount);
 				String extPattern3 = ".*/storage/" + sdCardMount +"\\s+(\\w+)\\s+.*";
 				if (mount_out.matches(extPattern3)) {
 					extFsType = mount_out.replaceAll(extPattern3, "$1") + "/";
