@@ -35,6 +35,18 @@ Java_com_elena_sdplay_BenchStart_directAllocate( JNIEnv* env, jobject obj, int s
 	return nio_buf;
 }
 
+
+// from android samples
+/* return current time in milliseconds */
+//static double now_ms(void) {
+//
+//    struct timespec res;
+//    clock_gettime(CLOCK_REALTIME, &res);
+//    return 1000.0*res.tv_sec + (double) res.tv_nsec / 1000000.0;
+//
+//}
+
+
 JNIEXPORT void JNICALL
 Java_com_elena_sdplay_BenchStart_directFree( JNIEnv* env, jobject obj, jobject nio_buf )
 {
@@ -194,6 +206,7 @@ Java_com_elena_sdplay_BenchStart_directIOPSr(JNIEnv* env, jobject obj, jstring p
     }
 
     // pthread_cond_broadcast(BLAH);
+    //double start = now_ms(); // start time
 
     for(i=0; i<threads; i++) {
         printf("Joining worker thread %d ...\n", i);
@@ -205,12 +218,19 @@ Java_com_elena_sdplay_BenchStart_directIOPSr(JNIEnv* env, jobject obj, jstring p
 
 //    free(dbuf);
     close(fd);
+
+    //double end = now_ms(); // finish time
+    //double delta = end - start; // time your code took to exec in ms
+    //printf("Time to execute iops reads in jni: %f ms", delta);
+    //printf("iops read rate in jni: %f", ops*1000.0/delta);
+
     return ops;
 }
 
 JNIEXPORT int JNICALL
 Java_com_elena_sdplay_BenchStart_directIOPSw(JNIEnv* env, jobject obj, jstring path, int mode, int bsize, int threads)
 {
+
     int ops = 0;
     int i, r;
 	const char * filepath = (*env)->GetStringUTFChars(env, path, NULL);
@@ -255,15 +275,24 @@ Java_com_elena_sdplay_BenchStart_directIOPSw(JNIEnv* env, jobject obj, jstring p
 
     // pthread_cond_broadcast(BLAH);
 
+    //double start = now_ms(); // start time
+
     for(i=0; i<threads; i++) {
         printf("Joining worker thread %d ...\n", i);
         pthread_join(tid[i], NULL);
         close(tdw[i].fd);
         free(tdw[i].dbuf);
         ops += tdw[i].ops;
+        //printf("Current ops number: %d ...\n", ops);
     }
 
 //    free(dbuf);
     close(fd);
+
+    //double end = now_ms(); // finish time
+    //double delta = end - start; // time your code took to exec in ms
+    //printf("Time to execute iops writes in jni: %f ms", delta);
+    //printf("iops write rate in jni: %f", ops*1000.0/delta);
+
     return ops;
 }

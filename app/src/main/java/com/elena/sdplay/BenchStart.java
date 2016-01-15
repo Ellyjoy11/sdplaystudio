@@ -3355,7 +3355,7 @@ public void onDeleteAllClick(View view) {
 			millis4 = SystemClock.elapsedRealtime();
 			// writing time in ms
 			diff_iops = millis4 - millis3;
-			// Log.d("SDPlay", "iops update time:" + diff_iops);
+			//Log.d("SDPlay", "iops write time in java:" + diff_iops + " ms");
 			return 1;
 			// When finished, return the resulting 1, this will cause the
 			// Activity to call onPostExecute()
@@ -3400,6 +3400,7 @@ public void onDeleteAllClick(View view) {
 						Toast.LENGTH_LONG).show();
 			} else {
 				iops_rate = oper_count * 1000.0 / diff_iops;
+				//Log.d("SDPlay", "iops write rate in java: " + iops_rate);
 				tmp += "IOPS updates rate " + String.format("%.2f", iops_rate)
 						+ " operations/s\n";
 				Toast.makeText(getBaseContext(),
@@ -3513,7 +3514,7 @@ public void onDeleteAllClick(View view) {
 			millis4 = SystemClock.elapsedRealtime();
 			// writing time in ms
 			diff_iops = millis4 - millis3;
-			// Log.d("SDPlay", "iops read time:" + diff_iops);
+			//Log.d("SDPlay", "iops read time in java:" + diff_iops + " ms");
 			return 1;
 			// When finished, return the resulting 1, this will cause the
 			// Activity to call onPostExecute()
@@ -3559,6 +3560,7 @@ public void onDeleteAllClick(View view) {
 			} else {
 				// tmp += "\nTotal files written:  " + f_count + "\n";
 				iops_read_rate = oper_read_count * 1000.0 / diff_iops;
+				//Log.d("SDPlay", "iops read rate in java: " + iops_read_rate);
 				tmp += "IOPS read rate "
 						+ String.format("%.2f", iops_read_rate)
 						+ " operations/s\n";

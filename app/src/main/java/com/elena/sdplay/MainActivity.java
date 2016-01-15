@@ -621,11 +621,19 @@ public class MainActivity extends Activity {
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
 				String tmpString = input.getText().toString();
+
 				if (checkCustomPath(tmpString, true) != 0) {
 					final String tmpFs = userPref.getString("customPathFs",
 							"Path isn't defined yet");
 					TextView customPath = (TextView) findViewById(R.id.custom_path);
 					customPath.setText(tmpFs);
+				} else if (tmpString.isEmpty()) {
+					Editor editor = userPref.edit();
+					editor.putString("customPath", "");
+					editor.putString("customPathFs", "Path isn't defined yet");
+					editor.commit();
+					TextView customPath = (TextView) findViewById(R.id.custom_path);
+					customPath.setText("Path isn't defined yet");
 				}
 			}
 		});
@@ -815,8 +823,14 @@ public class MainActivity extends Activity {
 		String customPath = pathToCheck;
 
 		if (customPath.isEmpty()) {
-			Toast.makeText(getApplicationContext(),
-					"Please enter path for test", Toast.LENGTH_SHORT).show();
+			//Toast.makeText(getApplicationContext(),
+			//		"Please enter path for test", Toast.LENGTH_SHORT).show();
+			SharedPreferences userPref = PreferenceManager
+					.getDefaultSharedPreferences(this);
+			Editor editor = userPref.edit();
+			editor.putString("customPath", "");
+			editor.putString("customPathFs", "Path isn't defined yet");
+			editor.commit();
 			return 0;
 		}
 
@@ -868,10 +882,14 @@ public class MainActivity extends Activity {
 		if (cust_f.canExecute() && cust_f.canRead() && cust_f.canWrite()) {
 
 			new File(cust_f.getAbsolutePath()
-					+ "/Android/com.elena.sdplay/files").mkdirs();
+					+ File.separator + "apps" +
+					File.separator +
+					"com.elena.sdplay" + File.separator + "files").mkdirs();
 
 			File custom_f = new File(cust_f.getAbsolutePath()
-					+ "/Android/com.elena.sdplay/files");
+					+ File.separator + "apps" +
+					File.separator +
+					"com.elena.sdplay" + File.separator + "files");
 			if (custom_f.exists() && custom_f.isDirectory()) {
 
 				customPathVerified = custom_f.getAbsolutePath();
