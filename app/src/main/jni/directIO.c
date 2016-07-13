@@ -118,6 +118,18 @@ typedef struct {
 tdata tdr[32];
 tdata tdw[32];
 
+//////////remove when not needed//////////
+typedef struct {
+    int secs;
+    int usecs;
+} TIME_DIFF;
+
+TIME_DIFF * my_difftime (struct timeval *, struct timeval *);
+struct timeval myTstart, myTend;
+TIME_DIFF * differenceT;
+
+/////////////end of remove////////////
+
 void *worker_bee(void *data)
 {
     int bytes, j, r;
@@ -191,6 +203,8 @@ Java_com_elena_sdplay_BenchStart_directIOPSr(JNIEnv* env, jobject obj, jstring p
 	    return errno;
 	}
 */
+    double startR = clock();
+    gettimeofday (&myTstart, NULL);
 
     for(i=0; i<threads; i++) {
         tdr[i].threads = threads;
@@ -220,9 +234,13 @@ Java_com_elena_sdplay_BenchStart_directIOPSr(JNIEnv* env, jobject obj, jstring p
     close(fd);
 
     //double end = now_ms(); // finish time
-    //double delta = end - start; // time your code took to exec in ms
-    //printf("Time to execute iops reads in jni: %f ms", delta);
-    //printf("iops read rate in jni: %f", ops*1000.0/delta);
+    gettimeofday (&myTend, NULL);
+    double deltaR = (clock() - startR) * 1000.0 / CLOCKS_PER_SEC; // time your code took to exec in ms
+    printf("Time to execute iops read in jni: %f ms", deltaR);
+    differenceT = my_difftime (&myTstart, &myTend);
+    printf("Time to execute iops with timeofday: %3d.%6d secs: ", differenceT->secs, differenceT->usecs);
+    printf("iops read rate in jni: %f", ops*1000.0/deltaR);
+    //free (differenceT);
 
     return ops;
 }
@@ -259,6 +277,8 @@ Java_com_elena_sdplay_BenchStart_directIOPSw(JNIEnv* env, jobject obj, jstring p
 	    return errno;
 	}
 */
+    double startW = clock();
+    gettimeofday(&myTstart, NULL);
 
     for(i=0; i<threads; i++) {
         tdw[i].threads = threads;
@@ -271,6 +291,7 @@ Java_com_elena_sdplay_BenchStart_directIOPSw(JNIEnv* env, jobject obj, jstring p
         tdw[i].mode = 1;
         printf("Creating worker thread %d ...\n", i);
         pthread_create(&tid[i], NULL, worker_bee, &tdw[i]);
+
     }
 
     // pthread_cond_broadcast(BLAH);
@@ -289,10 +310,35 @@ Java_com_elena_sdplay_BenchStart_directIOPSw(JNIEnv* env, jobject obj, jstring p
 //    free(dbuf);
     close(fd);
 
-    //double end = now_ms(); // finish time
-    //double delta = end - start; // time your code took to exec in ms
-    //printf("Time to execute iops writes in jni: %f ms", delta);
-    //printf("iops write rate in jni: %f", ops*1000.0/delta);
+//    double end = now_ms(); // finish time
+    gettimeofday(&myTend, NULL);
+    double deltaW = (clock() - startW) * 1000.0 / CLOCKS_PER_SEC; // time your code took to exec in ms
+    printf("Time to execute iops writes in jni: %f ms", deltaW);
+    differenceT = my_difftime (&myTstart, &myTend);
+    printf("Time to execute iops writes with timeofday: %3d.%6d secs: ", differenceT->secs, differenceT->usecs);
+    printf("iops write rate in jni: %f", ops*1000.0/deltaW);
+    free(differenceT);
 
     return ops;
+}
+
+TIME_DIFF * my_difftime (struct timeval * start, struct timeval * end)
+{
+    TIME_DIFF * diff = (TIME_DIFF *) malloc ( sizeof (TIME_DIFF) );
+
+    if (start->tv_sec == end->tv_sec) {
+        diff->secs = 0;
+        diff->usecs = end->tv_usec - start->tv_usec;
+    }
+    else {
+        diff->usecs = 1000000 - start->tv_usec;
+        diff->secs = end->tv_sec - (start->tv_sec + 1);
+        diff->usecs += end->tv_usec;
+        if (diff->usecs >= 1000000) {
+            diff->usecs -= 1000000;
+            diff->secs += 1;
+        }
+    }
+
+    return diff;
 }

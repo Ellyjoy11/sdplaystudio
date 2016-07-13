@@ -229,8 +229,9 @@ public class MainActivity extends Activity {
 
 		// ///////////parse mount////////////////
 		// for usb case
-		String pattern0 = "(?i).*\\S+/userdata\\s+(/data)\\s+.*"; // (/\\w+)
-		String patternEncrypted = "(?i).*\\S+/dm-\\d+\\s+(/data)\\s+.*"; // (/\\w+)
+		//String pattern0 = "(?i).*\\S+/userdata\\s+(/data)\\s+.*"; // (/\\w+)
+		String pattern0 = "(?i).*/dev/block.*\\s+.*\\s+(/data)\\s+.*"; // (/\\w+)
+		String patternEncrypted = "(?i).*/dev/block/dm-\\d+\\s+\\w*\\s*(/data)\\s+.*"; // (/\\w+)
 		String userdata_test_path = "";
 		// pattern1 = ".*/mnt/media_rw/usbdisk\\S*\\s+\\w*.*";
 		if (mount_out.matches(pattern0)) {
@@ -239,9 +240,11 @@ public class MainActivity extends Activity {
             if (LOG_ON) {
                 Log.d("SDPlay", "userdata is named " + userdata_test_path);
             }
-		} else if (mount_out.matches(patternEncrypted)) {
+		}
+        if (mount_out.matches(patternEncrypted)) {
 			userdata_test_path = mount_out.replaceAll(patternEncrypted, "$1");
             isEncrypted = true;
+			//Log.d(TAG, "userdata is encrypted " + userdata_test_path);
             if (LOG_ON) {
                 Log.d(TAG, "userdata is encrypted " + userdata_test_path);
             }
@@ -758,25 +761,32 @@ public class MainActivity extends Activity {
 	public void getFsTypes() {
 		String intPattern0, intPattern1, intPattern2;
 		String extPattern0, extPattern1, extPattern2;
-		String usbPattern0, usbPattern1;
+		String usbPattern0, usbPattern1, usbPattern2;
 		// for internal case
 
-		intPattern0 = ".*/storage/emulated/*\\w*\\s+(\\w*)\\s+.*";
+		intPattern0 = ".*/storage/emulated/*\\w*\\s+(\\w*)\\s+(\\w*)?.*";
 		// intPattern1 = ".*/userdata\\s+/\\w*\\s+(\\w+).*";
-		intPattern1 = ".*\\s+/data\\s+(\\w+).*";
+		intPattern1 = ".*\\s+/data\\s+(\\w+)\\s+(\\w+)?.*";
 		if (intPath.contains("storage/emulated")
 				&& mount_out.matches(intPattern0)) {
-			intFsType = mount_out.replaceAll(intPattern0, "$1") + "/";
+                intFsType = mount_out.replaceAll(intPattern0, "$1") + "/";
+            if (intFsType.contains("type")) {
+                intFsType = mount_out.replaceAll(intPattern0, "$2") + "/";
+            }
 		}
 		if (mount_out.matches(intPattern1)) {
-			intFsType += mount_out.replaceAll(intPattern1, "$1");
-			userdataFsType = mount_out.replaceAll(intPattern1, "$1");
+            //if ("$2".isEmpty())
+            userdataFsType = mount_out.replaceAll(intPattern1, "$1");
+            if (userdataFsType.contains("type")) {
+                userdataFsType = mount_out.replaceAll(intPattern1, "$2");
+            }
+            intFsType += userdataFsType;
 		}
 		// //////end of internal case/////////////
 		// for sdcard case
-		extPattern0 = ".*/storage/sdcard1\\s+(\\w+)\\s+.*";
+		extPattern0 = ".*/storage/sdcard1\\s+(\\w+)\\s+(\\w+)?.*";
 		extPattern1 = ".*/mnt/media_rw/sdcard1\\s+(\\w+).*";
-		extPattern2 = ".*/mnt/media_rw/(\\w+\\-\\w+)\\s+(\\w+).*";
+        extPattern2 = ".*/mnt/media_rw/(\\w+\\-\\w+)\\s+(\\w+)?\\s+(\\w+).*";//
 		extFsType="";
 
 		if (mount_out.matches(extPattern0)) {
@@ -788,13 +798,24 @@ public class MainActivity extends Activity {
 
 		if (extFsType.isEmpty()) {
 			if (mount_out.matches(extPattern2)) {
-				String sdCardMount = mount_out.replaceAll(extPattern2, "$1");
+
+				String sdCardMount = mount_out.replaceFirst(extPattern2, "$1");
+
+                //extFsType = mount_out.replaceAll(extPattern2, "$2");// replaceALL
 				//Log.d(TAG, "sd mount: " + sdCardMount);
-				String extPattern3 = ".*/storage/" + sdCardMount +"\\s+(\\w+)\\s+.*";
+				String extPattern3 = ".*/storage/" + sdCardMount +"\\s+(\\w+)\\s+(\\w+)?.*";
 				if (mount_out.matches(extPattern3)) {
 					extFsType = mount_out.replaceAll(extPattern3, "$1") + "/";
+                    if (extFsType.contains("type")) {
+                        extFsType = mount_out.replaceAll(extPattern3, "$2") + "/";
+                    }
 				}
-				extFsType += mount_out.replaceAll(extPattern2, "$2");
+                String tmpStr = mount_out.replaceFirst(extPattern2, "$2");
+                if (tmpStr.contains("type") || tmpStr.contains("on")) {
+                    tmpStr = mount_out.replaceFirst(extPattern2, "$3");
+                }
+
+				extFsType += tmpStr;
 			}
 		}
 		// /////end of external case///////////////
@@ -802,12 +823,15 @@ public class MainActivity extends Activity {
 		usbPattern0 = ".*/storage/usbdisk\\S*\\s+(\\w+)\\s+.*";
 		// usbPattern2 = ".*/storage/usbdisk\\S*\\s+(\\w+).*";
 		usbPattern1 = ".*/mnt/media_rw/usbdisk\\S*\\s+(\\w+).*";
+		//usbPattern2 = ".*/mnt/media_rw/(\\w+\\-\\w+)[?:\\s+|\\s+type\\s+](\\w+).*";
 		if (mount_out.matches(usbPattern0)) {
 			usbFsType = mount_out.replaceAll(usbPattern0, "$1") + "/";
 			if (mount_out.matches(usbPattern1)) {
 				usbFsType += mount_out.replaceAll(usbPattern1, "$1");
 			}
-		}
+		} //else if (mount_out.matches(usbPattern2)) {// && extFsType.isEmpty()
+		  //	usbFsType = mount_out.replaceAll(usbPattern2, "$2");
+		//}
 		// else if (mount_out.matches(pattern2)) {
 		// fs_type = mount_out.replaceAll(pattern2, "$1");
 		// }

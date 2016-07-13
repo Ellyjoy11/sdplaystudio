@@ -9,30 +9,30 @@ package com.elena.sdplay;
 
 public final class R {
     public static final class array {
-        public static final int internal_memories=0x7f050000;
-        public static final int journalArray=0x7f050001;
-        public static final int journalValues=0x7f050002;
-        public static final int known_sdcards=0x7f050003;
-        public static final int pref_example_list_titles=0x7f050004;
-        public static final int pref_example_list_values=0x7f050005;
-        public static final int pref_sync_frequency_titles=0x7f050006;
-        public static final int pref_sync_frequency_values=0x7f050007;
-        public static final int reference_fs_results=0x7f050008;
-        public static final int reference_results=0x7f050009;
-        public static final int usb_drives=0x7f05000a;
+        public static final int internal_memories=0x7f070000;
+        public static final int journalArray=0x7f070001;
+        public static final int journalValues=0x7f070002;
+        public static final int known_sdcards=0x7f070003;
+        public static final int pref_example_list_titles=0x7f070004;
+        public static final int pref_example_list_values=0x7f070005;
+        public static final int pref_sync_frequency_titles=0x7f070006;
+        public static final int pref_sync_frequency_values=0x7f070007;
+        public static final int reference_fs_results=0x7f070008;
+        public static final int reference_results=0x7f070009;
+        public static final int usb_drives=0x7f07000a;
     }
     public static final class attr {
     }
     public static final class dimen {
-        public static final int activity_horizontal_margin=0x7f060000;
-        public static final int activity_vertical_margin=0x7f060001;
-        public static final int domain_label_font_size=0x7f060002;
-        public static final int domain_tick_label_font_size=0x7f060003;
-        public static final int legend_text_font_size=0x7f060004;
-        public static final int pie_segment_label_font_size=0x7f060005;
-        public static final int range_label_font_size=0x7f060006;
-        public static final int range_tick_label_font_size=0x7f060007;
-        public static final int title_font_size=0x7f060008;
+        public static final int activity_horizontal_margin=0x7f050000;
+        public static final int activity_vertical_margin=0x7f050001;
+        public static final int domain_label_font_size=0x7f050002;
+        public static final int domain_tick_label_font_size=0x7f050003;
+        public static final int legend_text_font_size=0x7f050004;
+        public static final int pie_segment_label_font_size=0x7f050005;
+        public static final int range_label_font_size=0x7f050006;
+        public static final int range_tick_label_font_size=0x7f050007;
+        public static final int title_font_size=0x7f050008;
     }
     public static final class drawable {
         public static final int ic_fs_get=0x7f020000;
@@ -193,104 +193,104 @@ public final class R {
         public static final int top_results=0x7f090008;
     }
     public static final class string {
-        public static final int ID=0x7f070000;
-        public static final int about=0x7f070001;
-        public static final int action_settings=0x7f070002;
-        public static final int action_show_fs_top=0x7f070003;
-        public static final int action_show_top=0x7f070004;
-        public static final int all_test=0x7f070005;
-        public static final int app_name=0x7f070006;
-        public static final int back=0x7f070007;
-        public static final int build_id=0x7f070008;
-        public static final int change_media=0x7f070009;
-        public static final int chart=0x7f07000a;
-        public static final int createFs=0x7f07000b;
-        public static final int custom_edit=0x7f07000c;
-        public static final int custom_path=0x7f07000d;
-        public static final int db_inserts=0x7f07000e;
-        public static final int delFs=0x7f07000f;
-        public static final int delete=0x7f070010;
-        public static final int details=0x7f070011;
-        public static final int dev_size=0x7f070012;
-        public static final int devsize=0x7f070013;
-        public static final int external=0x7f070014;
-        public static final int fdetails=0x7f070015;
-        public static final int free_space=0x7f070016;
-        public static final int fs_test=0x7f070017;
-        public static final int fs_type=0x7f070018;
-        public static final int hello_world=0x7f070019;
-        public static final int hide=0x7f07001a;
-        public static final int internal=0x7f07001b;
-        public static final int iopsOper=0x7f07001c;
-        public static final int journal=0x7f07001d;
-        public static final int lOper=0x7f07001e;
-        public static final int listFs=0x7f07001f;
-        public static final int medOper=0x7f070020;
-        public static final int next=0x7f070021;
-        public static final int nick=0x7f070022;
-        public static final int nickname=0x7f070023;
-        public static final int pref_default_display_name=0x7f070024;
-        public static final int pref_description_social_recommendations=0x7f070025;
-        public static final int pref_header_data_sync=0x7f070026;
-        public static final int pref_header_general=0x7f070027;
-        public static final int pref_header_notifications=0x7f070028;
-        public static final int pref_ringtone_silent=0x7f070029;
-        public static final int pref_title_add_friends_to_messages=0x7f07002a;
-        public static final int pref_title_display_name=0x7f07002b;
-        public static final int pref_title_new_message_notifications=0x7f07002c;
-        public static final int pref_title_ringtone=0x7f07002d;
-        public static final int pref_title_social_recommendations=0x7f07002e;
-        public static final int pref_title_sync_frequency=0x7f07002f;
-        public static final int pref_title_system_sync_settings=0x7f070030;
-        public static final int pref_title_vibrate=0x7f070031;
-        public static final int read=0x7f070032;
-        public static final int readL=0x7f070033;
-        public static final int readMed=0x7f070034;
-        public static final int readSmall=0x7f070035;
-        public static final int read_all=0x7f070036;
-        public static final int read_rnd=0x7f070037;
-        public static final int refresh=0x7f070038;
-        public static final int rnd_io=0x7f070039;
-        public static final int rread=0x7f07003a;
-        public static final int rwrite=0x7f07003b;
-        public static final int show_all=0x7f07003c;
-        public static final int smOper=0x7f07003d;
-        public static final int start=0x7f07003e;
-        public static final int title_activity_bench_start=0x7f07003f;
-        public static final int title_activity_my_res_dbhelper=0x7f070040;
-        public static final int title_activity_set_preferences=0x7f070041;
-        public static final int title_activity_set_user_options=0x7f070042;
-        public static final int title_activity_settings=0x7f070043;
-        public static final int title_activity_settings_fragment=0x7f070044;
-        public static final int title_activity_show_chart=0x7f070045;
-        public static final int title_activity_show_top_fs_res=0x7f070046;
-        public static final int title_activity_storage_details=0x7f070047;
-        public static final int title_activity_summary_view=0x7f070048;
-        public static final int title_activity_top_results=0x7f070049;
-        public static final int total_db=0x7f07004a;
-        public static final int total_fs=0x7f07004b;
-        public static final int total_space=0x7f07004c;
-        public static final int total_sum=0x7f07004d;
-        public static final int wait=0x7f07004e;
-        public static final int welcome_text=0x7f07004f;
-        public static final int write=0x7f070050;
-        public static final int writeL=0x7f070051;
-        public static final int writeMed=0x7f070052;
-        public static final int writes=0x7f070053;
+        public static final int ID=0x7f080000;
+        public static final int about=0x7f080001;
+        public static final int action_settings=0x7f080002;
+        public static final int action_show_fs_top=0x7f080003;
+        public static final int action_show_top=0x7f080004;
+        public static final int all_test=0x7f080005;
+        public static final int app_name=0x7f080006;
+        public static final int back=0x7f080007;
+        public static final int build_id=0x7f080008;
+        public static final int change_media=0x7f080009;
+        public static final int chart=0x7f08000a;
+        public static final int createFs=0x7f08000b;
+        public static final int custom_edit=0x7f08000c;
+        public static final int custom_path=0x7f08000d;
+        public static final int db_inserts=0x7f08000e;
+        public static final int delFs=0x7f08000f;
+        public static final int delete=0x7f080010;
+        public static final int details=0x7f080011;
+        public static final int dev_size=0x7f080012;
+        public static final int devsize=0x7f080013;
+        public static final int external=0x7f080014;
+        public static final int fdetails=0x7f080015;
+        public static final int free_space=0x7f080016;
+        public static final int fs_test=0x7f080017;
+        public static final int fs_type=0x7f080018;
+        public static final int hello_world=0x7f080019;
+        public static final int hide=0x7f08001a;
+        public static final int internal=0x7f08001b;
+        public static final int iopsOper=0x7f08001c;
+        public static final int journal=0x7f08001d;
+        public static final int lOper=0x7f08001e;
+        public static final int listFs=0x7f08001f;
+        public static final int medOper=0x7f080020;
+        public static final int next=0x7f080021;
+        public static final int nick=0x7f080022;
+        public static final int nickname=0x7f080023;
+        public static final int pref_default_display_name=0x7f080024;
+        public static final int pref_description_social_recommendations=0x7f080025;
+        public static final int pref_header_data_sync=0x7f080026;
+        public static final int pref_header_general=0x7f080027;
+        public static final int pref_header_notifications=0x7f080028;
+        public static final int pref_ringtone_silent=0x7f080029;
+        public static final int pref_title_add_friends_to_messages=0x7f08002a;
+        public static final int pref_title_display_name=0x7f08002b;
+        public static final int pref_title_new_message_notifications=0x7f08002c;
+        public static final int pref_title_ringtone=0x7f08002d;
+        public static final int pref_title_social_recommendations=0x7f08002e;
+        public static final int pref_title_sync_frequency=0x7f08002f;
+        public static final int pref_title_system_sync_settings=0x7f080030;
+        public static final int pref_title_vibrate=0x7f080031;
+        public static final int read=0x7f080032;
+        public static final int readL=0x7f080033;
+        public static final int readMed=0x7f080034;
+        public static final int readSmall=0x7f080035;
+        public static final int read_all=0x7f080036;
+        public static final int read_rnd=0x7f080037;
+        public static final int refresh=0x7f080038;
+        public static final int rnd_io=0x7f080039;
+        public static final int rread=0x7f08003a;
+        public static final int rwrite=0x7f08003b;
+        public static final int show_all=0x7f08003c;
+        public static final int smOper=0x7f08003d;
+        public static final int start=0x7f08003e;
+        public static final int title_activity_bench_start=0x7f08003f;
+        public static final int title_activity_my_res_dbhelper=0x7f080040;
+        public static final int title_activity_set_preferences=0x7f080041;
+        public static final int title_activity_set_user_options=0x7f080042;
+        public static final int title_activity_settings=0x7f080043;
+        public static final int title_activity_settings_fragment=0x7f080044;
+        public static final int title_activity_show_chart=0x7f080045;
+        public static final int title_activity_show_top_fs_res=0x7f080046;
+        public static final int title_activity_storage_details=0x7f080047;
+        public static final int title_activity_summary_view=0x7f080048;
+        public static final int title_activity_top_results=0x7f080049;
+        public static final int total_db=0x7f08004a;
+        public static final int total_fs=0x7f08004b;
+        public static final int total_space=0x7f08004c;
+        public static final int total_sum=0x7f08004d;
+        public static final int wait=0x7f08004e;
+        public static final int welcome_text=0x7f08004f;
+        public static final int write=0x7f080050;
+        public static final int writeL=0x7f080051;
+        public static final int writeMed=0x7f080052;
+        public static final int writes=0x7f080053;
     }
     public static final class style {
-        /** 
+        /**  API 11 theme customizations can go here. 
+ API 14 theme customizations can go here. 
+
             Theme customizations available in newer API levels can go in
             res/values-vXX/styles.xml, while customizations related to
             backward-compatibility can go here.
         
- API 11 theme customizations can go here. 
- API 14 theme customizations can go here. 
          */
-        public static final int AppBaseTheme=0x7f080000;
+        public static final int AppBaseTheme=0x7f060000;
         /**  All customizations that are NOT specific to a particular API-level can go here. 
          */
-        public static final int AppTheme=0x7f080001;
+        public static final int AppTheme=0x7f060001;
     }
     public static final class xml {
         public static final int pref_data_sync=0x7f040000;
