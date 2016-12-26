@@ -76,11 +76,11 @@ public class MainActivity extends Activity {
 	// public final static String USERDATA_FS_TYPE =
 	// "com.elena.sdplay.USERDATA_FS_TYPE";
 	// public final static String USB_FS_TYPE = "com.elena.sdplay.USB_FS_TYPE";
-	public static String intFsType;
-	public static String extFsType;
-	public static String userdataFsType;
-	public static String usbFsType;
-	public static String customFsType;
+	public static String intFsType = "";
+	public static String extFsType = "";
+	public static String userdataFsType = "";
+	public static String usbFsType = "";
+	public static String customFsType = "";
 	// private BroadcastReceiver SDCardStateChangeListener;
 
 	public static int REF_COUNT;

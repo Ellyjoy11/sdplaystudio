@@ -43,7 +43,6 @@ import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -87,8 +86,8 @@ public class BenchStart extends Activity {
     long devSize, devSizeM;
     private long eMmcSize;
     private long ufsSize;
-    public String ufsVendor;
-    public String ufsModel;
+    public String ufsVendor = "";
+    public String ufsModel = "";
 
     String blockName = "";
     String rootBlockName = "";
@@ -1900,10 +1899,17 @@ public void onDeleteAllClick(View view) {
 			res_db.close();
 		}
 
-		if (!(full_details.isEmpty()) && !(full_details.contains("Unknown"))) {
+		if (!(full_details.isEmpty())) { // && !(full_details.contains("Unknown"))) {
 			if (viewToShow.getDisplayedChild() == 0) {
 				if (devSize == 0) {
-                    dev_size.setText(devSizeM + " MB");
+					devSize = roundUp2((long) totalSpace);
+					//Log.d(TAG, "size is " + devSize);
+					if (devSize == 0) {
+						devSizeM = roundUp2((long) totalBlocks * blockSize / (1024 * 1024));
+						dev_size.setText(devSizeM + " MB");
+					} else {
+						dev_size.setText(devSize + " GB");
+					}
                 } else {
                     dev_size.setText(devSize + " GB");
                 }
@@ -1912,11 +1918,18 @@ public void onDeleteAllClick(View view) {
 				details.setText(full_details);
 				// nickText.setText(nickname);
 			} else {
-                if (devSize == 0) {
-                    dev_size1.setText(devSizeM + " MB");
-                } else {
-                    dev_size1.setText(devSize + " GB");
-                }
+				if (devSize == 0) {
+					devSize = roundUp2((long) totalSpace);
+					//Log.d(TAG, "size is " + devSize);
+					if (devSize == 0) {
+						devSizeM = roundUp2((long) totalBlocks * blockSize / (1024 * 1024));
+						dev_size1.setText(devSizeM + " MB");
+					} else {
+						dev_size1.setText(devSize + " GB");
+					}
+				} else {
+					dev_size1.setText(devSize + " GB");
+				}
                 total_space1.setText(String.format("%.2f", totalSpace) + " GB");
                 free_space1.setText(String.format("%.2f", freeSpace) + " GB");
 				details1.setText(full_details);
@@ -1928,8 +1941,11 @@ public void onDeleteAllClick(View view) {
 					|| custom_drive_selected) {
 				// Read internal parameters if internal memory is selected for
 				// test
+
                 getIntMemoryInfo();
+
                 if (!isUfs) {
+
                     // Find memory manufacturer name in table
                     String[] manfs = getResources().getStringArray(
                             R.array.internal_memories);
@@ -1962,7 +1978,7 @@ public void onDeleteAllClick(View view) {
 				String oemid_hex = "";
 				try {
 					File fff = new File("/sys/block/mmcblk1/device/oemid");
-					if (fff.exists()) {// && !(sdPath.equals(intPath))) {
+					if (fff.exists() && fff.canRead()) {// && !(sdPath.equals(intPath))) {
 						BufferedReader in_oemid = new BufferedReader(
 								new FileReader(
 										"/sys/block/mmcblk1/device/oemid"));
@@ -2038,25 +2054,39 @@ public void onDeleteAllClick(View view) {
 				}
 
 				if (full_details == "") {
-					full_details = "Uknown SD card";
+					full_details = "Unknown SD card";
 				}
 			}
 			if (viewToShow.getDisplayedChild() == 0) {
-                if (devSize == 0) {
-                    dev_size.setText(devSizeM + " MB");
-                } else {
-                    dev_size.setText(devSize + " GB");
-                }
+				if (devSize == 0) {
+					devSize = roundUp2((long) totalSpace);
+					//Log.d(TAG, "size is " + devSize);
+					if (devSize == 0) {
+						devSizeM = roundUp2((long) totalBlocks * blockSize / (1024 * 1024));
+						dev_size.setText(devSizeM + " MB");
+					} else {
+						dev_size.setText(devSize + " GB");
+					}
+				} else {
+					dev_size.setText(devSize + " GB");
+				}
                 total_space.setText(String.format("%.2f", totalSpace) + " GB");
                 free_space.setText(String.format("%.2f", freeSpace) + " GB");
 				details.setText(full_details);
 				// nickText.setText(nickname);
 			} else {
-                if (devSize == 0) {
-                    dev_size1.setText(devSizeM + " MB");
-                } else {
-                    dev_size1.setText(devSize + " GB");
-                }
+				if (devSize == 0) {
+					devSize = roundUp2((long) totalSpace);
+					//Log.d(TAG, "size is " + devSize);
+					if (devSize == 0) {
+						devSizeM = roundUp2((long) totalBlocks * blockSize / (1024 * 1024));
+						dev_size1.setText(devSizeM + " MB");
+					} else {
+						dev_size1.setText(devSize + " GB");
+					}
+				} else {
+					dev_size1.setText(devSize + " GB");
+				}
                 total_space1.setText(String.format("%.2f", totalSpace) + " GB");
                 free_space1.setText(String.format("%.2f", freeSpace) + " GB");
 				details1.setText(full_details);
@@ -2069,38 +2099,6 @@ public void onDeleteAllClick(View view) {
 
         isUfs = false;
         String line = "";
-        //String tmp2Check = "";
-        //String patternForBlock = ".*/dev/block/([a-z]+\\d+).*";
-        //String rootPatternForBlock = ".*/dev/block/([a-z]+)\\d+.*";
-
-        //Log.d(TAG, "block names: " + blockName + "..." + rootBlockName);
-/*
-/////
-			Bring this back to code if selinux policy will be updated!!!!!!!!!!
-
-        try {
-
-            Runtime run = Runtime.getRuntime();
-            Process prLs = run.exec("ls -l /dev/block/bootdevice/by-name/userdata");
-            prLs.waitFor();
-                BufferedReader blk_line = new BufferedReader(
-                        new InputStreamReader(prLs.getInputStream()));
-                while ((line = blk_line.readLine()) != null) {
-                    //System.out.println(line);
-                    tmp2Check = line;
-                }
-
-            if (tmp2Check.matches(patternForBlock)) {
-                blockName = tmp2Check.replaceAll(patternForBlock, "$1");
-                if (!blockName.contains("mmc")) {
-                    isUfs = true;
-                    rootBlockName = tmp2Check.replaceAll(rootPatternForBlock, "$1");
-                }
-            }
-            } catch (IOException e) {
-            e.printStackTrace();
-        }
-            */
 
 			File ufsBlock = new File("/sys/class/block/sda");
 			if (ufsBlock.exists()) {
@@ -2119,12 +2117,15 @@ public void onDeleteAllClick(View view) {
         if (!isUfs) {
             try {
                 File iff = new File("/sys/class/block/" + blockName + "/device/manfid");
-                if (iff.exists()) {
+				//Log.d(TAG, "here");
+                if (iff.exists() && iff.canRead()) {
+					//Log.d(TAG, "can read");
                     BufferedReader in_manfid = new BufferedReader(
                             new FileReader(
                                     "/sys/class/block/" + blockName + "/device/manfid"));
                     while ((line = in_manfid.readLine()) != null) {
                         manfid = line;
+						//Log.d(TAG, "manfid " + manfid);
                     }
                     BufferedReader in_oemid = new BufferedReader(
                             new FileReader(
@@ -2136,6 +2137,7 @@ public void onDeleteAllClick(View view) {
                             new FileReader("/sys/class/block/" + blockName + "/device/name"));
                     while ((line = in_name.readLine()) != null) {
                         name = line;
+						//Log.d(TAG, "name read is " + name);
                     }
                     in_manfid.close();
                     in_oemid.close();
@@ -2148,7 +2150,7 @@ public void onDeleteAllClick(View view) {
         } else {
             try {
                 File iff = new File("/sys/class/block/" + blockName + "/device/vendor");
-                if (iff.exists()) {
+                if (iff.exists() && iff.canRead()) {
                     BufferedReader in_manfid = new BufferedReader(
                             new FileReader(
                                     "/sys/class/block/" + blockName + "/device/vendor"));
@@ -2169,36 +2171,6 @@ public void onDeleteAllClick(View view) {
                 e.printStackTrace();
             }
         }
-        /*
-        try {
-            File iff = new File("/sys/block/mmcblk0/device/manfid");
-            if (iff.exists()) {
-                BufferedReader in_manfid = new BufferedReader(
-                        new FileReader(
-                                "/sys/block/mmcblk0/device/manfid"));
-                while ((line = in_manfid.readLine()) != null) {
-                    manfid = line;
-                }
-                BufferedReader in_oemid = new BufferedReader(
-                        new FileReader(
-                                "/sys/block/mmcblk0/device/oemid"));
-                while ((line = in_oemid.readLine()) != null) {
-                    oemid = line;
-                }
-                BufferedReader in_name = new BufferedReader(
-                        new FileReader("/sys/block/mmcblk0/device/name"));
-                while ((line = in_name.readLine()) != null) {
-                    name = line;
-                }
-                in_manfid.close();
-                in_oemid.close();
-                in_name.close();
-            }
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-         */
 
     }
 
@@ -3934,7 +3906,7 @@ public void onDeleteAllClick(View view) {
                                 "/sys/class/block/" + blockName + "/size"));
                 while ((line = in_emmc_size.readLine()) != null) {
                     sizeToRound = line;
-                    //Log.d(TAG, "read from sysfs: " + sizeToRound);
+                    Log.d(TAG, "read from sysfs: " + sizeToRound);
                 }
                 in_emmc_size.close();
             }
@@ -3955,7 +3927,7 @@ public void onDeleteAllClick(View view) {
             File fff = new File("/sys/class/block/" + blockName + "/size");
             String line;
 
-            if (fff.exists()) {
+            if (fff.exists() && fff.canRead()) {
                 BufferedReader in_ufs_size = new BufferedReader(
                         new FileReader(
                                 "/sys/class/block/" + blockName + "/size"));
