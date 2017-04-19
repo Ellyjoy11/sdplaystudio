@@ -1384,7 +1384,7 @@ public void onDeleteAllClick(View view) {
                         (sdPath.equals(intPath) || userdata_selected || custom_drive_selected)) {
                     //String enc = "\u0364\u1DE0\u0368";
 					if (MainActivity.encType.contains("block")) {
-						values.put(myResDB.RES_FS_TYPE, fs_type + " (enc)");
+						values.put(myResDB.RES_FS_TYPE, fs_type + " (fde)");
 					} else if (MainActivity.encType.contains("file")) {
 						values.put(myResDB.RES_FS_TYPE, fs_type + " (fbe)");
 					}

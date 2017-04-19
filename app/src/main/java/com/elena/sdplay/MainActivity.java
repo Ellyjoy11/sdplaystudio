@@ -228,8 +228,6 @@ public class MainActivity extends Activity {
 		pick.removeAllViews();
 		// //////////get userdata as storage///////////////
 
-		// ///////////parse mount////////////////
-		// for usb case
 		//String pattern0 = "(?i).*\\S+/userdata\\s+(/data)\\s+.*"; // (/\\w+)
         ////////REWORK!!!!!!
         encType = getEncrType();
@@ -288,7 +286,8 @@ public class MainActivity extends Activity {
 		}
 
 		// ////////end for userdata part
-
+		// ///////////parse mount////////////////
+		// for usb case
         String usb_test_path = "";
 			// ///////////parse mount////////////////
 			// for usb case
@@ -361,7 +360,7 @@ public class MainActivity extends Activity {
 					textShow = "Internal Memory" + " [" + intFsType + "]";
                     if (isEncrypted) {
                         if (encType.contains("block")) {
-                            radiobutton[i].setText(Html.fromHtml(textShow + "<sup><small>enc</small></sup>"));
+                            radiobutton[i].setText(Html.fromHtml(textShow + "<sup><small>fde</small></sup>"));
                         } else if (encType.equalsIgnoreCase("file")) {
                             radiobutton[i].setText(Html.fromHtml(textShow + "<sup><small>fbe</small></sup>"));
                         }
@@ -388,7 +387,7 @@ public class MainActivity extends Activity {
             if (isEncrypted) {
                 if (encType.contains("block")) {
                     radiobutton[file_list.length].setText(Html.fromHtml("/userdata" + " ["
-                            + userdataFsType + "]<sup><small>enc</small></sup>"));
+                            + userdataFsType + "]<sup><small>fde</small></sup>"));
                 } else if (encType.contains("file")) {
                     radiobutton[file_list.length].setText(Html.fromHtml("/userdata" + " ["
                             + userdataFsType + "]<sup><small>fbe</small></sup>"));
