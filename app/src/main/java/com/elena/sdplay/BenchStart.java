@@ -1383,7 +1383,11 @@ public void onDeleteAllClick(View view) {
                 if (MainActivity.isEncrypted &&
                         (sdPath.equals(intPath) || userdata_selected || custom_drive_selected)) {
                     //String enc = "\u0364\u1DE0\u0368";
-                    values.put(myResDB.RES_FS_TYPE, fs_type + " (enc)");
+					if (MainActivity.encType.contains("block")) {
+						values.put(myResDB.RES_FS_TYPE, fs_type + " (enc)");
+					} else if (MainActivity.encType.contains("file")) {
+						values.put(myResDB.RES_FS_TYPE, fs_type + " (fbe)");
+					}
                 } else {
                     values.put(myResDB.RES_FS_TYPE, fs_type);
                 }
@@ -3140,7 +3144,7 @@ public void onDeleteAllClick(View view) {
 					BinaryFileUtils helper = new BinaryFileUtils();
 					int data_length = 0;
 					data_length = helper.readLarge(fileToRead);
-					// Log.d("SDPlay", "length of read file: " + data_length);
+					Log.d("SDPlay", "length of read file: " + data_length);
 					if (data_length > 0) {
 						// progress++;
 						large_f_count++;

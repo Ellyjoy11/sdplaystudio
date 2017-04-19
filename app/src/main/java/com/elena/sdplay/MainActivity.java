@@ -53,6 +53,7 @@ public class MainActivity extends Activity {
 	private int is_userdata = 0;
 	private int isCustom = 1;
     public static boolean isEncrypted = false;
+    public static String encType = "";
 	String custom_path;
 	EditText customPathEntered;
 	String customPathVerified;
@@ -230,10 +231,20 @@ public class MainActivity extends Activity {
 		// ///////////parse mount////////////////
 		// for usb case
 		//String pattern0 = "(?i).*\\S+/userdata\\s+(/data)\\s+.*"; // (/\\w+)
-		String pattern0 = "(?i).*/dev/block.*\\s+.*\\s+(/data)\\s+.*"; // (/\\w+)
-		String patternEncrypted = "(?i).*/dev/block/dm-\\d+\\s+\\w*\\s*(/data)\\s+.*"; // (/\\w+)
-		String userdata_test_path = "";
+        ////////REWORK!!!!!!
+        encType = getEncrType();
+        if (!encType.isEmpty()) {
+            isEncrypted = true;
+        } else {
+            isEncrypted = false;
+        }
+        //////////////
+
+		//String pattern0 = "(?i).*/dev/block.*\\s+.*\\s+(/data)\\s+.*"; // (/\\w+)
+		//String patternEncrypted = "(?i).*/dev/block/dm-\\d+\\s+\\w*\\s*(/data)\\s+.*"; // (/\\w+)
+		String userdata_test_path = "/data";
 		// pattern1 = ".*/mnt/media_rw/usbdisk\\S*\\s+\\w*.*";
+        /*
 		if (mount_out.matches(pattern0)) {
 			userdata_test_path = mount_out.replaceAll(pattern0, "$1");
             isEncrypted = false;
@@ -253,6 +264,8 @@ public class MainActivity extends Activity {
                 Log.d(TAG, "userdata path does not match");
             }
 		}
+		*/
+
 
 		// /////////end of parse mount///////////
 		File userdata_f = new File(userdata_test_path);
@@ -279,7 +292,7 @@ public class MainActivity extends Activity {
         String usb_test_path = "";
 			// ///////////parse mount////////////////
 			// for usb case
-			pattern0 = ".*(/storage/usbdisk\\d*\\S*)\\s+.*";
+			String pattern0 = ".*(/storage/usbdisk\\d*\\S*)\\s+.*";
 			// pattern1 = ".*/mnt/media_rw/usbdisk\\S*\\s+\\w*.*";
 			if (mount_out.matches(pattern0)) {
 				usb_test_path = mount_out.replaceAll(pattern0, "$1");
@@ -347,7 +360,11 @@ public class MainActivity extends Activity {
 				if (i == 0) {
 					textShow = "Internal Memory" + " [" + intFsType + "]";
                     if (isEncrypted) {
-                        radiobutton[i].setText(Html.fromHtml(textShow + "<sup><small>enc</small></sup>"));
+                        if (encType.contains("block")) {
+                            radiobutton[i].setText(Html.fromHtml(textShow + "<sup><small>enc</small></sup>"));
+                        } else if (encType.equalsIgnoreCase("file")) {
+                            radiobutton[i].setText(Html.fromHtml(textShow + "<sup><small>fbe</small></sup>"));
+                        }
                     } else {
                         radiobutton[i].setText(textShow);
                     }
@@ -369,8 +386,13 @@ public class MainActivity extends Activity {
 		if (is_userdata == 1) {
 			radiobutton[file_list.length] = new RadioButton(this);
             if (isEncrypted) {
-                radiobutton[file_list.length].setText(Html.fromHtml("/userdata" + " ["
-                        + userdataFsType + "]<sup><small>enc</small></sup>"));
+                if (encType.contains("block")) {
+                    radiobutton[file_list.length].setText(Html.fromHtml("/userdata" + " ["
+                            + userdataFsType + "]<sup><small>enc</small></sup>"));
+                } else if (encType.contains("file")) {
+                    radiobutton[file_list.length].setText(Html.fromHtml("/userdata" + " ["
+                            + userdataFsType + "]<sup><small>fbe</small></sup>"));
+                }
             } else {
                 radiobutton[file_list.length].setText("/userdata" + " ["
                         + userdataFsType + "]");
@@ -756,6 +778,23 @@ public class MainActivity extends Activity {
 			e.printStackTrace();
 		}
 		return mount_out;
+	}
+
+	public static String getEncrType() {
+		String encType = "";
+		String line;
+		try {
+			Process pr = Runtime.getRuntime().exec("getprop ro.crypto.type");
+			BufferedReader in = new BufferedReader(new InputStreamReader(
+					pr.getInputStream()));
+			while ((line = in.readLine()) != null) {
+				encType += line;
+			}
+			in.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return encType;
 	}
 
 	public void getFsTypes() {
