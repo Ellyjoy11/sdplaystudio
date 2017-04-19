@@ -37,7 +37,7 @@ public class MainActivity extends Activity {
 
 	private static final String TAG = "SDPlayDebug";
     public static final boolean LOG_ON = false;
-    public static final String ABOUT_TITLE = "\u00a9 2014-2016 Elena Last, Igor Kovalenko";
+    public static final String ABOUT_TITLE = "\u00a9 2014-2017 Elena Last, Igor Kovalenko";
     public static String ABOUT_VERSION;
 	public final static String SD_PATH = "com.elena.sdplay.SD_PATH";
 	public static String sdPath = "";
