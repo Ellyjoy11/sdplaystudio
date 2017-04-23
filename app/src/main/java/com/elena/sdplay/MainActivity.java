@@ -771,6 +771,7 @@ public class MainActivity extends Activity {
 					pr.getInputStream()));
 			while ((line = in.readLine()) != null) {
 				mount_out += "mount: " + line;
+				//Log.d(TAG, "next mount line: " + line);
 			}
 			in.close();
 		} catch (IOException e) {
